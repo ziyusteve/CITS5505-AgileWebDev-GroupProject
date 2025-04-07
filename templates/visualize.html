@@ -1,0 +1,287 @@
+{% extends "layout.html" %}
+
+{% block title %} - Data Visualization{% endblock %}
+
+{% block head_content %}
+<style>
+    .chart-container {
+        height: 400px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+            <li class="breadcrumb-item active">Visualize: {{ dataset.title }}</li>
+        </ol>
+    </nav>
+
+    <div class="row mb-4">
+        <div class="col">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                    <h4 class="mb-0"><i class="fas fa-chart-bar me-2"></i>{{ dataset.title }}</h4>
+                    {% if is_owner %}
+                    <a href="{{ url_for('share_data') }}" class="btn btn-sm btn-light">
+                        <i class="fas fa-share-alt me-1"></i>Share
+                    </a>
+                    {% endif %}
+                </div>
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="col-md-3">
+                            <p class="mb-1 fw-bold">Dataset Owner:</p>
+                            <p>{{ dataset.owner.username }}</p>
+                        </div>
+                        <div class="col-md-3">
+                            <p class="mb-1 fw-bold">Date Uploaded:</p>
+                            <p>{{ dataset.date_uploaded.strftime('%Y-%m-%d %H:%M') }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="mb-1 fw-bold">Description:</p>
+                            <p>{{ dataset.description or 'No description provided' }}</p>
+                        </div>
+                    </div>
+                    <hr>
+                    
+                    <!-- Visualization Controls -->
+                    <div class="row mb-4">
+                        <div class="col-md-8">
+                            <label class="form-label">Visualization Type:</label>
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-outline-primary active" data-chart-type="bar">
+                                    <i class="fas fa-chart-bar me-1"></i>Bar
+                                </button>
+                                <button type="button" class="btn btn-outline-primary" data-chart-type="line">
+                                    <i class="fas fa-chart-line me-1"></i>Line
+                                </button>
+                                <button type="button" class="btn btn-outline-primary" data-chart-type="pie">
+                                    <i class="fas fa-chart-pie me-1"></i>Pie
+                                </button>
+                                <button type="button" class="btn btn-outline-primary" data-chart-type="scatter">
+                                    <i class="fas fa-braille me-1"></i>Scatter
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-md-4 text-end">
+                            <button id="downloadBtn" class="btn btn-outline-success">
+                                <i class="fas fa-download me-1"></i>Download Analysis
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Visualization Area -->
+                    <div class="row">
+                        <div class="col">
+                            <div id="visualization" class="chart-container border rounded p-3 bg-light">
+                                <div id="chart"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Statistics and Analysis -->
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0"><i class="fas fa-calculator me-2"></i>Statistical Summary</h5>
+                </div>
+                <div class="card-body">
+                    <div id="statistics" class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Metric</th>
+                                    <th>Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Sample Size</td><td id="stat-count">-</td></tr>
+                                <tr><td>Mean</td><td id="stat-mean">-</td></tr>
+                                <tr><td>Median</td><td id="stat-median">-</td></tr>
+                                <tr><td>Standard Deviation</td><td id="stat-std">-</td></tr>
+                                <tr><td>Min</td><td id="stat-min">-</td></tr>
+                                <tr><td>Max</td><td id="stat-max">-</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-header bg-warning text-white">
+                    <h5 class="mb-0"><i class="fas fa-lightbulb me-2"></i>Insights</h5>
+                </div>
+                <div class="card-body">
+                    <div id="insights" class="px-2">
+                        <div class="alert alert-secondary" role="alert">
+                            <i class="fas fa-info-circle me-2"></i>
+                            <span id="insight-text">When data is loaded, automated insights will appear here.</span>
+                        </div>
+                        
+                        <ul class="list-group list-group-flush" id="insights-list">
+                            <!-- Insights will be dynamically added here -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Data Preview -->
+    <div class="row mb-4">
+        <div class="col">
+            <div class="card">
+                <div class="card-header bg-secondary text-white">
+                    <h5 class="mb-0"><i class="fas fa-table me-2"></i>Data Preview</h5>
+                </div>
+                <div class="card-body">
+                    <div id="data-preview" class="table-responsive">
+                        <!-- Table will be dynamically populated -->
+                        <p class="text-center text-muted">Loading data preview...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Demo data for visualization - in a real app this would be loaded from the server
+    // This is a placeholder for demonstration purposes
+    const sampleData = {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+        datasets: [{
+            label: 'Sample Data',
+            data: [65, 59, 80, 81, 56, 55],
+            backgroundColor: [
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(255, 206, 86, 0.2)'
+            ],
+            borderColor: [
+                'rgba(75, 192, 192, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(255, 206, 86, 1)'
+            ],
+            borderWidth: 1
+        }]
+    };
+
+    // Initialize the chart
+    document.addEventListener('DOMContentLoaded', function() {
+        // Create a default chart (bar chart)
+        const ctx = document.getElementById('chart');
+        let currentChart = new Plotly.newPlot('chart', [{
+            x: sampleData.labels,
+            y: sampleData.datasets[0].data,
+            type: 'bar',
+            marker: {
+                color: sampleData.datasets[0].backgroundColor
+            }
+        }], {
+            margin: { t: 10, b: 30, l: 40, r: 10 },
+            responsive: true
+        });
+
+        // Chart type buttons
+        document.querySelectorAll('[data-chart-type]').forEach(button => {
+            button.addEventListener('click', (e) => {
+                // Update active button
+                document.querySelectorAll('[data-chart-type]').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                e.target.closest('button').classList.add('active');
+
+                // Get the chart type
+                const chartType = e.target.closest('button').getAttribute('data-chart-type');
+                
+                // Update chart
+                updateChart(chartType);
+            });
+        });
+
+        function updateChart(chartType) {
+            let chartData = [{
+                x: sampleData.labels,
+                y: sampleData.datasets[0].data,
+                type: chartType === 'pie' ? 'pie' : chartType,
+                marker: {
+                    color: sampleData.datasets[0].backgroundColor
+                }
+            }];
+
+            // Special configuration for pie chart
+            if (chartType === 'pie') {
+                chartData = [{
+                    values: sampleData.datasets[0].data,
+                    labels: sampleData.labels,
+                    type: 'pie'
+                }];
+            }
+
+            Plotly.react('chart', chartData, {
+                margin: { t: 10, b: 30, l: 40, r: 10 },
+                responsive: true
+            });
+        }
+
+        // Populate sample statistics
+        document.getElementById('stat-count').textContent = '6';
+        document.getElementById('stat-mean').textContent = '66.00';
+        document.getElementById('stat-median').textContent = '62.00';
+        document.getElementById('stat-std').textContent = '11.43';
+        document.getElementById('stat-min').textContent = '55';
+        document.getElementById('stat-max').textContent = '81';
+
+        // Add sample insights
+        const insightsList = document.getElementById('insights-list');
+        const insights = [
+            'The highest value occurs in April (81).',
+            'There appears to be a cyclical pattern in the data.',
+            'The average value across all months is 66.'
+        ];
+
+        document.getElementById('insight-text').textContent = 'Here are some insights based on the analysis:';
+        
+        insights.forEach(insight => {
+            const li = document.createElement('li');
+            li.className = 'list-group-item';
+            li.innerHTML = `<i class="fas fa-check-circle text-success me-2"></i> ${insight}`;
+            insightsList.appendChild(li);
+        });
+
+        // Create sample data table
+        const dataPreview = document.getElementById('data-preview');
+        let tableHTML = '<table class="table table-striped table-sm"><thead><tr><th>Month</th><th>Value</th></tr></thead><tbody>';
+        
+        for (let i = 0; i < sampleData.labels.length; i++) {
+            tableHTML += `<tr><td>${sampleData.labels[i]}</td><td>${sampleData.datasets[0].data[i]}</td></tr>`;
+        }
+        
+        tableHTML += '</tbody></table>';
+        dataPreview.innerHTML = tableHTML;
+
+        // Download button event
+        document.getElementById('downloadBtn').addEventListener('click', function() {
+            alert('In a real application, this would download an analysis report of the dataset.');
+        });
+    });
+</script>
+{% endblock %}
