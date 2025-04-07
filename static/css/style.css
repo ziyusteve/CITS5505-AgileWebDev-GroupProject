@@ -1,0 +1,134 @@
+/* Custom CSS for Data Analytics Platform */
+
+/* General Styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+/* Header and Navigation */
+.navbar {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-brand {
+    font-weight: 600;
+}
+
+/* Cards */
+.card {
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.075);
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
+}
+
+.card-header {
+    border-radius: calc(0.5rem - 1px) calc(0.5rem - 1px) 0 0 !important;
+    font-weight: 500;
+}
+
+/* Buttons */
+.btn {
+    border-radius: 0.25rem;
+}
+
+.btn-primary {
+    background-color: #4361ee;
+    border-color: #4361ee;
+}
+
+.btn-primary:hover {
+    background-color: #3a56d4;
+    border-color: #3a56d4;
+}
+
+.btn-success {
+    background-color: #38b000;
+    border-color: #38b000;
+}
+
+.btn-success:hover {
+    background-color: #2d9700;
+    border-color: #2d9700;
+}
+
+.btn-info {
+    background-color: #4cc9f0;
+    border-color: #4cc9f0;
+    color: white;
+}
+
+.btn-info:hover {
+    background-color: #3bbbf0;
+    border-color: #3bbbf0;
+    color: white;
+}
+
+/* Tables */
+.table {
+    color: #333;
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(67, 97, 238, 0.05);
+}
+
+/* Forms */
+.form-control:focus {
+    border-color: #4361ee;
+    box-shadow: 0 0 0 0.25rem rgba(67, 97, 238, 0.25);
+}
+
+/* Dashboard */
+.dashboard-stat {
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+/* Custom animations */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Visualization page */
+.chart-container {
+    background: #fff;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.075);
+}
+
+/* Footer */
+footer {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    .card-body {
+        padding: 1rem;
+    }
+}

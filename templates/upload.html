@@ -1,0 +1,110 @@
+{% extends "layout.html" %}
+
+{% block title %} - Upload Data{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0"><i class="fas fa-upload me-2"></i>Upload Data</h4>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="{{ url_for('upload') }}" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="title" class="form-label">Dataset Title</label>
+                            <input type="text" class="form-control" id="title" name="title" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Description</label>
+                            <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="file" class="form-label">Data File</label>
+                            <input class="form-control" type="file" id="file" name="file" required>
+                            <div class="form-text">
+                                Supported formats: CSV, TXT, XLSX, JSON
+                            </div>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-upload me-2"></i>Upload Dataset
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h5 class="mb-0">Upload Instructions</h5>
+                </div>
+                <div class="card-body">
+                    <div class="accordion" id="uploadGuide">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                    <i class="fas fa-file-csv me-2"></i>CSV Format
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#uploadGuide">
+                                <div class="accordion-body">
+                                    <p>CSV (Comma-Separated Values) files should:</p>
+                                    <ul>
+                                        <li>Have a header row with column names</li>
+                                        <li>Use comma (,) as the separator</li>
+                                        <li>Use consistent data types within each column</li>
+                                    </ul>
+                                    <pre class="bg-light p-2"><code>date,temperature,humidity
+2025-01-01,22.5,65
+2025-01-02,23.1,67
+2025-01-03,21.8,70</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                    <i class="fas fa-file-excel me-2"></i>Excel Format
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#uploadGuide">
+                                <div class="accordion-body">
+                                    <p>Excel (.xlsx) files should:</p>
+                                    <ul>
+                                        <li>Have a header row with column names</li>
+                                        <li>Data should start from the first sheet</li>
+                                        <li>Avoid merged cells for best results</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                                    <i class="fas fa-file-code me-2"></i>JSON Format
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#uploadGuide">
+                                <div class="accordion-body">
+                                    <p>JSON files should:</p>
+                                    <ul>
+                                        <li>Be properly formatted valid JSON</li>
+                                        <li>Preferably contain an array of objects for tabular analysis</li>
+                                    </ul>
+                                    <pre class="bg-light p-2"><code>[
+  {"date": "2025-01-01", "temperature": 22.5, "humidity": 65},
+  {"date": "2025-01-02", "temperature": 23.1, "humidity": 67},
+  {"date": "2025-01-03", "temperature": 21.8, "humidity": 70}
+]</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

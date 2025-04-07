@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+
+{% block title %} - Welcome{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row align-items-center">
+        <div class="col-lg-6">
+            <h1 class="display-4 fw-bold">Data Analytics Platform</h1>
+            <p class="lead">Upload, analyze, and share your data insights securely with others.</p>
+            <hr class="my-4">
+            <p>Our platform provides powerful tools to analyze your data and generate meaningful visualizations, while maintaining your privacy and control over who can access your information.</p>
+            
+            <div class="d-grid gap-2 d-md-flex justify-content-md-start mt-4">
+                {% if 'user_id' not in session %}
+                    <a href="{{ url_for('login') }}" class="btn btn-primary btn-lg px-4 me-md-2">Login</a>
+                    <a href="{{ url_for('register') }}" class="btn btn-outline-primary btn-lg px-4">Register</a>
+                {% else %}
+                    <a href="{{ url_for('dashboard') }}" class="btn btn-primary btn-lg px-4 me-md-2">Go to Dashboard</a>
+                    <a href="{{ url_for('upload') }}" class="btn btn-outline-primary btn-lg px-4">Upload Data</a>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-lg-6 d-flex justify-content-center mt-5 mt-lg-0">
+            <div class="p-4 shadow rounded bg-light">
+                <img src="{{ url_for('static', filename='images/data-analytics.svg') }}" alt="Data Analytics Illustration" class="img-fluid" width="400">
+            </div>
+        </div>
+    </div>
+    
+    <div class="row mt-5 pt-5">
+        <h2 class="text-center mb-4">Key Features</h2>
+        
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body text-center">
+                    <div class="mb-3">
+                        <i class="fas fa-upload fa-3x text-primary"></i>
+                    </div>
+                    <h3 class="card-title">Easy Upload</h3>
+                    <p class="card-text">Upload your data files securely. We support various formats including CSV, Excel, and JSON.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body text-center">
+                    <div class="mb-3">
+                        <i class="fas fa-chart-pie fa-3x text-primary"></i>
+                    </div>
+                    <h3 class="card-title">Advanced Analytics</h3>
+                    <p class="card-text">Get insightful visualizations and statistical analysis of your data automatically.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body text-center">
+                    <div class="mb-3">
+                        <i class="fas fa-share-alt fa-3x text-primary"></i>
+                    </div>
+                    <h3 class="card-title">Selective Sharing</h3>
+                    <p class="card-text">Maintain control by choosing exactly who can access your data and analysis results.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row mt-5">
+        <div class="col-12 text-center">
+            <h2 class="mb-4">How It Works</h2>
+            <div class="d-flex flex-column flex-md-row justify-content-center align-items-center gap-3 mt-4">
+                <div class="d-flex align-items-center">
+                    <span class="badge bg-primary rounded-pill fs-5 me-2">1</span>
+                    <span>Upload your data</span>
+                </div>
+                <i class="fas fa-chevron-right d-none d-md-block"></i>
+                <div class="d-flex align-items-center">
+                    <span class="badge bg-primary rounded-pill fs-5 me-2">2</span>
+                    <span>Review the analysis</span>
+                </div>
+                <i class="fas fa-chevron-right d-none d-md-block"></i>
+                <div class="d-flex align-items-center">
+                    <span class="badge bg-primary rounded-pill fs-5 me-2">3</span>
+                    <span>Share with colleagues</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400">
+  <!-- Background -->
+  <rect width="500" height="400" fill="#f8f9fa" rx="10" ry="10"/>
+  
+  <!-- Chart Grid -->
+  <g stroke="#e9ecef" stroke-width="1">
+    <line x1="50" y1="50" x2="50" y2="300"/>
+    <line x1="50" y1="300" x2="450" y2="300"/>
+    <line x1="50" y1="100" x2="450" y2="100"/>
+    <line x1="50" y1="150" x2="450" y2="150"/>
+    <line x1="50" y1="200" x2="450" y2="200"/>
+    <line x1="50" y1="250" x2="450" y2="250"/>
+    <line x1="150" y1="50" x2="150" y2="300"/>
+    <line x1="250" y1="50" x2="250" y2="300"/>
+    <line x1="350" y1="50" x2="350" y2="300"/>
+    <line x1="450" y1="50" x2="450" y2="300"/>
+  </g>
+  
+  <!-- Chart Bars -->
+  <rect x="70" y="190" width="60" height="110" fill="#4361ee" rx="5" ry="5">
+    <animate attributeName="height" from="0" to="110" dur="1s" begin="0s" fill="freeze"/>
+    <animate attributeName="y" from="300" to="190" dur="1s" begin="0s" fill="freeze"/>
+  </rect>
+  <rect x="170" y="140" width="60" height="160" fill="#4cc9f0" rx="5" ry="5">
+    <animate attributeName="height" from="0" to="160" dur="1s" begin="0.2s" fill="freeze"/>
+    <animate attributeName="y" from="300" to="140" dur="1s" begin="0.2s" fill="freeze"/>
+  </rect>
+  <rect x="270" y="240" width="60" height="60" fill="#38b000" rx="5" ry="5">
+    <animate attributeName="height" from="0" to="60" dur="1s" begin="0.4s" fill="freeze"/>
+    <animate attributeName="y" from="300" to="240" dur="1s" begin="0.4s" fill="freeze"/>
+  </rect>
+  <rect x="370" y="90" width="60" height="210" fill="#ff5400" rx="5" ry="5">
+    <animate attributeName="height" from="0" to="210" dur="1s" begin="0.6s" fill="freeze"/>
+    <animate attributeName="y" from="300" to="90" dur="1s" begin="0.6s" fill="freeze"/>
+  </rect>
+  
+  <!-- Chart Labels -->
+  <text x="100" y="330" text-anchor="middle" fill="#495057" font-family="Arial" font-size="14">Q1</text>
+  <text x="200" y="330" text-anchor="middle" fill="#495057" font-family="Arial" font-size="14">Q2</text>
+  <text x="300" y="330" text-anchor="middle" fill="#495057" font-family="Arial" font-size="14">Q3</text>
+  <text x="400" y="330" text-anchor="middle" fill="#495057" font-family="Arial" font-size="14">Q4</text>
+  
+  <!-- Y-axis Labels -->
+  <text x="40" y="305" text-anchor="end" fill="#495057" font-family="Arial" font-size="12">0</text>
+  <text x="40" y="255" text-anchor="end" fill="#495057" font-family="Arial" font-size="12">25</text>
+  <text x="40" y="205" text-anchor="end" fill="#495057" font-family="Arial" font-size="12">50</text>
+  <text x="40" y="155" text-anchor="end" fill="#495057" font-family="Arial" font-size="12">75</text>
+  <text x="40" y="105" text-anchor="end" fill="#495057" font-family="Arial" font-size="12">100</text>
+  <text x="40" y="55" text-anchor="end" fill="#495057" font-family="Arial" font-size="12">125</text>
+  
+  <!-- Chart Title -->
+  <text x="250" y="30" text-anchor="middle" fill="#212529" font-family="Arial" font-weight="bold" font-size="18">Quarterly Performance Analysis</text>
+  
+  <!-- Data Points with animation -->
+  <circle cx="100" cy="190" r="5" fill="#4361ee">
+    <animate attributeName="r" from="0" to="5" dur="0.5s" begin="1s" fill="freeze"/>
+  </circle>
+  <circle cx="200" cy="140" r="5" fill="#4cc9f0">
+    <animate attributeName="r" from="0" to="5" dur="0.5s" begin="1.1s" fill="freeze"/>
+  </circle>
+  <circle cx="300" cy="240" r="5" fill="#38b000">
+    <animate attributeName="r" from="0" to="5" dur="0.5s" begin="1.2s" fill="freeze"/>
+  </circle>
+  <circle cx="400" cy="90" r="5" fill="#ff5400">
+    <animate attributeName="r" from="0" to="5" dur="0.5s" begin="1.3s" fill="freeze"/>
+  </circle>
+  
+  <!-- Line connecting data points -->
+  <polyline points="100,190 200,140 300,240 400,90" fill="none" stroke="#212529" stroke-width="2">
+    <animate attributeName="stroke-dasharray" from="300" to="0" dur="1.5s" begin="1.4s" fill="freeze"/>
+  </polyline>
+  
+  <!-- Legend -->
+  <rect x="150" y="350" width="15" height="15" fill="#4361ee" rx="2" ry="2"/>
+  <text x="175" y="362" fill="#212529" font-family="Arial" font-size="12">Performance</text>
+  <rect x="250" y="350" width="15" height="15" fill="#212529" rx="2" ry="2"/>
+  <text x="275" y="362" fill="#212529" font-family="Arial" font-size="12">Trend</text>
+</svg>
