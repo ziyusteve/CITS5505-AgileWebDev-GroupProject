@@ -7,7 +7,7 @@ A web application that allows users to upload private data, view automated analy
 | UWA ID   | Name | Github Username         |
 |----------|----------|-----------------|
 | 24370783   | Ziyu (Steve) Wang       | ziyusteve   |
-|   |       |   |
+| 24438869   | Chenxiao Jiang          |Nekoson   |
 |   |       |   |
 |   |       |   |
 
