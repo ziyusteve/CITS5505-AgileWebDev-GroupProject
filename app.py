@@ -5,6 +5,11 @@ from werkzeug.utils import secure_filename
 import os
 from datetime import datetime
 import uuid
+import pandas as pd
+import numpy as np
+import json
+import plotly
+import plotly.express as px
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -63,6 +68,72 @@ def generate_unique_filename(filename):
     ext = filename.rsplit('.', 1)[1].lower() if '.' in filename else ''
     new_filename = f"{uuid.uuid4().hex}.{ext}" if ext else uuid.uuid4().hex
     return new_filename
+
+def load_dataset(file_path):
+    """Load a dataset from a file path based on its extension"""
+    ext = file_path.rsplit('.', 1)[1].lower() if '.' in file_path else ''
+    try:
+        if ext == 'csv':
+            df = pd.read_csv(file_path)
+        elif ext == 'xlsx':
+            df = pd.read_excel(file_path)
+        elif ext == 'json':
+            df = pd.read_json(file_path)
+        elif ext == 'txt':
+            # Attempt to detect delimiter
+            df = pd.read_csv(file_path, sep=None, engine='python')
+        else:
+            return None, "Unsupported file format"
+        return df, None
+    except Exception as e:
+        return None, f"Error loading dataset: {str(e)}"
+
+def analyze_dataset(df):
+    """Analyze a dataset and return statistics and visualization data"""
+    if df is None or df.empty:
+        return {
+            "error": "Empty or invalid dataset"
+        }
+    
+    # Get basic info
+    result = {
+        "column_names": df.columns.tolist(),
+        "row_count": len(df),
+        "preview": df.head(10).to_dict('records')
+    }
+    
+    # Calculate statistics for numeric columns
+    numeric_columns = df.select_dtypes(include=[np.number]).columns.tolist()
+    categorical_columns = [col for col in df.columns if col not in numeric_columns]
+    
+    result["numeric_columns"] = numeric_columns
+    result["categorical_columns"] = categorical_columns
+    
+    if numeric_columns:
+        # Compute basic statistics for numeric columns
+        stats = df[numeric_columns].describe().to_dict()
+        result["statistics"] = stats
+        
+        # Generate insights
+        insights = []
+        for col in numeric_columns[:3]:  # Limit insights to first 3 numeric columns
+            max_value = df[col].max()
+            min_value = df[col].min()
+            mean_value = df[col].mean()
+            median_value = df[col].median()
+            
+            if not pd.isna(max_value) and not pd.isna(min_value):
+                insights.append(f"The maximum {col} is {max_value:.2f}, and the minimum is {min_value:.2f}.")
+            
+            if not pd.isna(mean_value) and not pd.isna(median_value):
+                if mean_value > median_value:
+                    insights.append(f"The distribution of {col} is positively skewed (mean > median).")
+                elif mean_value < median_value:
+                    insights.append(f"The distribution of {col} is negatively skewed (mean < median).")
+        
+        result["insights"] = insights
+    
+    return result
 
 # Route for home/intro page
 @app.route('/')
@@ -205,10 +276,107 @@ def visualize(dataset_id):
         flash('You do not have permission to view this dataset.', 'danger')
         return redirect(url_for('dashboard'))
     
-    # Process the data file for visualization (simplified for demo)
-    data = {"message": "This is placeholder for actual data analysis"}
+    # Load data file but only pass minimal information to template
+    # Detailed data will be loaded via the API
+    df, error = load_dataset(dataset.file_path)
+    if error:
+        flash(f'Error loading dataset: {error}', 'danger')
+        return redirect(url_for('dashboard'))
     
-    return render_template('visualize.html', dataset=dataset, data=data, is_owner=is_owner)
+    # Get basic metadata for initial display
+    metadata = {
+        "columns": df.columns.tolist(),
+        "row_count": len(df)
+    }
+    
+    return render_template('visualize.html', dataset=dataset, metadata=metadata, is_owner=is_owner)
+
+# API endpoint for dataset analysis
+@app.route('/api/dataset/<int:dataset_id>/analyze')
+def api_dataset_analyze(dataset_id):
+    if 'user_id' not in session:
+        return jsonify({"error": "Authentication required"}), 401
+    
+    user_id = session['user_id']
+    dataset = Dataset.query.get_or_404(dataset_id)
+    
+    # Check if user owns the dataset or it's shared with them
+    is_owner = dataset.user_id == user_id
+    is_shared = Share.query.filter_by(dataset_id=dataset_id, shared_with_id=user_id).first() is not None
+    
+    if not (is_owner or is_shared):
+        return jsonify({"error": "Permission denied"}), 403
+    
+    # Load and analyze the dataset
+    df, error = load_dataset(dataset.file_path)
+    if error:
+        return jsonify({"error": error}), 400
+    
+    # Perform analysis
+    analysis_result = analyze_dataset(df)
+    
+    return jsonify(analysis_result)
+
+# API endpoint for generating visualization data
+@app.route('/api/dataset/<int:dataset_id>/visualize', methods=['GET'])
+def api_dataset_visualize(dataset_id):
+    if 'user_id' not in session:
+        return jsonify({"error": "Authentication required"}), 401
+    
+    user_id = session['user_id']
+    dataset = Dataset.query.get_or_404(dataset_id)
+    
+    # Check if user owns the dataset or it's shared with them
+    is_owner = dataset.user_id == user_id
+    is_shared = Share.query.filter_by(dataset_id=dataset_id, shared_with_id=user_id).first() is not None
+    
+    if not (is_owner or is_shared):
+        return jsonify({"error": "Permission denied"}), 403
+    
+    # Get visualization parameters from request
+    chart_type = request.args.get('chart_type', 'bar')
+    x_column = request.args.get('x_column')
+    y_column = request.args.get('y_column')
+    
+    # Load the dataset
+    df, error = load_dataset(dataset.file_path)
+    if error:
+        return jsonify({"error": error}), 400
+    
+    if not x_column:
+        # Default to first column if not specified
+        x_column = df.columns[0] if len(df.columns) > 0 else None
+    
+    if not y_column:
+        # Default to second column for y-axis, or first numeric column if available
+        numeric_cols = df.select_dtypes(include=[np.number]).columns.tolist()
+        if len(numeric_cols) > 0:
+            y_column = numeric_cols[0]
+        elif len(df.columns) > 1:
+            y_column = df.columns[1]
+        else:
+            y_column = df.columns[0] if len(df.columns) > 0 else None
+    
+    # Generate visualization data
+    try:
+        if chart_type == 'pie':
+            if x_column and y_column:
+                # For pie charts, we need category and values
+                result = {
+                    'labels': df[x_column].tolist(),
+                    'values': df[y_column].tolist(),
+                }
+        else:
+            # For other chart types (bar, line, scatter)
+            result = {
+                'x': df[x_column].tolist() if x_column else [],
+                'y': df[y_column].tolist() if y_column else [],
+                'type': chart_type
+            }
+        
+        return jsonify(result)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 400
 
 # Sharing routes
 @app.route('/share', methods=['GET'])
