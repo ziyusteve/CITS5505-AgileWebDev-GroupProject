@@ -1,0 +1,6 @@
+flask
+flask_sqlalchemy
+werkzeug
+pandas
+numpy
+plotly

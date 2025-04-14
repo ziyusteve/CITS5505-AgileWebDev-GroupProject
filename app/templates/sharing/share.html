@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block title %} - Share Data{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mb-4"><i class="fas fa-share-alt me-2"></i>Share Data</h1>
+
+    <div class="card shadow mb-4">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">Create New Share</h4>
+        </div>
+        <div class="card-body">
+            <form action="{{ url_for('sharing.share_dataset') }}" method="POST">
+                <div class="row g-3 align-items-end">
+                    <div class="col-md-5">
+                        <label for="dataset_id" class="form-label">Dataset</label>
+                        <select class="form-select" id="dataset_id" name="dataset_id" required>
+                            <option value="" selected disabled>Select a dataset to share</option>
+                            {% for dataset in datasets %}
+                            <option value="{{ dataset.id }}">{{ dataset.title }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-5">
+                        <label for="user_id" class="form-label">Share with</label>
+                        <select class="form-select" id="user_id" name="user_id" required>
+                            <option value="" selected disabled>Select a user</option>
+                            {% for user in users %}
+                            <option value="{{ user.id }}">{{ user.username }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="submit" class="btn btn-primary w-100">Share</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="card shadow">
+        <div class="card-header bg-info text-white">
+            <h4 class="mb-0">Current Shares</h4>
+        </div>
+        <div class="card-body">
+            {% if shares %}
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Dataset</th>
+                            <th>Shared With</th>
+                            <th>Date Shared</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for share in shares %}
+                        <tr>
+                            <td>{{ share.dataset.title }}</td>
+                            <td>{{ share.shared_with.username }}</td>
+                            <td>{{ share.date_shared.strftime('%Y-%m-%d') }}</td>
+                            <td>
+                                <form action="{{ url_for('sharing.revoke_share', share_id=share.id) }}" method="POST" style="display:inline;">
+                                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to revoke this share?')">
+                                        <i class="fas fa-times"></i> Revoke
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <p class="text-center py-3">You have not shared any datasets yet.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
