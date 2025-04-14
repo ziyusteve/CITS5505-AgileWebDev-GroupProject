@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %} - Home{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <div class="card shadow mb-4">
+            <div class="card-body text-center py-5">
+                <h1 class="display-4 mb-4">Welcome to Data Analytics Platform</h1>
+                <p class="lead">Upload your data and discover valuable insights with our analytics tools.</p>
+                
+                {% if 'user_id' in session %}
+                <div class="mt-4">
+                    <a href="{{ url_for('dashboard.index') }}" class="btn btn-primary btn-lg me-2">
+                        <i class="fas fa-tachometer-alt me-2"></i>Go to Dashboard
+                    </a>
+                    <a href="{{ url_for('datasets.upload') }}" class="btn btn-success btn-lg">
+                        <i class="fas fa-upload me-2"></i>Upload Data
+                    </a>
+                </div>
+                {% else %}
+                <div class="mt-4">
+                    <a href="{{ url_for('auth.login') }}" class="btn btn-primary btn-lg me-2">
+                        <i class="fas fa-sign-in-alt me-2"></i>Login
+                    </a>
+                    <a href="{{ url_for('auth.register') }}" class="btn btn-success btn-lg">
+                        <i class="fas fa-user-plus me-2"></i>Register
+                    </a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-4 mb-4">
+        <div class="card shadow h-100">
+            <div class="card-body text-center py-4">
+                <i class="fas fa-upload fa-4x mb-3 text-primary"></i>
+                <h3>Upload Your Data</h3>
+                <p>Easily upload CSV, Excel, JSON, and text files for analysis.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="card shadow h-100">
+            <div class="card-body text-center py-4">
+                <i class="fas fa-chart-bar fa-4x mb-3 text-success"></i>
+                <h3>Visualize Insights</h3>
+                <p>Create interactive charts and graphs to visualize your data.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="card shadow h-100">
+            <div class="card-body text-center py-4">
+                <i class="fas fa-share-alt fa-4x mb-3 text-info"></i>
+                <h3>Share Results</h3>
+                <p>Selectively share your datasets and analyses with others.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
