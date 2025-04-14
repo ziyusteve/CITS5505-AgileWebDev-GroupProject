@@ -11,9 +11,9 @@ The Data Analytics Platform is a Flask-based web application that allows users t
 - **SQLAlchemy**: ORM framework for managing data models and database interactions
 - **SQLite**: Lightweight relational database for storing user and dataset information
 - **Python Libraries**: Data processing and analysis using the following libraries:
-  - Pandas: For data manipulation and analysis
-  - NumPy: For mathematical computations
-  - Matplotlib/Plotly: For data visualization
+  - Pandas (2.2.3): For data manipulation and analysis, compatible with Python 3.12
+  - NumPy (1.26.0): For mathematical computations
+  - Plotly (5.17.0): For interactive data visualization and analysis
 
 ### Frontend Technologies
 - **HTML5/CSS3**: Page structure and styling
@@ -29,9 +29,13 @@ The Data Analytics Platform is a Flask-based web application that allows users t
 data_analytics_platform/
 │
 ├── app.py                 # Main Flask application file with routes and business logic
+├── app/                   # New module structure for Blueprint refactoring (in progress)
+│   └── __pycache__/       # Python cache files
 ├── requirements.txt       # Python dependency list
 ├── instance/              # Instance folder containing SQLite database
 │   └── site.db            # SQLite database file
+├── data/                  # Data storage directory 
+│   └── uploads/           # User uploaded data files (new location)
 ├── static/                # Static resources
 │   ├── css/               # CSS stylesheets
 │   │   └── style.css      # Custom styles
@@ -46,9 +50,9 @@ data_analytics_platform/
 │   ├── register.html      # Registration page
 │   ├── dashboard.html     # User dashboard
 │   ├── upload.html        # Data upload page
-│   ├── visualize.html     # Data visualization page
+│   ├── visualize.html     # Data visualization page with real-time data rendering
 │   └── share.html         # Data sharing page
-└── uploads/               # User uploaded data files
+└── uploads/               # Legacy uploads folder (being migrated to data/uploads)
 ```
 
 ### Data Models
@@ -84,10 +88,13 @@ The application uses SQLAlchemy to define three main data models:
    - Dataset record creation in the database
 
 3. **Data Analysis Workflow**:
-   - Loading user data
-   - Processing data using Python data analysis libraries
-   - Generating statistical summaries and visualizations
-   - Presenting results to the user
+   - Loading user data using specialized functions for different file formats (CSV, Excel, JSON)
+   - Processing data dynamically using pandas and numpy libraries
+   - Automatic statistical analysis including mean, median, and distribution properties
+   - Real-time generation of interactive visualizations based on actual uploaded data
+   - API endpoints providing JSON data for frontend visualization
+   - Dynamic column selection and chart type switching
+   - Automatic generation of data insights and pattern detection
 
 4. **Data Sharing Workflow**:
    - User selection of dataset and target users for sharing
@@ -246,9 +253,14 @@ def share_dataset():
 
 ### 3. Data Visualization Implementation
 
-- Frontend using Plotly.js to create interactive charts
-- Support for multiple chart types (bar, line, pie, scatter)
-- Dynamic chart type switching without data loss
+- Frontend using Plotly.js to create interactive charts based on real user data
+- Backend API endpoints providing data analysis results in JSON format
+- Support for multiple chart types (bar, line, pie, scatter) with dynamic switching
+- Dynamic X and Y axis column selection for flexible data exploration
+- Automatic statistical calculations displayed alongside visualizations
+- Real-time data preview and insights generation
+- Download functionality for analysis results
+- Responsive chart rendering that adapts to different screen sizes
 
 ### 4. Responsive Design
 
@@ -261,9 +273,11 @@ def share_dataset():
 ### 1. Feature Enhancements
 
 1. **Advanced Data Analysis Capabilities**
-   - Integrating machine learning models for predictive analytics
-   - Adding more statistical analysis tools
-   - Supporting custom analysis workflows
+   - Integrating NLP (Natural Language Processing) for text data analysis
+   - Adding machine learning algorithms for predictive analytics and pattern recognition
+   - Implementing anomaly detection and outlier identification
+   - Supporting time series forecasting and trend analysis
+   - Creating customizable analysis workflows for domain-specific needs
 
 2. **Extended Data Source Support**
    - Adding API connectors to retrieve external data
@@ -329,9 +343,11 @@ def share_dataset():
 ## Development Best Practices
 
 1. **Code Organization**
-   - Consider splitting the application into Blueprints
-   - Implementing clearer separation of concerns
-   - Creating reusable components
+   - Implementation of Flask Blueprints for modular code organization (in progress)
+   - Adoption of a feature-based folder structure for better maintainability
+   - Clear separation of concerns between data processing, visualization, and user management
+   - Creation of reusable components and helper functions
+   - Organized git workflow using feature branches and descriptive commits
 
 2. **Testing Strategy**
    - Adding unit tests and integration tests
