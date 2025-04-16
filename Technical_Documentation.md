@@ -28,14 +28,33 @@ The Data Analytics Platform is a Flask-based web application that allows users t
 ```
 data_analytics_platform/
 │
-├── app.py                 # Main Flask application file with routes and business logic
-├── app/                   # New module structure for Blueprint refactoring (in progress)
-│   └── __pycache__/       # Python cache files
+├── run.py                 # Main Flask application entry point
+├── app/                   # Module structure with Blueprint architecture
+│   ├── __init__.py        # Application factory function
+│   ├── config.py          # Configuration settings
+│   ├── extensions.py      # Flask extensions initialization
+│   ├── utils.py           # Utility functions
+│   ├── api/               # API Blueprint module
+│   ├── auth/              # Authentication Blueprint module
+│   ├── dashboard/         # Dashboard Blueprint module
+│   ├── datasets/          # Datasets Blueprint module
+│   ├── main/              # Main/home Blueprint module
+│   ├── models/            # Database models
+│   ├── sharing/           # Sharing Blueprint module
+│   ├── visualization/     # Visualization Blueprint module
+│   └── templates/         # HTML templates organized by feature
+│       ├── base.html      # Base layout template
+│       ├── auth/          # Authentication templates
+│       ├── dashboard/     # Dashboard templates
+│       ├── datasets/      # Datasets templates
+│       ├── main/          # Main/home templates
+│       ├── sharing/       # Sharing templates
+│       └── visualization/ # Visualization templates
 ├── requirements.txt       # Python dependency list
 ├── instance/              # Instance folder containing SQLite database
 │   └── site.db            # SQLite database file
 ├── data/                  # Data storage directory 
-│   └── uploads/           # User uploaded data files (new location)
+│   └── uploads/           # User uploaded data files
 ├── static/                # Static resources
 │   ├── css/               # CSS stylesheets
 │   │   └── style.css      # Custom styles
@@ -43,16 +62,7 @@ data_analytics_platform/
 │   │   └── data-analytics.svg # Sample data analysis chart
 │   └── js/                # JavaScript files
 │       └── main.js        # Custom JavaScript functionality
-├── templates/             # HTML templates
-│   ├── layout.html        # Base layout template
-│   ├── index.html         # Home/introduction page
-│   ├── login.html         # Login page
-│   ├── register.html      # Registration page
-│   ├── dashboard.html     # User dashboard
-│   ├── upload.html        # Data upload page
-│   ├── visualize.html     # Data visualization page with real-time data rendering
-│   └── share.html         # Data sharing page
-└── uploads/               # Legacy uploads folder (being migrated to data/uploads)
+└── README.md              # Project documentation
 ```
 
 ### Data Models
