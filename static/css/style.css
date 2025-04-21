@@ -1,73 +1,116 @@
-/* Custom CSS for Data Analytics Platform */
+/* Custom CSS for LA Lakers Basketball Player Analytics Platform */
 
 /* General Styling */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #333;
     background-color: #f8f9fa;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23FDB927' fill-opacity='0.05'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
-/* Header and Navigation */
+/* Header and Navigation - LA Lakers Theme */
 .navbar {
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    background: linear-gradient(45deg, #552583, #4a206f) !important;
 }
 
 .navbar-brand {
-    font-weight: 600;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #FDB927 !important;
 }
 
 /* Cards */
 .card {
     border: none;
-    border-radius: 0.5rem;
-    box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.075);
+    border-radius: 1rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
     margin-bottom: 1.5rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    overflow: hidden;
+    background: #fff;
+    position: relative;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #552583, #FDB927);
 }
 
 .card:hover {
-    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
 .card-header {
-    border-radius: calc(0.5rem - 1px) calc(0.5rem - 1px) 0 0 !important;
-    font-weight: 500;
+    border-radius: 0 !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background: #f8f9fa;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding: 1rem 1.25rem;
+}
+
+/* Card with Lakers basketball theme */
+.card-basketball {
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 0C4.5 0 0 4.5 0 10s4.5 10 10 10 10-4.5 10-10S15.5 0 10 0zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z' fill='%23FDB927' fill-opacity='0.1'/%3E%3C/svg%3E");
 }
 
 /* Buttons */
 .btn {
-    border-radius: 0.25rem;
+    border-radius: 30px;
+    padding: 0.5rem 1.5rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 .btn-primary {
-    background-color: #4361ee;
-    border-color: #4361ee;
+    background: linear-gradient(45deg, #552583, #4a206f);
+    border: none;
 }
 
 .btn-primary:hover {
-    background-color: #3a56d4;
-    border-color: #3a56d4;
+    background: linear-gradient(45deg, #4a206f, #3e1a5e);
+    border: none;
 }
 
 .btn-success {
-    background-color: #38b000;
-    border-color: #38b000;
+    background: linear-gradient(45deg, #FDB927, #ffca65);
+    border: none;
+    color: #333;
 }
 
 .btn-success:hover {
-    background-color: #2d9700;
-    border-color: #2d9700;
+    background: linear-gradient(45deg, #f5b01c, #FDB927);
+    border: none;
+    color: #333;
 }
 
 .btn-info {
-    background-color: #4cc9f0;
-    border-color: #4cc9f0;
+    background: linear-gradient(45deg, #3498db, #2980b9);
+    border: none;
     color: white;
 }
 
 .btn-info:hover {
-    background-color: #3bbbf0;
-    border-color: #3bbbf0;
+    background: linear-gradient(45deg, #2980b9, #1c6392);
+    border: none;
     color: white;
 }
 
@@ -97,6 +140,164 @@ body {
 /* Custom animations */
 .fade-in {
     animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Lakers themed elements */
+.basketball-icon {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background-color: #FDB927;
+    border-radius: 50%;
+    position: relative;
+    margin-right: 8px;
+    box-shadow: inset 0 -2px 5px rgba(0,0,0,0.2);
+}
+
+.lakers-gold {
+    color: #FDB927 !important;
+}
+
+.basketball-icon::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: rgba(0,0,0,0.3);
+}
+
+.basketball-icon::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 8px;
+    width: 1px;
+    background-color: rgba(0,0,0,0.3);
+}
+
+/* Section titles with basketball theme */
+.section-title {
+    position: relative;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(90deg, #552583, #FDB927);
+}
+
+/* Player stats */
+.player-stat-card {
+    border-radius: 1rem;
+    overflow: hidden;
+    padding: 0;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+.player-stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.player-stat-header {
+    background: linear-gradient(45deg, #552583, #4a206f);
+    color: #FDB927;
+    padding: 20px;
+    text-align: center;
+}
+
+.player-stat-body {
+    padding: 20px;
+    background-color: white;
+}
+
+/* Radar chart container */
+.radar-chart-container {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* Tech-themed progress bars */
+.tech-progress {
+    height: 8px;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+    margin-bottom: 1rem;
+}
+
+.tech-progress-bar {
+    height: 100%;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #552583, #FDB927);
+    position: relative;
+    transition: width 1s ease;
+}
+
+.tech-progress-bar::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -4px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #FDB927;
+    border: 2px solid white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Skill icons */
+.skill-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.skill-icon-danger {
+    background-color: #e74c3c;
+}
+
+.skill-icon-primary {
+    background-color: #3498db;
+}
+
+.skill-icon-success {
+    background-color: #2ecc71;
+}
+
+/* Progress bars with specific widths */
+.progress-85 {
+    width: 85%;
+}
+
+/* Dark gradient background */
+.bg-gradient-dark {
+    background: linear-gradient(45deg, #2c3e50, #34495e);
+    color: white;
 }
 
 @keyframes fadeIn {
