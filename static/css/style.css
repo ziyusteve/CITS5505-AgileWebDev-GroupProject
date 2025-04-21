@@ -215,6 +215,13 @@ body {
 .player-stat-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    animation: lakers-pulse 1.5s infinite;
+}
+
+@keyframes lakers-pulse {
+    0% { box-shadow: 0 15px 30px rgba(85, 37, 131, 0.15); }
+    50% { box-shadow: 0 15px 30px rgba(253, 185, 39, 0.25); }
+    100% { box-shadow: 0 15px 30px rgba(85, 37, 131, 0.15); }
 }
 
 .player-stat-header {
