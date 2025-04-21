@@ -2,38 +2,176 @@
 
 {% block title %} - Register{% endblock %}
 
+{% block styles %}
+{{ super() }}
+<style>
+.register-container {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+}
+.register-card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+.register-card:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+}
+.card-header {
+    border-bottom: none;
+    padding: 25px 30px 0px;
+}
+.register-title {
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 5px;
+}
+.register-subtitle {
+    color: #777;
+    font-size: 0.9rem;
+}
+.form-control {
+    border-radius: 10px;
+    padding: 12px 15px;
+    border: 1px solid #e0e0e0;
+    transition: all 0.3s;
+}
+.form-control:focus {
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.15);
+    border-color: #0d6efd;
+}
+.input-group-text {
+    background-color: transparent;
+    border-right: none;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.password-input {
+    border-left: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.register-btn {
+    border-radius: 10px;
+    padding: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+}
+.register-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(13, 110, 253, 0.3);
+}
+.login-link {
+    color: #0d6efd;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+.login-link:hover {
+    color: #0a58ca;
+    text-decoration: underline;
+}
+.form-text {
+    color: #6c757d;
+    font-size: 0.85rem;
+    margin-top: 5px;
+}
+</style>
+{% endblock %}
+
 {% block content %}
-<div class="row justify-content-center">
-    <div class="col-md-6">
-        <div class="card shadow">
-            <div class="card-header bg-primary text-white">
-                <h4 class="mb-0"><i class="fas fa-user-plus me-2"></i>Create Account</h4>
-            </div>
-            <div class="card-body">
-                <form method="POST" action="{{ url_for('auth.register') }}">
-                    <div class="mb-3">
-                        <label for="username" class="form-label">Username</label>
-                        <input type="text" class="form-control" id="username" name="username" required>
-                        <div class="form-text">Username must be unique.</div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" required>
-                        <div class="form-text">Choose a strong password.</div>
-                    </div>
-                    <div class="d-grid">
-                        <button type="submit" class="btn btn-primary">Register</button>
-                    </div>
-                </form>
-            </div>
-            <div class="card-footer text-center">
-                <p class="mb-0">Already have an account? <a href="{{ url_for('auth.login') }}">Login</a></p>
+<div class="container register-container">
+    <div class="row justify-content-center w-100">
+        <div class="col-lg-5 col-md-7 col-sm-9">
+            <div class="card register-card">
+                <div class="card-header bg-white">
+                    <h3 class="register-title">Create Your Account</h3>
+                    <p class="register-subtitle">Join our community and get started today</p>
+                </div>
+                <div class="card-body p-4">
+                    <form method="POST" action="{{ url_for('auth.register') }}">
+                        <!-- Username Input -->
+                        <div class="mb-4">
+                            <label for="username" class="form-label">Username</label>
+                            <div class="input-group">
+                                <span class="input-group-text border-end-0">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                                <input type="text" class="form-control" id="username" name="username" 
+                                       placeholder="Choose a unique username" required>
+                            </div>
+                            <div class="form-text">Username must be unique and at least 3 characters.</div>
+                        </div>
+                        
+                        <!-- Email Input -->
+                        <div class="mb-4">
+                            <label for="email" class="form-label">Email Address</label>
+                            <div class="input-group">
+                                <span class="input-group-text border-end-0">
+                                    <i class="fas fa-envelope"></i>
+                                </span>
+                                <input type="email" class="form-control" id="email" name="email" 
+                                       placeholder="Enter your email address" required>
+                            </div>
+                            <div class="form-text">We'll never share your email with anyone else.</div>
+                        </div>
+                        
+                        <!-- Password Input -->
+                        <div class="mb-4">
+                            <label for="password" class="form-label">Password</label>
+                            <div class="input-group">
+                                <span class="input-group-text border-end-0">
+                                    <i class="fas fa-lock"></i>
+                                </span>
+                                <input type="password" class="form-control password-input" 
+                                       id="password" name="password" placeholder="Create a strong password" required>
+                                <button class="btn btn-outline-secondary border-start-0" type="button" id="togglePassword">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="form-text">Password should be at least 8 characters and include letters and numbers.</div>
+                        </div>
+                        
+                        <!-- Terms Checkbox -->
+                        <div class="mb-4 form-check">
+                            <input type="checkbox" class="form-check-input" id="terms" name="terms" required>
+                            <label class="form-check-label" for="terms">I agree to the <a href="{{ url_for('auth.terms') }}" class="login-link">Terms of Service</a> and <a href="{{ url_for('auth.privacy') }}" class="login-link">Privacy Policy</a></label>
+                        </div>
+                        
+                        <!-- Register Button -->
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary register-btn">Create Account</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer bg-white text-center p-4">
+                    <p class="mb-0">Already have an account? <a href="{{ url_for('auth.login') }}" class="login-link">Log In</a></p>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+document.getElementById('togglePassword').addEventListener('click', function() {
+    const passwordInput = document.getElementById('password');
+    const icon = this.querySelector('i');
+    
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        icon.classList.remove('fa-eye');
+        icon.classList.add('fa-eye-slash');
+    } else {
+        passwordInput.type = 'password';
+        icon.classList.remove('fa-eye-slash');
+        icon.classList.add('fa-eye');
+    }
+});
+</script>
 {% endblock %}

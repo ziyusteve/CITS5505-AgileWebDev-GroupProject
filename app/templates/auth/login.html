@@ -1,33 +1,156 @@
 {% extends "base.html" %}
+{% block title %} - User Login{% endblock %}
 
-{% block title %} - Login{% endblock %}
+{% block styles %}
+{{ super() }}
+<style>
+.login-container {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+}
+.login-card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+.login-card:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+}
+.card-header {
+    border-bottom: none;
+    padding: 25px 30px 0px;
+}
+.login-title {
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 5px;
+}
+.login-subtitle {
+    color: #777;
+    font-size: 0.9rem;
+}
+.form-control {
+    border-radius: 10px;
+    padding: 12px 15px;
+    border: 1px solid #e0e0e0;
+    transition: all 0.3s;
+}
+.form-control:focus {
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.15);
+    border-color: #0d6efd;
+}
+.input-group-text {
+    background-color: transparent;
+    border-right: none;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.password-input {
+    border-left: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.login-btn {
+    border-radius: 10px;
+    padding: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+}
+.login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(13, 110, 253, 0.3);
+}
+.register-link {
+    color: #0d6efd;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+.register-link:hover {
+    color: #0a58ca;
+    text-decoration: underline;
+}
+.forgot-password {
+    font-size: 0.9rem;
+    text-align: right;
+    margin-top: 5px;
+}
+</style>
+{% endblock %}
 
 {% block content %}
-<div class="row justify-content-center">
-    <div class="col-md-6">
-        <div class="card shadow">
-            <div class="card-header bg-primary text-white">
-                <h4 class="mb-0"><i class="fas fa-sign-in-alt me-2"></i>Login</h4>
+<div class="container login-container">
+<div class="row justify-content-center w-100">
+    <div class="col-lg-5 col-md-7 col-sm-9">
+        <div class="card login-card">
+            <div class="card-header bg-white">
+                <h3 class="login-title">Welcome Back</h3>
+                <p class="login-subtitle">Please log in to your account to continue</p>
             </div>
-            <div class="card-body">
+            <div class="card-body p-4">
                 <form method="POST" action="{{ url_for('auth.login') }}">
-                    <div class="mb-3">
+                    <!-- Username Input -->
+                    <div class="mb-4">
                         <label for="username" class="form-label">Username</label>
-                        <input type="text" class="form-control" id="username" name="username" required>
+                        <input type="text" class="form-control" id="username" name="username" 
+                                placeholder="Enter your username" required>
                     </div>
+                    
+                    <!-- Password Input -->
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" required>
+                        <div class="input-group">
+                            <span class="input-group-text border-end-0">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                            <input type="password" class="form-control password-input" 
+                                    id="password" name="password" placeholder="Enter your password" required>
+                            <button class="btn btn-outline-secondary border-start-0" type="button" id="togglePassword">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
                     </div>
+                    
+                    <!-- "Remember Me" Option -->
+                    <div class="mb-4 form-check">
+                        <input type="checkbox" class="form-check-input" id="remember" name="remember">
+                        <label class="form-check-label" for="remember">Remember Me</label>
+                    </div>
+                    
+                    <!-- Login Button -->
                     <div class="d-grid">
-                        <button type="submit" class="btn btn-primary">Login</button>
+                        <button type="submit" class="btn btn-primary login-btn">Log In</button>
                     </div>
                 </form>
             </div>
-            <div class="card-footer text-center">
-                <p class="mb-0">Don't have an account? <a href="{{ url_for('auth.register') }}">Register</a></p>
+            <div class="card-footer bg-white text-center p-4">
+                <p class="mb-0">Don't have an account? <a href="{{ url_for('auth.register') }}" class="register-link">Register Now</a></p>
             </div>
         </div>
     </div>
 </div>
+</div>
+
+<script>
+document.getElementById('togglePassword').addEventListener('click', function() {
+    const passwordInput = document.getElementById('password');
+    const icon = this.querySelector('i');
+    
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        icon.classList.remove('fa-eye');
+        icon.classList.add('fa-eye-slash');
+    } else {
+        passwordInput.type = 'password';
+        icon.classList.remove('fa-eye-slash');
+        icon.classList.add('fa-eye');
+    }
+});
+</script>
 {% endblock %}
