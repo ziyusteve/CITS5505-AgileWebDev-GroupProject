@@ -58,3 +58,12 @@ def logout():
     session.clear()
     flash('You have been logged out.', 'info')
     return redirect(url_for('main.index'))
+
+
+@bp.route('/terms')
+def terms():
+    return render_template('auth/terms.html')
+
+@bp.route('/privacy')
+def privacy():
+    return render_template('auth/privacy.html')
