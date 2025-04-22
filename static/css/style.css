@@ -10,9 +10,8 @@ body {
 
 /* Header and Navigation - Gemini Theme */
 .navbar {
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    background: #ffffff !important; /* White background */
-    border-bottom: 1px solid #dee2e6; /* Subtle border */
+    background: linear-gradient(90deg, #4285F4, #8E24AA); /* Vibrant navbar gradient */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-brand {
@@ -80,15 +79,13 @@ body {
 }
 
 .btn-primary {
-    background: #4285F4; /* Google Blue */
+    background: linear-gradient(90deg, #4285F4, #8E24AA); /* Gemini-inspired gradient */
     border: none;
     color: white;
 }
 
 .btn-primary:hover {
-    background: #1a73e8; /* Darker Google Blue */
-    border: none;
-    color: white;
+    background: linear-gradient(90deg, #5C6BC0, #D81B60); /* Slightly darker gradient */
 }
 
 .btn-success {
