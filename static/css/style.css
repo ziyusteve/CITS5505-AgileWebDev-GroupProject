@@ -175,6 +175,10 @@ body {
     color: #FDB927 !important;
 }
 
+.theme-purple {
+    color: #552583 !important;
+}
+
 .basketball-icon::before {
     content: '';
     position: absolute;
@@ -395,7 +399,7 @@ footer a:hover {
     text-decoration: underline;
 }
 
-.lakers-rating-pill {
+.theme-rating-pill {
     background: linear-gradient(135deg, rgba(85, 37, 131, 0.05), rgba(253, 185, 39, 0.05));
     border-radius: 50rem;
     padding: 0.5rem 1rem;
@@ -404,7 +408,7 @@ footer a:hover {
     transition: all 0.3s ease;
 }
 
-.lakers-rating-pill:hover {
+.theme-rating-pill:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(85, 37, 131, 0.15);
     border-color: rgba(253, 185, 39, 0.3);
