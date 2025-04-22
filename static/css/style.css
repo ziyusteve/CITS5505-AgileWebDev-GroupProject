@@ -360,7 +360,7 @@ body {
     to { opacity: 1; }
 }
 
-/* Lakers animated basketball */
+/* Animated basketball */
 .animated-bounce {
     animation: bounce 2s infinite;
 }
@@ -379,7 +379,7 @@ body {
     box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.075);
 }
 
-/* Lakers Themed Footer */
+/* Basketball Themed Footer */
 footer {
     margin-top: 2rem;
     font-size: 0.9rem;
@@ -414,10 +414,9 @@ footer a:hover {
     border-color: rgba(253, 185, 39, 0.3);
 }
 
-.lakers-purple {
-    color: #552583;
-}
+/* Remove .lakers-purple as it's been replaced by .theme-purple */
 
+/* Legacy class mappings - can be removed after HTML updates are complete */
 .skill-icon-lakers-purple {
     background-color: #552583;
 }
