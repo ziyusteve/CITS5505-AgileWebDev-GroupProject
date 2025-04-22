@@ -5,7 +5,24 @@ body {
     font-family: 'Google Sans', 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Using Google Sans or similar */
     color: #3c4043; /* Dark Gray for text */
     background-color: #f8f9fa; /* Light gray background */
-    /* Removed the subtle pattern background */
+    line-height: 1.6; /* Improve readability */
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Google Sans', 'Roboto', sans-serif; /* Ensure headings use Google Sans */
+    font-weight: 500; /* Medium weight for headings */
+    margin-bottom: 1rem; /* Consistent bottom margin */
+}
+
+h1 { font-size: 2.25rem; }
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.5rem; }
+
+/* Container */
+.container, .container-fluid {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
 }
 
 /* Header and Navigation - Gemini Theme */
@@ -28,7 +45,7 @@ body {
     border: 1px solid #dadce0; /* Standard Google border */
     border-radius: 8px; /* Consistent 8px radius */
     box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15); /* Subtle shadow */
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem; /* Increased spacing between cards */
     transition: transform 0.4s ease, box-shadow 0.4s ease;
     overflow: hidden;
     background: #fff;
@@ -59,7 +76,11 @@ body {
     background: #f8f9fa; /* Consistent light gray */
     color: #3c4043;
     border-bottom: 1px solid #dadce0; /* Standard border */
-    padding: 1rem 1.25rem;
+    padding: 0.8rem 1.25rem; /* Slightly adjusted padding */
+}
+
+.card-body {
+    padding: 1.5rem; /* Consistent padding within card body */
 }
 
 /* Buttons - Gemini Theme */
@@ -128,6 +149,7 @@ body {
     border-radius: 8px; /* Consistent radius */
     padding: 0.75rem 1rem;
     transition: all 0.2s ease-in-out; /* Faster transition */
+    font-size: 0.95rem; /* Slightly larger form text */
 }
 
 .form-control:focus {
@@ -178,8 +200,8 @@ body {
 /* Section titles with Gemini theme */
 .section-title {
     position: relative;
-    padding-bottom: 15px;
-    margin-bottom: 30px;
+    padding-bottom: 10px; /* Adjusted padding */
+    margin-bottom: 2rem; /* Increased spacing below section titles */
     text-transform: none; /* Normal case */
     font-weight: 500; /* Medium weight */
     letter-spacing: 0;
@@ -343,6 +365,7 @@ footer {
     background: linear-gradient(90deg, #8E24AA, #FF7043); /* Gemini-inspired footer gradient */
     color: white;
     padding: 2.5rem 0; /* Increased padding for better spacing */
+    margin-top: 4rem; /* More space above footer */
     border-top: none; /* Removed border for cleaner look */
 }
 
