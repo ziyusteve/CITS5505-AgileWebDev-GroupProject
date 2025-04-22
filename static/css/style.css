@@ -339,21 +339,19 @@ body {
 
 /* Gemini Themed Footer */
 footer {
-    margin-top: 3rem; /* More spacing */
-    font-size: 0.9rem;
-    background: #f8f9fa; /* Light gray background */
-    color: #5f6368; /* Medium gray text */
-    padding: 2rem 0;
-    border-top: 1px solid #dee2e6; /* Subtle border */
+    background: linear-gradient(90deg, #8E24AA, #FF7043); /* Gemini-inspired footer gradient */
+    color: white;
+    padding: 2.5rem 0; /* Increased padding for better spacing */
+    border-top: none; /* Removed border for cleaner look */
 }
 
 footer a {
-    color: #4285F4; /* Google Blue for links */
+    color: #FFEB3B; /* Bright yellow for links */
     text-decoration: none;
 }
 
 footer a:hover {
-    color: #1a73e8; /* Darker blue on hover */
+    color: #FFC107; /* Slightly darker yellow on hover */
     text-decoration: underline;
 }
 
