@@ -6,13 +6,13 @@
 <div class="row justify-content-center">
     <div class="col-md-8">
         <div class="card shadow">
-            <div class="card-header bg-primary text-white">
+            <div class="card-header">
                 <h4 class="mb-0"><i class="fas fa-upload me-2"></i>Upload Dataset</h4>
             </div>
             <div class="card-body">
                 <form method="POST" action="{{ url_for('datasets.upload') }}" enctype="multipart/form-data">
                     <div class="mb-3">
-                        <label for="title" class="form-label">Dataset Title</label>
+                        <label for="title" class="form-label">Player Name</label>
                         <input type="text" class="form-control" id="title" name="title" required>
                     </div>
                     <div class="mb-3">
@@ -20,9 +20,13 @@
                         <textarea class="form-control" id="description" name="description" rows="3"></textarea>
                     </div>
                     <div class="mb-3">
+                        <label for="player_description" class="form-label">Player Description</label>
+                        <textarea class="form-control" id="player_description" name="player_description" rows="4" placeholder="Describe the player (e.g., position, skills, stats)..."></textarea>
+                    </div>
+                    <div class="mb-3">
                         <label for="file" class="form-label">Data File</label>
                         <input class="form-control" type="file" id="file" name="file" required>
-                        <div id="fileHelp" class="form-text">Supported formats: CSV, TXT, Excel, JSON</div>
+                        <div id="fileHelp" class="form-text">Supported formats: TXT</div>
                     </div>
                     <div class="d-grid">
                         <button type="submit" class="btn btn-primary">Upload Dataset</button>
