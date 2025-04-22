@@ -137,10 +137,31 @@ h3 { font-size: 1.5rem; }
 /* Tables */
 .table {
     color: #333;
+    border-collapse: separate; /* Allows for border-radius on cells/rows */
+    border-spacing: 0;
+    width: 100%;
+}
+
+.table th,
+.table td {
+    padding: 0.9rem 1rem; /* Adjusted padding */
+    vertical-align: middle;
+    border-top: 1px solid #e0e0e0; /* Lighter border */
+}
+
+.table thead th {
+    border-top: none;
+    border-bottom: 2px solid #bdbdbd; /* Stronger header border */
+    font-weight: 500;
+    color: #5f6368;
+}
+
+.table-hover tbody tr {
+    transition: background-color 0.2s ease; /* Smooth transition */
 }
 
 .table-hover tbody tr:hover {
-    background-color: rgba(66, 133, 244, 0.05); /* Light blue hover */
+    background-color: #f5f5f5; /* Slightly darker gray hover */
 }
 
 /* Gemini themed forms */
@@ -277,32 +298,23 @@ h3 { font-size: 1.5rem; }
 
 /* Tech-themed progress bars - Gemini Style */
 .tech-progress {
-    height: 8px;
-    border-radius: 4px;
+    height: 6px; /* Slightly thinner */
+    border-radius: 3px;
     background-color: #e8eaed; /* Lighter gray background */
     margin-bottom: 1rem;
 }
 
 .tech-progress-bar {
     height: 100%;
-    border-radius: 4px;
+    border-radius: 3px;
     /* Using the multi-color gradient */
     background: linear-gradient(90deg, #4285F4, #8E24AA, #FF7043, #F4B400); /* Match card gradient */
     position: relative;
-    transition: width 1s ease;
+    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1); /* Smoother transition */
 }
 
 .tech-progress-bar::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    top: -4px;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background: #4285F4; /* Blue indicator */
-    border: 2px solid white;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    content: none; /* Remove the circular indicator */
 }
 
 /* Skill icons - General Style */
