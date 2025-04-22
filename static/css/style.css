@@ -1,30 +1,32 @@
-/* Custom CSS for Basketball Player Analytics Platform */
+/* Custom CSS for Data Analytics Platform - Gemini Theme */
 
 /* General Styling */
 body {
-    font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #333;
-    background-color: #f8f9fa;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23FDB927' fill-opacity='0.05'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    font-family: 'Google Sans', 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Using Google Sans or similar */
+    color: #3c4043; /* Dark Gray for text */
+    background-color: #f8f9fa; /* Light gray background */
+    /* Removed the subtle pattern background */
 }
 
-/* Header and Navigation - Basketball Theme */
+/* Header and Navigation - Gemini Theme */
 .navbar {
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    background: linear-gradient(45deg, #552583, #4a206f) !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background: #ffffff !important; /* White background */
+    border-bottom: 1px solid #dee2e6; /* Subtle border */
 }
 
 .navbar-brand {
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: #FDB927 !important;
+    font-weight: 500; /* Medium weight */
+    text-transform: none; /* Normal case */
+    letter-spacing: 0; /* Normal spacing */
+    color: #4285F4 !important; /* Google Blue */
+    font-size: 1.25rem;
 }
 
 /* Cards */
 .card {
     border: none;
-    border-radius: 1rem;
+    border-radius: 0.75rem; /* Slightly smaller radius */
     box-shadow: 0 5px 15px rgba(0,0,0,0.08);
     margin-bottom: 1.5rem;
     transition: transform 0.4s ease, box-shadow 0.4s ease;
@@ -39,8 +41,9 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 5px;
-    background: linear-gradient(90deg, #552583, #FDB927);
+    height: 4px; /* Slightly thinner */
+    /* Using a multi-color gradient inspired by Gemini */
+    background: linear-gradient(90deg, #4285F4, #8E24AA, #FF7043, #F4B400); /* More vibrant gradient */
 }
 
 .card:hover {
@@ -50,68 +53,66 @@ body {
 
 .card-header {
     border-radius: 0 !important;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    background: #f8f9fa;
+    font-weight: 500; /* Medium weight */
+    text-transform: none; /* Normal case */
+    letter-spacing: 0;
+    background: #f8f9fa; /* Consistent light gray */
+    color: #3c4043;
     border-bottom: 1px solid rgba(0,0,0,0.05);
     padding: 1rem 1.25rem;
 }
 
-/* Card with basketball theme */
-.card-basketball {
-    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 0C4.5 0 0 4.5 0 10s4.5 10 10 10 10-4.5 10-10S15.5 0 10 0zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z' fill='%23FDB927' fill-opacity='0.1'/%3E%3C/svg%3E");
-}
-
-/* Buttons */
+/* Buttons - Gemini Theme */
 .btn {
-    border-radius: 30px;
-    padding: 0.5rem 1.5rem;
-    text-transform: uppercase;
-    font-weight: 600;
+    border-radius: 8px; /* Less rounded */
+    padding: 0.6rem 1.2rem; /* Adjusted padding */
+    text-transform: none; /* Normal case */
+    font-weight: 500; /* Medium weight */
     font-size: 0.9rem;
-    letter-spacing: 0.5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    letter-spacing: 0.2px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1); /* Subtle shadow */
     transition: all 0.3s ease;
 }
 
 .btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transform: translateY(-1px); /* Less pronounced hover effect */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
 }
 
 .btn-primary {
-    background: linear-gradient(45deg, #552583, #4a206f);
+    background: #4285F4; /* Google Blue */
     border: none;
+    color: white;
 }
 
 .btn-primary:hover {
-    background: linear-gradient(45deg, #4a206f, #3e1a5e);
+    background: #1a73e8; /* Darker Google Blue */
     border: none;
+    color: white;
 }
 
 .btn-success {
-    background: linear-gradient(45deg, #FDB927, #ffca65);
+    background: #34A853; /* Google Green */
     border: none;
-    color: #333;
+    color: white;
 }
 
 .btn-success:hover {
-    background: linear-gradient(45deg, #f5b01c, #FDB927);
+    background: #1e8e3e; /* Darker Google Green */
     border: none;
-    color: #333;
+    color: white;
 }
 
 .btn-info {
-    background: linear-gradient(45deg, #3498db, #2980b9);
+    background: #F2A600; /* Google Yellow/Gold */
     border: none;
-    color: white;
+    color: #3c4043; /* Dark text for better contrast */
 }
 
 .btn-info:hover {
-    background: linear-gradient(45deg, #2980b9, #1c6392);
+    background: #fbbc04; /* Slightly different shade */
     border: none;
-    color: white;
+    color: #3c4043;
 }
 
 /* Tables */
@@ -120,25 +121,25 @@ body {
 }
 
 .table-hover tbody tr:hover {
-    background-color: rgba(67, 97, 238, 0.05);
+    background-color: rgba(66, 133, 244, 0.05); /* Light blue hover */
 }
 
-/* Basketball themed forms */
+/* Gemini themed forms */
 .form-control {
-    border: 1px solid rgba(85, 37, 131, 0.2);
-    border-radius: 8px;
+    border: 1px solid #dadce0; /* Google's standard input border color */
+    border-radius: 8px; /* Consistent radius */
     padding: 0.75rem 1rem;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease-in-out; /* Faster transition */
 }
 
 .form-control:focus {
-    border-color: #552583;
-    box-shadow: 0 0 0 3px rgba(253, 185, 39, 0.2);
+    border-color: #4285F4; /* Google Blue focus */
+    box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.2); /* Subtle blue glow */
     outline: none;
 }
 
 .form-control:hover {
-    border-color: rgba(85, 37, 131, 0.4);
+    border-color: #bdbdbd; /* Slightly darker border on hover */
 }
 
 /* Dashboard */
@@ -159,54 +160,32 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Basketball themed elements */
-.basketball-icon {
-    display: inline-block;
-    width: 18px;
-    height: 18px;
-    background-color: #FDB927;
-    border-radius: 50%;
-    position: relative;
-    margin-right: 8px;
-    box-shadow: inset 0 -2px 5px rgba(0,0,0,0.2);
+/* Theme utility classes - Renamed */
+.theme-accent-gold {
+    color: #F2A600 !important;
 }
 
-.theme-gold {
-    color: #FDB927 !important;
+.theme-accent-purple {
+    color: #9B72CB !important;
 }
 
-.theme-purple {
-    color: #552583 !important;
+.theme-accent-blue {
+    color: #4285F4 !important;
 }
 
-.basketball-icon::before {
-    content: '';
-    position: absolute;
-    top: 2px;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background-color: rgba(0,0,0,0.3);
+.theme-accent-red {
+    color: #D96570 !important;
 }
 
-.basketball-icon::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 8px;
-    width: 1px;
-    background-color: rgba(0,0,0,0.3);
-}
-
-/* Section titles with basketball theme */
+/* Section titles with Gemini theme */
 .section-title {
     position: relative;
     padding-bottom: 15px;
     margin-bottom: 30px;
-    text-transform: uppercase;
-    font-weight: 700;
-    letter-spacing: 1px;
+    text-transform: none; /* Normal case */
+    font-weight: 500; /* Medium weight */
+    letter-spacing: 0;
+    color: #3c4043;
 }
 
 .section-title::after {
@@ -216,7 +195,8 @@ body {
     left: 0;
     width: 50px;
     height: 3px;
-    background: linear-gradient(90deg, #552583, #FDB927);
+    /* Using the multi-color gradient */
+    background: linear-gradient(90deg, #4285F4, #8E24AA, #FF7043, #F4B400); /* Match card gradient */
 }
 
 /* Player stats */
@@ -235,14 +215,15 @@ body {
 }
 
 @keyframes theme-pulse {
-    0% { box-shadow: 0 15px 30px rgba(85, 37, 131, 0.15); }
-    50% { box-shadow: 0 15px 30px rgba(253, 185, 39, 0.25); }
-    100% { box-shadow: 0 15px 30px rgba(85, 37, 131, 0.15); }
+    0% { box-shadow: 0 10px 20px rgba(66, 133, 244, 0.1); }
+    50% { box-shadow: 0 10px 20px rgba(155, 114, 203, 0.15); }
+    100% { box-shadow: 0 10px 20px rgba(66, 133, 244, 0.1); }
 }
 
 .player-stat-header {
-    background: linear-gradient(45deg, #552583, #4a206f);
-    color: #FDB927;
+    /* Using a subtle gradient or solid color */
+    background: linear-gradient(45deg, #4285F4, #5c9dff); /* Blue gradient */
+    color: white;
     padding: 20px;
     text-align: center;
 }
@@ -252,13 +233,13 @@ body {
     background-color: white;
 }
 
-/* NBA style stats container */
+/* Gemini style stats container */
 .radar-chart-container {
-    background: linear-gradient(135deg, rgba(85, 37, 131, 0.03), rgba(253, 185, 39, 0.03));
+    background: #ffffff; /* White background */
     border-radius: 15px;
     padding: 25px;
-    box-shadow: 0 8px 20px rgba(85, 37, 131, 0.08);
-    border: 1px solid rgba(253, 185, 39, 0.1);
+    box-shadow: 0 4px 12px rgba(60, 64, 67, 0.1); /* Subtle shadow */
+    border: 1px solid #dadce0; /* Standard border */
     position: relative;
     overflow: hidden;
 }
@@ -270,21 +251,23 @@ body {
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, #552583, #FDB927);
+    /* Using the multi-color gradient */
+    background: linear-gradient(90deg, #4285F4, #8E24AA, #FF7043, #F4B400); /* Match card gradient */
 }
 
-/* Tech-themed progress bars */
+/* Tech-themed progress bars - Gemini Style */
 .tech-progress {
     height: 8px;
     border-radius: 4px;
-    background-color: #f1f1f1;
+    background-color: #e8eaed; /* Lighter gray background */
     margin-bottom: 1rem;
 }
 
 .tech-progress-bar {
     height: 100%;
     border-radius: 4px;
-    background: linear-gradient(90deg, #552583, #FDB927);
+    /* Using the multi-color gradient */
+    background: linear-gradient(90deg, #4285F4, #8E24AA, #FF7043, #F4B400); /* Match card gradient */
     position: relative;
     transition: width 1s ease;
 }
@@ -297,12 +280,12 @@ body {
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    background: #FDB927;
+    background: #4285F4; /* Blue indicator */
     border: 2px solid white;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
-/* Skill icons */
+/* Skill icons - General Style */
 .skill-icon {
     width: 40px;
     height: 40px;
@@ -313,6 +296,7 @@ body {
     color: white;
 }
 
+/* Remove specific color classes if not needed or adapt */
 .skill-icon-danger {
     background-color: #e74c3c;
 }
@@ -337,39 +321,16 @@ body {
 }
 
 .bg-theme-gradient {
-    background: linear-gradient(135deg, #552583 0%, #552583 50%, #FDB927 100%);
+    /* Using the multi-color gradient */
+    background: linear-gradient(135deg, #4285F4, #8E24AA, #FF7043, #F4B400); /* Enhanced gradient */
     color: white;
     position: relative;
     overflow: hidden;
 }
 
-.bg-lakers-gradient::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0C13.4 0 0 13.4 0 30s13.4 30 30 30 30-13.4 30-30S46.6 0 30 0zm0 54c-13.3 0-24-10.7-24-24s10.7-24 24-24 24 10.7 24 24-10.7 24-24 24z' fill='%23ffffff' fill-opacity='0.05'/%3E%3C/svg%3E");
-    opacity: 0.2;
-    pointer-events: none;
-}
+/* Remove Lakers gradient */
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-/* Animated basketball */
-.animated-bounce {
-    animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-    40% { transform: translateY(-20px); }
-    60% { transform: translateY(-10px); }
-}
+/* ...existing code... */
 
 /* Visualization page */
 .chart-container {
@@ -379,52 +340,45 @@ body {
     box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.075);
 }
 
-/* Basketball Themed Footer */
+/* Gemini Themed Footer */
 footer {
-    margin-top: 2rem;
+    margin-top: 3rem; /* More spacing */
     font-size: 0.9rem;
-    background: linear-gradient(45deg, #552583, #4a206f);
-    color: #FDB927;
+    background: #f8f9fa; /* Light gray background */
+    color: #5f6368; /* Medium gray text */
     padding: 2rem 0;
-    border-top: 5px solid #FDB927;
+    border-top: 1px solid #dee2e6; /* Subtle border */
 }
 
 footer a {
-    color: #FDB927;
+    color: #4285F4; /* Google Blue for links */
     text-decoration: none;
 }
 
 footer a:hover {
-    color: #fff;
+    color: #1a73e8; /* Darker blue on hover */
     text-decoration: underline;
 }
 
+/* Theme rating pill - Adapt or Remove */
 .theme-rating-pill {
-    background: linear-gradient(135deg, rgba(85, 37, 131, 0.05), rgba(253, 185, 39, 0.05));
+    background: rgba(66, 133, 244, 0.08); /* Light blue background */
     border-radius: 50rem;
     padding: 0.5rem 1rem;
-    border: 1px solid rgba(253, 185, 39, 0.2);
-    box-shadow: 0 2px 8px rgba(85, 37, 131, 0.08);
-    transition: all 0.3s ease;
+    border: 1px solid rgba(66, 133, 244, 0.2); /* Subtle blue border */
+    box-shadow: none; /* Remove shadow */
+    transition: all 0.2s ease;
+    color: #4285F4; /* Blue text */
 }
 
 .theme-rating-pill:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(85, 37, 131, 0.15);
-    border-color: rgba(253, 185, 39, 0.3);
+    transform: translateY(-1px);
+    box-shadow: 0 1px 3px rgba(60, 64, 67, 0.1); /* Subtle shadow on hover */
+    border-color: rgba(66, 133, 244, 0.3);
+    background: rgba(66, 133, 244, 0.12);
 }
 
-/* Remove .lakers-purple as it's been replaced by .theme-purple */
-
-/* Legacy class mappings - can be removed after HTML updates are complete */
-.skill-icon-lakers-purple {
-    background-color: #552583;
-}
-
-.skill-icon-lakers-gold {
-    background-color: #FDB927;
-    color: #333;
-}
+/* Remove Legacy class mappings */
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
