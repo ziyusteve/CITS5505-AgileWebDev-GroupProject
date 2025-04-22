@@ -240,37 +240,33 @@ h3 { font-size: 1.5rem; }
     background: linear-gradient(90deg, #4285F4, #8E24AA, #FF7043, #F4B400); /* Match card gradient */
 }
 
-/* Player stats */
+/* Player stats card - Align with standard card styling */
 .player-stat-card {
-    border-radius: 1rem;
+    border: 1px solid #dadce0; /* Standard Google border */
+    border-radius: 8px; /* Consistent 8px radius */
+    box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15); /* Subtle shadow */
     overflow: hidden;
     padding: 0;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-    transition: all 0.3s ease;
+    transition: box-shadow 0.3s ease; /* Only transition shadow */
 }
 
 .player-stat-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-    animation: theme-pulse 1.5s infinite;
-}
-
-@keyframes theme-pulse {
-    0% { box-shadow: 0 10px 20px rgba(66, 133, 244, 0.1); }
-    50% { box-shadow: 0 10px 20px rgba(155, 114, 203, 0.15); }
-    100% { box-shadow: 0 10px 20px rgba(66, 133, 244, 0.1); }
+    transform: none; /* Remove hover transform */
+    box-shadow: 0 1px 3px 0 rgba(60,64,67,.3), 0 4px 8px 3px rgba(60,64,67,.15); /* Slightly larger shadow on hover */
+    animation: none; /* Remove pulse animation */
 }
 
 .player-stat-header {
     /* Using a subtle gradient or solid color */
     background: linear-gradient(45deg, #4285F4, #5c9dff); /* Blue gradient */
     color: white;
-    padding: 20px;
-    text-align: center;
+    padding: 1rem 1.25rem; /* Align padding */
+    text-align: left; /* Align text left */
+    font-weight: 500;
 }
 
 .player-stat-body {
-    padding: 20px;
+    padding: 1.5rem; /* Consistent padding */
     background-color: white;
 }
 
@@ -362,8 +358,6 @@ h3 { font-size: 1.5rem; }
 
 /* Remove Lakers gradient */
 
-/* ...existing code... */
-
 /* Visualization page */
 .chart-container {
     background: #fff;
@@ -391,25 +385,27 @@ footer a:hover {
     text-decoration: underline;
 }
 
-/* Theme rating pill - Adapt or Remove */
+/* Theme rating pill - Style as Google Chip */
 .theme-rating-pill {
-    background: rgba(66, 133, 244, 0.08); /* Light blue background */
-    border-radius: 50rem;
-    padding: 0.5rem 1rem;
-    border: 1px solid rgba(66, 133, 244, 0.2); /* Subtle blue border */
-    box-shadow: none; /* Remove shadow */
-    transition: all 0.2s ease;
-    color: #4285F4; /* Blue text */
+    display: inline-block; /* Make it inline */
+    background-color: #e8f0fe; /* Light blue background (Google Chip style) */
+    border-radius: 16px; /* Pill shape */
+    padding: 0.3rem 0.8rem; /* Chip padding */
+    border: 1px solid transparent; /* No border initially */
+    box-shadow: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    color: #1967d2; /* Darker blue text */
+    font-size: 0.85rem;
+    font-weight: 500;
+    line-height: 1.4;
 }
 
 .theme-rating-pill:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 1px 3px rgba(60, 64, 67, 0.1); /* Subtle shadow on hover */
-    border-color: rgba(66, 133, 244, 0.3);
-    background: rgba(66, 133, 244, 0.12);
+    transform: none; /* No transform */
+    box-shadow: none;
+    background-color: #d2e3fc; /* Slightly darker blue on hover */
+    border-color: transparent;
 }
-
-/* Remove Legacy class mappings */
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
