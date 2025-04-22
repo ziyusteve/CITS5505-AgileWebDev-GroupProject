@@ -8,10 +8,10 @@
             "type": "debugpy",
             "request": "launch",
             "name": "Launch Flask App",
-            "program": "${workspaceFolder}/run.py",
+            "program": "${workspaceFolder}/run_testing.py",
             "args": [],
             "env": {
-                "FLASK_APP": "run.py",
+                "FLASK_APP": "run_testing.py",
                 "FLASK_ENV": "development"
             },
             "jinja": true
