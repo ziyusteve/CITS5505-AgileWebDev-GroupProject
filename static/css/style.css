@@ -11,7 +11,8 @@ body {
 /* Header and Navigation - Gemini Theme */
 .navbar {
     background: linear-gradient(90deg, #4285F4, #8E24AA); /* Vibrant navbar gradient */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15); /* Google-style shadow */
+    border-bottom: none; /* Remove border if shadow is present */
 }
 
 .navbar-brand {
@@ -24,9 +25,9 @@ body {
 
 /* Cards */
 .card {
-    border: none;
-    border-radius: 0.75rem; /* Slightly smaller radius */
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    border: 1px solid #dadce0; /* Standard Google border */
+    border-radius: 8px; /* Consistent 8px radius */
+    box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15); /* Subtle shadow */
     margin-bottom: 1.5rem;
     transition: transform 0.4s ease, box-shadow 0.4s ease;
     overflow: hidden;
@@ -46,8 +47,8 @@ body {
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    transform: none; /* Remove hover transform */
+    box-shadow: 0 1px 3px 0 rgba(60,64,67,.3), 0 4px 8px 3px rgba(60,64,67,.15); /* Slightly larger shadow on hover */
 }
 
 .card-header {
@@ -57,7 +58,7 @@ body {
     letter-spacing: 0;
     background: #f8f9fa; /* Consistent light gray */
     color: #3c4043;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-bottom: 1px solid #dadce0; /* Standard border */
     padding: 1rem 1.25rem;
 }
 
@@ -235,7 +236,7 @@ body {
     background: #ffffff; /* White background */
     border-radius: 15px;
     padding: 25px;
-    box-shadow: 0 4px 12px rgba(60, 64, 67, 0.1); /* Subtle shadow */
+    box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15); /* Consistent shadow */
     border: 1px solid #dadce0; /* Standard border */
     position: relative;
     overflow: hidden;
