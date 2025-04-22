@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Analytics Platform {% block title %}{% endblock %}</title>
+    <title>Player Analytics {% block title %}{% endblock %}</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
@@ -18,7 +18,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
-            <a class="navbar-brand" href="{{ url_for('main.index') }}">Data Analytics Platform</a>
+            <a class="navbar-brand" href="{{ url_for('main.index') }}"><i class="fas fa-basketball-ball me-2"></i>Player Analytics</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -75,12 +75,13 @@
         {% endwith %}
         
         {% block content %}{% endblock %}
-    </div>
-
-    <!-- Footer -->
-    <footer class="bg-light py-4 mt-5">
+    </div>    <!-- Basketball Themed Footer -->
+    <footer class="py-4 mt-5">
         <div class="container text-center">
-            <p>&copy; 2025 Data Analytics Platform</p>
+            <div class="mb-3">
+                <i class="fas fa-basketball-ball fa-2x theme-gold"></i>
+            </div>
+            <p>&copy; 2025 Player Analytics | <span class="theme-gold">Basketball Analytics Project</span></p>
         </div>
     </footer>
 
