@@ -1,11 +1,9 @@
-from flask import render_template, redirect, url_for, flash, request, session
+from flask import request, render_template, redirect, flash, session, url_for, current_app
 from werkzeug.utils import secure_filename
+from textblob import TextBlob
 import os
-from app.datasets import bp
-from app.models.dataset import Dataset
-from app.extensions import db
-from app.utils import allowed_file, generate_unique_filename
-from flask import current_app
+from app.models import Dataset  # adjust import based on your structure
+from app.utils import allowed_file, generate_unique_filename  # if custom helpers
 
 @bp.route('/upload', methods=['GET', 'POST'])
 def upload():
@@ -27,7 +25,17 @@ def upload():
         
         title = request.form.get('title')
         description = request.form.get('description', '')
-        
+        player_desc = request.form.get('player_description', '')  # New field
+
+        # Analyze player description
+        if player_desc.strip():
+            blob = TextBlob(player_desc)
+            sentiment = blob.sentiment
+            analysis_result = (
+                f"球员描述情感分析结果：极性 {sentiment.polarity:.2f}，主观性 {sentiment.subjectivity:.2f}"
+            )
+            flash(analysis_result, 'info')
+
         if file and allowed_file(file.filename, current_app.config['ALLOWED_EXTENSIONS']):
             filename = secure_filename(file.filename)
             unique_filename = generate_unique_filename(filename)
