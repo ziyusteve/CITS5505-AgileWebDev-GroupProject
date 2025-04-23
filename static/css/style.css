@@ -585,23 +585,23 @@ footer a:hover {
 /* Theme rating pill - Style as Google Chip */
 .theme-rating-pill {
     display: inline-block;
-    background-color: #e8f0fe;
+    background-color: #252525;
     border-radius: 16px;
     padding: 0.3rem 0.8rem;
-    border: 1px solid transparent;
-    box-shadow: none;
-    transition: background-color 0.2s ease, border-color 0.2s ease;
-    color: #1967d2;
+    border: 1px solid #333;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: all 0.2s ease;
+    color: #FDB927;
     font-size: 0.85rem;
     font-weight: 500;
     line-height: 1.4;
 }
 
 .theme-rating-pill:hover {
-    transform: none;
-    box-shadow: none;
-    background-color: #d2e3fc;
-    border-color: transparent;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+    background-color: #333;
+    border-color: #FDB927;
 }
 
 /* Responsive adjustments */
