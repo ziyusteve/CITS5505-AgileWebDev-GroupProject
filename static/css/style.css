@@ -500,15 +500,18 @@ h3 { font-size: 1.5rem; }
 }
 
 .skill-icon-danger {
-    background-color: #EA4335;
+    background-color: #552583; /* Lakers Purple */
+    box-shadow: 0 2px 8px rgba(85, 37, 131, 0.4);
 }
 
 .skill-icon-primary {
-    background-color: #4285F4;
+    background-color: #FDB927; /* Lakers Gold */
+    box-shadow: 0 2px 8px rgba(253, 185, 39, 0.4);
 }
 
 .skill-icon-success {
-    background-color: #34A853;
+    background-color: #C0C0C0; /* Tech Silver */
+    box-shadow: 0 2px 8px rgba(192, 192, 192, 0.3);
 }
 
 /* Progress bars with specific widths */
