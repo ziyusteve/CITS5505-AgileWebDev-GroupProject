@@ -1,10 +1,24 @@
-/* Custom CSS for Data Analytics Platform - Gemini Theme */
+/* Custom CSS for Data Analytics Platform - Canva-Inspired Theme */
+
+/* Canva Color Palette
+ * Core Brand Colors:
+ * - Canva Turquoise: #00C4CC - Core brand emphasis color
+ * - Canva Blend Blue: #5A32FA - Core brand emphasis color
+ * - Canva Purple: #7D2AE8 - Core brand emphasis color
+ * 
+ * Neutral Colors:
+ * - Black: #0E1318 - Neutral/Text
+ * - Dark Gray: #293039 - Neutral/Text
+ * - Gray: #EDF0F2 - Neutral/Background
+ * - Light Gray: #F8F9F9 - Neutral/Background
+ * - White: #FFFFFF - Main background/Space
+ */
 
 /* General Styling */
 body {
-    font-family: 'Google Sans', 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #3c4043;
-    background-color: #f8f9fa;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #293039;
+    background-color: #FFFFFF;
     line-height: 1.6;
 }
 
@@ -25,28 +39,29 @@ h3 { font-size: 1.5rem; }
     padding-bottom: 1.5rem;
 }
 
-/* Header and Navigation - Gemini Theme */
+/* Header and Navigation - Canva Style */
 .navbar {
-    background: linear-gradient(90deg, #4285F4, #8E24AA);
-    box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
+    background: linear-gradient(135deg, #5A32FA, #7D2AE8); /* Canva's radiant gradient */
+    box-shadow: 0 1px 3px 0 rgba(14,19,24,0.1);
     border-bottom: none;
+    padding: 0.8rem 1rem;
 }
 
 .navbar-brand {
-    font-weight: 500;
+    font-weight: 600;
     text-transform: none;
-    letter-spacing: 0;
-    color: #4285F4 !important;
-    font-size: 1.25rem;
+    letter-spacing: -0.2px;
+    color: #FFFFFF !important;
+    font-size: 1.3rem;
 }
 
-/* Cards */
+/* Cards - Canva Style */
 .card {
-    border: 1px solid #dadce0;
-    border-radius: 8px;
-    box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
+    border: 1px solid #EDF0F2;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(14,19,24,0.06);
     margin-bottom: 2rem;
-    transition: box-shadow 0.3s ease; /* Updated transition */
+    transition: all 0.3s ease;
     overflow: hidden;
     background: #fff;
     position: relative;
@@ -58,84 +73,85 @@ h3 { font-size: 1.5rem; }
     top: 0;
     left: 0;
     width: 100%;
-    height: 4px;
-    background: linear-gradient(90deg, #4285F4, #8E24AA, #FF7043, #F4B400);
+    height: 3px;
+    background: linear-gradient(90deg, #00C4CC, #5A32FA, #7D2AE8); /* Canva brand colors */
 }
 
 .card:hover {
-    transform: none;
-    box-shadow: 0 1px 3px 0 rgba(60,64,67,.3), 0 4px 8px 3px rgba(60,64,67,.15);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(14,19,24,0.08);
 }
 
 .card-header {
     border-radius: 0 !important;
-    font-weight: 500;
+    font-weight: 600;
     text-transform: none;
-    letter-spacing: 0;
-    background: #f8f9fa;
-    color: #3c4043;
-    border-bottom: 1px solid #dadce0;
-    padding: 0.8rem 1.25rem;
+    letter-spacing: -0.2px;
+    background: #FFFFFF;
+    color: #0E1318;
+    border-bottom: 1px solid #EDF0F2;
+    padding: 1rem 1.5rem;
 }
 
 .card-body {
     padding: 1.5rem;
 }
 
-/* Buttons - Gemini Theme */
+/* Buttons - Canva Style */
 .btn {
-    border-radius: 8px;
-    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    padding: 0.7rem 1.4rem;
     text-transform: none;
-    font-weight: 500;
-    font-size: 0.9rem;
-    letter-spacing: 0.2px;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: -0.2px;
+    box-shadow: none;
+    transition: all 0.2s ease;
 }
 
 .btn:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(14,19,24,0.1);
 }
 
 .btn-primary {
-    background: linear-gradient(90deg, #4285F4, #8E24AA);
+    background: linear-gradient(135deg, #5A32FA, #7D2AE8); /* Canva's radiant gradient */
     border: none;
     color: white;
 }
 
 .btn-primary:hover {
-    background: linear-gradient(90deg, #5C6BC0, #D81B60);
+    background: linear-gradient(135deg, #6B44FB, #8E3CF9);
+    color: white;
 }
 
 .btn-success {
-    background: #34A853;
+    background: #00C4CC; /* Canva Turquoise */
     border: none;
     color: white;
 }
 
 .btn-success:hover {
-    background: #1e8e3e;
+    background: #0FDFE8;
     border: none;
     color: white;
 }
 
 .btn-info {
-    background: #F2A600;
+    background: #EDF0F2; /* Canva Gray */
     border: none;
-    color: #3c4043;
+    color: #0E1318;
 }
 
 .btn-info:hover {
-    background: #fbbc04;
+    background: #F8F9F9;
     border: none;
-    color: #3c4043;
+    color: #0E1318;
 }
 
-/* Tables */
+/* Tables - Canva Style */
 .table {
-    color: #333;
+    color: #293039;
     border-collapse: separate;
     border-spacing: 0;
     width: 100%;
@@ -143,16 +159,17 @@ h3 { font-size: 1.5rem; }
 
 .table th,
 .table td {
-    padding: 0.9rem 1rem;
+    padding: 1rem 1.2rem;
     vertical-align: middle;
-    border-top: 1px solid #e0e0e0;
+    border-top: 1px solid #EDF0F2;
 }
 
 .table thead th {
     border-top: none;
-    border-bottom: 2px solid #bdbdbd;
-    font-weight: 500;
-    color: #5f6368;
+    border-bottom: 2px solid #EDF0F2;
+    font-weight: 600;
+    color: #0E1318;
+    letter-spacing: -0.2px;
 }
 
 .table-hover tbody tr {
@@ -160,50 +177,61 @@ h3 { font-size: 1.5rem; }
 }
 
 .table-hover tbody tr:hover {
-    background-color: #f5f5f5;
+    background-color: #F8F9F9;
 }
 
-/* Gemini themed forms */
+/* Canva themed forms */
 .form-control {
-    border: 1px solid #dadce0;
-    border-radius: 8px;
-    padding: 0.75rem 1rem;
+    border: 1px solid #EDF0F2;
+    border-radius: 6px;
+    padding: 0.85rem 1.1rem;
     transition: all 0.2s ease-in-out;
     font-size: 0.95rem;
+    background-color: #FFFFFF;
+    color: #293039;
 }
 
 .form-control:focus {
-    border-color: #4285F4;
-    box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.2);
+    border-color: #5A32FA;
+    box-shadow: 0 0 0 3px rgba(90, 50, 250, 0.15);
     outline: none;
 }
 
 .form-control:hover {
-    border-color: #bdbdbd;
+    border-color: #7D2AE8;
 }
 
-/* Dashboard Stat Blocks - Align with Card Styling */
+/* Dashboard Stat Blocks - Canva Style */
 .dashboard-stat {
-    border: 1px solid #dadce0;
-    border-radius: 8px;
-    box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
+    border: 1px solid #EDF0F2;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(14,19,24,0.06);
+    padding: 1.8rem;
+    margin-bottom: 1.8rem;
     background-color: #fff;
-    color: #3c4043;
+    color: #293039;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.dashboard-stat:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(14,19,24,0.08);
 }
 
 .dashboard-stat.bg-primary {
-    background: linear-gradient(45deg, #4285F4, #5c9dff);
+    background: linear-gradient(135deg, #5A32FA, #7D2AE8); /* Canva's radiant gradient */
     color: white;
 }
 .dashboard-stat.bg-success {
-    background: linear-gradient(45deg, #34A853, #57bb6a);
+    background: linear-gradient(135deg, #00C4CC, #02D7E0); /* Canva Turquoise gradient */
     color: white;
 }
 .dashboard-stat.bg-info {
-    background: linear-gradient(45deg, #F2A600, #fbbc04);
-    color: #3c4043;
+    background: #F8F9F9; /* Canva Light Gray */
+    color: #0E1318;
+    border: 1px solid #EDF0F2;
 }
 
 /* Custom animations */
@@ -373,32 +401,55 @@ h3 { font-size: 1.5rem; }
     overflow: hidden;
 }
 
-/* Visualization page - Align Chart Container with Card Styling */
+/* Visualization page - Canva Style Chart Container */
 .chart-container {
-    background: #fff;
-    border: 1px solid #dadce0;
-    border-radius: 8px;
-    padding: 1.5rem;
-    box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
+    background: #FFFFFF;
+    border: 1px solid #EDF0F2;
+    border-radius: 12px;
+    padding: 1.8rem;
+    box-shadow: 0 2px 8px rgba(14,19,24,0.06);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
-/* Gemini Themed Footer */
+.chart-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #00C4CC, #5A32FA, #7D2AE8); /* Canva brand colors */
+}
+
+.chart-container:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(14,19,24,0.08);
+}
+
+/* Canva Style Footer */
 footer {
-    background: linear-gradient(90deg, #8E24AA, #FF7043);
+    background: linear-gradient(135deg, #5A32FA, #7D2AE8); /* Canva's radiant gradient */
     color: white;
-    padding: 2.5rem 0;
-    margin-top: 4rem;
+    padding: 3rem 0;
+    margin-top: 5rem;
     border-top: none;
 }
 
 footer a {
-    color: #FFEB3B;
+    color: #FFFFFF;
     text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 2px;
+    transition: all 0.2s ease;
 }
 
 footer a:hover {
-    color: #FFC107;
-    text-decoration: underline;
+    color: #FFFFFF;
+    border-bottom-color: #00C4CC; /* Canva Turquoise */
+    text-decoration: none;
 }
 
 /* Theme rating pill - Style as Google Chip */
