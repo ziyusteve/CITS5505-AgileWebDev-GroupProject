@@ -523,7 +523,7 @@ h3 { font-size: 1.5rem; }
 }
 
 .bg-theme-gradient {
-    background: linear-gradient(135deg, #4285F4, #8E24AA, #FF7043, #F4B400);
+    background: linear-gradient(135deg, #111111, #552583, #FDB927);
     color: white;
     position: relative;
     overflow: hidden;
