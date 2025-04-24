@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="500" height="500" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 篮球场线条 -->
+  <rect x="10" y="10" width="480" height="480" stroke="#293039" stroke-width="2"/>
+  <circle cx="250" cy="250" r="60" stroke="#293039" stroke-width="2" fill="none"/>
+  <line x1="10" y1="250" x2="490" y2="250" stroke="#293039" stroke-width="2"/>
+  <circle cx="250" cy="250" r="10" stroke="#293039" stroke-width="2" fill="none"/>
+  
+  <!-- 三分线 -->
+  <path d="M 170 10 A 150 150 0 0 1 330 10" stroke="#293039" stroke-width="2" fill="none"/>
+  <path d="M 170 490 A 150 150 0 0 0 330 490" stroke="#293039" stroke-width="2" fill="none"/>
+  
+  <!-- 篮球场边线元素 -->
+  <rect x="220" y="10" width="60" height="30" stroke="#293039" stroke-width="2" fill="none"/>
+  <rect x="220" y="460" width="60" height="30" stroke="#293039" stroke-width="2" fill="none"/>
+</svg>
