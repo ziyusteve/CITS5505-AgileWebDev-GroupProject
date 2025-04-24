@@ -1,0 +1,148 @@
+/* 
+ * Compatibility Fixes for Lakers Tech Theme
+ * This file contains style overrides to ensure consistent styling across all pages
+ */
+
+/* Override Bootstrap's default navbar */
+.navbar.bg-primary {
+    background: linear-gradient(135deg, #111111, #252525, #111111) !important;
+    border-bottom: 1px solid #FDB927 !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5) !important;
+}
+
+/* Ensure text is visible on dark backgrounds */
+.text-dark, 
+.text-muted,
+.text-body,
+label {
+    color: #EFEFEF !important;
+}
+
+/* Fix background colors on various components */
+.bg-light, 
+.bg-white {
+    background-color: #1a1a1a !important;
+    color: #EFEFEF !important;
+}
+
+/* Fix Bootstrap's alert components */
+.alert-primary {
+    background-color: #552583 !important;
+    color: white !important;
+    border-color: #7D3AC1 !important;
+}
+
+.alert-success {
+    background-color: #1a1a1a !important; 
+    color: #FDB927 !important;
+    border-color: #FDB927 !important;
+}
+
+.alert-danger {
+    background-color: #1a1a1a !important;
+    color: #D96570 !important;
+    border-color: #D96570 !important;
+}
+
+/* Fix input group addons */
+.input-group-text {
+    background-color: #252525 !important;
+    color: #EFEFEF !important;
+    border-color: #333 !important;
+}
+
+/* Fix list groups */
+.list-group-item {
+    background-color: #1a1a1a !important;
+    color: #EFEFEF !important;
+    border-color: #333 !important;
+}
+
+.list-group-item-action:hover {
+    background-color: #252525 !important;
+}
+
+/* Fix badges */
+.badge.bg-primary {
+    background-color: #552583 !important;
+}
+
+.badge.bg-success {
+    background-color: #FDB927 !important;
+    color: #111111 !important;
+}
+
+.badge.bg-info {
+    background-color: #C0C0C0 !important;
+    color: #111111 !important;
+}
+
+/* Fix disabled inputs and buttons */
+.form-control:disabled,
+.form-control[readonly],
+.btn:disabled {
+    background-color: #252525 !important;
+    color: #777 !important;
+}
+
+/* Fix dropdowns */
+.dropdown-menu {
+    background-color: #1a1a1a !important;
+    border-color: #333 !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3) !important;
+}
+
+.dropdown-item {
+    color: #EFEFEF !important;
+}
+
+.dropdown-item:hover {
+    background-color: #252525 !important;
+    color: #FDB927 !important;
+}
+
+/* Fix modals */
+.modal-content {
+    background-color: #1a1a1a !important;
+    border-color: #333 !important;
+}
+
+.modal-header {
+    border-bottom-color: #333 !important;
+}
+
+.modal-footer {
+    border-top-color: #333 !important;
+}
+
+/* Fix pagination */
+.page-item.active .page-link {
+    background-color: #552583 !important;
+    border-color: #552583 !important;
+}
+
+.page-link {
+    background-color: #1a1a1a !important;
+    color: #EFEFEF !important;
+    border-color: #333 !important;
+}
+
+.page-link:hover {
+    background-color: #252525 !important;
+    color: #FDB927 !important;
+}
+
+/* Fix tabs */
+.nav-tabs {
+    border-bottom-color: #333 !important;
+}
+
+.nav-tabs .nav-link.active {
+    background-color: #1a1a1a !important;
+    color: #FDB927 !important;
+    border-color: #333 #333 #1a1a1a !important;
+}
+
+.nav-tabs .nav-link:hover {
+    border-color: #333 #333 #333 !important;
+}

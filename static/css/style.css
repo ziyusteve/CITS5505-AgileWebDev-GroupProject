@@ -1,10 +1,24 @@
-/* Custom CSS for Data Analytics Platform - Gemini Theme */
+/* Custom CSS for NBA Analytics Platform - Lakers-Inspired Tech Theme */
+
+/* Lakers Tech Color Palette
+ * Core Brand Colors:
+ * - Lakers Gold: #FDB927 - Lakers signature gold
+ * - Lakers Purple: #552583 - Lakers signature purple
+ * - Tech Silver: #C0C0C0 - Metallic silver for tech feel
+ * 
+ * Neutral Colors:
+ * - Tech Black: #111111 - Deep black for backgrounds
+ * - Dark Gray: #252525 - Secondary dark tone
+ * - Medium Gray: #555555 - Neutral/Text
+ * - Light Silver: #EFEFEF - Light accent/Background
+ * - White: #FFFFFF - Text and highlights
+ */
 
 /* General Styling */
 body {
-    font-family: 'Google Sans', 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #3c4043;
-    background-color: #f8f9fa;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #EFEFEF;
+    background-color: #111111;
     line-height: 1.6;
 }
 
@@ -25,30 +39,32 @@ h3 { font-size: 1.5rem; }
     padding-bottom: 1.5rem;
 }
 
-/* Header and Navigation - Gemini Theme */
+/* Header and Navigation - Lakers Tech Style */
 .navbar {
-    background: linear-gradient(90deg, #4285F4, #8E24AA);
-    box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
-    border-bottom: none;
+    background: linear-gradient(135deg, #111111, #252525, #111111); 
+    border-bottom: 1px solid #FDB927; /* Lakers gold border */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    padding: 0.8rem 1rem;
 }
 
 .navbar-brand {
-    font-weight: 500;
+    font-weight: 600;
     text-transform: none;
-    letter-spacing: 0;
-    color: #4285F4 !important;
-    font-size: 1.25rem;
+    letter-spacing: -0.3px;
+    color: #FDB927 !important; /* Lakers gold */
+    font-size: 1.3rem;
+    text-shadow: 0 0 5px rgba(253,185,39,0.3); /* Subtle gold glow */
 }
 
-/* Cards */
+/* Cards - Lakers Tech Style */
 .card {
-    border: 1px solid #dadce0;
+    border: 1px solid #252525;
     border-radius: 8px;
-    box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     margin-bottom: 2rem;
-    transition: box-shadow 0.3s ease; /* Updated transition */
+    transition: all 0.3s ease;
     overflow: hidden;
-    background: #fff;
+    background: #1a1a1a; /* Slightly lighter than body background */
     position: relative;
 }
 
@@ -58,101 +74,114 @@ h3 { font-size: 1.5rem; }
     top: 0;
     left: 0;
     width: 100%;
-    height: 4px;
-    background: linear-gradient(90deg, #4285F4, #8E24AA, #FF7043, #F4B400);
+    height: 3px;
+    background: linear-gradient(90deg, #111111, #552583, #FDB927); /* Black to Purple to Gold */
 }
 
 .card:hover {
-    transform: none;
-    box-shadow: 0 1px 3px 0 rgba(60,64,67,.3), 0 4px 8px 3px rgba(60,64,67,.15);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3), 0 0 5px rgba(253,185,39,0.3);
+    border-color: #FDB927;
 }
 
 .card-header {
     border-radius: 0 !important;
-    font-weight: 500;
+    font-weight: 600;
     text-transform: none;
-    letter-spacing: 0;
-    background: #f8f9fa;
-    color: #3c4043;
-    border-bottom: 1px solid #dadce0;
-    padding: 0.8rem 1.25rem;
+    letter-spacing: -0.2px;
+    background: #252525;
+    color: #FDB927; /* Lakers gold for better visibility */
+    border-bottom: 1px solid #333;
+    padding: 1rem 1.5rem;
 }
 
 .card-body {
     padding: 1.5rem;
+    color: #EFEFEF; /* Light silver text for better visibility */
 }
 
-/* Buttons - Gemini Theme */
+/* Buttons - Lakers Tech Style */
 .btn {
-    border-radius: 8px;
-    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    padding: 0.7rem 1.4rem;
     text-transform: none;
-    font-weight: 500;
-    font-size: 0.9rem;
-    letter-spacing: 0.2px;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: -0.2px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
 }
 
 .btn:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25), 0 0 5px rgba(192,192,192,0.2);
 }
 
 .btn-primary {
-    background: linear-gradient(90deg, #4285F4, #8E24AA);
-    border: none;
+    background: linear-gradient(135deg, #552583, #7D3AC1); /* Purple gradient */
+    border: 1px solid #552583;
     color: white;
 }
 
 .btn-primary:hover {
-    background: linear-gradient(90deg, #5C6BC0, #D81B60);
+    background: linear-gradient(135deg, #7D3AC1, #9645E1);
+    border-color: #FDB927;
+    color: white;
 }
 
 .btn-success {
-    background: #34A853;
-    border: none;
-    color: white;
+    background: #FDB927; /* Lakers Gold */
+    border: 1px solid #FDB927;
+    color: #111111; /* Dark text on gold button */
+    font-weight: 700;
 }
 
 .btn-success:hover {
-    background: #1e8e3e;
-    border: none;
-    color: white;
+    background: #FDCA55;
+    border-color: #FDB927;
+    color: #111111;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25), 0 0 8px rgba(253,185,39,0.4);
 }
 
 .btn-info {
-    background: #F2A600;
-    border: none;
-    color: #3c4043;
+    background: #252525; /* Dark Gray */
+    border: 1px solid #555555;
+    color: #C0C0C0; /* Silver text */
 }
 
 .btn-info:hover {
-    background: #fbbc04;
-    border: none;
-    color: #3c4043;
+    background: #333333;
+    border-color: #C0C0C0;
+    color: #FFFFFF;
 }
 
-/* Tables */
+/* Tables - Lakers Tech Style */
 .table {
-    color: #333;
+    color: #C0C0C0; /* Silver text for better visibility on dark backgrounds */
     border-collapse: separate;
     border-spacing: 0;
     width: 100%;
+    background-color: #1a1a1a; /* Dark background */
+    border: 1px solid #333;
+    border-radius: 6px;
+    overflow: hidden;
 }
 
 .table th,
 .table td {
-    padding: 0.9rem 1rem;
+    padding: 1rem 1.2rem;
     vertical-align: middle;
-    border-top: 1px solid #e0e0e0;
+    border-top: 1px solid #333;
 }
 
 .table thead th {
     border-top: none;
-    border-bottom: 2px solid #bdbdbd;
-    font-weight: 500;
-    color: #5f6368;
+    border-bottom: 2px solid #552583; /* Lakers purple */
+    font-weight: 600;
+    color: #FDB927; /* Lakers gold for headers */
+    letter-spacing: -0.2px;
+    background-color: #252525; /* Slightly different from body for contrast */
 }
 
 .table-hover tbody tr {
@@ -160,50 +189,68 @@ h3 { font-size: 1.5rem; }
 }
 
 .table-hover tbody tr:hover {
-    background-color: #f5f5f5;
+    background-color: #333;
 }
 
-/* Gemini themed forms */
+/* Lakers Tech themed forms */
 .form-control {
-    border: 1px solid #dadce0;
-    border-radius: 8px;
-    padding: 0.75rem 1rem;
+    border: 1px solid #333;
+    border-radius: 6px;
+    padding: 0.85rem 1.1rem;
     transition: all 0.2s ease-in-out;
     font-size: 0.95rem;
+    background-color: #252525;
+    color: #EFEFEF;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
 }
 
 .form-control:focus {
-    border-color: #4285F4;
-    box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.2);
+    border-color: #FDB927; /* Lakers gold */
+    box-shadow: 0 0 0 2px rgba(253,185,39,0.2), inset 0 1px 3px rgba(0,0,0,0.2);
     outline: none;
 }
 
 .form-control:hover {
-    border-color: #bdbdbd;
+    border-color: #552583; /* Lakers purple */
 }
 
-/* Dashboard Stat Blocks - Align with Card Styling */
+/* Dashboard Stat Blocks - Lakers Tech Style */
 .dashboard-stat {
-    border: 1px solid #dadce0;
+    border: 1px solid #333;
     border-radius: 8px;
-    box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-    background-color: #fff;
-    color: #3c4043;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2), 0 0 5px rgba(85,37,131,0.05);
+    padding: 1.8rem;
+    margin-bottom: 1.8rem;
+    background-color: #1a1a1a;
+    color: #EFEFEF;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.dashboard-stat:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25), 0 0 10px rgba(253,185,39,0.1);
+    border-color: #333;
 }
 
 .dashboard-stat.bg-primary {
-    background: linear-gradient(45deg, #4285F4, #5c9dff);
+    background: linear-gradient(135deg, #552583, #7D3AC1); /* Lakers Purple gradient */
     color: white;
+    border: none;
+    box-shadow: 0 5px 15px rgba(85,37,131,0.3);
 }
 .dashboard-stat.bg-success {
-    background: linear-gradient(45deg, #34A853, #57bb6a);
-    color: white;
+    background: linear-gradient(135deg, #FDB927, #FDCA55); /* Lakers Gold gradient */
+    color: #111111;
+    border: none;
+    box-shadow: 0 5px 15px rgba(253,185,39,0.3);
 }
 .dashboard-stat.bg-info {
-    background: linear-gradient(45deg, #F2A600, #fbbc04);
-    color: #3c4043;
+    background: linear-gradient(135deg, #181818, #252525); /* Tech Dark gradient */
+    color: #C0C0C0;
+    border: 1px solid #333;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.25);
 }
 
 /* Custom animations */
@@ -212,32 +259,136 @@ h3 { font-size: 1.5rem; }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Theme utility classes */
+/* NBA Hero Section */
+.nba-hero {
+    background-color: #0E1318; /* Fallback dark background in case image fails */
+    background-image: url('../images/nmsdb9df86gsvew6xxvenmbz.jpg');
+    background-size: cover;
+    background-position: center center;
+    color: white;
+    border-radius: 12px;
+    padding: 4rem 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 20px rgba(14, 19, 24, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.nba-hero h1 {
+    font-weight: 700;
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.5px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.nba-hero p {
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin-bottom: 2rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Basketball Style Elements */
+.basketball-icon {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background: linear-gradient(135deg, #FF6A00, #EE4D00);
+    border-radius: 50%;
+    margin-right: 5px;
+    position: relative;
+    vertical-align: middle;
+}
+
+.basketball-icon::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Player Card Image Styles */
+.player-card-image {
+    position: relative;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+}
+
+.player-card-image::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+}
+
+.player-card-image-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem;
+    color: white;
+}
+
+/* Court Background */
+.court-bg {
+    position: relative;
+    background-color: #F8F9F9;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.court-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../images/court-pattern.svg');
+    background-size: 400px;
+    opacity: 0.05;
+    pointer-events: none;
+}
+
+/* Theme utility classes - Lakers colors */
 .theme-accent-gold {
-    color: #F2A600 !important;
+    color: #FDB927 !important; /* Lakers Gold */
 }
 
 .theme-accent-purple {
-    color: #9B72CB !important; /* Note: This purple isn't in the main gradient now */
+    color: #552583 !important; /* Lakers Purple */
 }
 
-.theme-accent-blue {
-    color: #4285F4 !important;
+.theme-accent-silver {
+    color: #C0C0C0 !important; /* Tech Silver */
 }
 
 .theme-accent-red {
-    color: #D96570 !important; /* Note: This red isn't in the main gradient now */
+    color: #D96570 !important; /* Keeping this red for contrast needs */
 }
 
-/* Section titles with Gemini theme */
+/* Section titles with Lakers Tech theme */
 .section-title {
     position: relative;
     padding-bottom: 10px;
     margin-bottom: 2rem;
     text-transform: none;
-    font-weight: 500;
-    letter-spacing: 0;
-    color: #3c4043;
+    font-weight: 600;
+    letter-spacing: -0.2px;
+    color: #EFEFEF;
+    text-shadow: 0 0 10px rgba(192,192,192,0.15);
 }
 
 .section-title::after {
@@ -247,19 +398,20 @@ h3 { font-size: 1.5rem; }
     left: 0;
     width: 50px;
     height: 3px;
-    background: linear-gradient(90deg, #4285F4, #8E24AA, #FF7043, #F4B400);
+    background: linear-gradient(90deg, #111111, #552583, #FDB927);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
 }
 
 /* Player stats card - Replaced @extend with direct styles */
 .player-stat-card {
     /* Inherited from .card */
-    border: 1px solid #dadce0;
+    border: 1px solid #252525;
     border-radius: 8px;
-    box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     margin-bottom: 2rem;
-    transition: box-shadow 0.3s ease;
+    transition: all 0.3s ease;
     overflow: hidden;
-    background: #fff;
+    background: #1a1a1a;
     position: relative;
     /* Specific styles */
     padding: 0;
@@ -267,8 +419,9 @@ h3 { font-size: 1.5rem; }
 
 .player-stat-card:hover {
     /* Inherited from .card:hover */
-    transform: none;
-    box-shadow: 0 1px 3px 0 rgba(60,64,67,.3), 0 4px 8px 3px rgba(60,64,67,.15);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3), 0 0 5px rgba(253,185,39,0.3);
+    border-color: #FDB927;
     /* Specific styles */
     animation: none;
 }
@@ -276,13 +429,13 @@ h3 { font-size: 1.5rem; }
 .player-stat-header {
     /* Inherited from .card-header */
     border-radius: 0 !important;
-    font-weight: 500;
+    font-weight: 600;
     text-transform: none;
-    letter-spacing: 0;
-    background: #f8f9fa;
-    color: #3c4043;
-    border-bottom: 1px solid #dadce0;
-    padding: 0.8rem 1.25rem;
+    letter-spacing: -0.2px;
+    background: #252525;
+    color: #FDB927;
+    border-bottom: 1px solid #333;
+    padding: 1rem 1.5rem;
     /* Specific styles */
     text-align: left;
 }
@@ -291,16 +444,17 @@ h3 { font-size: 1.5rem; }
     /* Inherited from .card-body */
     padding: 1.5rem;
     /* Specific styles */
-    background-color: white;
+    background-color: #1a1a1a;
+    color: #EFEFEF;
 }
 
 /* Gemini style stats container */
 .radar-chart-container {
-    background: #ffffff;
-    border-radius: 15px; /* Keeping this slightly larger radius */
+    background: #1a1a1a;
+    border-radius: 12px;
     padding: 25px;
-    box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
-    border: 1px solid #dadce0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    border: 1px solid #333;
     position: relative;
     overflow: hidden;
 }
@@ -311,24 +465,26 @@ h3 { font-size: 1.5rem; }
     top: 0;
     left: 0;
     right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #4285F4, #8E24AA, #FF7043, #F4B400);
+    height: 3px;
+    background: linear-gradient(90deg, #111111, #552583, #FDB927);
 }
 
-/* Tech-themed progress bars - Gemini Style */
+/* Tech-themed progress bars - Lakers Tech Style */
 .tech-progress {
     height: 6px;
     border-radius: 3px;
-    background-color: #e8eaed;
+    background-color: #333333;
     margin-bottom: 1rem;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.3);
 }
 
 .tech-progress-bar {
     height: 100%;
     border-radius: 3px;
-    background: linear-gradient(90deg, #4285F4, #8E24AA, #FF7043, #F4B400);
+    background: linear-gradient(90deg, #552583, #7D3AC1, #FDB927);
     position: relative;
     transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 5px rgba(253,185,39,0.3);
 }
 
 /* Skill icons - Update colors */
@@ -344,15 +500,18 @@ h3 { font-size: 1.5rem; }
 }
 
 .skill-icon-danger {
-    background-color: #EA4335;
+    background-color: #552583; /* Lakers Purple */
+    box-shadow: 0 2px 8px rgba(85, 37, 131, 0.4);
 }
 
 .skill-icon-primary {
-    background-color: #4285F4;
+    background-color: #FDB927; /* Lakers Gold */
+    box-shadow: 0 2px 8px rgba(253, 185, 39, 0.4);
 }
 
 .skill-icon-success {
-    background-color: #34A853;
+    background-color: #C0C0C0; /* Tech Silver */
+    box-shadow: 0 2px 8px rgba(192, 192, 192, 0.3);
 }
 
 /* Progress bars with specific widths */
@@ -367,60 +526,85 @@ h3 { font-size: 1.5rem; }
 }
 
 .bg-theme-gradient {
-    background: linear-gradient(135deg, #4285F4, #8E24AA, #FF7043, #F4B400);
+    background: linear-gradient(135deg, #111111, #552583, #FDB927);
     color: white;
     position: relative;
     overflow: hidden;
 }
 
-/* Visualization page - Align Chart Container with Card Styling */
+/* Visualization page - Lakers Tech Style Chart Container */
 .chart-container {
-    background: #fff;
-    border: 1px solid #dadce0;
+    background: #1a1a1a;
+    border: 1px solid #333;
     border-radius: 8px;
-    padding: 1.5rem;
-    box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
+    padding: 1.8rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
-/* Gemini Themed Footer */
+.chart-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #111111, #552583, #FDB927); /* Lakers colors */
+}
+
+.chart-container:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3), 0 0 10px rgba(253,185,39,0.2);
+}
+
+/* Lakers Tech Style Footer */
 footer {
-    background: linear-gradient(90deg, #8E24AA, #FF7043);
-    color: white;
-    padding: 2.5rem 0;
-    margin-top: 4rem;
-    border-top: none;
+    background: linear-gradient(135deg, #111111, #252525);
+    border-top: 2px solid #FDB927; /* Lakers gold border */
+    color: #C0C0C0; /* Silver text */
+    padding: 3rem 0;
+    margin-top: 5rem;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
 }
 
 footer a {
-    color: #FFEB3B;
+    color: #FDB927; /* Lakers gold links */
     text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(253, 185, 39, 0.3);
+    padding-bottom: 2px;
+    transition: all 0.2s ease;
+    text-shadow: 0 0 5px rgba(253, 185, 39, 0.1);
 }
 
 footer a:hover {
-    color: #FFC107;
-    text-decoration: underline;
+    color: #FDCA55; /* Lighter gold */
+    border-bottom-color: #552583; /* Lakers purple */
+    text-decoration: none;
 }
 
 /* Theme rating pill - Style as Google Chip */
 .theme-rating-pill {
     display: inline-block;
-    background-color: #e8f0fe;
+    background-color: #252525;
     border-radius: 16px;
     padding: 0.3rem 0.8rem;
-    border: 1px solid transparent;
-    box-shadow: none;
-    transition: background-color 0.2s ease, border-color 0.2s ease;
-    color: #1967d2;
+    border: 1px solid #333;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: all 0.2s ease;
+    color: #FDB927;
     font-size: 0.85rem;
     font-weight: 500;
     line-height: 1.4;
 }
 
 .theme-rating-pill:hover {
-    transform: none;
-    box-shadow: none;
-    background-color: #d2e3fc;
-    border-color: transparent;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+    background-color: #333;
+    border-color: #FDB927;
 }
 
 /* Responsive adjustments */
