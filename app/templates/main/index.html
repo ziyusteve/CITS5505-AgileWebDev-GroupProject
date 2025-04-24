@@ -3,34 +3,32 @@
 {% block title %} - Home{% endblock %}
 
 {% block content %}
-<div class="row">
-    <div class="col-md-12">
-        <div class="card shadow mb-4">
-            <div class="card-body text-center py-5">                <div class="mb-4">
-                    <i class="fas fa-basketball-ball fa-3x theme-gold animated-bounce"></i>
-                </div><h1 class="display-4 mb-4">Player Analytics Platform</h1>
-                <p class="lead">Upload player descriptions, get detailed data analysis and skill assessments to enhance your team management capabilities</p>
-                
-                {% if 'user_id' in session %}
-                <div class="mt-4">
-                    <a href="{{ url_for('dashboard.index') }}" class="btn btn-primary btn-lg me-2">
-                        <i class="fas fa-tachometer-alt me-2"></i>Dashboard
-                    </a>
-                    <a href="{{ url_for('datasets.upload') }}" class="btn btn-success btn-lg">
-                        <i class="fas fa-upload me-2"></i>Analyze New Player
-                    </a>
-                </div>
-                {% else %}
-                <div class="mt-4">
-                    <a href="{{ url_for('auth.login') }}" class="btn btn-primary btn-lg me-2">
-                        <i class="fas fa-sign-in-alt me-2"></i>Login
-                    </a>
-                    <a href="{{ url_for('auth.register') }}" class="btn btn-success btn-lg">
-                        <i class="fas fa-user-plus me-2"></i>Register
-                    </a>
-                </div>
-                {% endif %}
+<!-- NBA Style Hero Section -->
+<div class="nba-hero">
+    <div class="row">
+        <div class="col-md-7">
+            <h1>NBA Player Analytics Platform</h1>
+            <p>Leverage advanced AI technology to analyze player data and build championship teams. Upload player descriptions to get detailed analysis and skill assessments to enhance your team management capabilities.</p>
+            
+            {% if 'user_id' in session %}
+            <div class="mt-4">
+                <a href="{{ url_for('dashboard.index') }}" class="btn btn-primary btn-lg me-2">
+                    <i class="fas fa-tachometer-alt me-2"></i>Dashboard
+                </a>
+                <a href="{{ url_for('datasets.upload') }}" class="btn btn-success btn-lg">
+                    <i class="fas fa-upload me-2"></i>Analyze New Player
+                </a>
             </div>
+            {% else %}
+            <div class="mt-4">
+                <a href="{{ url_for('auth.login') }}" class="btn btn-primary btn-lg me-2">
+                    <i class="fas fa-sign-in-alt me-2"></i>Login
+                </a>
+                <a href="{{ url_for('auth.register') }}" class="btn btn-success btn-lg">
+                    <i class="fas fa-user-plus me-2"></i>Register
+                </a>
+            </div>
+            {% endif %}
         </div>
     </div>
 </div>
