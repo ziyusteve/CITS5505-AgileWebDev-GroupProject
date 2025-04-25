@@ -38,17 +38,43 @@ def create_app(config_name='default'):
     
     from app.sharing import bp as sharing_bp
     app.register_blueprint(sharing_bp, url_prefix='/share')
-    
-    # 初始化球探报告分析模块（不注册路由，只初始化服务）
+      # 初始化球探报告分析模块（不注册路由，只初始化服务）
     if app.config.get('ENABLE_SCOUT_ANALYSIS', False):
         from app.scout_analysis import scout_bp
         app.register_blueprint(scout_bp)  # 不设置URL前缀
         app.logger.info("Scout analysis module initialized")
-        
-        # 确保在应用上下文中创建所有数据库表
-        with app.app_context():
-            from app.scout_analysis.models import ScoutReportAnalysis
-            db.create_all()
-            app.logger.info("Database tables for scout analysis created if not exists")
     
+    # 确保在应用上下文中创建所有数据库表
+    # 首先导入所有模型，然后一次性创建所有表
+    with app.app_context():
+        # 先导入所有模型
+        from app.models.user import User
+        from app.models.dataset import Dataset
+        from app.models.share import Share
+        
+        # 如果启用了球探报告分析，再导入其模型
+        if app.config.get('ENABLE_SCOUT_ANALYSIS', False):
+            from app.scout_analysis.models import ScoutReportAnalysis
+              # 创建所有表
+        db.create_all()
+        app.logger.info("Database tables for scout analysis created if not exists")
+    
+    # 日志文件配置
+    import logging
+    from logging.handlers import RotatingFileHandler
+    import codecs
+    if not os.path.exists('logs'):
+        os.mkdir('logs')
+    file_handler = RotatingFileHandler('logs/flask.log', maxBytes=10240, backupCount=10, encoding='utf-8')
+    file_handler.setFormatter(logging.Formatter(
+        '%(asctime)s %(levelname)s: %(message)s [in %(pathname)s:%(lineno)d]'
+    ))
+    file_handler.setLevel(logging.INFO)
+    app.logger.addHandler(file_handler)
+    
+    # 设置全局编码为UTF-8
+    import sys
+    sys.stdout.reconfigure(encoding='utf-8')
+    sys.stderr.reconfigure(encoding='utf-8')
+
     return app
