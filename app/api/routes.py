@@ -1,4 +1,4 @@
-from flask import jsonify, session, request
+from flask import jsonify, session, request, current_app
 from app.api import bp
 from app.models.dataset import Dataset
 from app.models.share import Share
@@ -133,3 +133,55 @@ def dataset_visualize(dataset_id):
         return jsonify(result)
     except Exception as e:
         return jsonify({"error": str(e)}), 400
+
+@bp.route('/scout-analysis/<int:dataset_id>', methods=['GET'])
+def get_scout_analysis(dataset_id):
+    """API endpoint to get scout report analysis for a dataset"""
+    # Check if scout analysis is enabled
+    if not current_app.config.get('ENABLE_SCOUT_ANALYSIS', False):
+        return jsonify({"error": "Scout analysis feature is not enabled"}), 404
+    
+    # Check user authentication
+    if 'user_id' not in session:
+        return jsonify({"error": "Authentication required"}), 401
+    
+    # Get the dataset
+    dataset = Dataset.query.get_or_404(dataset_id)
+    
+    # Check if user has access to the dataset
+    if dataset.user_id != session['user_id']:
+        # Check if the dataset is shared with the user
+        shared = Share.query.filter_by(dataset_id=dataset_id, shared_with=session['user_id']).first()
+        if not shared:
+            return jsonify({"error": "You don't have access to this dataset"}), 403
+    
+    # Import the ScoutReportAnalysis model only if scout analysis is enabled
+    from app.scout_analysis.models import ScoutReportAnalysis
+    
+    # Get the analysis for this dataset
+    analysis = ScoutReportAnalysis.query.filter_by(dataset_id=dataset_id).first()
+    
+    if not analysis:
+        return jsonify({"error": "No scout analysis found for this dataset"}), 404
+    
+    # Return the analysis data
+    return jsonify({
+        "dataset_id": dataset_id,
+        "dataset_title": dataset.title,
+        "processing_status": analysis.processing_status,
+        "analysis_date": analysis.analysis_date.isoformat() if analysis.analysis_date else None,
+        "player_info": {
+            "name": analysis.player_name,
+            "position": analysis.position,
+            "team": analysis.team
+        },
+        "ratings": {
+            "offensive": analysis.offensive_rating,
+            "defensive": analysis.defensive_rating,
+            "physical": analysis.physical_rating,
+            "technical": analysis.technical_rating,
+            "potential": analysis.potential_rating,
+            "overall": analysis.overall_rating
+        },
+        "full_analysis": analysis.to_dict()["analysis"] if analysis.analysis_result else {}
+    })
