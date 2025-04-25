@@ -39,4 +39,16 @@ def create_app(config_name='default'):
     from app.sharing import bp as sharing_bp
     app.register_blueprint(sharing_bp, url_prefix='/share')
     
+    # 初始化球探报告分析模块（不注册路由，只初始化服务）
+    if app.config.get('ENABLE_SCOUT_ANALYSIS', False):
+        from app.scout_analysis import scout_bp
+        app.register_blueprint(scout_bp)  # 不设置URL前缀
+        app.logger.info("Scout analysis module initialized")
+        
+        # 确保在应用上下文中创建所有数据库表
+        with app.app_context():
+            from app.scout_analysis.models import ScoutReportAnalysis
+            db.create_all()
+            app.logger.info("Database tables for scout analysis created if not exists")
+    
     return app
