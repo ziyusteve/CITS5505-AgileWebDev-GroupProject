@@ -3,7 +3,7 @@ from datetime import datetime
 
 class Share(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    dataset_id = db.Column(db.Integer, db.ForeignKey('dataset.id'), nullable=False)
+    dataset_id = db.Column(db.Integer, db.ForeignKey('datasets.id'), nullable=False)
     shared_with_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     date_shared = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     
