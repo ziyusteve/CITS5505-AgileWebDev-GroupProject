@@ -1,157 +1,30 @@
 {% extends "base.html" %}
 
-{% block title %} - Basketball Game Statistics Upload{% endblock %}
+{% block title %} - Upload Player Text for Scout Report{% endblock %}
 
 {% block content %}
 <div class="row justify-content-center">
     <div class="col-md-8">
         <div class="card shadow">
             <div class="card-header bg-primary text-white">
-                <h4 class="mb-0"><i class="fas fa-basketball-ball me-2"></i>Basketball Player Game Stats</h4>
+                <h4 class="mb-0"><i class="fas fa-basketball-ball me-2"></i>Upload Player News/Description</h4>
             </div>
             <div class="card-body">
                 <form method="POST" action="{{ url_for('datasets.upload') }}" enctype="multipart/form-data">
                     <div class="mb-3">
-                        <label for="title" class="form-label">Player Name</label>
-                        <input type="text" class="form-control" id="title" name="title" required>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="game_date" class="form-label">Game Date</label>
-                                <input type="date" class="form-control" id="game_date" name="game_date" required>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="game_type" class="form-label">Competition Type</label>
-                                <select class="form-select" id="game_type" name="game_type">
-                                    <option value="regular">Regular Season</option>
-                                    <option value="playoff">Playoff</option>
-                                    <option value="championship">Championship</option>
-                                    <option value="friendly">Friendly Match</option>
-                                    <option value="tournament">Tournament</option>
-                                    <option value="exhibition">Exhibition Game</option>
-                                    <option value="other">Other</option>
-                                </select>
-                            </div>
-                        </div>
+                        <label for="title" class="form-label">Player Name (optional)</label>
+                        <input type="text" class="form-control" id="title" name="title" placeholder="e.g. LeBron James">
                     </div>
                     <div class="mb-3">
-                        <label for="opponent" class="form-label">Opponent Team</label>
-                        <input type="text" class="form-control" id="opponent" name="opponent" required>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="position" class="form-label">Position</label>
-                                <select class="form-select" id="position" name="position">
-                                    <option value="PG">Point Guard (PG)</option>
-                                    <option value="SG">Shooting Guard (SG)</option>
-                                    <option value="SF">Small Forward (SF)</option>
-                                    <option value="PF">Power Forward (PF)</option>
-                                    <option value="C">Center (C)</option>
-                                </select>
-                            </div>
+                        <label for="file" class="form-label">Upload Text File</label>
+                        <input class="form-control" type="file" id="file" name="file" accept=".txt,.docx" required>
+                        <div id="fileHelp" class="form-text">
+                            Please upload a news article, commentary, or player description (TXT/DOCX).<br>
+                            The system will automatically generate a scout report with visualization and analysis.
                         </div>
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="minutes_played" class="form-label">Minutes Played</label>
-                                <input type="number" class="form-control" id="minutes_played" name="minutes_played" required>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="mb-3">
-                                <label for="points" class="form-label">Points</label>
-                                <input type="number" class="form-control" id="points" name="points" required>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="mb-3">
-                                <label for="rebounds" class="form-label">Rebounds</label>
-                                <input type="number" class="form-control" id="rebounds" name="rebounds" required>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="mb-3">
-                                <label for="assists" class="form-label">Assists</label>
-                                <input type="number" class="form-control" id="assists" name="assists" required>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="mb-3">
-                                <label for="steals" class="form-label">Steals</label>
-                                <input type="number" class="form-control" id="steals" name="steals" required>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="mb-3">
-                                <label for="blocks" class="form-label">Blocks</label>
-                                <input type="number" class="form-control" id="blocks" name="blocks" required>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="mb-3">
-                                <label for="turnovers" class="form-label">Turnovers</label>
-                                <input type="number" class="form-control" id="turnovers" name="turnovers" required>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="mb-3">
-                                <label for="fouls" class="form-label">Fouls</label>
-                                <input type="number" class="form-control" id="fouls" name="fouls" required>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="fg" class="form-label">Field Goals (Made/Attempted)</label>
-                                <div class="input-group">
-                                    <input type="number" class="form-control" id="fg_made" name="fg_made" placeholder="Made" required>
-                                    <span class="input-group-text">/</span>
-                                    <input type="number" class="form-control" id="fg_attempted" name="fg_attempted" placeholder="Attempted" required>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="3pt" class="form-label">3-Point (Made/Attempted)</label>
-                                <div class="input-group">
-                                    <input type="number" class="form-control" id="3pt_made" name="3pt_made" placeholder="Made" required>
-                                    <span class="input-group-text">/</span>
-                                    <input type="number" class="form-control" id="3pt_attempted" name="3pt_attempted" placeholder="Attempted" required>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="ft" class="form-label">Free Throws (Made/Attempted)</label>
-                        <div class="input-group">
-                            <input type="number" class="form-control" id="ft_made" name="ft_made" placeholder="Made" required>
-                            <span class="input-group-text">/</span>
-                            <input type="number" class="form-control" id="ft_attempted" name="ft_attempted" placeholder="Attempted" required>
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="description" class="form-label">Game Notes (optional)</label>
-                        <textarea class="form-control" id="description" name="description" rows="3" placeholder="Additional notes about player's performance..."></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <label for="player_description" class="form-label">Player Season Performance</label>
-                        <textarea class="form-control" id="player_description" name="player_description" rows="3" placeholder="Notes on player's overall season performance..."></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <label for="file" class="form-label">Game Highlights</label>
-                        <input class="form-control" type="file" id="file" name="file" required>
-                        <div id="fileHelp" class="form-text">Supported formats: TXT</div>
                     </div>
                     <div class="d-grid">
-                        <button type="submit" class="btn btn-primary">Save Game Statistics</button>
+                        <button type="submit" class="btn btn-primary">Analyze & Generate Scout Report</button>
                     </div>
                 </form>
             </div>

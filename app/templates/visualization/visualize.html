@@ -1,0 +1,249 @@
+{% extends "base.html" %}
+
+{% block title %} - Data Visualization{% endblock %}
+
+{% block head %}
+<style>
+    .chart-container {
+        height: 400px;
+    }
+</style>
+{% if is_scout_report %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{{ url_for('static', filename='js/scout-analysis.js') }}"></script>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ url_for('dashboard.index') }}">Dashboard</a></li>
+            <li class="breadcrumb-item active">Visualize: {{ dataset.title }}</li>
+        </ol>
+    </nav>
+
+    {% if is_scout_report %}
+    <!-- Scout Report Analysis Display -->
+    <div id="scout-report-analysis" data-dataset-id="{{ dataset.id }}">
+        <div class="text-center my-5">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <p class="mt-2">Loading scout report analysis...</p>
+        </div>
+        
+        <!-- 内联分析数据，确保即使API调用失败也有内容显示 -->
+        {% if scout_analysis %}
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Analysis Summary</h5>
+            </div>
+            <div class="card-body">
+                {% if scout_analysis.analysis_result %}
+                <div class="alert alert-info">
+                    <strong>球员分析:</strong><br>
+                    {{ scout_analysis.analysis_result }}
+                </div>
+                {% else %}
+                <div class="alert alert-warning">
+                    <strong>注意:</strong> 无法获取完整分析结果。请尝试刷新页面或重新上传文件。
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    {% else %}
+    <!-- Standard Dataset Visualization -->
+    <div class="row mb-4">
+        <div class="col">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                    <h4 class="mb-0"><i class="fas fa-chart-bar me-2"></i>{{ dataset.title }}</h4>
+                    {% if is_owner %}
+                    <a href="{{ url_for('sharing.index') }}" class="btn btn-sm btn-light">
+                        <i class="fas fa-share-alt me-1"></i>Share
+                    </a>
+                    {% endif %}
+                </div>
+                <div class="card-body">
+                    <div class="row mb-4">
+                        <div class="col-md-3">
+                            <div class="form-group mb-3">
+                                <label for="chartType" class="form-label">Chart Type</label>
+                                <select class="form-select" id="chartType">
+                                    <option value="bar">Bar Chart</option>
+                                    <option value="line">Line Chart</option>
+                                    <option value="scatter">Scatter Plot</option>
+                                    <option value="pie">Pie Chart</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group mb-3">
+                                <label for="xAxis" class="form-label">X-Axis</label>
+                                <select class="form-select" id="xAxis">
+                                    {% for column in metadata.columns %}
+                                    <option value="{{ column }}">{{ column }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group mb-3">
+                                <label for="yAxis" class="form-label">Y-Axis</label>
+                                <select class="form-select" id="yAxis">
+                                    {% for column in metadata.columns %}
+                                    <option value="{{ column }}">{{ column }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3 d-flex align-items-end">
+                            <button id="updateChart" class="btn btn-primary w-100">Update Chart</button>
+                        </div>
+                    </div>
+                    <div class="chart-container border p-2">
+                        <div id="chart" style="width:100%; height:100%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="card shadow">
+                <div class="card-header bg-info text-white">
+                    <h4 class="mb-0"><i class="fas fa-info-circle me-2"></i>Dataset Information</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p><strong>Row Count:</strong> <span id="rowCount">{{ metadata.row_count }}</span></p>
+                            <p><strong>Column Count:</strong> <span id="columnCount">{{ metadata.columns|length }}</span></p>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>File Path:</strong> {{ dataset.file_path }}</p>
+                            <p><strong>Upload Date:</strong> {{ dataset.date_uploaded.strftime('%Y-%m-%d') }}</p>
+                        </div>
+                    </div>
+                    <div id="dataInsights" class="mt-3">
+                        <h5>Loading insights...</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+{% if is_scout_report %}
+<script src="{{ url_for('static', filename='js/scout-analysis.js') }}"></script>
+{% else %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initial variables
+        const chartContainer = document.getElementById('chart');
+        const chartTypeSelect = document.getElementById('chartType');
+        const xAxisSelect = document.getElementById('xAxis');
+        const yAxisSelect = document.getElementById('yAxis');
+        const updateChartButton = document.getElementById('updateChart');
+        const dataInsightsDiv = document.getElementById('dataInsights');
+        
+        // Set default Y-axis to second column if available
+        if (yAxisSelect.options.length > 1) {
+            yAxisSelect.selectedIndex = 1;
+        }
+        
+        // Function to load dataset analysis
+        function loadDatasetAnalysis() {
+            fetch(`{{ url_for('api.dataset_analyze', dataset_id=dataset.id) }}`)
+                .then(response => response.json())
+                .then(data => {
+                    // Display insights if available
+                    if (data.insights && data.insights.length > 0) {
+                        let insightsHTML = '<h5>Data Insights</h5><ul class="list-group">';
+                        data.insights.forEach(insight => {
+                            insightsHTML += `<li class="list-group-item">${insight}</li>`;
+                        });
+                        insightsHTML += '</ul>';
+                        dataInsightsDiv.innerHTML = insightsHTML;
+                    } else {
+                        dataInsightsDiv.innerHTML = '<p>No insights available for this dataset.</p>';
+                    }
+                    
+                    // Display first chart automatically
+                    updateChart();
+                })
+                .catch(error => {
+                    console.error('Error loading analysis:', error);
+                    dataInsightsDiv.innerHTML = '<p class="text-danger">Error loading analysis data.</p>';
+                });
+        }
+        
+        // Function to update chart
+        function updateChart() {
+            const chartType = chartTypeSelect.value;
+            const xColumn = xAxisSelect.value;
+            const yColumn = yAxisSelect.value;
+            
+            // Show loading indicator
+            chartContainer.innerHTML = '<div class="text-center py-5"><div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div></div>';
+            
+            // Fetch data for visualization
+            fetch(`{{ url_for('api.dataset_visualize', dataset_id=dataset.id) }}?chart_type=${chartType}&x_column=${xColumn}&y_column=${yColumn}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        chartContainer.innerHTML = `<div class="alert alert-danger m-3">${data.error}</div>`;
+                        return;
+                    }
+                    
+                    let chartData;
+                    if (chartType === 'pie') {
+                        chartData = [{
+                            labels: data.labels,
+                            values: data.values,
+                            type: 'pie'
+                        }];
+                    } else {
+                        chartData = [{
+                            x: data.x,
+                            y: data.y,
+                            type: chartType
+                        }];
+                    }
+                    
+                    const layout = {
+                        title: `${dataset.title} - ${chartType.charAt(0).toUpperCase() + chartType.slice(1)} Chart`,
+                        xaxis: {
+                            title: xColumn
+                        },
+                        yaxis: {
+                            title: yColumn
+                        },
+                        margin: { t: 50, b: 50, l: 50, r: 50 }
+                    };
+                    
+                    Plotly.newPlot(chartContainer, chartData, layout, {responsive: true});
+                })
+                .catch(error => {
+                    console.error('Error updating chart:', error);
+                    chartContainer.innerHTML = '<div class="alert alert-danger m-3">Error loading chart data.</div>';
+                });
+        }
+        
+        // Event listeners
+        updateChartButton.addEventListener('click', updateChart);
+        
+        // Load initial data
+        loadDatasetAnalysis();
+    });
+</script>
+{% endif %}
+{% endblock %}
