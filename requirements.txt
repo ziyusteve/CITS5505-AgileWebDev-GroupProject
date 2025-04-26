@@ -4,3 +4,4 @@ werkzeug
 pandas
 numpy
 plotly
+djlint
