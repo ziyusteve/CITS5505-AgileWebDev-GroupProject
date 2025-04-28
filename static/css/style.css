@@ -262,7 +262,9 @@ h3 { font-size: 1.5rem; }
 /* NBA Hero Section */
 .nba-hero {
     background-color: #0E1318; /* Fallback dark background in case image fails */
-    background-image: url('../images/nmsdb9df86gsvew6xxvenmbz.jpg');
+    background: 
+        linear-gradient(rgba(14, 19, 24, 0.4), rgba(14, 19, 24, 0.4)),
+        url('../images/nba-hero.jpg');
     background-size: cover;
     background-position: center center;
     color: white;
