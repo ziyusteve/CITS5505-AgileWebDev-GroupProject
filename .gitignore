@@ -1,6 +1,9 @@
 # exclude user-generated files
 uploads/
 
+# macOS specific files
+.DS_Store
+
 # Git Template of Python Below
 # Byte-compiled / optimized / DLL files
 __pycache__/
