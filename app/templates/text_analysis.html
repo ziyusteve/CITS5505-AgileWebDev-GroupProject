@@ -1,0 +1,183 @@
+{% extends "base.html" %}
+
+{% block title %}Text Analysis - Gemini AI{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="data-dashboard mb-4">
+                <div class="d-flex align-items-center mb-3">
+                    <span class="ai-badge me-2"><i class="fas fa-brain"></i>Gemini 2.0</span>
+                    <h4 class="mb-0 text-white">Advanced Text Analysis Engine</h4>
+                </div>
+                <p class="text-muted">Powered by Google's Gemini AI model, capable of performing complex natural language processing tasks including sentiment analysis, keyword extraction, text summarization, and classification.</p>
+            </div>
+            <div class="card tech-score-card shadow">
+                <div class="card-header bg-gradient-dark text-white d-flex align-items-center">
+                    <i class="fas fa-robot me-2"></i>
+                    <h4 class="mb-0">Gemini AI Text Analysis</h4>
+                </div>
+                <div class="card-body">
+                    <form id="analysisForm">
+                        <div class="form-group mb-3">
+                            <label for="text"><i class="fas fa-file-alt me-2"></i>Enter text for analysis:</label>
+                            <textarea class="form-control" id="text" rows="5" placeholder="Enter your text here..."></textarea>
+                        </div>
+                        
+                        <div class="form-group mb-4">
+                            <label><i class="fas fa-sliders-h me-2"></i>Select analysis type:</label>
+                            <div class="row mt-2">
+                                <div class="col-md-3 mb-2">
+                                    <div class="tech-score-card h-100 p-3">
+                                        <input class="form-check-input" type="radio" name="analysisType" id="sentimentAnalysis" value="sentiment" checked>
+                                        <label class="form-check-label d-flex flex-column align-items-center" for="sentimentAnalysis">
+                                            <i class="fas fa-smile-beam fa-2x mb-2 theme-gold"></i>
+                                            <span>Sentiment Analysis</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 mb-2">
+                                    <div class="tech-score-card h-100 p-3">
+                                        <input class="form-check-input" type="radio" name="analysisType" id="keywordsAnalysis" value="keywords">
+                                        <label class="form-check-label d-flex flex-column align-items-center" for="keywordsAnalysis">
+                                            <i class="fas fa-key fa-2x mb-2 theme-gold"></i>
+                                            <span>Keyword Extraction</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 mb-2">
+                                    <div class="tech-score-card h-100 p-3">
+                                        <input class="form-check-input" type="radio" name="analysisType" id="summaryAnalysis" value="summary">
+                                        <label class="form-check-label d-flex flex-column align-items-center" for="summaryAnalysis">
+                                            <i class="fas fa-compress-alt fa-2x mb-2 theme-gold"></i>
+                                            <span>Text Summarization</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 mb-2">
+                                    <div class="tech-score-card h-100 p-3">
+                                        <input class="form-check-input" type="radio" name="analysisType" id="classificationAnalysis" value="classification">
+                                        <label class="form-check-label d-flex flex-column align-items-center" for="classificationAnalysis">
+                                            <i class="fas fa-tags fa-2x mb-2 theme-gold"></i>
+                                            <span>Text Classification</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group mb-3" id="summaryOptions" style="display: none;">
+                            <label for="maxWords"><i class="fas fa-text-width me-2"></i>Maximum words:</label>
+                            <input type="number" class="form-control" id="maxWords" value="50" min="10" max="200">
+                        </div>
+                        
+                        <div class="form-group mb-3" id="classificationOptions" style="display: none;">
+                            <label for="categories"><i class="fas fa-layer-group me-2"></i>Categories (comma separated):</label>
+                            <input type="text" class="form-control" id="categories" placeholder="Example: sports,technology,education,entertainment,politics">
+                        </div>
+                        
+                        <button type="submit" class="btn btn-ai"><i class="fas fa-bolt me-2"></i>Start AI Analysis</button>
+                    </form>
+                    
+                    <div class="mt-4" id="results" style="display: none;">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="ai-analyzing me-2" id="processing-indicator">AI Analysis in Progress</div>
+                            <h5 class="mb-0">Analysis Results:</h5>
+                        </div>
+                        <div class="data-card-highlight p-1">
+                            <div class="card bg-gradient-dark">
+                                <div class="card-body">
+                                    <pre id="resultContent" class="mb-0 text-white"></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Control display of options
+    const analysisTypes = document.querySelectorAll('input[name="analysisType"]');
+    const summaryOptions = document.getElementById('summaryOptions');
+    const classificationOptions = document.getElementById('classificationOptions');
+    
+    analysisTypes.forEach(type => {
+        type.addEventListener('change', function() {
+            summaryOptions.style.display = this.value === 'summary' ? 'block' : 'none';
+            classificationOptions.style.display = this.value === 'classification' ? 'block' : 'none';
+        });
+    });
+    
+    // Form submission
+    const form = document.getElementById('analysisForm');
+    const results = document.getElementById('results');
+    const resultContent = document.getElementById('resultContent');
+    const processingIndicator = document.getElementById('processing-indicator');
+    
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const text = document.getElementById('text').value.trim();
+        if (!text) {
+            alert('Please enter text for analysis');
+            return;
+        }
+        
+        const analysisType = document.querySelector('input[name="analysisType"]:checked').value;
+        let options = {};
+        
+        if (analysisType === 'summary') {
+            options.max_words = parseInt(document.getElementById('maxWords').value);
+        } else if (analysisType === 'classification') {
+            const categoriesInput = document.getElementById('categories').value.trim();
+            if (categoriesInput) {
+                options.categories = categoriesInput.split(',').map(c => c.trim());
+            }
+        }
+        
+        // Show loading state
+        processingIndicator.style.display = 'inline-flex';
+        resultContent.textContent = 'Performing deep analysis with Gemini AI, please wait...';
+        results.style.display = 'block';
+        
+        // Send request
+        fetch('/api/gemini/analyze', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                text: text,
+                analysis_type: analysisType,
+                options: options
+            }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            processingIndicator.style.display = 'none';
+            if (data.error) {
+                resultContent.textContent = `Error: ${data.error}`;
+            } else {
+                resultContent.textContent = JSON.stringify(data.result, null, 2);
+                
+                // Add beautification
+                resultContent.innerHTML = resultContent.textContent
+                    .replace(/"([^"]+)":/g, '<span style="color: #FDB927;">"$1"</span>:')
+                    .replace(/: "([^"]+)"/g, ': <span style="color: #7D3AC1;">"$1"</span>');
+            }
+        })
+        .catch(error => {
+            processingIndicator.style.display = 'none';
+            resultContent.textContent = `Request error: ${error}`;
+        });
+    });
+});
+</script>
+{% endblock %} 
