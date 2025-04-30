@@ -779,3 +779,10 @@ p.lead {
         padding: 3rem 1.5rem;
     }
 }
+.text-gradient {
+    background: linear-gradient(45deg, #552583, #FDB927); /* Lakers Purple to Gold */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(253,185,39,0.1); /* Subtle gold shadow */
+}
