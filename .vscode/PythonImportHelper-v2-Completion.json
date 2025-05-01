@@ -1222,7 +1222,7 @@
         "kind": 6,
         "importPath": "app.auth.forms",
         "description": "app.auth.forms",
-        "peekOfCode": "class LoginForm(FlaskForm):\n    username = StringField('用户名', validators=[DataRequired()])\n    password = PasswordField('密码', validators=[DataRequired()])\n    remember = BooleanField('记住我')\n    submit = SubmitField('登录')\nclass RegistrationForm(FlaskForm):\n    username = StringField('用户名', validators=[\n        DataRequired(),\n        Length(min=3, message='用户名必须至少包含3个字符')\n    ])",
+        "peekOfCode": "class LoginForm(FlaskForm):\n    username = StringField('Username', validators=[DataRequired()])\n    password = PasswordField('Password', validators=[DataRequired()])\n    remember = BooleanField('Remember Me')\n    submit = SubmitField('Login')\nclass RegistrationForm(FlaskForm):\n    username = StringField('Username', validators=[\n        DataRequired(),\n        Length(min=3, message='Username must contain at least 3 characters')\n    ])",
         "detail": "app.auth.forms",
         "documentation": {}
     },
@@ -1231,7 +1231,7 @@
         "kind": 6,
         "importPath": "app.auth.forms",
         "description": "app.auth.forms",
-        "peekOfCode": "class RegistrationForm(FlaskForm):\n    username = StringField('用户名', validators=[\n        DataRequired(),\n        Length(min=3, message='用户名必须至少包含3个字符')\n    ])\n    email = StringField('邮箱', validators=[\n        DataRequired(),\n        Email(message='请输入有效的电子邮件地址')\n    ])\n    password = PasswordField('密码', validators=[",
+        "peekOfCode": "class RegistrationForm(FlaskForm):\n    username = StringField('Username', validators=[\n        DataRequired(),\n        Length(min=3, message='Username must contain at least 3 characters')\n    ])\n    email = StringField('Email', validators=[\n        DataRequired(),\n        Email(message='Please enter a valid email address')\n    ])\n    password = PasswordField('Password', validators=[",
         "detail": "app.auth.forms",
         "documentation": {}
     },
@@ -1249,7 +1249,7 @@
         "kind": 2,
         "importPath": "app.auth.routes",
         "description": "app.auth.routes",
-        "peekOfCode": "def login():\n    if current_user.is_authenticated:\n        return redirect(url_for('dashboard.index'))\n    form = LoginForm()\n    if form.validate_on_submit():\n        user = User.query.filter_by(username=form.username.data).first()\n        if not user or not check_password_hash(user.password, form.password.data):\n            flash('请检查您的登录详情并重试。', 'danger')\n            return redirect(url_for('auth.login'))\n        login_user(user, remember=form.remember.data)",
+        "peekOfCode": "def login():\n    if current_user.is_authenticated:\n        return redirect(url_for('dashboard.index'))\n    form = LoginForm()\n    if form.validate_on_submit():\n        user = User.query.filter_by(username=form.username.data).first()\n        if not user or not check_password_hash(user.password, form.password.data):\n            flash('Please check your login details and try again.', 'danger')\n            return redirect(url_for('auth.login'))\n        login_user(user, remember=form.remember.data)",
         "detail": "app.auth.routes",
         "documentation": {}
     },
@@ -1258,7 +1258,7 @@
         "kind": 2,
         "importPath": "app.auth.routes",
         "description": "app.auth.routes",
-        "peekOfCode": "def logout():\n    logout_user()\n    flash('您已退出登录。', 'success')\n    return redirect(url_for('main.index'))\n@bp.route('/terms')\ndef terms():\n    return render_template('auth/terms.html')\n@bp.route('/privacy')\ndef privacy():\n    return render_template('auth/privacy.html')",
+        "peekOfCode": "def logout():\n    logout_user()\n    flash('You have been logged out.', 'success')\n    return redirect(url_for('main.index'))\n@bp.route('/terms')\ndef terms():\n    return render_template('auth/terms.html')\n@bp.route('/privacy')\ndef privacy():\n    return render_template('auth/privacy.html')",
         "detail": "app.auth.routes",
         "documentation": {}
     },
@@ -1294,7 +1294,7 @@
         "kind": 6,
         "importPath": "app.datasets.forms",
         "description": "app.datasets.forms",
-        "peekOfCode": "class DatasetUploadForm(FlaskForm):\n    title = StringField('球员名称 (可选)', validators=[\n        Optional(),\n        Length(max=100, message='标题不能超过100个字符')\n    ])\n    description = TextAreaField('描述 (可选)', validators=[\n        Optional(),\n        Length(max=500, message='描述不能超过500个字符')\n    ])\n    file = FileField('上传文本文件', validators=[",
+        "peekOfCode": "class DatasetUploadForm(FlaskForm):\n    title = StringField('Player Name (Optional)', validators=[\n        Optional(),\n        Length(max=100, message='Title cannot exceed 100 characters')\n    ])\n    description = TextAreaField('Description (Optional)', validators=[\n        Optional(),\n        Length(max=500, message='Description cannot exceed 500 characters')\n    ])\n    file = FileField('Upload Text File', validators=[",
         "detail": "app.datasets.forms",
         "documentation": {}
     },
@@ -1303,7 +1303,7 @@
         "kind": 2,
         "importPath": "app.datasets.routes",
         "description": "app.datasets.routes",
-        "peekOfCode": "def upload():\n    \"\"\"数据集上传路由\"\"\"\n    form = DatasetUploadForm()\n    if form.validate_on_submit():\n        file = form.file.data\n        title = form.title.data\n        description = form.description.data or ''\n        filename = secure_filename(file.filename)\n        unique_filename = generate_unique_filename(filename)\n        file_path = os.path.join(current_app.config['UPLOAD_FOLDER'], unique_filename)",
+        "peekOfCode": "def upload():\n    \"\"\"Dataset upload route\"\"\"\n    form = DatasetUploadForm()\n    if form.validate_on_submit():\n        file = form.file.data\n        title = form.title.data\n        description = form.description.data or ''\n        filename = secure_filename(file.filename)\n        unique_filename = generate_unique_filename(filename)\n        file_path = os.path.join(current_app.config['UPLOAD_FOLDER'], unique_filename)",
         "detail": "app.datasets.routes",
         "documentation": {}
     },
@@ -1402,7 +1402,7 @@
         "kind": 6,
         "importPath": "app.sharing.forms",
         "description": "app.sharing.forms",
-        "peekOfCode": "class ShareDatasetForm(FlaskForm):\n    dataset_id = SelectField('数据集', validators=[DataRequired()], coerce=int)\n    user_id = SelectField('共享给', validators=[DataRequired()], coerce=int)\n    submit = SubmitField('共享')\nclass RevokeShareForm(FlaskForm):\n    submit = SubmitField('撤销')",
+        "peekOfCode": "class ShareDatasetForm(FlaskForm):\n    dataset_id = SelectField('Dataset', validators=[DataRequired()], coerce=int)\n    user_id = SelectField('Share with', validators=[DataRequired()], coerce=int)\n    submit = SubmitField('Share')\nclass RevokeShareForm(FlaskForm):\n    submit = SubmitField('Revoke')",
         "detail": "app.sharing.forms",
         "documentation": {}
     },
@@ -1411,7 +1411,7 @@
         "kind": 6,
         "importPath": "app.sharing.forms",
         "description": "app.sharing.forms",
-        "peekOfCode": "class RevokeShareForm(FlaskForm):\n    submit = SubmitField('撤销')",
+        "peekOfCode": "class RevokeShareForm(FlaskForm):\n    submit = SubmitField('Revoke')",
         "detail": "app.sharing.forms",
         "documentation": {}
     },
@@ -1420,7 +1420,7 @@
         "kind": 2,
         "importPath": "app.sharing.routes",
         "description": "app.sharing.routes",
-        "peekOfCode": "def index():\n    \"\"\"数据共享页面路由\"\"\"\n    user_datasets = Dataset.query.filter_by(user_id=current_user.id).all()\n    users = User.query.filter(User.id != current_user.id).all()\n    # 获取现有共享记录以显示谁已经有访问权限\n    shares = Share.query.join(Dataset).filter(Dataset.user_id == current_user.id).all()\n    # 创建并初始化共享表单\n    share_form = ShareDatasetForm()\n    share_form.dataset_id.choices = [(d.id, d.title) for d in user_datasets]\n    share_form.user_id.choices = [(u.id, u.username) for u in users]",
+        "peekOfCode": "def index():\n    \"\"\"Data sharing page route\"\"\"\n    user_datasets = Dataset.query.filter_by(user_id=current_user.id).all()\n    users = User.query.filter(User.id != current_user.id).all()\n    # Get existing share records to show who already has access\n    shares = Share.query.join(Dataset).filter(Dataset.user_id == current_user.id).all()\n    # Create and initialize share form\n    share_form = ShareDatasetForm()\n    share_form.dataset_id.choices = [(d.id, d.title) for d in user_datasets]\n    share_form.user_id.choices = [(u.id, u.username) for u in users]",
         "detail": "app.sharing.routes",
         "documentation": {}
     },
@@ -1429,7 +1429,7 @@
         "kind": 2,
         "importPath": "app.sharing.routes",
         "description": "app.sharing.routes",
-        "peekOfCode": "def share_dataset():\n    \"\"\"处理数据集共享请求\"\"\"\n    # 获取用户的数据集和其他用户\n    user_datasets = Dataset.query.filter_by(user_id=current_user.id).all()\n    users = User.query.filter(User.id != current_user.id).all()\n    share_form = ShareDatasetForm()\n    share_form.dataset_id.choices = [(d.id, d.title) for d in user_datasets]\n    share_form.user_id.choices = [(u.id, u.username) for u in users]\n    if share_form.validate_on_submit():\n        dataset_id = share_form.dataset_id.data",
+        "peekOfCode": "def share_dataset():\n    \"\"\"Process dataset sharing request\"\"\"\n    # Get user's datasets and other users\n    user_datasets = Dataset.query.filter_by(user_id=current_user.id).all()\n    users = User.query.filter(User.id != current_user.id).all()\n    share_form = ShareDatasetForm()\n    share_form.dataset_id.choices = [(d.id, d.title) for d in user_datasets]\n    share_form.user_id.choices = [(u.id, u.username) for u in users]\n    if share_form.validate_on_submit():\n        dataset_id = share_form.dataset_id.data",
         "detail": "app.sharing.routes",
         "documentation": {}
     },
@@ -1438,7 +1438,7 @@
         "kind": 2,
         "importPath": "app.sharing.routes",
         "description": "app.sharing.routes",
-        "peekOfCode": "def revoke_share(share_id):\n    \"\"\"撤销数据集共享\"\"\"\n    revoke_form = RevokeShareForm()\n    if revoke_form.validate_on_submit():\n        # 获取共享记录\n        share = Share.query.join(Dataset).filter(\n            Share.id == share_id,\n            Dataset.user_id == current_user.id\n        ).first_or_404()\n        # 删除共享记录",
+        "peekOfCode": "def revoke_share(share_id):\n    \"\"\"Revoke dataset sharing\"\"\"\n    revoke_form = RevokeShareForm()\n    if revoke_form.validate_on_submit():\n        # Get share record\n        share = Share.query.join(Dataset).filter(\n            Share.id == share_id,\n            Dataset.user_id == current_user.id\n        ).first_or_404()\n        # Delete share record",
         "detail": "app.sharing.routes",
         "documentation": {}
     },
@@ -1483,7 +1483,7 @@
         "kind": 2,
         "importPath": "app.visualization.routes",
         "description": "app.visualization.routes",
-        "peekOfCode": "def visualize(dataset_id):\n    \"\"\"数据可视化路由\"\"\"\n    dataset = Dataset.query.get_or_404(dataset_id)\n    # 检查用户是否拥有数据集或数据集是否与其共享\n    is_owner = dataset.user_id == current_user.id\n    is_shared = Share.query.filter_by(dataset_id=dataset_id, shared_with_id=current_user.id).first() is not None\n    if not (is_owner or is_shared):\n        flash('您无权查看此数据集。', 'danger')\n        return redirect(url_for('dashboard.index'))\n    # 强制将所有文本文件视为球探报告，确保可视化页面正常显示",
+        "peekOfCode": "def visualize(dataset_id):\n    \"\"\"Data visualization route\"\"\"\n    dataset = Dataset.query.get_or_404(dataset_id)\n    # Check if the user owns the dataset or if it's shared with them\n    is_owner = dataset.user_id == current_user.id\n    is_shared = Share.query.filter_by(dataset_id=dataset_id, shared_with_id=current_user.id).first() is not None\n    if not (is_owner or is_shared):\n        flash('You do not have permission to view this dataset.', 'danger')\n        return redirect(url_for('dashboard.index'))\n    # Force all text files to be treated as scout reports to ensure proper visualization",
         "detail": "app.visualization.routes",
         "documentation": {}
     },

@@ -23,7 +23,7 @@ def register():
         db.session.add(new_user)
         db.session.commit()
         
-        flash('账户创建成功！您现在可以登录了。', 'success')
+        flash('Account created successfully! You can now login.', 'success')
         return redirect(url_for('auth.login'))
     
     return render_template('auth/register.html', form=form)
@@ -38,7 +38,7 @@ def login():
         user = User.query.filter_by(username=form.username.data).first()
         
         if not user or not check_password_hash(user.password, form.password.data):
-            flash('请检查您的登录详情并重试。', 'danger')
+            flash('Please check your login details and try again.', 'danger')
             return redirect(url_for('auth.login'))
         
         login_user(user, remember=form.remember.data)
@@ -47,7 +47,7 @@ def login():
         if next_page:
             return redirect(next_page)
         
-        flash('登录成功！', 'success')
+        flash('Login successful!', 'success')
         return redirect(url_for('dashboard.index'))
     
     return render_template('auth/login.html', form=form)
@@ -56,7 +56,7 @@ def login():
 @login_required
 def logout():
     logout_user()
-    flash('您已退出登录。', 'success')
+    flash('You have been logged out.', 'success')
     return redirect(url_for('main.index'))
 
 @bp.route('/terms')

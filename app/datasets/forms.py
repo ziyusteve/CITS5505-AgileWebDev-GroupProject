@@ -5,16 +5,16 @@ from wtforms.validators import Optional, Length
 from flask import current_app
 
 class DatasetUploadForm(FlaskForm):
-    title = StringField('球员名称 (可选)', validators=[
+    title = StringField('Player Name (Optional)', validators=[
         Optional(),
-        Length(max=100, message='标题不能超过100个字符')
+        Length(max=100, message='Title cannot exceed 100 characters')
     ])
-    description = TextAreaField('描述 (可选)', validators=[
+    description = TextAreaField('Description (Optional)', validators=[
         Optional(),
-        Length(max=500, message='描述不能超过500个字符')
+        Length(max=500, message='Description cannot exceed 500 characters')
     ])
-    file = FileField('上传文本文件', validators=[
-        FileRequired(message='请选择一个文件'),
-        FileAllowed(['txt', 'docx', 'pdf'], message='只允许上传TXT、DOCX或PDF文件')
+    file = FileField('Upload Text File', validators=[
+        FileRequired(message='Please select a file'),
+        FileAllowed(['txt', 'docx', 'pdf'], message='Only TXT, DOCX, or PDF files are allowed')
     ])
-    submit = SubmitField('分析并生成球探报告') 
+    submit = SubmitField('Analyze and Generate Scout Report') 

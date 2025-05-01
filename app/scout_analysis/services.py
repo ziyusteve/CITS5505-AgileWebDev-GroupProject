@@ -81,7 +81,7 @@ Format your response as valid JSON with these exact keys: player_name, position,
 Player information:
 {text_content[:1000]}"""
 
-            # 构建适用于Gemini API的请求体
+            # Build request body for Gemini API
             prompt_with_instruction = f"{system_instruction}\n\n{user_prompt}"
             
             # Build API request body for Gemini
