@@ -1,6 +1,7 @@
 from flask import Flask
 import os
 from flask_wtf.csrf import CSRFProtect
+from flask_login import LoginManager
 from app.config import config
 from app.extensions import db
 
@@ -18,6 +19,13 @@ def create_app(config_name='default'):
     # Initialize CSRF protection
     csrf = CSRFProtect()
     csrf.init_app(app)
+    
+    # Initialize Flask-Login
+    login_manager = LoginManager()
+    login_manager.init_app(app)
+    login_manager.login_view = 'auth.login'
+    login_manager.login_message = '请先登录以访问此页面。'
+    login_manager.login_message_category = 'warning'
     
     # 确保上传目录存在
     os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
@@ -53,9 +61,12 @@ def create_app(config_name='default'):
     # 首先导入所有模型，然后一次性创建所有表
     with app.app_context():
         # 先导入所有模型
-        from app.models.user import User
+        from app.models.user import User, load_user
         from app.models.dataset import Dataset
         from app.models.share import Share
+        
+        # 注册 user_loader
+        login_manager.user_loader(load_user)
         
         # 如果启用了球探报告分析，再导入其模型
         if app.config.get('ENABLE_SCOUT_ANALYSIS', False):

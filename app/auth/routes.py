@@ -1,5 +1,6 @@
 from flask import render_template, redirect, url_for, flash, request, session
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import login_user, logout_user, login_required, current_user
 from app.auth import bp
 from app.models.user import User
 from app.extensions import db
@@ -7,6 +8,9 @@ from app.auth.forms import LoginForm, RegistrationForm
 
 @bp.route('/register', methods=['GET', 'POST'])
 def register():
+    if current_user.is_authenticated:
+        return redirect(url_for('dashboard.index'))
+        
     form = RegistrationForm()
     if form.validate_on_submit():
         hashed_password = generate_password_hash(form.password.data)
@@ -26,6 +30,9 @@ def register():
 
 @bp.route('/login', methods=['GET', 'POST'])
 def login():
+    if current_user.is_authenticated:
+        return redirect(url_for('dashboard.index'))
+        
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
@@ -34,8 +41,11 @@ def login():
             flash('请检查您的登录详情并重试。', 'danger')
             return redirect(url_for('auth.login'))
         
-        session['user_id'] = user.id
-        session['username'] = user.username
+        login_user(user, remember=form.remember.data)
+        
+        next_page = request.args.get('next')
+        if next_page:
+            return redirect(next_page)
         
         flash('登录成功！', 'success')
         return redirect(url_for('dashboard.index'))
@@ -43,11 +53,11 @@ def login():
     return render_template('auth/login.html', form=form)
 
 @bp.route('/logout')
+@login_required
 def logout():
-    session.clear()
-    flash('You have been logged out.', 'success')
+    logout_user()
+    flash('您已退出登录。', 'success')
     return redirect(url_for('main.index'))
-
 
 @bp.route('/terms')
 def terms():

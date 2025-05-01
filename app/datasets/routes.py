@@ -1,5 +1,6 @@
 # filepath: e:\5505\5505_group_project\app\datasets\routes.py
-from flask import render_template, redirect, url_for, flash, request, session, current_app
+from flask import render_template, redirect, url_for, flash, request, current_app
+from flask_login import login_required, current_user
 from werkzeug.utils import secure_filename
 import os
 from app.datasets import bp
@@ -14,12 +15,9 @@ from app.datasets.forms import DatasetUploadForm
 # from app.scout_analysis.models import ScoutReportAnalysis
 
 @bp.route('/upload', methods=['GET', 'POST'])
+@login_required
 def upload():
     """数据集上传路由"""
-    if 'user_id' not in session:
-        flash('请先登录以访问此页面。', 'warning')
-        return redirect(url_for('auth.login'))
-    
     form = DatasetUploadForm()
     
     if form.validate_on_submit():
@@ -36,7 +34,7 @@ def upload():
             title=title,
             description=description,
             file_path=file_path,
-            user_id=session['user_id']
+            user_id=current_user.id
         )
         db.session.add(new_dataset)
         db.session.commit()

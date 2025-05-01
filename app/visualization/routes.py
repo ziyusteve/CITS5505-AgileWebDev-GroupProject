@@ -1,22 +1,19 @@
-from flask import render_template, redirect, url_for, flash, session, current_app
+from flask import render_template, redirect, url_for, flash, current_app
+from flask_login import login_required, current_user
 from app.visualization import bp
 from app.models.dataset import Dataset
 from app.models.share import Share
 from app.utils import load_dataset
 
 @bp.route('/<int:dataset_id>')
+@login_required
 def visualize(dataset_id):
     """数据可视化路由"""
-    if 'user_id' not in session:
-        flash('请先登录以访问此页面。', 'warning')
-        return redirect(url_for('auth.login'))
-    
-    user_id = session['user_id']
     dataset = Dataset.query.get_or_404(dataset_id)
     
     # 检查用户是否拥有数据集或数据集是否与其共享
-    is_owner = dataset.user_id == user_id
-    is_shared = Share.query.filter_by(dataset_id=dataset_id, shared_with_id=user_id).first() is not None
+    is_owner = dataset.user_id == current_user.id
+    is_shared = Share.query.filter_by(dataset_id=dataset_id, shared_with_id=current_user.id).first() is not None
     
     if not (is_owner or is_shared):
         flash('您无权查看此数据集。', 'danger')
