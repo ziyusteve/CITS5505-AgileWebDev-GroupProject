@@ -1,0 +1,320 @@
+{% extends "base.html" %}
+
+{% block title %}Player Analytics Dashboard{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="row align-items-center mb-4">
+        <div class="col">
+            <h2 class="display-6 fw-bold text-white mb-0">
+                <i class="fas fa-chart-line text-primary me-2"></i>Player Analytics Dashboard
+            </h2>
+            <p class="text-muted mt-2">Analyze player performance with AI-powered tools</p>
+        </div>
+        <div class="col-auto">
+            <div class="btn-group">
+                <a href="{{ url_for('scout_analysis.index') }}" class="btn btn-outline-primary"><i class="fas fa-file-upload me-2"></i>Upload Report</a>
+                <a href="{{ url_for('text_analysis.index') }}" class="btn btn-outline-secondary"><i class="fas fa-align-left me-2"></i>Text Analysis</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Analytics Summary Card -->
+        <div class="col-md-7 mb-4">
+            <div class="card bg-dark border-0 shadow-lg h-100">
+                <div class="card-header bg-gradient-dark border-0 py-3">
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-tachometer-alt text-primary me-2"></i>
+                        <h5 class="mb-0 text-white">Analytics Overview</h5>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="card bg-gradient-primary-light border-0 rounded-3 p-3 shadow-sm h-100">
+                                <div class="d-flex">
+                                    <div class="stat-icon bg-primary">
+                                        <i class="fas fa-file-alt"></i>
+                                    </div>
+                                    <div class="ms-3">
+                                        <h6 class="mb-1 text-white">Scout Reports</h6>
+                                        <h4 class="counter mb-0 text-white">{{ report_count }}</h4>
+                                        <small class="text-white-50">Reports Analyzed</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="card bg-gradient-success-light border-0 rounded-3 p-3 shadow-sm h-100">
+                                <div class="d-flex">
+                                    <div class="stat-icon bg-success">
+                                        <i class="fas fa-user-shield"></i>
+                                    </div>
+                                    <div class="ms-3">
+                                        <h6 class="mb-1 text-white">Players</h6>
+                                        <h4 class="counter mb-0 text-white">{{ player_count }}</h4>
+                                        <small class="text-white-50">Total Players</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="card bg-gradient-info-light border-0 rounded-3 p-3 shadow-sm h-100">
+                                <div class="d-flex">
+                                    <div class="stat-icon bg-info">
+                                        <i class="fas fa-brain"></i>
+                                    </div>
+                                    <div class="ms-3">
+                                        <h6 class="mb-1 text-white">AI Analysis</h6>
+                                        <h4 class="counter mb-0 text-white">{{ analysis_count }}</h4>
+                                        <small class="text-white-50">Gemini Analyses</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="card bg-gradient-warning-light border-0 rounded-3 p-3 shadow-sm h-100">
+                                <div class="d-flex">
+                                    <div class="stat-icon bg-warning">
+                                        <i class="fas fa-chart-bar"></i>
+                                    </div>
+                                    <div class="ms-3">
+                                        <h6 class="mb-1 text-white">Visualizations</h6>
+                                        <h4 class="counter mb-0 text-white">{{ visualization_count }}</h4>
+                                        <small class="text-white-50">Data Charts</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quick Access Card -->
+        <div class="col-md-5 mb-4">
+            <div class="card bg-dark border-0 shadow-lg h-100">
+                <div class="card-header bg-gradient-dark border-0 py-3">
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-bolt text-warning me-2"></i>
+                        <h5 class="mb-0 text-white">Quick Actions</h5>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="list-group list-group-flush bg-transparent">
+                        <a href="{{ url_for('scout_analysis.index') }}" class="list-group-item-action bg-transparent border-0 border-bottom border-secondary py-3 px-0">
+                            <div class="d-flex align-items-center">
+                                <div class="action-icon bg-primary">
+                                    <i class="fas fa-file-upload"></i>
+                                </div>
+                                <div class="ms-3">
+                                    <h6 class="mb-1 text-white">Upload Scout Report</h6>
+                                    <p class="mb-0 text-white-50 small">Analyze player scout reports with AI</p>
+                                </div>
+                                <div class="ms-auto">
+                                    <i class="fas fa-chevron-right text-muted"></i>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="{{ url_for('text_analysis.index') }}" class="list-group-item-action bg-transparent border-0 border-bottom border-secondary py-3 px-0">
+                            <div class="d-flex align-items-center">
+                                <div class="action-icon bg-info">
+                                    <i class="fas fa-align-left"></i>
+                                </div>
+                                <div class="ms-3">
+                                    <h6 class="mb-1 text-white">Text Analysis</h6>
+                                    <p class="mb-0 text-white-50 small">Process content using Gemini AI</p>
+                                </div>
+                                <div class="ms-auto">
+                                    <i class="fas fa-chevron-right text-muted"></i>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="{{ url_for('visualization.index') }}" class="list-group-item-action bg-transparent border-0 border-bottom border-secondary py-3 px-0">
+                            <div class="d-flex align-items-center">
+                                <div class="action-icon bg-success">
+                                    <i class="fas fa-chart-pie"></i>
+                                </div>
+                                <div class="ms-3">
+                                    <h6 class="mb-1 text-white">Visualizations</h6>
+                                    <p class="mb-0 text-white-50 small">View player analysis charts</p>
+                                </div>
+                                <div class="ms-auto">
+                                    <i class="fas fa-chevron-right text-muted"></i>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="{{ url_for('scout_analysis.scout_list') }}" class="list-group-item-action bg-transparent border-0 py-3 px-0">
+                            <div class="d-flex align-items-center">
+                                <div class="action-icon bg-warning">
+                                    <i class="fas fa-list"></i>
+                                </div>
+                                <div class="ms-3">
+                                    <h6 class="mb-1 text-white">All Reports</h6>
+                                    <p class="mb-0 text-white-50 small">View all analyzed scout reports</p>
+                                </div>
+                                <div class="ms-auto">
+                                    <i class="fas fa-chevron-right text-muted"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Recent Analysis Section -->
+    <div class="card bg-dark border-0 shadow-lg mb-4">
+        <div class="card-header bg-gradient-dark border-0 py-3">
+            <div class="d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-history text-info me-2"></i>
+                    <h5 class="mb-0 text-white">Recent Analyses</h5>
+                </div>
+                <a href="{{ url_for('scout_analysis.scout_list') }}" class="btn btn-sm btn-outline-light">
+                    View All <i class="fas fa-arrow-right ms-1"></i>
+                </a>
+            </div>
+        </div>
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-dark table-hover mb-0">
+                    <thead>
+                        <tr>
+                            <th>Player</th>
+                            <th>Report Type</th>
+                            <th>Analysis Date</th>
+                            <th>Rating</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if recent_reports %}
+                            {% for report in recent_reports %}
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar-icon bg-primary me-2">
+                                            {{ report.player_name|default('Unknown')|first|upper }}
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-0 text-white">{{ report.player_name|default('Unknown Player') }}</h6>
+                                            <small class="text-muted">ID: {{ report.id }}</small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td><span class="badge bg-primary">{{ report.report_type|default('Scout Report') }}</span></td>
+                                <td>{{ report.created_at.strftime('%Y-%m-%d %H:%M') }}</td>
+                                <td>
+                                    {% set rating = report.overall_rating|default(0)|int %}
+                                    {% if rating >= 85 %}
+                                        <span class="badge bg-success">{{ rating }}</span>
+                                    {% elif rating >= 70 %}
+                                        <span class="badge bg-info">{{ rating }}</span>
+                                    {% elif rating >= 50 %}
+                                        <span class="badge bg-warning">{{ rating }}</span>
+                                    {% else %}
+                                        <span class="badge bg-danger">{{ rating }}</span>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    <div class="btn-group btn-group-sm">
+                                        <a href="{{ url_for('visualization.visualize', report_id=report.id) }}" class="btn btn-outline-primary">
+                                            <i class="fas fa-chart-bar"></i>
+                                        </a>
+                                        <a href="{{ url_for('scout_analysis.view_report', report_id=report.id) }}" class="btn btn-outline-info">
+                                            <i class="fas fa-eye"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        {% else %}
+                            <tr>
+                                <td colspan="5" class="text-center py-4">
+                                    <div class="empty-state">
+                                        <i class="fas fa-file-alt fa-3x mb-3 text-muted"></i>
+                                        <h6 class="text-white">No reports found</h6>
+                                        <p class="text-muted">Upload your first scout report to get started</p>
+                                        <a href="{{ url_for('scout_analysis.index') }}" class="btn btn-sm btn-primary">
+                                            <i class="fas fa-plus me-1"></i> Add Report
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .bg-gradient-dark {
+        background: linear-gradient(135deg, #222, #333);
+    }
+    
+    .bg-gradient-primary-light {
+        background: linear-gradient(135deg, #1a237e30, #1a237e50);
+    }
+    
+    .bg-gradient-success-light {
+        background: linear-gradient(135deg, #1b5e2030, #1b5e2050);
+    }
+    
+    .bg-gradient-info-light {
+        background: linear-gradient(135deg, #00606430, #00606450);
+    }
+    
+    .bg-gradient-warning-light {
+        background: linear-gradient(135deg, #e6500030, #e6500050);
+    }
+    
+    .stat-icon, .action-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    
+    .stat-icon i, .action-icon i {
+        font-size: 1.25rem;
+    }
+    
+    .avatar-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+    }
+    
+    .list-group-item-action:hover {
+        transform: translateX(5px);
+        transition: all 0.3s ease;
+    }
+    
+    .empty-state {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+    }
+</style>
+{% endblock %} 

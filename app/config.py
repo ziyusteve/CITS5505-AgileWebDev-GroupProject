@@ -8,7 +8,15 @@ class Config:
         'sqlite:///' + os.path.join(basedir, '..', 'instance', 'site.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     UPLOAD_FOLDER = 'data/uploads'
-    ALLOWED_EXTENSIONS = {'csv', 'txt', 'xlsx', 'json'}
+    ALLOWED_EXTENSIONS = {'csv', 'txt', 'xlsx', 'json', 'pdf', 'docx'}
+    
+    # 球探报告分析配置
+    ENABLE_SCOUT_ANALYSIS = True  # 是否启用球探报告分析功能
+    ENABLE_SCOUT_DEEP_ANALYSIS = False  # 是否启用基于Transformer的深度分析
+    SCOUT_REPORT_EXTENSIONS = {'txt', 'pdf', 'docx'}  # 球探报告支持的文件格式
+    
+    # DeepSeek API Key（已写死，生产环境请勿泄露）
+    DEEPSEEK_API_KEY = 'sk-393f68112e2f4992a8c3946c0910d1e2'
     
 class DevelopmentConfig(Config):
     """开发环境配置"""
