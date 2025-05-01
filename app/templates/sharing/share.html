@@ -1,38 +1,35 @@
 {% extends "base.html" %}
 
-{% block title %} - Share Data{% endblock %}
+{% block title %} - 共享数据{% endblock %}
 
 {% block content %}
 <div class="container">
-    <h1 class="mb-4"><i class="fas fa-share-alt me-2"></i>Share Data</h1>
+    <h1 class="mb-4"><i class="fas fa-share-alt me-2"></i>共享数据</h1>
 
     <div class="card shadow mb-4">
         <div class="card-header">
-            <h4 class="mb-0">Create New Share</h4>
+            <h4 class="mb-0">创建新共享</h4>
         </div>
         <div class="card-body">
             <form action="{{ url_for('sharing.share_dataset') }}" method="POST">
+                {{ share_form.hidden_tag() }}
                 <div class="row g-3 align-items-end">
                     <div class="col-md-5">
-                        <label for="dataset_id" class="form-label">Dataset</label>
-                        <select class="form-select" id="dataset_id" name="dataset_id" required>
-                            <option value="" selected disabled>Select a dataset to share</option>
-                            {% for dataset in datasets %}
-                            <option value="{{ dataset.id }}">{{ dataset.title }}</option>
-                            {% endfor %}
-                        </select>
+                        {{ share_form.dataset_id.label(class="form-label") }}
+                        {{ share_form.dataset_id(class="form-select") }}
+                        {% for error in share_form.dataset_id.errors %}
+                            <span class="text-danger">{{ error }}</span>
+                        {% endfor %}
                     </div>
                     <div class="col-md-5">
-                        <label for="user_id" class="form-label">Share with</label>
-                        <select class="form-select" id="user_id" name="user_id" required>
-                            <option value="" selected disabled>Select a user</option>
-                            {% for user in users %}
-                            <option value="{{ user.id }}">{{ user.username }}</option>
-                            {% endfor %}
-                        </select>
+                        {{ share_form.user_id.label(class="form-label") }}
+                        {{ share_form.user_id(class="form-select") }}
+                        {% for error in share_form.user_id.errors %}
+                            <span class="text-danger">{{ error }}</span>
+                        {% endfor %}
                     </div>
                     <div class="col-md-2">
-                        <button type="submit" class="btn btn-primary w-100">Share</button>
+                        {{ share_form.submit(class="btn btn-primary w-100") }}
                     </div>
                 </div>
             </form>
@@ -41,7 +38,7 @@
 
     <div class="card shadow">
         <div class="card-header">
-            <h4 class="mb-0">Current Shares</h4>
+            <h4 class="mb-0">当前共享</h4>
         </div>
         <div class="card-body">
             {% if shares %}
@@ -49,10 +46,10 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th>Dataset</th>
-                            <th>Shared With</th>
-                            <th>Date Shared</th>
-                            <th>Actions</th>
+                            <th>数据集</th>
+                            <th>共享给</th>
+                            <th>共享日期</th>
+                            <th>操作</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -63,8 +60,9 @@
                             <td>{{ share.date_shared.strftime('%Y-%m-%d') }}</td>
                             <td>
                                 <form action="{{ url_for('sharing.revoke_share', share_id=share.id) }}" method="POST" style="display:inline;">
-                                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to revoke this share?')">
-                                        <i class="fas fa-times"></i> Revoke
+                                    {{ revoke_forms[share.id].hidden_tag() }}
+                                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('确定要撤销此共享吗？')">
+                                        <i class="fas fa-times"></i> 撤销
                                     </button>
                                 </form>
                             </td>
@@ -74,7 +72,7 @@
                 </table>
             </div>
             {% else %}
-            <p class="text-center py-3">You have not shared any datasets yet.</p>
+            <p class="text-center py-3">您尚未共享任何数据集。</p>
             {% endif %}
         </div>
     </div>

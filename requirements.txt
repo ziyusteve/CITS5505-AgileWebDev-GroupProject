@@ -4,4 +4,5 @@ werkzeug
 pandas
 numpy
 plotly
+Flask-WTF
 djlint

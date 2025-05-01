@@ -1,5 +1,6 @@
 from flask import Flask
 import os
+from flask_wtf.csrf import CSRFProtect
 from app.config import config
 from app.extensions import db
 
@@ -13,6 +14,10 @@ def create_app(config_name='default'):
     
     # 初始化扩展
     db.init_app(app)
+    
+    # Initialize CSRF protection
+    csrf = CSRFProtect()
+    csrf.init_app(app)
     
     # 确保上传目录存在
     os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
