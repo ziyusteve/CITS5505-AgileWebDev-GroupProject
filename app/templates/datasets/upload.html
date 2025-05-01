@@ -1,35 +1,37 @@
 {% extends "base.html" %}
 
-{% block title %} - Upload Player Text for Scout Report{% endblock %}
+{% block title %} - 上传球员文本生成球探报告{% endblock %}
 
 {% block content %}
 <div class="row justify-content-center">
     <div class="col-md-8">
         <div class="card shadow">
-<<<<<<< HEAD
             <div class="card-header bg-primary text-white">
-                <h4 class="mb-0"><i class="fas fa-basketball-ball me-2"></i>Upload Player News/Description</h4>
-=======
-            <div class="card-header">
-                <h4 class="mb-0"><i class="fas fa-basketball-ball me-2"></i>Basketball Player Game Stats</h4>
->>>>>>> origin/main
+                <h4 class="mb-0"><i class="fas fa-basketball-ball me-2"></i>上传球员新闻/描述</h4>
             </div>
             <div class="card-body">
                 <form method="POST" action="{{ url_for('datasets.upload') }}" enctype="multipart/form-data">
+                    {{ form.hidden_tag() }}
                     <div class="mb-3">
-                        <label for="title" class="form-label">Player Name (optional)</label>
-                        <input type="text" class="form-control" id="title" name="title" placeholder="e.g. LeBron James">
+                        {{ form.title.label(class="form-label") }}
+                        {{ form.title(class="form-control", placeholder="例如: 勒布朗·詹姆斯") }}
+                        {% for error in form.title.errors %}
+                            <span class="text-danger">{{ error }}</span>
+                        {% endfor %}
                     </div>
                     <div class="mb-3">
-                        <label for="file" class="form-label">Upload Text File</label>
-                        <input class="form-control" type="file" id="file" name="file" accept=".txt,.docx" required>
+                        {{ form.file.label(class="form-label") }}
+                        {{ form.file(class="form-control", accept=".txt,.docx,.pdf") }}
                         <div id="fileHelp" class="form-text">
-                            Please upload a news article, commentary, or player description (TXT/DOCX).<br>
-                            The system will automatically generate a scout report with visualization and analysis.
+                            请上传新闻文章、评论或球员描述(TXT/DOCX/PDF)。<br>
+                            系统将自动生成带有可视化和分析的球探报告。
                         </div>
+                        {% for error in form.file.errors %}
+                            <span class="text-danger">{{ error }}</span>
+                        {% endfor %}
                     </div>
                     <div class="d-grid">
-                        <button type="submit" class="btn btn-primary">Analyze & Generate Scout Report</button>
+                        {{ form.submit(class="btn btn-primary") }}
                     </div>
                 </form>
             </div>

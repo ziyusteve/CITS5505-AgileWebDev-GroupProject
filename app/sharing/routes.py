@@ -1,84 +1,101 @@
-from flask import render_template, redirect, url_for, flash, request, session
+from flask import render_template, redirect, url_for, flash, request
+from flask_login import login_required, current_user
 from app.sharing import bp
 from app.models.dataset import Dataset
 from app.models.user import User
 from app.models.share import Share
 from app.extensions import db
+from app.sharing.forms import ShareDatasetForm, RevokeShareForm
 
 @bp.route('/', methods=['GET'])
+@login_required
 def index():
-    """数据共享页面路由"""
-    if 'user_id' not in session:
-        flash('请先登录以访问此页面。', 'warning')
-        return redirect(url_for('auth.login'))
+    """Data sharing page route"""
+    user_datasets = Dataset.query.filter_by(user_id=current_user.id).all()
+    users = User.query.filter(User.id != current_user.id).all()
     
-    user_id = session['user_id']
-    user_datasets = Dataset.query.filter_by(user_id=user_id).all()
-    users = User.query.filter(User.id != user_id).all()
+    # Get existing share records to show who already has access
+    shares = Share.query.join(Dataset).filter(Dataset.user_id == current_user.id).all()
     
-    # 获取现有共享记录以显示谁已经有访问权限
-    shares = Share.query.join(Dataset).filter(Dataset.user_id == user_id).all()
+    # Create and initialize share form
+    share_form = ShareDatasetForm()
+    share_form.dataset_id.choices = [(d.id, d.title) for d in user_datasets]
+    share_form.user_id.choices = [(u.id, u.username) for u in users]
     
-    return render_template('sharing/share.html', datasets=user_datasets, users=users, shares=shares)
+    # Create a revoke form for each share
+    revoke_forms = {share.id: RevokeShareForm() for share in shares}
+    
+    return render_template(
+        'sharing/share.html', 
+        share_form=share_form, 
+        revoke_forms=revoke_forms, 
+        datasets=user_datasets, 
+        users=users, 
+        shares=shares
+    )
 
 @bp.route('/dataset', methods=['POST'])
+@login_required
 def share_dataset():
-    """处理数据集共享请求"""
-    if 'user_id' not in session:
-        flash('请先登录以访问此页面。', 'warning')
-        return redirect(url_for('auth.login'))
+    """Process dataset sharing request"""
+    # Get user's datasets and other users
+    user_datasets = Dataset.query.filter_by(user_id=current_user.id).all()
+    users = User.query.filter(User.id != current_user.id).all()
     
-    user_id = session['user_id']
-    dataset_id = request.form.get('dataset_id')
-    shared_with_id = request.form.get('user_id')
+    share_form = ShareDatasetForm()
+    share_form.dataset_id.choices = [(d.id, d.title) for d in user_datasets]
+    share_form.user_id.choices = [(u.id, u.username) for u in users]
     
-    # 验证输入
-    if not dataset_id or not shared_with_id:
-        flash('缺少必填字段', 'danger')
-        return redirect(url_for('sharing.index'))
-    
-    # 检查数据集所有权
-    dataset = Dataset.query.get(dataset_id)
-    if not dataset or dataset.user_id != user_id:
-        flash('您无法共享此数据集', 'danger')
-        return redirect(url_for('sharing.index'))
-    
-    # 检查是否已共享
-    existing_share = Share.query.filter_by(
-        dataset_id=dataset_id, 
-        shared_with_id=shared_with_id
-    ).first()
-    
-    if existing_share:
-        flash('数据集已经与该用户共享', 'warning')
-        return redirect(url_for('sharing.index'))
-    
-    # 创建新的共享记录
-    new_share = Share(dataset_id=dataset_id, shared_with_id=shared_with_id)
-    db.session.add(new_share)
-    db.session.commit()
-    
-    flash('数据集已成功共享！', 'success')
+    if share_form.validate_on_submit():
+        dataset_id = share_form.dataset_id.data
+        shared_with_id = share_form.user_id.data
+        
+        # Check dataset ownership
+        dataset = Dataset.query.get(dataset_id)
+        if not dataset or dataset.user_id != current_user.id:
+            flash('You cannot share this dataset', 'danger')
+            return redirect(url_for('sharing.index'))
+        
+        # Check if already shared
+        existing_share = Share.query.filter_by(
+            dataset_id=dataset_id, 
+            shared_with_id=shared_with_id
+        ).first()
+        
+        if existing_share:
+            flash('Dataset is already shared with this user', 'warning')
+            return redirect(url_for('sharing.index'))
+        
+        # Create new share record
+        new_share = Share(dataset_id=dataset_id, shared_with_id=shared_with_id)
+        db.session.add(new_share)
+        db.session.commit()
+        
+        flash('Dataset has been shared successfully!', 'success')
+    else:
+        # If form validation fails, display errors
+        for field, errors in share_form.errors.items():
+            for error in errors:
+                flash(f'{share_form[field].label.text}: {error}', 'danger')
+                
     return redirect(url_for('sharing.index'))
 
 @bp.route('/revoke/<int:share_id>', methods=['POST'])
+@login_required
 def revoke_share(share_id):
-    """撤销数据集共享"""
-    if 'user_id' not in session:
-        flash('请先登录以访问此页面。', 'warning')
-        return redirect(url_for('auth.login'))
+    """Revoke dataset sharing"""
+    revoke_form = RevokeShareForm()
+    if revoke_form.validate_on_submit():
+        # Get share record
+        share = Share.query.join(Dataset).filter(
+            Share.id == share_id,
+            Dataset.user_id == current_user.id
+        ).first_or_404()
+        
+        # Delete share record
+        db.session.delete(share)
+        db.session.commit()
+        
+        flash('Dataset sharing has been revoked.', 'info')
     
-    user_id = session['user_id']
-    
-    # 获取共享记录
-    share = Share.query.join(Dataset).filter(
-        Share.id == share_id,
-        Dataset.user_id == user_id
-    ).first_or_404()
-    
-    # 删除共享记录
-    db.session.delete(share)
-    db.session.commit()
-    
-    flash('数据集共享已撤销。', 'info')
     return redirect(url_for('sharing.index'))

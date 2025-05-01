@@ -1,0 +1,1625 @@
+[
+    {
+        "label": "Blueprint",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "current_app",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "session",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "current_app",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "render_template",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "redirect",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "url_for",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "flash",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "session",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "render_template",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "redirect",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "url_for",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "flash",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "current_app",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "render_template",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "redirect",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "url_for",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "flash",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "current_app",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "render_template",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "current_app",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "current_app",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "current_app",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "render_template",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "redirect",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "url_for",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "flash",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "current_app",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "render_template",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "redirect",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "url_for",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "flash",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "current_app",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "current_app",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "analyze_sentiment",
+        "importPath": "app.utils.text_analysis",
+        "description": "app.utils.text_analysis",
+        "isExtraImport": true,
+        "detail": "app.utils.text_analysis",
+        "documentation": {}
+    },
+    {
+        "label": "extract_keywords",
+        "importPath": "app.utils.text_analysis",
+        "description": "app.utils.text_analysis",
+        "isExtraImport": true,
+        "detail": "app.utils.text_analysis",
+        "documentation": {}
+    },
+    {
+        "label": "summarize_text",
+        "importPath": "app.utils.text_analysis",
+        "description": "app.utils.text_analysis",
+        "isExtraImport": true,
+        "detail": "app.utils.text_analysis",
+        "documentation": {}
+    },
+    {
+        "label": "classify_text",
+        "importPath": "app.utils.text_analysis",
+        "description": "app.utils.text_analysis",
+        "isExtraImport": true,
+        "detail": "app.utils.text_analysis",
+        "documentation": {}
+    },
+    {
+        "label": "traceback",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "traceback",
+        "description": "traceback",
+        "detail": "traceback",
+        "documentation": {}
+    },
+    {
+        "label": "bp",
+        "importPath": "app.api",
+        "description": "app.api",
+        "isExtraImport": true,
+        "detail": "app.api",
+        "documentation": {}
+    },
+    {
+        "label": "Dataset",
+        "importPath": "app.models.dataset",
+        "description": "app.models.dataset",
+        "isExtraImport": true,
+        "detail": "app.models.dataset",
+        "documentation": {}
+    },
+    {
+        "label": "Dataset",
+        "importPath": "app.models.dataset",
+        "description": "app.models.dataset",
+        "isExtraImport": true,
+        "detail": "app.models.dataset",
+        "documentation": {}
+    },
+    {
+        "label": "Dataset",
+        "importPath": "app.models.dataset",
+        "description": "app.models.dataset",
+        "isExtraImport": true,
+        "detail": "app.models.dataset",
+        "documentation": {}
+    },
+    {
+        "label": "Dataset",
+        "importPath": "app.models.dataset",
+        "description": "app.models.dataset",
+        "isExtraImport": true,
+        "detail": "app.models.dataset",
+        "documentation": {}
+    },
+    {
+        "label": "Dataset",
+        "importPath": "app.models.dataset",
+        "description": "app.models.dataset",
+        "isExtraImport": true,
+        "detail": "app.models.dataset",
+        "documentation": {}
+    },
+    {
+        "label": "Share",
+        "importPath": "app.models.share",
+        "description": "app.models.share",
+        "isExtraImport": true,
+        "detail": "app.models.share",
+        "documentation": {}
+    },
+    {
+        "label": "Share",
+        "importPath": "app.models.share",
+        "description": "app.models.share",
+        "isExtraImport": true,
+        "detail": "app.models.share",
+        "documentation": {}
+    },
+    {
+        "label": "Share",
+        "importPath": "app.models.share",
+        "description": "app.models.share",
+        "isExtraImport": true,
+        "detail": "app.models.share",
+        "documentation": {}
+    },
+    {
+        "label": "Share",
+        "importPath": "app.models.share",
+        "description": "app.models.share",
+        "isExtraImport": true,
+        "detail": "app.models.share",
+        "documentation": {}
+    },
+    {
+        "label": "load_dataset",
+        "importPath": "app.utils",
+        "description": "app.utils",
+        "isExtraImport": true,
+        "detail": "app.utils",
+        "documentation": {}
+    },
+    {
+        "label": "allowed_file",
+        "importPath": "app.utils",
+        "description": "app.utils",
+        "isExtraImport": true,
+        "detail": "app.utils",
+        "documentation": {}
+    },
+    {
+        "label": "generate_unique_filename",
+        "importPath": "app.utils",
+        "description": "app.utils",
+        "isExtraImport": true,
+        "detail": "app.utils",
+        "documentation": {}
+    },
+    {
+        "label": "load_dataset",
+        "importPath": "app.utils",
+        "description": "app.utils",
+        "isExtraImport": true,
+        "detail": "app.utils",
+        "documentation": {}
+    },
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "pandas",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pandas",
+        "description": "pandas",
+        "detail": "pandas",
+        "documentation": {}
+    },
+    {
+        "label": "FlaskForm",
+        "importPath": "flask_wtf",
+        "description": "flask_wtf",
+        "isExtraImport": true,
+        "detail": "flask_wtf",
+        "documentation": {}
+    },
+    {
+        "label": "FlaskForm",
+        "importPath": "flask_wtf",
+        "description": "flask_wtf",
+        "isExtraImport": true,
+        "detail": "flask_wtf",
+        "documentation": {}
+    },
+    {
+        "label": "FlaskForm",
+        "importPath": "flask_wtf",
+        "description": "flask_wtf",
+        "isExtraImport": true,
+        "detail": "flask_wtf",
+        "documentation": {}
+    },
+    {
+        "label": "StringField",
+        "importPath": "wtforms",
+        "description": "wtforms",
+        "isExtraImport": true,
+        "detail": "wtforms",
+        "documentation": {}
+    },
+    {
+        "label": "PasswordField",
+        "importPath": "wtforms",
+        "description": "wtforms",
+        "isExtraImport": true,
+        "detail": "wtforms",
+        "documentation": {}
+    },
+    {
+        "label": "BooleanField",
+        "importPath": "wtforms",
+        "description": "wtforms",
+        "isExtraImport": true,
+        "detail": "wtforms",
+        "documentation": {}
+    },
+    {
+        "label": "SubmitField",
+        "importPath": "wtforms",
+        "description": "wtforms",
+        "isExtraImport": true,
+        "detail": "wtforms",
+        "documentation": {}
+    },
+    {
+        "label": "StringField",
+        "importPath": "wtforms",
+        "description": "wtforms",
+        "isExtraImport": true,
+        "detail": "wtforms",
+        "documentation": {}
+    },
+    {
+        "label": "TextAreaField",
+        "importPath": "wtforms",
+        "description": "wtforms",
+        "isExtraImport": true,
+        "detail": "wtforms",
+        "documentation": {}
+    },
+    {
+        "label": "SubmitField",
+        "importPath": "wtforms",
+        "description": "wtforms",
+        "isExtraImport": true,
+        "detail": "wtforms",
+        "documentation": {}
+    },
+    {
+        "label": "SelectField",
+        "importPath": "wtforms",
+        "description": "wtforms",
+        "isExtraImport": true,
+        "detail": "wtforms",
+        "documentation": {}
+    },
+    {
+        "label": "SubmitField",
+        "importPath": "wtforms",
+        "description": "wtforms",
+        "isExtraImport": true,
+        "detail": "wtforms",
+        "documentation": {}
+    },
+    {
+        "label": "DataRequired",
+        "importPath": "wtforms.validators",
+        "description": "wtforms.validators",
+        "isExtraImport": true,
+        "detail": "wtforms.validators",
+        "documentation": {}
+    },
+    {
+        "label": "Email",
+        "importPath": "wtforms.validators",
+        "description": "wtforms.validators",
+        "isExtraImport": true,
+        "detail": "wtforms.validators",
+        "documentation": {}
+    },
+    {
+        "label": "Length",
+        "importPath": "wtforms.validators",
+        "description": "wtforms.validators",
+        "isExtraImport": true,
+        "detail": "wtforms.validators",
+        "documentation": {}
+    },
+    {
+        "label": "EqualTo",
+        "importPath": "wtforms.validators",
+        "description": "wtforms.validators",
+        "isExtraImport": true,
+        "detail": "wtforms.validators",
+        "documentation": {}
+    },
+    {
+        "label": "ValidationError",
+        "importPath": "wtforms.validators",
+        "description": "wtforms.validators",
+        "isExtraImport": true,
+        "detail": "wtforms.validators",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "wtforms.validators",
+        "description": "wtforms.validators",
+        "isExtraImport": true,
+        "detail": "wtforms.validators",
+        "documentation": {}
+    },
+    {
+        "label": "Length",
+        "importPath": "wtforms.validators",
+        "description": "wtforms.validators",
+        "isExtraImport": true,
+        "detail": "wtforms.validators",
+        "documentation": {}
+    },
+    {
+        "label": "DataRequired",
+        "importPath": "wtforms.validators",
+        "description": "wtforms.validators",
+        "isExtraImport": true,
+        "detail": "wtforms.validators",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "app.models.user",
+        "description": "app.models.user",
+        "isExtraImport": true,
+        "detail": "app.models.user",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "app.models.user",
+        "description": "app.models.user",
+        "isExtraImport": true,
+        "detail": "app.models.user",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "app.models.user",
+        "description": "app.models.user",
+        "isExtraImport": true,
+        "detail": "app.models.user",
+        "documentation": {}
+    },
+    {
+        "label": "generate_password_hash",
+        "importPath": "werkzeug.security",
+        "description": "werkzeug.security",
+        "isExtraImport": true,
+        "detail": "werkzeug.security",
+        "documentation": {}
+    },
+    {
+        "label": "check_password_hash",
+        "importPath": "werkzeug.security",
+        "description": "werkzeug.security",
+        "isExtraImport": true,
+        "detail": "werkzeug.security",
+        "documentation": {}
+    },
+    {
+        "label": "login_user",
+        "importPath": "flask_login",
+        "description": "flask_login",
+        "isExtraImport": true,
+        "detail": "flask_login",
+        "documentation": {}
+    },
+    {
+        "label": "logout_user",
+        "importPath": "flask_login",
+        "description": "flask_login",
+        "isExtraImport": true,
+        "detail": "flask_login",
+        "documentation": {}
+    },
+    {
+        "label": "login_required",
+        "importPath": "flask_login",
+        "description": "flask_login",
+        "isExtraImport": true,
+        "detail": "flask_login",
+        "documentation": {}
+    },
+    {
+        "label": "current_user",
+        "importPath": "flask_login",
+        "description": "flask_login",
+        "isExtraImport": true,
+        "detail": "flask_login",
+        "documentation": {}
+    },
+    {
+        "label": "login_required",
+        "importPath": "flask_login",
+        "description": "flask_login",
+        "isExtraImport": true,
+        "detail": "flask_login",
+        "documentation": {}
+    },
+    {
+        "label": "current_user",
+        "importPath": "flask_login",
+        "description": "flask_login",
+        "isExtraImport": true,
+        "detail": "flask_login",
+        "documentation": {}
+    },
+    {
+        "label": "login_required",
+        "importPath": "flask_login",
+        "description": "flask_login",
+        "isExtraImport": true,
+        "detail": "flask_login",
+        "documentation": {}
+    },
+    {
+        "label": "current_user",
+        "importPath": "flask_login",
+        "description": "flask_login",
+        "isExtraImport": true,
+        "detail": "flask_login",
+        "documentation": {}
+    },
+    {
+        "label": "UserMixin",
+        "importPath": "flask_login",
+        "description": "flask_login",
+        "isExtraImport": true,
+        "detail": "flask_login",
+        "documentation": {}
+    },
+    {
+        "label": "login_required",
+        "importPath": "flask_login",
+        "description": "flask_login",
+        "isExtraImport": true,
+        "detail": "flask_login",
+        "documentation": {}
+    },
+    {
+        "label": "current_user",
+        "importPath": "flask_login",
+        "description": "flask_login",
+        "isExtraImport": true,
+        "detail": "flask_login",
+        "documentation": {}
+    },
+    {
+        "label": "login_required",
+        "importPath": "flask_login",
+        "description": "flask_login",
+        "isExtraImport": true,
+        "detail": "flask_login",
+        "documentation": {}
+    },
+    {
+        "label": "current_user",
+        "importPath": "flask_login",
+        "description": "flask_login",
+        "isExtraImport": true,
+        "detail": "flask_login",
+        "documentation": {}
+    },
+    {
+        "label": "bp",
+        "importPath": "app.auth",
+        "description": "app.auth",
+        "isExtraImport": true,
+        "detail": "app.auth",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "app.extensions",
+        "description": "app.extensions",
+        "isExtraImport": true,
+        "detail": "app.extensions",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "app.extensions",
+        "description": "app.extensions",
+        "isExtraImport": true,
+        "detail": "app.extensions",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "app.extensions",
+        "description": "app.extensions",
+        "isExtraImport": true,
+        "detail": "app.extensions",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "app.extensions",
+        "description": "app.extensions",
+        "isExtraImport": true,
+        "detail": "app.extensions",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "app.extensions",
+        "description": "app.extensions",
+        "isExtraImport": true,
+        "detail": "app.extensions",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "app.extensions",
+        "description": "app.extensions",
+        "isExtraImport": true,
+        "detail": "app.extensions",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "app.extensions",
+        "description": "app.extensions",
+        "isExtraImport": true,
+        "detail": "app.extensions",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "app.extensions",
+        "description": "app.extensions",
+        "isExtraImport": true,
+        "detail": "app.extensions",
+        "documentation": {}
+    },
+    {
+        "label": "get_gemini_api",
+        "importPath": "app.extensions",
+        "description": "app.extensions",
+        "isExtraImport": true,
+        "detail": "app.extensions",
+        "documentation": {}
+    },
+    {
+        "label": "LoginForm",
+        "importPath": "app.auth.forms",
+        "description": "app.auth.forms",
+        "isExtraImport": true,
+        "detail": "app.auth.forms",
+        "documentation": {}
+    },
+    {
+        "label": "RegistrationForm",
+        "importPath": "app.auth.forms",
+        "description": "app.auth.forms",
+        "isExtraImport": true,
+        "detail": "app.auth.forms",
+        "documentation": {}
+    },
+    {
+        "label": "bp",
+        "importPath": "app.dashboard",
+        "description": "app.dashboard",
+        "isExtraImport": true,
+        "detail": "app.dashboard",
+        "documentation": {}
+    },
+    {
+        "label": "FileField",
+        "importPath": "flask_wtf.file",
+        "description": "flask_wtf.file",
+        "isExtraImport": true,
+        "detail": "flask_wtf.file",
+        "documentation": {}
+    },
+    {
+        "label": "FileRequired",
+        "importPath": "flask_wtf.file",
+        "description": "flask_wtf.file",
+        "isExtraImport": true,
+        "detail": "flask_wtf.file",
+        "documentation": {}
+    },
+    {
+        "label": "FileAllowed",
+        "importPath": "flask_wtf.file",
+        "description": "flask_wtf.file",
+        "isExtraImport": true,
+        "detail": "flask_wtf.file",
+        "documentation": {}
+    },
+    {
+        "label": "secure_filename",
+        "importPath": "werkzeug.utils",
+        "description": "werkzeug.utils",
+        "isExtraImport": true,
+        "detail": "werkzeug.utils",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "bp",
+        "importPath": "app.datasets",
+        "description": "app.datasets",
+        "isExtraImport": true,
+        "detail": "app.datasets",
+        "documentation": {}
+    },
+    {
+        "label": "DatasetUploadForm",
+        "importPath": "app.datasets.forms",
+        "description": "app.datasets.forms",
+        "isExtraImport": true,
+        "detail": "app.datasets.forms",
+        "documentation": {}
+    },
+    {
+        "label": "bp",
+        "importPath": "app.main",
+        "description": "app.main",
+        "isExtraImport": true,
+        "detail": "app.main",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "logging",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging",
+        "description": "logging",
+        "detail": "logging",
+        "documentation": {}
+    },
+    {
+        "label": "re",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "re",
+        "description": "re",
+        "detail": "re",
+        "documentation": {}
+    },
+    {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
+        "label": "threading",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "threading",
+        "description": "threading",
+        "detail": "threading",
+        "documentation": {}
+    },
+    {
+        "label": "bp",
+        "importPath": "app.sharing",
+        "description": "app.sharing",
+        "isExtraImport": true,
+        "detail": "app.sharing",
+        "documentation": {}
+    },
+    {
+        "label": "ShareDatasetForm",
+        "importPath": "app.sharing.forms",
+        "description": "app.sharing.forms",
+        "isExtraImport": true,
+        "detail": "app.sharing.forms",
+        "documentation": {}
+    },
+    {
+        "label": "RevokeShareForm",
+        "importPath": "app.sharing.forms",
+        "description": "app.sharing.forms",
+        "isExtraImport": true,
+        "detail": "app.sharing.forms",
+        "documentation": {}
+    },
+    {
+        "label": "bp",
+        "importPath": "app.visualization",
+        "description": "app.visualization",
+        "isExtraImport": true,
+        "detail": "app.visualization",
+        "documentation": {}
+    },
+    {
+        "label": "SQLAlchemy",
+        "importPath": "flask_sqlalchemy",
+        "description": "flask_sqlalchemy",
+        "isExtraImport": true,
+        "detail": "flask_sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "uuid",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "uuid",
+        "description": "uuid",
+        "detail": "uuid",
+        "documentation": {}
+    },
+    {
+        "label": "create_app",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "create_app",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "create_app",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "ScoutAnalysisService",
+        "importPath": "app.scout_analysis.services",
+        "description": "app.scout_analysis.services",
+        "isExtraImport": true,
+        "detail": "app.scout_analysis.services",
+        "documentation": {}
+    },
+    {
+        "label": "analyze",
+        "kind": 2,
+        "importPath": "app.api.gemini_analysis",
+        "description": "app.api.gemini_analysis",
+        "peekOfCode": "def analyze():\n    \"\"\"\n    Text Analysis API Endpoint\n    Request Body Format:\n    {\n        \"text\": \"Text to analyze\",\n        \"analysis_type\": \"sentiment|keywords|summary|classification\",\n        \"options\": {\n            // Optional analysis parameters\n            \"max_words\": 50,  // For summary",
+        "detail": "app.api.gemini_analysis",
+        "documentation": {}
+    },
+    {
+        "label": "gemini_analysis_bp",
+        "kind": 5,
+        "importPath": "app.api.gemini_analysis",
+        "description": "app.api.gemini_analysis",
+        "peekOfCode": "gemini_analysis_bp = Blueprint('gemini_analysis', __name__)\n@gemini_analysis_bp.route('/analyze', methods=['POST'])\ndef analyze():\n    \"\"\"\n    Text Analysis API Endpoint\n    Request Body Format:\n    {\n        \"text\": \"Text to analyze\",\n        \"analysis_type\": \"sentiment|keywords|summary|classification\",\n        \"options\": {",
+        "detail": "app.api.gemini_analysis",
+        "documentation": {}
+    },
+    {
+        "label": "analyze_dataset",
+        "kind": 2,
+        "importPath": "app.api.routes",
+        "description": "app.api.routes",
+        "peekOfCode": "def analyze_dataset(df):\n    \"\"\"Analyze the dataset, generate statistics and insights\"\"\"\n    result = {\n        \"column_count\": len(df.columns),\n        \"row_count\": len(df),\n        \"preview\": df.head(10).to_dict('records')\n    }\n    # Calculate statistics for numeric columns\n    numeric_columns = df.select_dtypes(include=[np.number]).columns.tolist()\n    categorical_columns = [col for col in df.columns if col not in numeric_columns]",
+        "detail": "app.api.routes",
+        "documentation": {}
+    },
+    {
+        "label": "dataset_analyze",
+        "kind": 2,
+        "importPath": "app.api.routes",
+        "description": "app.api.routes",
+        "peekOfCode": "def dataset_analyze(dataset_id):\n    \"\"\"Dataset analysis API endpoint\"\"\"\n    if 'user_id' not in session:\n        return jsonify({\"error\": \"Authentication required\"}), 401\n    user_id = session['user_id']\n    dataset = Dataset.query.get_or_404(dataset_id)\n    # Check if the user owns the dataset or the dataset is shared with them\n    is_owner = dataset.user_id == user_id\n    is_shared = Share.query.filter_by(dataset_id=dataset_id, shared_with_id=user_id).first() is not None\n    if not (is_owner or is_shared):",
+        "detail": "app.api.routes",
+        "documentation": {}
+    },
+    {
+        "label": "dataset_visualize",
+        "kind": 2,
+        "importPath": "app.api.routes",
+        "description": "app.api.routes",
+        "peekOfCode": "def dataset_visualize(dataset_id):\n    \"\"\"Dataset visualization API endpoint\"\"\"\n    if 'user_id' not in session:\n        return jsonify({\"error\": \"Authentication required\"}), 401\n    user_id = session['user_id']\n    dataset = Dataset.query.get_or_404(dataset_id)\n    # Check if the user owns the dataset or the dataset is shared with them\n    is_owner = dataset.user_id == user_id\n    is_shared = Share.query.filter_by(dataset_id=dataset_id, shared_with_id=user_id).first() is not None\n    if not (is_owner or is_shared):",
+        "detail": "app.api.routes",
+        "documentation": {}
+    },
+    {
+        "label": "scout_analysis",
+        "kind": 2,
+        "importPath": "app.api.routes",
+        "description": "app.api.routes",
+        "peekOfCode": "def scout_analysis(dataset_id):\n    \"\"\"Scout report analysis API endpoint\"\"\"\n    if 'user_id' not in session:\n        return jsonify({\"error\": \"Authentication required\", \"processing_status\": \"failed\"}), 401\n    user_id = session['user_id']\n    dataset = Dataset.query.get_or_404(dataset_id)\n    # Check if the user owns the dataset or the dataset is shared with them\n    is_owner = dataset.user_id == user_id\n    is_shared = Share.query.filter_by(dataset_id=dataset_id, shared_with_id=user_id).first() is not None\n    if not (is_owner or is_shared):",
+        "detail": "app.api.routes",
+        "documentation": {}
+    },
+    {
+        "label": "test_api",
+        "kind": 2,
+        "importPath": "app.api.routes",
+        "description": "app.api.routes",
+        "peekOfCode": "def test_api():\n    \"\"\"Test API connection endpoint, no authentication required\"\"\"\n    try:\n        # Import scout analysis service\n        from app.scout_analysis.services import ScoutAnalysisService\n        # Get API key and version\n        api_key = current_app.config.get('GEMINI_API_KEY')\n        api_key_masked = f\"{api_key[:5]}...{api_key[-5:]}\" if api_key else \"Not set\"\n        # Generate a short test text\n        test_text = \"Testing Gemini API connection. This is an NBA player: Lebron James, an all-star player.\"",
+        "detail": "app.api.routes",
+        "documentation": {}
+    },
+    {
+        "label": "LoginForm",
+        "kind": 6,
+        "importPath": "app.auth.forms",
+        "description": "app.auth.forms",
+        "peekOfCode": "class LoginForm(FlaskForm):\n    username = StringField('Username', validators=[DataRequired()])\n    password = PasswordField('Password', validators=[DataRequired()])\n    remember = BooleanField('Remember Me')\n    submit = SubmitField('Login')\nclass RegistrationForm(FlaskForm):\n    username = StringField('Username', validators=[\n        DataRequired(),\n        Length(min=3, message='Username must contain at least 3 characters')\n    ])",
+        "detail": "app.auth.forms",
+        "documentation": {}
+    },
+    {
+        "label": "RegistrationForm",
+        "kind": 6,
+        "importPath": "app.auth.forms",
+        "description": "app.auth.forms",
+        "peekOfCode": "class RegistrationForm(FlaskForm):\n    username = StringField('Username', validators=[\n        DataRequired(),\n        Length(min=3, message='Username must contain at least 3 characters')\n    ])\n    email = StringField('Email', validators=[\n        DataRequired(),\n        Email(message='Please enter a valid email address')\n    ])\n    password = PasswordField('Password', validators=[",
+        "detail": "app.auth.forms",
+        "documentation": {}
+    },
+    {
+        "label": "register",
+        "kind": 2,
+        "importPath": "app.auth.routes",
+        "description": "app.auth.routes",
+        "peekOfCode": "def register():\n    if current_user.is_authenticated:\n        return redirect(url_for('dashboard.index'))\n    form = RegistrationForm()\n    if form.validate_on_submit():\n        hashed_password = generate_password_hash(form.password.data)\n        new_user = User(\n            username=form.username.data, \n            email=form.email.data, \n            password=hashed_password",
+        "detail": "app.auth.routes",
+        "documentation": {}
+    },
+    {
+        "label": "login",
+        "kind": 2,
+        "importPath": "app.auth.routes",
+        "description": "app.auth.routes",
+        "peekOfCode": "def login():\n    if current_user.is_authenticated:\n        return redirect(url_for('dashboard.index'))\n    form = LoginForm()\n    if form.validate_on_submit():\n        user = User.query.filter_by(username=form.username.data).first()\n        if not user or not check_password_hash(user.password, form.password.data):\n            flash('Please check your login details and try again.', 'danger')\n            return redirect(url_for('auth.login'))\n        login_user(user, remember=form.remember.data)",
+        "detail": "app.auth.routes",
+        "documentation": {}
+    },
+    {
+        "label": "logout",
+        "kind": 2,
+        "importPath": "app.auth.routes",
+        "description": "app.auth.routes",
+        "peekOfCode": "def logout():\n    logout_user()\n    flash('You have been logged out.', 'success')\n    return redirect(url_for('main.index'))\n@bp.route('/terms')\ndef terms():\n    return render_template('auth/terms.html')\n@bp.route('/privacy')\ndef privacy():\n    return render_template('auth/privacy.html')",
+        "detail": "app.auth.routes",
+        "documentation": {}
+    },
+    {
+        "label": "terms",
+        "kind": 2,
+        "importPath": "app.auth.routes",
+        "description": "app.auth.routes",
+        "peekOfCode": "def terms():\n    return render_template('auth/terms.html')\n@bp.route('/privacy')\ndef privacy():\n    return render_template('auth/privacy.html')",
+        "detail": "app.auth.routes",
+        "documentation": {}
+    },
+    {
+        "label": "privacy",
+        "kind": 2,
+        "importPath": "app.auth.routes",
+        "description": "app.auth.routes",
+        "peekOfCode": "def privacy():\n    return render_template('auth/privacy.html')",
+        "detail": "app.auth.routes",
+        "documentation": {}
+    },
+    {
+        "label": "index",
+        "kind": 2,
+        "importPath": "app.dashboard.routes",
+        "description": "app.dashboard.routes",
+        "peekOfCode": "def index():\n    \"\"\"用户仪表板路由\"\"\"\n    user_datasets = Dataset.query.filter_by(user_id=current_user.id).all()\n    # 获取与用户共享的数据集\n    shared_with_user = db.session.query(Dataset).join(Share).filter(Share.shared_with_id == current_user.id).all()\n    return render_template('dashboard/dashboard.html', \n                           user_datasets=user_datasets, \n                           shared_datasets=shared_with_user)",
+        "detail": "app.dashboard.routes",
+        "documentation": {}
+    },
+    {
+        "label": "DatasetUploadForm",
+        "kind": 6,
+        "importPath": "app.datasets.forms",
+        "description": "app.datasets.forms",
+        "peekOfCode": "class DatasetUploadForm(FlaskForm):\n    title = StringField('Player Name (Optional)', validators=[\n        Optional(),\n        Length(max=100, message='Title cannot exceed 100 characters')\n    ])\n    description = TextAreaField('Description (Optional)', validators=[\n        Optional(),\n        Length(max=500, message='Description cannot exceed 500 characters')\n    ])\n    file = FileField('Upload Text File', validators=[",
+        "detail": "app.datasets.forms",
+        "documentation": {}
+    },
+    {
+        "label": "upload",
+        "kind": 2,
+        "importPath": "app.datasets.routes",
+        "description": "app.datasets.routes",
+        "peekOfCode": "def upload():\n    \"\"\"Dataset upload route\"\"\"\n    form = DatasetUploadForm()\n    if form.validate_on_submit():\n        file = form.file.data\n        title = form.title.data\n        description = form.description.data or ''\n        filename = secure_filename(file.filename)\n        unique_filename = generate_unique_filename(filename)\n        file_path = os.path.join(current_app.config['UPLOAD_FOLDER'], unique_filename)",
+        "detail": "app.datasets.routes",
+        "documentation": {}
+    },
+    {
+        "label": "index",
+        "kind": 2,
+        "importPath": "app.main.routes",
+        "description": "app.main.routes",
+        "peekOfCode": "def index():\n    \"\"\"网站主页路由\"\"\"\n    return render_template('main/index.html')",
+        "detail": "app.main.routes",
+        "documentation": {}
+    },
+    {
+        "label": "Dataset",
+        "kind": 6,
+        "importPath": "app.models.dataset",
+        "description": "app.models.dataset",
+        "peekOfCode": "class Dataset(db.Model):\n    __tablename__ = 'datasets'\n    id = db.Column(db.Integer, primary_key=True)\n    title = db.Column(db.String(100), nullable=False)\n    date_uploaded = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)\n    file_path = db.Column(db.String(255), nullable=False)\n    description = db.Column(db.Text, nullable=True)\n    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)\n    shares = db.relationship('Share', backref='dataset', lazy=True, cascade=\"all, delete\")\n    def __repr__(self):",
+        "detail": "app.models.dataset",
+        "documentation": {}
+    },
+    {
+        "label": "Share",
+        "kind": 6,
+        "importPath": "app.models.share",
+        "description": "app.models.share",
+        "peekOfCode": "class Share(db.Model):\n    id = db.Column(db.Integer, primary_key=True)\n    dataset_id = db.Column(db.Integer, db.ForeignKey('datasets.id'), nullable=False)\n    shared_with_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)\n    date_shared = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)\n    shared_with = db.relationship('User', foreign_keys=[shared_with_id])\n    def __repr__(self):\n        return f\"Share(Dataset: {self.dataset_id}, Shared with: {self.shared_with_id})\"",
+        "detail": "app.models.share",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "kind": 6,
+        "importPath": "app.models.user",
+        "description": "app.models.user",
+        "peekOfCode": "class User(db.Model, UserMixin):\n    id = db.Column(db.Integer, primary_key=True)\n    username = db.Column(db.String(20), unique=True, nullable=False)\n    email = db.Column(db.String(120), unique=True, nullable=False)\n    password = db.Column(db.String(60), nullable=False)\n    datasets = db.relationship('Dataset', backref='owner', lazy=True)\n    def __repr__(self):\n        return f\"User('{self.username}', '{self.email}')\"\n# This function will be registered with login_manager in __init__.py\ndef load_user(user_id):",
+        "detail": "app.models.user",
+        "documentation": {}
+    },
+    {
+        "label": "load_user",
+        "kind": 2,
+        "importPath": "app.models.user",
+        "description": "app.models.user",
+        "peekOfCode": "def load_user(user_id):\n    return User.query.get(int(user_id))",
+        "detail": "app.models.user",
+        "documentation": {}
+    },
+    {
+        "label": "MockAnalysisService",
+        "kind": 6,
+        "importPath": "app.scout_analysis.mock_service",
+        "description": "app.scout_analysis.mock_service",
+        "peekOfCode": "class MockAnalysisService:\n    \"\"\"Mock Scout Report Analysis Service\"\"\"\n    @staticmethod\n    def analyze_text(text_content):\n        \"\"\"Analyze text and generate mock scout report analysis data\"\"\"\n        # Extract some keywords to generate relevant analysis\n        text_lower = text_content.lower()\n        name = \"Unknown Player\"\n        # Try to extract player name\n        if \"lebron\" in text_lower:",
+        "detail": "app.scout_analysis.mock_service",
+        "documentation": {}
+    },
+    {
+        "label": "ScoutReportAnalysis",
+        "kind": 6,
+        "importPath": "app.scout_analysis.models",
+        "description": "app.scout_analysis.models",
+        "peekOfCode": "class ScoutReportAnalysis(db.Model):\n    \"\"\"Scout Report Analysis Result Model\"\"\"\n    __tablename__ = 'scout_report_analyses'\n    id = db.Column(db.Integer, primary_key=True)\n    # Relationship to existing Dataset model\n    dataset_id = db.Column(db.Integer, db.ForeignKey('datasets.id'), nullable=False)\n    dataset = db.relationship('Dataset', backref=db.backref('scout_analyses', lazy=True))\n    # Analysis results\n    analysis_date = db.Column(db.DateTime, default=datetime.utcnow)\n    analysis_result = db.Column(db.Text, nullable=True)  # Store analysis results in JSON format",
+        "detail": "app.scout_analysis.models",
+        "documentation": {}
+    },
+    {
+        "label": "extract_text_from_file",
+        "kind": 2,
+        "importPath": "app.scout_analysis.processors",
+        "description": "app.scout_analysis.processors",
+        "peekOfCode": "def extract_text_from_file(filepath):\n    \"\"\"Extract text content from various file formats (TXT, PDF, DOCX)\"\"\"\n    file_ext = filepath.split('.')[-1].lower()\n    if file_ext == 'txt':\n        # Direct text extraction for TXT files\n        try:\n            with open(filepath, 'r', encoding='utf-8') as file:\n                return file.read()\n        except UnicodeDecodeError:\n            # Try different encoding if utf-8 fails",
+        "detail": "app.scout_analysis.processors",
+        "documentation": {}
+    },
+    {
+        "label": "is_scout_report",
+        "kind": 2,
+        "importPath": "app.scout_analysis.processors",
+        "description": "app.scout_analysis.processors",
+        "peekOfCode": "def is_scout_report(filepath):\n    \"\"\"Determine if a file is likely a scout report based on content analysis\"\"\"\n    # First check file extension\n    file_ext = filepath.split('.')[-1].lower()\n    scout_extensions = current_app.config.get('SCOUT_REPORT_EXTENSIONS', ['txt', 'pdf', 'docx'])\n    if file_ext not in scout_extensions:\n        return False\n    # Extract text content\n    text_content = extract_text_from_file(filepath)\n    if text_content.startswith('ERROR:'):",
+        "detail": "app.scout_analysis.processors",
+        "documentation": {}
+    },
+    {
+        "label": "ScoutAnalysisService",
+        "kind": 6,
+        "importPath": "app.scout_analysis.services",
+        "description": "app.scout_analysis.services",
+        "peekOfCode": "class ScoutAnalysisService:\n    \"\"\"Scout Report Analysis Service\"\"\"\n    # Class variables for model caching\n    _nlp_model = None\n    _model_lock = threading.Lock()\n    @classmethod\n    def get_nlp_model(cls):\n        \"\"\"Lazy load NLP model, only when needed to save resources\"\"\"\n        if cls._nlp_model is None:\n            with cls._model_lock:  # Prevent multiple threads from loading simultaneously",
+        "detail": "app.scout_analysis.services",
+        "documentation": {}
+    },
+    {
+        "label": "ShareDatasetForm",
+        "kind": 6,
+        "importPath": "app.sharing.forms",
+        "description": "app.sharing.forms",
+        "peekOfCode": "class ShareDatasetForm(FlaskForm):\n    dataset_id = SelectField('Dataset', validators=[DataRequired()], coerce=int)\n    user_id = SelectField('Share with', validators=[DataRequired()], coerce=int)\n    submit = SubmitField('Share')\nclass RevokeShareForm(FlaskForm):\n    submit = SubmitField('Revoke')",
+        "detail": "app.sharing.forms",
+        "documentation": {}
+    },
+    {
+        "label": "RevokeShareForm",
+        "kind": 6,
+        "importPath": "app.sharing.forms",
+        "description": "app.sharing.forms",
+        "peekOfCode": "class RevokeShareForm(FlaskForm):\n    submit = SubmitField('Revoke')",
+        "detail": "app.sharing.forms",
+        "documentation": {}
+    },
+    {
+        "label": "index",
+        "kind": 2,
+        "importPath": "app.sharing.routes",
+        "description": "app.sharing.routes",
+        "peekOfCode": "def index():\n    \"\"\"Data sharing page route\"\"\"\n    user_datasets = Dataset.query.filter_by(user_id=current_user.id).all()\n    users = User.query.filter(User.id != current_user.id).all()\n    # Get existing share records to show who already has access\n    shares = Share.query.join(Dataset).filter(Dataset.user_id == current_user.id).all()\n    # Create and initialize share form\n    share_form = ShareDatasetForm()\n    share_form.dataset_id.choices = [(d.id, d.title) for d in user_datasets]\n    share_form.user_id.choices = [(u.id, u.username) for u in users]",
+        "detail": "app.sharing.routes",
+        "documentation": {}
+    },
+    {
+        "label": "share_dataset",
+        "kind": 2,
+        "importPath": "app.sharing.routes",
+        "description": "app.sharing.routes",
+        "peekOfCode": "def share_dataset():\n    \"\"\"Process dataset sharing request\"\"\"\n    # Get user's datasets and other users\n    user_datasets = Dataset.query.filter_by(user_id=current_user.id).all()\n    users = User.query.filter(User.id != current_user.id).all()\n    share_form = ShareDatasetForm()\n    share_form.dataset_id.choices = [(d.id, d.title) for d in user_datasets]\n    share_form.user_id.choices = [(u.id, u.username) for u in users]\n    if share_form.validate_on_submit():\n        dataset_id = share_form.dataset_id.data",
+        "detail": "app.sharing.routes",
+        "documentation": {}
+    },
+    {
+        "label": "revoke_share",
+        "kind": 2,
+        "importPath": "app.sharing.routes",
+        "description": "app.sharing.routes",
+        "peekOfCode": "def revoke_share(share_id):\n    \"\"\"Revoke dataset sharing\"\"\"\n    revoke_form = RevokeShareForm()\n    if revoke_form.validate_on_submit():\n        # Get share record\n        share = Share.query.join(Dataset).filter(\n            Share.id == share_id,\n            Dataset.user_id == current_user.id\n        ).first_or_404()\n        # Delete share record",
+        "detail": "app.sharing.routes",
+        "documentation": {}
+    },
+    {
+        "label": "analyze_sentiment",
+        "kind": 2,
+        "importPath": "app.utils.text_analysis",
+        "description": "app.utils.text_analysis",
+        "peekOfCode": "def analyze_sentiment(text):\n    \"\"\"\n    分析文本情感\n    Args:\n        text (str): 需要分析的文本内容\n    Returns:\n        dict: 包含情感分析结果的字典\n    \"\"\"\n    gemini = current_app.config.get('GEMINI_INSTANCE')\n    if not gemini:",
+        "detail": "app.utils.text_analysis",
+        "documentation": {}
+    },
+    {
+        "label": "extract_keywords",
+        "kind": 2,
+        "importPath": "app.utils.text_analysis",
+        "description": "app.utils.text_analysis",
+        "peekOfCode": "def extract_keywords(text):\n    \"\"\"\n    从文本中提取关键词\n    Args:\n        text (str): 需要分析的文本内容\n    Returns:\n        dict: 包含关键词提取结果的字典\n    \"\"\"\n    gemini = current_app.config.get('GEMINI_INSTANCE')\n    if not gemini:",
+        "detail": "app.utils.text_analysis",
+        "documentation": {}
+    },
+    {
+        "label": "summarize_text",
+        "kind": 2,
+        "importPath": "app.utils.text_analysis",
+        "description": "app.utils.text_analysis",
+        "peekOfCode": "def summarize_text(text, max_words=50):\n    \"\"\"\n    对文本进行摘要\n    Args:\n        text (str): 需要摘要的文本内容\n        max_words (int): 摘要的最大字数\n    Returns:\n        dict: 包含文本摘要结果的字典\n    \"\"\"\n    gemini = current_app.config.get('GEMINI_INSTANCE')",
+        "detail": "app.utils.text_analysis",
+        "documentation": {}
+    },
+    {
+        "label": "classify_text",
+        "kind": 2,
+        "importPath": "app.utils.text_analysis",
+        "description": "app.utils.text_analysis",
+        "peekOfCode": "def classify_text(text, categories=None):\n    \"\"\"\n    对文本进行分类\n    Args:\n        text (str): 需要分类的文本内容\n        categories (list): 可选的分类类别列表\n    Returns:\n        dict: 包含文本分类结果的字典\n    \"\"\"\n    gemini = current_app.config.get('GEMINI_INSTANCE')",
+        "detail": "app.utils.text_analysis",
+        "documentation": {}
+    },
+    {
+        "label": "visualize",
+        "kind": 2,
+        "importPath": "app.visualization.routes",
+        "description": "app.visualization.routes",
+        "peekOfCode": "def visualize(dataset_id):\n    \"\"\"Data visualization route\"\"\"\n    dataset = Dataset.query.get_or_404(dataset_id)\n    # Check if the user owns the dataset or if it's shared with them\n    is_owner = dataset.user_id == current_user.id\n    is_shared = Share.query.filter_by(dataset_id=dataset_id, shared_with_id=current_user.id).first() is not None\n    if not (is_owner or is_shared):\n        flash('You do not have permission to view this dataset.', 'danger')\n        return redirect(url_for('dashboard.index'))\n    # Force all text files to be treated as scout reports to ensure proper visualization",
+        "detail": "app.visualization.routes",
+        "documentation": {}
+    },
+    {
+        "label": "Config",
+        "kind": 6,
+        "importPath": "app.config",
+        "description": "app.config",
+        "peekOfCode": "class Config:\n    \"\"\"基础配置类\"\"\"\n    SECRET_KEY = os.environ.get('SECRET_KEY') or 'your-secret-key'\n    basedir = os.path.abspath(os.path.dirname(__file__))\n    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \\\n        'sqlite:///' + os.path.join(basedir, '..', 'instance', 'site.db')\n    SQLALCHEMY_TRACK_MODIFICATIONS = False\n    UPLOAD_FOLDER = 'data/uploads'\n    ALLOWED_EXTENSIONS = {'csv', 'txt', 'xlsx', 'json', 'pdf', 'docx'}\n    # 球探报告分析配置",
+        "detail": "app.config",
+        "documentation": {}
+    },
+    {
+        "label": "DevelopmentConfig",
+        "kind": 6,
+        "importPath": "app.config",
+        "description": "app.config",
+        "peekOfCode": "class DevelopmentConfig(Config):\n    \"\"\"开发环境配置\"\"\"\n    DEBUG = True\nclass TestingConfig(Config):\n    \"\"\"测试环境配置\"\"\"\n    TESTING = True\n    SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'\nclass ProductionConfig(Config):\n    \"\"\"生产环境配置\"\"\"\n    DEBUG = False",
+        "detail": "app.config",
+        "documentation": {}
+    },
+    {
+        "label": "TestingConfig",
+        "kind": 6,
+        "importPath": "app.config",
+        "description": "app.config",
+        "peekOfCode": "class TestingConfig(Config):\n    \"\"\"测试环境配置\"\"\"\n    TESTING = True\n    SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'\nclass ProductionConfig(Config):\n    \"\"\"生产环境配置\"\"\"\n    DEBUG = False\n    # 在生产环境中应使用更强的密钥\n    # SECRET_KEY = os.environ.get('SECRET_KEY')\n# 配置映射，用于选择不同环境",
+        "detail": "app.config",
+        "documentation": {}
+    },
+    {
+        "label": "ProductionConfig",
+        "kind": 6,
+        "importPath": "app.config",
+        "description": "app.config",
+        "peekOfCode": "class ProductionConfig(Config):\n    \"\"\"生产环境配置\"\"\"\n    DEBUG = False\n    # 在生产环境中应使用更强的密钥\n    # SECRET_KEY = os.environ.get('SECRET_KEY')\n# 配置映射，用于选择不同环境\nconfig = {\n    'development': DevelopmentConfig,\n    'testing': TestingConfig,\n    'production': ProductionConfig,",
+        "detail": "app.config",
+        "documentation": {}
+    },
+    {
+        "label": "config",
+        "kind": 5,
+        "importPath": "app.config",
+        "description": "app.config",
+        "peekOfCode": "config = {\n    'development': DevelopmentConfig,\n    'testing': TestingConfig,\n    'production': ProductionConfig,\n    'default': DevelopmentConfig\n}",
+        "detail": "app.config",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "kind": 5,
+        "importPath": "app.extensions",
+        "description": "app.extensions",
+        "peekOfCode": "db = SQLAlchemy()",
+        "detail": "app.extensions",
+        "documentation": {}
+    },
+    {
+        "label": "test_gemini_api",
+        "kind": 2,
+        "importPath": "app.test_gemini",
+        "description": "app.test_gemini",
+        "peekOfCode": "def test_gemini_api():\n    \"\"\"Test Gemini API connection\"\"\"\n    try:\n        gemini = get_gemini_api()\n        if not gemini.api_key:\n            # Try to update API key from current app config\n            try:\n                api_key = current_app.config.get('GEMINI_API_KEY', '')\n                if api_key:\n                    gemini.set_api_key(api_key)",
+        "detail": "app.test_gemini",
+        "documentation": {}
+    },
+    {
+        "label": "allowed_file",
+        "kind": 2,
+        "importPath": "app.utils",
+        "description": "app.utils",
+        "peekOfCode": "def allowed_file(filename, allowed_extensions):\n    \"\"\"检查文件是否有允许的扩展名\"\"\"\n    return '.' in filename and filename.rsplit('.', 1)[1].lower() in allowed_extensions\ndef generate_unique_filename(filename):\n    \"\"\"生成唯一的文件名，同时保留原始扩展名\"\"\"\n    ext = filename.rsplit('.', 1)[1].lower() if '.' in filename else ''\n    new_filename = f\"{uuid.uuid4().hex}.{ext}\" if ext else uuid.uuid4().hex\n    return new_filename\ndef load_dataset(file_path):\n    \"\"\"根据文件扩展名加载数据集\"\"\"",
+        "detail": "app.utils",
+        "documentation": {}
+    },
+    {
+        "label": "generate_unique_filename",
+        "kind": 2,
+        "importPath": "app.utils",
+        "description": "app.utils",
+        "peekOfCode": "def generate_unique_filename(filename):\n    \"\"\"生成唯一的文件名，同时保留原始扩展名\"\"\"\n    ext = filename.rsplit('.', 1)[1].lower() if '.' in filename else ''\n    new_filename = f\"{uuid.uuid4().hex}.{ext}\" if ext else uuid.uuid4().hex\n    return new_filename\ndef load_dataset(file_path):\n    \"\"\"根据文件扩展名加载数据集\"\"\"\n    ext = file_path.rsplit('.', 1)[1].lower() if '.' in file_path else ''\n    try:\n        if ext == 'csv':",
+        "detail": "app.utils",
+        "documentation": {}
+    },
+    {
+        "label": "load_dataset",
+        "kind": 2,
+        "importPath": "app.utils",
+        "description": "app.utils",
+        "peekOfCode": "def load_dataset(file_path):\n    \"\"\"根据文件扩展名加载数据集\"\"\"\n    ext = file_path.rsplit('.', 1)[1].lower() if '.' in file_path else ''\n    try:\n        if ext == 'csv':\n            df = pd.read_csv(file_path)\n        elif ext == 'xlsx':\n            df = pd.read_excel(file_path)\n        elif ext == 'json':\n            df = pd.read_json(file_path)",
+        "detail": "app.utils",
+        "documentation": {}
+    },
+    {
+        "label": "fix_file",
+        "kind": 2,
+        "importPath": "fix_indentation",
+        "description": "fix_indentation",
+        "peekOfCode": "def fix_file():\n    \"\"\"Fix indentation in the file\"\"\"\n    with open(\"app/scout_analysis/services.py\", \"r\", encoding=\"utf-8\") as f:\n        lines = f.readlines()\n    # Fix the specific lines\n    if len(lines) >= 55:\n        lines[51] = \"            gemini = current_app.config.get('GEMINI_INSTANCE')\\n\"\n        lines[52] = \"            if not gemini:\\n\"\n        lines[53] = \"                current_app.logger.error(\\\"Gemini API instance not found in app.config! Cannot proceed with analysis.\\\")\\n\"\n        lines[54] = \"                return ScoutAnalysisService.generate_error_analysis(\\\"Gemini API instance not initialized\\\")\\n\"",
+        "detail": "fix_indentation",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "run",
+        "description": "run",
+        "peekOfCode": "app = create_app()\nif __name__ == '__main__':\n    # 关闭自动重载，确保只启动一个进程加载最新代码\n    app.run(debug=True, use_reloader=False)",
+        "detail": "run",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "run_testing",
+        "description": "run_testing",
+        "peekOfCode": "app = create_app('testing')\n# Optional: Set up test data here\nwith app.app_context():\n    db.create_all()\n    print(\"✅ In-memory test database initialized.\")\n    # Example: Create a test user\n    # from app.models.user import User\n    # user = User(username='testuser', email='test@example.com')\n    # user.set_password('test123')\n    # db.session.add(user)",
+        "detail": "run_testing",
+        "documentation": {}
+    },
+    {
+        "label": "test_scout_analysis_api",
+        "kind": 2,
+        "importPath": "test_api",
+        "description": "test_api",
+        "peekOfCode": "def test_scout_analysis_api():\n    print(\"Testing Scout Analysis API connection...\")\n    # Test text\n    test_text = \"Testing Gemini API connection. This is an NBA player: Lebron James, an all-star player.\" # Changed to Gemini\n    with app.app_context():\n        try:\n            # Get API key info\n            api_key = app.config.get('GEMINI_API_KEY') # Changed to GEMINI_API_KEY\n            if api_key:\n                print(f\"API Key: {api_key[:5]}...{api_key[-5:]}\")",
+        "detail": "test_api",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "test_api",
+        "description": "test_api",
+        "peekOfCode": "app = create_app('development')\ndef test_scout_analysis_api():\n    print(\"Testing Scout Analysis API connection...\")\n    # Test text\n    test_text = \"Testing Gemini API connection. This is an NBA player: Lebron James, an all-star player.\" # Changed to Gemini\n    with app.app_context():\n        try:\n            # Get API key info\n            api_key = app.config.get('GEMINI_API_KEY') # Changed to GEMINI_API_KEY\n            if api_key:",
+        "detail": "test_api",
+        "documentation": {}
+    }
+]
