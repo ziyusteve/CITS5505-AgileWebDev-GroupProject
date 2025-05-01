@@ -46,7 +46,7 @@ class ScoutAnalysisService:
     def analyze_report(text_content, use_deep_analysis=False):
         # Log file path to debug loaded module
         current_app.logger.warning(f"[DEBUG] services module path: {__file__}")
-        """Analyze scout report text, ensuring strict adherence to deepseek API format"""
+        """Analyze scout report text using the configured Generative AI API (e.g., Gemini)."""
         try:            # Log initial analysis request
             current_app.logger.info(f"Starting text analysis, length={len(text_content)}")
             

@@ -15,8 +15,8 @@ class Config:
     ENABLE_SCOUT_DEEP_ANALYSIS = False  # 是否启用基于Transformer的深度分析
     SCOUT_REPORT_EXTENSIONS = {'txt', 'pdf', 'docx'}  # 球探报告支持的文件格式
     
-    # DeepSeek API Key（已写死，生产环境请勿泄露）
-    DEEPSEEK_API_KEY = 'sk-393f68112e2f4992a8c3946c0910d1e2'
+    # Gemini API Key - Ensure this is set via environment variables in production
+    GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY', 'AIzaSyCETEiGA_fvo5RbEAQid4OHytiU5W2x_ss')
     
 class DevelopmentConfig(Config):
     """开发环境配置"""
