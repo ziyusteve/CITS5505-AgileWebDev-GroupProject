@@ -32,4 +32,4 @@ def test_scout_analysis_api():
 
 if __name__ == '__main__':
     success = test_scout_analysis_api()
-    print(f"\nTest Result: {'Success' if success else 'Failure'}")
+    print(f"\n测试结果: {'成功' if success else '失败'}") 
