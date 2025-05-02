@@ -3,5 +3,5 @@ from app.main import bp
 
 @bp.route('/')
 def index():
-    """网站主页路由"""
+    """Website homepage route"""
     return render_template('main/index.html')

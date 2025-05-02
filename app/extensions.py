@@ -1,4 +1,4 @@
 from flask_sqlalchemy import SQLAlchemy
 
-# 创建不与特定应用绑定的扩展实例
+# Create an extension instance not bound to a specific application
 db = SQLAlchemy()

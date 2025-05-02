@@ -8,10 +8,10 @@ from app.extensions import db
 @bp.route('/')
 @login_required
 def index():
-    """用户仪表板路由"""
+    """User dashboard route"""
     user_datasets = Dataset.query.filter_by(user_id=current_user.id).all()
     
-    # 获取与用户共享的数据集
+    # Get datasets shared with the user
     shared_with_user = db.session.query(Dataset).join(Share).filter(Share.shared_with_id == current_user.id).all()
     
     return render_template('dashboard/dashboard.html', 
