@@ -1,20 +1,20 @@
 {% extends "base.html" %}
 
-{% block title %} - Upload Player Text to Generate Scouting Report{% endblock %}
+{% block title %} - 上传球员文本生成球探报告{% endblock %}
 
 {% block content %}
 <div class="row justify-content-center">
     <div class="col-md-8">
         <div class="card shadow">
             <div class="card-header bg-primary text-white">
-                <h4 class="mb-0"><i class="fas fa-basketball-ball me-2"></i>Upload Player News/Description</h4>
+                <h4 class="mb-0"><i class="fas fa-basketball-ball me-2"></i>上传球员新闻/描述</h4>
             </div>
             <div class="card-body">
                 <form method="POST" action="{{ url_for('datasets.upload') }}" enctype="multipart/form-data">
                     {{ form.hidden_tag() }}
                     <div class="mb-3">
                         {{ form.title.label(class="form-label") }}
-                        {{ form.title(class="form-control", placeholder="e.g., LeBron James") }}
+                        {{ form.title(class="form-control", placeholder="例如: 勒布朗·詹姆斯") }}
                         {% for error in form.title.errors %}
                             <span class="text-danger">{{ error }}</span>
                         {% endfor %}
@@ -23,8 +23,8 @@
                         {{ form.file.label(class="form-label") }}
                         {{ form.file(class="form-control", accept=".txt,.docx,.pdf") }}
                         <div id="fileHelp" class="form-text">
-                            Please upload news articles, comments, or player descriptions (TXT/DOCX/PDF).<br>
-                            The system will automatically generate a scouting report with visualizations and analysis.
+                            请上传新闻文章、评论或球员描述(TXT/DOCX/PDF)。<br>
+                            系统将自动生成带有可视化和分析的球探报告。
                         </div>
                         {% for error in form.file.errors %}
                             <span class="text-danger">{{ error }}</span>
