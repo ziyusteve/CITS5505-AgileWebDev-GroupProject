@@ -91,73 +91,57 @@
                 </div>
                 <div class="card-body p-4">
                     <form method="POST" action="{{ url_for('auth.register') }}">
-                        {{ form.hidden_tag() }}
                         <!-- Username Input -->
                         <div class="mb-4">
-                            {{ form.username.label(class="form-label") }}
+                            <label for="username" class="form-label">Username</label>
                             <div class="input-group">
                                 <span class="input-group-text border-end-0">
                                     <i class="fas fa-user"></i>
                                 </span>
                                 <input type="text" class="form-control" id="username" name="username" 
-                                       placeholder="选择唯一用户名" required value="{{ form.username.data or '' }}">
+                                       placeholder="Choose a unique username" required>
                             </div>
-                            {% for error in form.username.errors %}
-                                <span class="text-danger">{{ error }}</span>
-                            {% else %}
-                                <div>用户名必须是唯一的且至少包含3个字符。</div>
-                            {% endfor %}
+                            <div>Username must be unique and at least 3 characters.</div>
                         </div>
                         
                         <!-- Email Input -->
                         <div class="mb-4">
-                            {{ form.email.label(class="form-label") }}
+                            <label for="email" class="form-label">Email Address</label>
                             <div class="input-group">
                                 <span class="input-group-text border-end-0">
                                     <i class="fas fa-envelope"></i>
                                 </span>
                                 <input type="email" class="form-control" id="email" name="email" 
-                                       placeholder="输入您的电子邮件地址" required value="{{ form.email.data or '' }}">
+                                       placeholder="Enter your email address" required>
                             </div>
-                            {% for error in form.email.errors %}
-                                <span class="text-danger">{{ error }}</span>
-                            {% else %}
-                                <div>我们绝不会与任何人分享您的电子邮件。</div>
-                            {% endfor %}
+                            <div>We'll never share your email with anyone else.</div>
                         </div>
                         
                         <!-- Password Input -->
                         <div class="mb-4">
-                            {{ form.password.label(class="form-label") }}
+                            <label for="password" class="form-label">Password</label>
                             <div class="input-group">
                                 <span class="input-group-text border-end-0">
                                     <i class="fas fa-lock"></i>
                                 </span>
                                 <input type="password" class="form-control password-input" 
-                                       id="password" name="password" placeholder="创建强密码" required>
+                                       id="password" name="password" placeholder="Create a strong password" required>
                                 <button class="btn btn-outline-secondary border-start-0" type="button" id="togglePassword">
                                     <i class="fas fa-eye"></i>
                                 </button>
                             </div>
-                            {% for error in form.password.errors %}
-                                <span class="text-danger">{{ error }}</span>
-                            {% else %}
-                                <div>密码应至少包含8个字符，并包括字母和数字。</div>
-                            {% endfor %}
+                            <div>Password should be at least 8 characters and include letters and numbers.</div>
                         </div>
                         
                         <!-- Terms Checkbox -->
                         <div class="mb-4 form-check">
-                            {{ form.terms(class="form-check-input") }}
-                            <label class="form-check-label" for="terms">我同意 <a href="{{ url_for('auth.terms') }}" class="login-link">服务条款</a> 和 <a href="{{ url_for('auth.privacy') }}" class="login-link">隐私政策</a></label>
-                            {% for error in form.terms.errors %}
-                                <br><span class="text-danger">{{ error }}</span>
-                            {% endfor %}
+                            <input type="checkbox" class="form-check-input" id="terms" name="terms" required>
+                            <label class="form-check-label" for="terms">I agree to the <a href="{{ url_for('auth.terms') }}" class="login-link">Terms of Service</a> and <a href="{{ url_for('auth.privacy') }}" class="login-link">Privacy Policy</a></label>
                         </div>
                         
                         <!-- Register Button -->
                         <div class="d-grid">
-                            {{ form.submit(class="btn btn-primary register-btn") }}
+                            <button type="submit" class="btn btn-primary register-btn">Create Account</button>
                         </div>
                     </form>
                 </div>

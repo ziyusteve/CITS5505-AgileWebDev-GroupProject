@@ -95,44 +95,37 @@
             </div>
             <div class="card-body p-4">
                 <form method="POST" action="{{ url_for('auth.login') }}">
-                    {{ form.hidden_tag() }}
                     <!-- Username Input -->
                     <div class="mb-4">
-                        {{ form.username.label(class="form-label") }}
+                        <label for="username" class="form-label">Username</label>
                         <input type="text" class="form-control" id="username" name="username" 
-                                placeholder="输入用户名" required value="{{ form.username.data or '' }}">
-                        {% for error in form.username.errors %}
-                            <span class="text-danger">{{ error }}</span>
-                        {% endfor %}
+                                placeholder="Enter your username" required>
                     </div>
                     
                     <!-- Password Input -->
                     <div class="mb-3">
-                        {{ form.password.label(class="form-label") }}
+                        <label for="password" class="form-label">Password</label>
                         <div class="input-group">
                             <span class="input-group-text border-end-0">
                                 <i class="fas fa-lock"></i>
                             </span>
                             <input type="password" class="form-control password-input" 
-                                    id="password" name="password" placeholder="输入密码" required>
+                                    id="password" name="password" placeholder="Enter your password" required>
                             <button class="btn btn-outline-secondary border-start-0" type="button" id="togglePassword">
                                 <i class="fas fa-eye"></i>
                             </button>
                         </div>
-                        {% for error in form.password.errors %}
-                            <span class="text-danger">{{ error }}</span>
-                        {% endfor %}
                     </div>
                     
                     <!-- "Remember Me" Option -->
                     <div class="mb-4 form-check">
-                        {{ form.remember(class="form-check-input") }}
-                        {{ form.remember.label(class="form-check-label") }}
+                        <input type="checkbox" class="form-check-input" id="remember" name="remember">
+                        <label class="form-check-label" for="remember">Remember Me</label>
                     </div>
                     
                     <!-- Login Button -->
                     <div class="d-grid">
-                        {{ form.submit(class="btn btn-primary login-btn") }}
+                        <button type="submit" class="btn btn-primary login-btn">Log In</button>
                     </div>
                 </form>
             </div>
