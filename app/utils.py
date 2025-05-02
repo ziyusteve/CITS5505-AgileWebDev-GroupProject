@@ -16,13 +16,13 @@ def load_dataset(file_path):
     """Load dataset based on file extension"""
     ext = file_path.rsplit('.', 1)[1].lower() if '.' in file_path else ''
     try:
-        if (ext == 'csv'):
+        if ext == 'csv':
             df = pd.read_csv(file_path)
-        elif (ext == 'xlsx'):
+        elif ext == 'xlsx':
             df = pd.read_excel(file_path)
-        elif (ext == 'json'):
+        elif ext == 'json':
             df = pd.read_json(file_path)
-        elif (ext == 'txt'):
+        elif ext == 'txt':
             # Attempt to detect delimiter
             df = pd.read_csv(file_path, sep=None, engine='python')
         else:
