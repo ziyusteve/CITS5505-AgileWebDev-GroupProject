@@ -3,12 +3,12 @@
 {% block title %} - Home{% endblock %}
 
 {% block content %}
-<!-- NBA Style Hero Section - Improved Typography -->
+<!-- NBA Style Hero Section - Improved Typography with Gemini AI elements -->
 <div class="nba-hero">
     <div class="row">
         <div class="col-md-8 col-lg-7">
-            <h1>NBA Player Analytics Platform</h1>
-            <p class="lead">Leverage advanced AI technology to analyze player data and build championship teams. Upload player descriptions to get detailed analysis and skill assessments.</p>
+            <h1>Gemini AI Basketball Analytics <i class="fas fa-brain ai-icon"></i></h1>
+            <p class="lead">Elite player analysis platform powered by Gemini AI. Upload player descriptions, get detailed analysis and skill assessments to build championship teams.</p>
             
             {% if 'user_id' in session %}
             <div class="mt-4">
@@ -33,16 +33,16 @@
     </div>
 </div>
 
-<!-- Feature Cards Section - Consistent Typography -->
+<!-- Feature Cards Section - With Gemini AI Elements -->
 <div class="row mt-5">
     <div class="col-md-4 mb-4">
-        <div class="card player-stat-card h-100">
+        <div class="card player-stat-card h-100" style="--card-index: 0;">
             <div class="player-stat-header">
-                <i class="fas fa-basketball-ball fa-2x mb-3 theme-gold"></i>
-                <h3>Player Description Analysis</h3>
+                <i class="fas fa-brain fa-2x mb-3 theme-gold"></i>
+                <h3>Gemini Semantic Understanding</h3>
             </div>
             <div class="player-stat-body text-center">
-                <p>Input player text descriptions, and our AI will automatically identify key features and data metrics, providing comprehensive analysis.</p>
+                <p>Beyond keywords, Gemini understands subtle context and complex relationships in player reports for comprehensive analysis.</p>
                 <div class="tech-progress mt-4">
                     <div class="tech-progress-bar progress-85"></div>
                 </div>
@@ -51,13 +51,13 @@
         </div>
     </div>
     <div class="col-md-4 mb-4">
-        <div class="card player-stat-card h-100">
+        <div class="card player-stat-card h-100" style="--card-index: 1;">
             <div class="player-stat-header">
-                <i class="fas fa-chart-pie fa-2x mb-3 theme-gold"></i>
-                <h3>Performance Visualization</h3>
+                <i class="fas fa-chart-line fa-2x mb-3 theme-gold"></i>
+                <h3>Data-Driven Decisions</h3>
             </div>
             <div class="player-stat-body text-center">
-                <p>Generate professional radar charts, strength/weakness analysis, and detailed ratings to help you make the best tactical decisions.</p>
+                <p>AI-based objective analysis reduces subjective bias, supporting smarter scouting and training decisions.</p>
                 <div class="mt-4">
                     <span class="basketball-icon"></span><span class="fw-bold">Attack/Defense</span>
                     <span class="basketball-icon ms-3"></span><span class="fw-bold">Set Pieces</span>
@@ -67,13 +67,13 @@
         </div>
     </div>
     <div class="col-md-4 mb-4">
-        <div class="card player-stat-card h-100">
+        <div class="card player-stat-card h-100" style="--card-index: 2;">
             <div class="player-stat-header">
-                <i class="fas fa-users fa-2x mb-3 theme-gold"></i>
-                <h3>Team Collaboration Analysis</h3>
+                <i class="fas fa-seedling fa-2x mb-3 theme-gold"></i>
+                <h3>Potential & Development Prediction</h3>
             </div>
             <div class="player-stat-body text-center">
-                <p>Share player analysis results with coaching staff to develop training plans and game strategies based on comprehensive data.</p>
+                <p>Gemini helps identify key development areas and future potential ceiling for players, assisting coaches in creating personalized training plans.</p>
                 <div class="d-flex justify-content-center mt-4">
                     <div class="mx-2 text-center">
                         <div class="skill-icon skill-icon-primary d-flex align-items-center justify-content-center">
@@ -99,46 +99,157 @@
     </div>
 </div>
 
-<!-- Player Analysis Example - Improved Layout -->
+<!-- Player Analysis Example - Enhanced Design with Gemini branding -->
 <div class="row mt-5">
-    <div class="col-12">
-        <h2 class="section-title">Player Analysis Example</h2>
+    <div class="col-12 mb-4">
+        <h2 class="section-title text-center">Gemini Analysis Example: From Text to Insight</h2>
     </div>
-    <div class="col-md-6">
-        <div class="card mb-4 card-basketball">
+</div>
+
+<!-- Row 1: Description and Key Info with improved styling -->
+<div class="row analysis-section">
+    <!-- Player Description Card with enhanced styling and Gemini branding -->
+    <div class="col-lg-7 mb-4">
+        <div class="card h-100 player-stat-card analysis-card input-card" style="--card-index: 0;">
+            <div class="card-header player-stat-header d-flex align-items-center">
+                <div class="header-icon me-2">
+                    <i class="fas fa-file-alt theme-gold"></i>
+                </div>
+                <h5 class="mb-0">Player Description</h5>
+            </div>
             <div class="card-body">
-                <h3 class="mb-3">Player Description</h3>
-                <p>Robert is a midfielder with excellent passing vision, delivering 2-3 key passes per game. His defensive awareness is average, but he possesses strong long-passing abilities, especially dangerous with free kicks and corners.</p>
-                <p>Though not very fast, he has good positioning sense, scored 5 goals and provided 11 assists last season.</p>
+                <div class="card-content">
+                    <p class="card-text">Robert is a midfielder with excellent passing vision, delivering 2-3 key passes per game. His defensive awareness is average, but he possesses strong long-passing abilities, especially dangerous with free kicks and corners.</p>
+                    <p class="card-text">Though not very fast, he has good positioning sense, scored 5 goals and provided 11 assists last season.</p>
+                </div>
             </div>
         </div>
     </div>
-    <div class="col-md-6">
-        <div class="card mb-4">
+
+    <!-- Key Info & Rating Card with enhanced styling -->
+    <div class="col-lg-5 mb-4">
+        <div class="card h-100 player-stat-card analysis-card" style="--card-index: 1;">            
+            <div class="card-header player-stat-header d-flex align-items-center">
+                <div class="header-icon me-2">
+                    <i class="fas fa-info-circle theme-gold"></i>
+                </div>
+                <h5 class="mb-0">Key Info & Rating</h5>
+            </div>
             <div class="card-body">
-                <h3 class="mb-3">Analysis Results</h3>
-                <div class="d-flex justify-content-between mb-2">
-                    <span class="fw-bold">Position:</span>
-                    <span>Midfielder</span>
-                </div>
-                <div class="d-flex justify-content-between mb-2">
-                    <span class="fw-bold">Strengths:</span>
-                    <span>Passing vision, long passes, set pieces, positioning, assists</span>
-                </div>
-                <div class="d-flex justify-content-between mb-2">
-                    <span class="fw-bold">Weaknesses:</span>
-                    <span>Defense, speed</span>
-                </div>
-                <div class="d-flex justify-content-between mb-2">
-                    <span class="fw-bold">Statistics:</span>
-                    <span>5 goals, 11 assists, 2-3 key passes per game</span>
-                </div>
-                <div class="d-flex justify-content-between align-items-center mt-3">
-                    <span class="fw-bold">Overall Rating:</span>
-                    <div class="theme-rating-pill">
-                        <span class="fw-bold theme-purple">7.8</span><span class="text-muted">/10 (Creative midfielder)</span>
+                <div class="key-info-wrapper">
+                    <div class="d-flex justify-content-between mb-2 info-row">
+                        <span class="fw-bold">Position:</span>
+                        <span>Midfielder</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2 info-row">
+                        <span class="fw-bold">Age:</span>
+                        <span>26</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-3 info-row">
+                        <span class="fw-bold">Key Stats:</span>
+                        <span>5 Goals, 11 Assists</span>
+                    </div>
+                    <hr class="info-divider">
+                    <div class="text-center mt-4 rating-container">
+                        <span class="fw-bold d-block mb-3">Overall Rating:</span>
+                        <div class="theme-rating-pill d-inline-block">
+                            <span class="fw-bold theme-purple h3 mb-0">7.8</span><span class="text-muted small align-middle">/10</span>
+                        </div>
+                        <p class="text-muted mt-2 mb-0">(Creative Midfielder)</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Row 2: Radar Chart (Enhanced and Centered) -->
+<div class="row justify-content-center analysis-section">
+    <!-- Ability Radar Chart Card with improved styling -->
+    <div class="col-lg-8 mb-4"> 
+        <div class="card h-100 player-stat-card analysis-card">            
+            <div class="card-header player-stat-header d-flex align-items-center">
+                <div class="header-icon me-2">
+                    <i class="fas fa-chart-pie theme-gold"></i>
+                </div>
+                <h5 class="mb-0">Ability Radar Chart</h5>
+            </div>
+            <div class="card-body text-center d-flex align-items-center justify-content-center radar-chart-body">
+                <div class="radar-chart-container">
+                    <img src="{{ url_for('static', filename='images/rd.png') }}" alt="Player Radar Chart" class="img-fluid radar-chart-img">
+                </div>
+            </div>
+            <div class="card-footer bg-transparent text-center">
+                <small class="text-muted">Visual representation of player's key attributes</small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Row 3: Strengths, Weaknesses, Potential with enhanced styling -->
+<div class="row analysis-section">
+    <!-- Strengths Card with improved styling -->
+    <div class="col-lg-4 mb-4">
+        <div class="card h-100 player-stat-card analysis-card strength-card" style="--card-index: 0;">
+             <div class="card-header player-stat-header d-flex align-items-center">
+                <div class="header-icon me-2">
+                    <i class="fas fa-thumbs-up theme-gold"></i>
+                </div>
+                <h5 class="mb-0">Strengths</h5>
+            </div>
+            <div class="card-body">
+                <ul class="list-unstyled strength-list">
+                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Passing Vision</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Long Passes</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Set Pieces (Free Kicks, Corners)</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Positioning Sense</li>
+                    <li><i class="fas fa-check-circle text-success me-2"></i>Assists</li>
+                </ul>
+                <div class="text-center mt-4">
+                    <span class="badge bg-success px-3 py-2 stat-badge">5 Key Strengths Identified</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Weaknesses Card with improved styling -->
+    <div class="col-lg-4 mb-4">
+        <div class="card h-100 player-stat-card analysis-card weakness-card" style="--card-index: 1;">
+             <div class="card-header player-stat-header d-flex align-items-center">
+                <div class="header-icon me-2">
+                    <i class="fas fa-thumbs-down theme-gold"></i>
+                </div>
+                <h5 class="mb-0">Weaknesses</h5>
+            </div>
+            <div class="card-body">
+                <ul class="list-unstyled weakness-list">
+                    <li class="mb-2"><i class="fas fa-times-circle text-danger me-2"></i>Defensive Awareness (Average)</li>
+                    <li class="mb-2"><i class="fas fa-times-circle text-danger me-2"></i>Speed</li>
+                    <li class="mb-3"><i class="fas fa-times-circle text-danger me-2"></i>Physical Duels</li>
+                </ul>
+                <p class="card-text text-muted">Areas to focus training efforts for maximum improvement.</p>
+                <div class="text-center mt-4">
+                    <span class="badge bg-danger px-3 py-2 stat-badge">3 Development Areas</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <!-- Potential Card with improved styling -->
+    <div class="col-lg-4 mb-4">
+        <div class="card h-100 player-stat-card analysis-card potential-card" style="--card-index: 2;">
+             <div class="card-header player-stat-header d-flex align-items-center">
+                <div class="header-icon me-2">
+                    <i class="fas fa-arrow-up theme-gold"></i>
+                </div>
+                <h5 class="mb-0">Potential</h5>
+            </div>
+            <div class="card-body">
+                <p class="card-text">Shows promise as a creative force in midfield. Improvement in defensive contribution and pace could elevate his game significantly.</p>
+                <div class="progress mt-4 potential-progress">
+                    <div class="progress-bar bg-warning potential-progress-bar" role="progressbar" aria-label="Development Projection" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <small class="text-muted d-block text-center mt-2">Development Projection: 65%</small>
             </div>
         </div>
     </div>
@@ -151,24 +262,23 @@
             <div class="card-body py-5 text-center">
                 <h2 class="display-5 mb-3">Elevate Your Coaching Strategy</h2>
                 <p class="lead mb-4">Turn player descriptions into actionable insights with our advanced AI analysis</p>
-                <div class="row justify-content-center">
-                    <div class="col-md-3 text-center mb-3">
-                        <div class="bg-white rounded-circle mx-auto d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
-                            <i class="fas fa-bolt fa-2x text-primary"></i>
+                <div class="row justify-content-center">                    <div class="col-md-3 text-center mb-3">
+                        <div class="rounded-circle mx-auto d-flex align-items-center justify-content-center benefit-icon-circle">
+                            <i class="fas fa-bolt fa-2x text-gold"></i>
                         </div>
                         <h5 class="mt-3 text-white">Instant Analysis</h5>
                         <p>Results in seconds, not hours</p>
                     </div>
                     <div class="col-md-3 text-center mb-3">
-                        <div class="bg-white rounded-circle mx-auto d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
-                            <i class="fas fa-brain fa-2x text-primary"></i>
+                        <div class="rounded-circle mx-auto d-flex align-items-center justify-content-center benefit-icon-circle">
+                            <i class="fas fa-brain fa-2x text-gold"></i>
                         </div>
                         <h5 class="mt-3 text-white">AI-Powered</h5>
                         <p>Utilizes advanced machine learning</p>
                     </div>
                     <div class="col-md-3 text-center mb-3">
-                        <div class="bg-white rounded-circle mx-auto d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
-                            <i class="fas fa-puzzle-piece fa-2x text-primary"></i>
+                        <div class="rounded-circle mx-auto d-flex align-items-center justify-content-center benefit-icon-circle">
+                            <i class="fas fa-puzzle-piece fa-2x text-gold"></i>
                         </div>
                         <h5 class="mt-3 text-white">Team Integration</h5>
                         <p>See how players complement each other</p>
@@ -198,7 +308,7 @@
                 </div>
                 <p class="card-text">"This platform transformed how we evaluate talent. What used to take us days of analysis now happens in minutes, with even better insights."</p>
                 <div class="d-flex align-items-center mt-3">
-                    <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center text-white" style="width: 50px; height: 50px;">
+                    <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center text-white testimonial-avatar-circle">
                         <span class="h5 mb-0">JT</span>
                     </div>
                     <div class="ms-3">
@@ -223,7 +333,7 @@
                 </div>
                 <p class="card-text">"The ability to take simple player descriptions and get such detailed analysis is game-changing. It helps us spot talent others might miss."</p>
                 <div class="d-flex align-items-center mt-3">
-                    <div class="bg-success rounded-circle d-flex align-items-center justify-content-center text-white" style="width: 50px; height: 50px;">
+                    <div class="bg-success rounded-circle d-flex align-items-center justify-content-center text-white testimonial-avatar-circle">
                         <span class="h5 mb-0">SW</span>
                     </div>
                     <div class="ms-3">
@@ -248,7 +358,7 @@
                 </div>
                 <p class="card-text">"Our recruiting efficiency has improved by 70% since using this platform. We can now focus on building relationships instead of manual analysis."</p>
                 <div class="d-flex align-items-center mt-3">
-                    <div class="bg-info rounded-circle d-flex align-items-center justify-content-center text-white" style="width: 50px; height: 50px;">
+                    <div class="bg-info rounded-circle d-flex align-items-center justify-content-center text-white testimonial-avatar-circle">
                         <span class="h5 mb-0">MJ</span>
                     </div>
                     <div class="ms-3">
@@ -314,4 +424,5 @@
     </div>
 </div>
 
+<p class="text-center text-muted mt-4"><small>Analysis results powered by Google Gemini</small></p>
 {% endblock %}
