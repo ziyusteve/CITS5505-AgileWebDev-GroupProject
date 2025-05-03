@@ -33,7 +33,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('main.index') }}">Home</a>
                     </li>
-                    {% if 'user_id' in session %}
+                    {% if current_user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('dashboard.index') }}">Dashboard</a>
                     </li>
@@ -46,9 +46,9 @@
                     {% endif %}
                 </ul>
                 <ul class="navbar-nav">
-                    {% if 'user_id' in session %}
+                    {% if current_user.is_authenticated %}
                     <li class="nav-item">
-                        <span class="nav-link">Welcome, {{ session['username'] }}</span>
+                        <span class="nav-link">Welcome, {{ current_user.username }}</span>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('auth.logout') }}">Logout</a>

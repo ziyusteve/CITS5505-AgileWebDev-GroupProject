@@ -1,0 +1,24 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# API and Utility Functions
+
+## API Module
+
+API endpoints located in the `app/api/` directory, providing:
+- Dataset operation interfaces
+- User management interfaces
+- Scout report analysis interfaces
+
+## Utility Functions
+
+- [app/utils.py](mdc:app/utils.py) - Contains general utility functions used across modules
+- The `app/utils/` directory contains more specialized utility functions and helper classes
+
+## Testing Tools
+
+- [run_testing.py](mdc:run_testing.py) - Automated test launcher
+- [fix_indentation.py](mdc:fix_indentation.py) - Code formatting fix tool
+

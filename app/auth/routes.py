@@ -2,61 +2,68 @@ from flask import render_template, redirect, url_for, flash, request, session
 from werkzeug.security import generate_password_hash, check_password_hash
 from app.auth import bp
 from app.models.user import User
-from app.extensions import db
+from app.extensions import db, login_manager
+from app.auth.forms import LoginForm, RegisterForm
+from flask_login import login_user, logout_user, login_required, current_user
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
 
 @bp.route('/register', methods=['GET', 'POST'])
 def register():
-    if request.method == 'POST':
-        username = request.form.get('username')
-        email = request.form.get('email')
-        password = request.form.get('password')
+    form = RegisterForm()
+    if form.validate_on_submit():
+        username = form.username.data
+        email = form.email.data
+        password = form.password.data
         
-        user_exists = User.query.filter_by(username=username).first()
-        email_exists = User.query.filter_by(email=email).first()
-        
-        if user_exists:
-            flash('Username already taken.', 'danger')
-            return redirect(url_for('auth.register'))
-        
-        if email_exists:
-            flash('Email already registered.', 'danger')
-            return redirect(url_for('auth.register'))
-        
+        # 表单验证器已经检查了用户名和邮箱是否重复
         hashed_password = generate_password_hash(password)
         new_user = User(username=username, email=email, password=hashed_password)
         
         db.session.add(new_user)
         db.session.commit()
         
-        flash('Account created successfully! You can now log in.', 'success')
+        flash('账户创建成功！您现在可以登录了。', 'success')
         return redirect(url_for('auth.login'))
     
-    return render_template('auth/register.html')
+    return render_template('auth/register.html', form=form)
 
 @bp.route('/login', methods=['GET', 'POST'])
 def login():
-    if request.method == 'POST':
-        username = request.form.get('username')
-        password = request.form.get('password')
+    if current_user.is_authenticated:
+        return redirect(url_for('dashboard.index'))
+        
+    form = LoginForm()
+    if form.validate_on_submit():
+        username = form.username.data
+        password = form.password.data
         
         user = User.query.filter_by(username=username).first()
         
         if not user or not check_password_hash(user.password, password):
-            flash('Please check your login details and try again.', 'danger')
+            flash('请检查您的登录信息并重试。', 'danger')
             return redirect(url_for('auth.login'))
         
-        session['user_id'] = user.id
-        session['username'] = user.username
+        login_user(user, remember=form.remember.data)
         
-        flash('Login successful!', 'success')
-        return redirect(url_for('dashboard.index'))
+        next_page = request.args.get('next')
+        if next_page:
+            # 确保next参数是相对URL而非绝对URL（安全措施）
+            if not next_page.startswith('/'):
+                next_page = None
+        
+        flash('登录成功！', 'success')
+        return redirect(next_page or url_for('dashboard.index'))
     
-    return render_template('auth/login.html')
+    return render_template('auth/login.html', form=form)
 
 @bp.route('/logout')
+@login_required
 def logout():
-    session.clear()
-    flash('You have been logged out.', 'success')
+    logout_user()
+    flash('您已成功登出。', 'success')
     return redirect(url_for('main.index'))
 
 

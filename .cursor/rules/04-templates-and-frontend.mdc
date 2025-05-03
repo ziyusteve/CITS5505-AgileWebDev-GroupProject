@@ -1,0 +1,31 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Templates and Frontend Structure
+
+## Base Template
+
+- [app/templates/base.html](mdc:app/templates/base.html) - Main layout template defining the basic structure of the website
+
+## Module Templates
+
+- `app/templates/auth/` - Authentication-related pages
+- `app/templates/dashboard/` - Dashboard pages
+- `app/templates/datasets/` - Dataset management pages
+- `app/templates/visualization/` - Data visualization pages
+- `app/templates/sharing/` - Data sharing pages
+
+## Special Templates
+
+- [app/templates/text_analysis.html](mdc:app/templates/text_analysis.html) - Text analysis page for scout report analysis
+
+## Static Resources
+
+Frontend static resources are stored in the `static/` directory:
+- CSS stylesheets
+- JavaScript files
+- Images and other media assets
+
+

@@ -1,7 +1,8 @@
 from flask import Flask
 import os
 from app.config import config
-from app.extensions import db
+from app.extensions import db, login_manager
+from flask_wtf.csrf import CSRFProtect
 
 def create_app(config_name='default'):
     app = Flask(__name__, 
@@ -13,6 +14,10 @@ def create_app(config_name='default'):
     
     # 初始化扩展
     db.init_app(app)
+    login_manager.init_app(app)
+    
+    # 初始化CSRF保护
+    csrf = CSRFProtect(app)
     
     # 确保上传目录存在
     os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
@@ -35,6 +40,8 @@ def create_app(config_name='default'):
     
     from app.api import bp as api_bp
     app.register_blueprint(api_bp, url_prefix='/api')
+    # API端点通常不需要CSRF保护
+    csrf.exempt(api_bp)
     
     from app.sharing import bp as sharing_bp
     app.register_blueprint(sharing_bp, url_prefix='/share')

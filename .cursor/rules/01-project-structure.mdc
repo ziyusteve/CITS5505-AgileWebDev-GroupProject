@@ -1,0 +1,32 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Project Structure
+
+This is a Flask-based platform for dataset sharing and analysis, allowing users to upload, share, and visualize datasets.
+
+## Main Entry Points
+
+- [run.py](mdc:run.py) - Application entry point, responsible for starting the Flask server
+- [app/__init__.py](mdc:app/__init__.py) - Application initialization file containing the Flask application factory function and blueprint registration
+- [app/config.py](mdc:app/config.py) - Contains application configuration options
+
+## Project Modules
+
+- `app/auth/` - User authentication functionality
+- `app/dashboard/` - Data dashboard functionality
+- `app/datasets/` - Dataset management functionality
+- `app/visualization/` - Data visualization functionality
+- `app/sharing/` - Dataset sharing functionality
+- `app/api/` - API endpoints
+- `app/scout_analysis/` - Scout report analysis module
+
+## Data Models
+
+- [app/models/user.py](mdc:app/models/user.py) - User model
+- [app/models/dataset.py](mdc:app/models/dataset.py) - Dataset model
+- [app/models/share.py](mdc:app/models/share.py) - Sharing settings model
+
+

@@ -1,10 +1,11 @@
-from flask import jsonify, session, request, current_app
+from flask import jsonify, request, current_app
 from app.api import bp
 from app.models.dataset import Dataset
 from app.models.share import Share
 from app.utils import load_dataset
 import numpy as np
 import pandas as pd
+from flask_login import current_user, login_required
 
 def analyze_dataset(df):
     """Analyze the dataset, generate statistics and insights"""
@@ -48,12 +49,11 @@ def analyze_dataset(df):
     return result
 
 @bp.route('/dataset/<int:dataset_id>/analyze')
+@login_required
 def dataset_analyze(dataset_id):
     """Dataset analysis API endpoint"""
-    if 'user_id' not in session:
-        return jsonify({"error": "Authentication required"}), 401
     
-    user_id = session['user_id']
+    user_id = current_user.id
     dataset = Dataset.query.get_or_404(dataset_id)
     
     # Check if the user owns the dataset or the dataset is shared with them
@@ -74,12 +74,11 @@ def dataset_analyze(dataset_id):
     return jsonify(analysis_result)
 
 @bp.route('/dataset/<int:dataset_id>/visualize', methods=['GET'])
+@login_required
 def dataset_visualize(dataset_id):
     """Dataset visualization API endpoint"""
-    if 'user_id' not in session:
-        return jsonify({"error": "Authentication required"}), 401
     
-    user_id = session['user_id']
+    user_id = current_user.id
     dataset = Dataset.query.get_or_404(dataset_id)
     
     # Check if the user owns the dataset or the dataset is shared with them
@@ -135,12 +134,11 @@ def dataset_visualize(dataset_id):
         return jsonify({"error": str(e)}), 400
 
 @bp.route('/scout-analysis/<int:dataset_id>')
+@login_required
 def scout_analysis(dataset_id):
     """Scout report analysis API endpoint"""
-    if 'user_id' not in session:
-        return jsonify({"error": "Authentication required", "processing_status": "failed"}), 401
     
-    user_id = session['user_id']
+    user_id = current_user.id
     dataset = Dataset.query.get_or_404(dataset_id)
     
     # Check if the user owns the dataset or the dataset is shared with them
