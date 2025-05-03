@@ -218,11 +218,11 @@ def test_api():
         from app.scout_analysis.services import ScoutAnalysisService
 
         # Get API key and version
-        api_key = current_app.config.get('DEEPSEEK_API_KEY')
+        api_key = current_app.config.get('GEMINI_API_KEY')
         api_key_masked = f"{api_key[:5]}...{api_key[-5:]}" if api_key else "Not set"
         
         # Generate a short test text
-        test_text = "Testing DeepSeek API connection. This is an NBA player: Lebron James, an all-star player."
+        test_text = "Testing Gemini API connection. This is an NBA player: Lebron James, an all-star player."
         
         # Try to call the API for simple analysis
         result = ScoutAnalysisService.analyze_report(test_text)

@@ -6,10 +6,6 @@ from app.extensions import db, login_manager
 from app.auth.forms import LoginForm, RegisterForm
 from flask_login import login_user, logout_user, login_required, current_user
 
-@login_manager.user_loader
-def load_user(user_id):
-    return User.query.get(int(user_id))
-
 @bp.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegisterForm()

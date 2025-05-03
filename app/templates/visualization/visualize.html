@@ -34,7 +34,7 @@
             <p class="mt-2">Loading scout report analysis...</p>
         </div>
         
-        <!-- 内联分析数据，确保即使API调用失败也有内容显示 -->
+        <!-- Inline analysis data to ensure content display even if API call fails -->
         {% if scout_analysis %}
         <div class="card mb-4">
             <div class="card-header bg-primary text-white">
@@ -43,12 +43,12 @@
             <div class="card-body">
                 {% if scout_analysis.analysis_result %}
                 <div class="alert alert-info">
-                    <strong>球员分析:</strong><br>
+                    <strong>Player Analysis:</strong><br>
                     {{ scout_analysis.analysis_result }}
                 </div>
                 {% else %}
                 <div class="alert alert-warning">
-                    <strong>注意:</strong> 无法获取完整分析结果。请尝试刷新页面或重新上传文件。
+                    <strong>Note:</strong> Unable to retrieve complete analysis results. Please try refreshing the page or re-uploading the file.
                 </div>
                 {% endif %}
             </div>

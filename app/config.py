@@ -17,8 +17,22 @@ class Config:
     ENABLE_SCOUT_DEEP_ANALYSIS = False  # 是否启用基于Transformer的深度分析
     SCOUT_REPORT_EXTENSIONS = {'txt', 'pdf', 'docx'}  # 球探报告支持的文件格式
     
-    # DeepSeek API Key（已写死，生产环境请勿泄露）
-    DEEPSEEK_API_KEY = 'sk-393f68112e2f4992a8c3946c0910d1e2'
+    # API 密钥配置 - 从环境变量读取
+    GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY')
+    
+    @classmethod
+    def validate_config(cls):
+        """验证关键配置是否存在，确保应用能够正常运行"""
+        missing_configs = []
+        
+        if not cls.GEMINI_API_KEY:
+            missing_configs.append('GEMINI_API_KEY')
+        
+        if missing_configs:
+            import logging
+            logging.warning(f"警告: 缺少关键配置: {', '.join(missing_configs)}。某些功能可能无法正常工作。")
+            return False
+        return True
     
 class DevelopmentConfig(Config):
     """开发环境配置"""

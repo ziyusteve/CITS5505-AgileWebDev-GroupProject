@@ -1107,6 +1107,14 @@
         "documentation": {}
     },
     {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
         "label": "create_app",
         "importPath": "app",
         "description": "app",
@@ -1205,7 +1213,7 @@
         "kind": 2,
         "importPath": "app.api.routes",
         "description": "app.api.routes",
-        "peekOfCode": "def test_api():\n    \"\"\"Test API connection endpoint, no authentication required\"\"\"\n    try:\n        # Import scout analysis service\n        from app.scout_analysis.services import ScoutAnalysisService\n        # Get API key and version\n        api_key = current_app.config.get('DEEPSEEK_API_KEY')\n        api_key_masked = f\"{api_key[:5]}...{api_key[-5:]}\" if api_key else \"Not set\"\n        # Generate a short test text\n        test_text = \"Testing DeepSeek API connection. This is an NBA player: Lebron James, an all-star player.\"",
+        "peekOfCode": "def test_api():\n    \"\"\"Test API connection endpoint, no authentication required\"\"\"\n    try:\n        # Import scout analysis service\n        from app.scout_analysis.services import ScoutAnalysisService\n        # Get API key and version\n        api_key = current_app.config.get('GEMINI_API_KEY')\n        api_key_masked = f\"{api_key[:5]}...{api_key[-5:]}\" if api_key else \"Not set\"\n        # Generate a short test text\n        test_text = \"Testing Gemini API connection. This is an NBA player: Lebron James, an all-star player.\"",
         "detail": "app.api.routes",
         "documentation": {}
     },
@@ -1225,15 +1233,6 @@
         "description": "app.auth.forms",
         "peekOfCode": "class RegisterForm(FlaskForm):\n    \"\"\"用户注册表单\"\"\"\n    username = StringField('用户名', \n                           validators=[DataRequired(), Length(min=3, max=20)])\n    email = StringField('电子邮箱', \n                        validators=[DataRequired(), Email()])\n    password = PasswordField('密码', \n                            validators=[DataRequired(), Length(min=8)])\n    terms = BooleanField('我同意服务条款和隐私政策', validators=[DataRequired()])\n    submit = SubmitField('创建账户')",
         "detail": "app.auth.forms",
-        "documentation": {}
-    },
-    {
-        "label": "load_user",
-        "kind": 2,
-        "importPath": "app.auth.routes",
-        "description": "app.auth.routes",
-        "peekOfCode": "def load_user(user_id):\n    return User.query.get(int(user_id))\n@bp.route('/register', methods=['GET', 'POST'])\ndef register():\n    form = RegisterForm()\n    if form.validate_on_submit():\n        username = form.username.data\n        email = form.email.data\n        password = form.password.data\n        # 表单验证器已经检查了用户名和邮箱是否重复",
-        "detail": "app.auth.routes",
         "documentation": {}
     },
     {
@@ -1313,7 +1312,7 @@
         "kind": 2,
         "importPath": "app.main.routes",
         "description": "app.main.routes",
-        "peekOfCode": "def index():\n    \"\"\"网站主页路由\"\"\"\n    return render_template('main/index.html')",
+        "peekOfCode": "def index():\n    \"\"\"Website homepage route\"\"\"\n    return render_template('main/index.html')",
         "detail": "app.main.routes",
         "documentation": {}
     },
@@ -1421,7 +1420,7 @@
         "kind": 2,
         "importPath": "app.utils.text_analysis",
         "description": "app.utils.text_analysis",
-        "peekOfCode": "def analyze_sentiment(text):\n    \"\"\"\n    分析文本情感\n    Args:\n        text (str): 需要分析的文本内容\n    Returns:\n        dict: 包含情感分析结果的字典\n    \"\"\"\n    gemini = current_app.config.get('GEMINI_INSTANCE')\n    if not gemini:",
+        "peekOfCode": "def analyze_sentiment(text):\n    \"\"\"\n    Analyze text sentiment\n    Args:\n        text (str): Text content to analyze\n    Returns:\n        dict: Dictionary containing sentiment analysis results\n    \"\"\"\n    gemini = current_app.config.get('GEMINI_INSTANCE')\n    if not gemini:",
         "detail": "app.utils.text_analysis",
         "documentation": {}
     },
@@ -1430,7 +1429,7 @@
         "kind": 2,
         "importPath": "app.utils.text_analysis",
         "description": "app.utils.text_analysis",
-        "peekOfCode": "def extract_keywords(text):\n    \"\"\"\n    从文本中提取关键词\n    Args:\n        text (str): 需要分析的文本内容\n    Returns:\n        dict: 包含关键词提取结果的字典\n    \"\"\"\n    gemini = current_app.config.get('GEMINI_INSTANCE')\n    if not gemini:",
+        "peekOfCode": "def extract_keywords(text):\n    \"\"\"\n    Extract keywords from text\n    Args:\n        text (str): Text content to analyze\n    Returns:\n        dict: Dictionary containing keyword extraction results\n    \"\"\"\n    gemini = current_app.config.get('GEMINI_INSTANCE')\n    if not gemini:",
         "detail": "app.utils.text_analysis",
         "documentation": {}
     },
@@ -1439,7 +1438,7 @@
         "kind": 2,
         "importPath": "app.utils.text_analysis",
         "description": "app.utils.text_analysis",
-        "peekOfCode": "def summarize_text(text, max_words=50):\n    \"\"\"\n    对文本进行摘要\n    Args:\n        text (str): 需要摘要的文本内容\n        max_words (int): 摘要的最大字数\n    Returns:\n        dict: 包含文本摘要结果的字典\n    \"\"\"\n    gemini = current_app.config.get('GEMINI_INSTANCE')",
+        "peekOfCode": "def summarize_text(text, max_words=50):\n    \"\"\"\n    Summarize text\n    Args:\n        text (str): Text content to summarize\n        max_words (int): Maximum word count for the summary\n    Returns:\n        dict: Dictionary containing text summarization results\n    \"\"\"\n    gemini = current_app.config.get('GEMINI_INSTANCE')",
         "detail": "app.utils.text_analysis",
         "documentation": {}
     },
@@ -1448,7 +1447,7 @@
         "kind": 2,
         "importPath": "app.utils.text_analysis",
         "description": "app.utils.text_analysis",
-        "peekOfCode": "def classify_text(text, categories=None):\n    \"\"\"\n    对文本进行分类\n    Args:\n        text (str): 需要分类的文本内容\n        categories (list): 可选的分类类别列表\n    Returns:\n        dict: 包含文本分类结果的字典\n    \"\"\"\n    gemini = current_app.config.get('GEMINI_INSTANCE')",
+        "peekOfCode": "def classify_text(text, categories=None):\n    \"\"\"\n    Classify text\n    Args:\n        text (str): Text content to classify\n        categories (list): Optional list of classification categories\n    Returns:\n        dict: Dictionary containing text classification results\n    \"\"\"\n    gemini = current_app.config.get('GEMINI_INSTANCE')",
         "detail": "app.utils.text_analysis",
         "documentation": {}
     },
@@ -1457,7 +1456,7 @@
         "kind": 2,
         "importPath": "app.visualization.routes",
         "description": "app.visualization.routes",
-        "peekOfCode": "def visualize(dataset_id):\n    \"\"\"数据可视化路由\"\"\"\n    user_id = current_user.id\n    dataset = Dataset.query.get_or_404(dataset_id)\n    # 检查用户是否拥有数据集或数据集是否与其共享\n    is_owner = dataset.user_id == user_id\n    is_shared = Share.query.filter_by(dataset_id=dataset_id, shared_with_id=user_id).first() is not None\n    if not (is_owner or is_shared):\n        flash('您无权查看此数据集。', 'danger')\n        return redirect(url_for('dashboard.index'))",
+        "peekOfCode": "def visualize(dataset_id):\n    \"\"\"Data visualization route\"\"\"\n    user_id = current_user.id\n    dataset = Dataset.query.get_or_404(dataset_id)\n    # Check if user owns the dataset or if the dataset is shared with them\n    is_owner = dataset.user_id == user_id\n    is_shared = Share.query.filter_by(dataset_id=dataset_id, shared_with_id=user_id).first() is not None\n    if not (is_owner or is_shared):\n        flash('You do not have permission to view this dataset.', 'danger')\n        return redirect(url_for('dashboard.index'))",
         "detail": "app.visualization.routes",
         "documentation": {}
     },
@@ -1601,7 +1600,7 @@
         "kind": 5,
         "importPath": "run",
         "description": "run",
-        "peekOfCode": "app = create_app()\nif __name__ == '__main__':\n    # 关闭自动重载，确保只启动一个进程加载最新代码\n    app.run(debug=True, use_reloader=False)",
+        "peekOfCode": "app = create_app()\nif __name__ == '__main__':\n    # Disable auto-reload to ensure only one process loads the latest code\n    app.run(debug=True, use_reloader=False)",
         "detail": "run",
         "documentation": {}
     },
@@ -1619,7 +1618,7 @@
         "kind": 2,
         "importPath": "test_api",
         "description": "test_api",
-        "peekOfCode": "def test_scout_analysis_api():\n    print(\"测试球探分析API连接...\")\n    # 测试文本\n    test_text = \"测试DeepSeek API连接。这是一个NBA球员：Lebron James，他是一位全明星球员。\"\n    with app.app_context():\n        try:\n            # 获取API密钥信息\n            api_key = app.config.get('DEEPSEEK_API_KEY')\n            print(f\"API密钥: {api_key[:5]}...{api_key[-5:]}\")\n            print(f\"球探分析开启状态: {app.config.get('ENABLE_SCOUT_ANALYSIS', False)}\")",
+        "peekOfCode": "def test_scout_analysis_api():\n    print(\"Testing Scout Analysis API connection...\")\n    # Test text\n    test_text = \"Testing Gemini API connection. This is an NBA player: Lebron James, he is an All-Star player.\"\n    with app.app_context():\n        try:\n            # Get API key information\n            api_key = app.config.get('GEMINI_API_KEY')\n            print(f\"API key: {api_key[:5]}...{api_key[-5:]}\")\n            print(f\"Scout analysis enabled status: {app.config.get('ENABLE_SCOUT_ANALYSIS', False)}\")",
         "detail": "test_api",
         "documentation": {}
     },
@@ -1628,7 +1627,7 @@
         "kind": 5,
         "importPath": "test_api",
         "description": "test_api",
-        "peekOfCode": "app = create_app()\ndef test_scout_analysis_api():\n    print(\"测试球探分析API连接...\")\n    # 测试文本\n    test_text = \"测试DeepSeek API连接。这是一个NBA球员：Lebron James，他是一位全明星球员。\"\n    with app.app_context():\n        try:\n            # 获取API密钥信息\n            api_key = app.config.get('DEEPSEEK_API_KEY')\n            print(f\"API密钥: {api_key[:5]}...{api_key[-5:]}\")",
+        "peekOfCode": "app = create_app()\ndef test_scout_analysis_api():\n    print(\"Testing Scout Analysis API connection...\")\n    # Test text\n    test_text = \"Testing Gemini API connection. This is an NBA player: Lebron James, he is an All-Star player.\"\n    with app.app_context():\n        try:\n            # Get API key information\n            api_key = app.config.get('GEMINI_API_KEY')\n            print(f\"API key: {api_key[:5]}...{api_key[-5:]}\")",
         "detail": "test_api",
         "documentation": {}
     }

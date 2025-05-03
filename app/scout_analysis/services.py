@@ -46,18 +46,26 @@ class ScoutAnalysisService:
     def analyze_report(text_content, use_deep_analysis=False):
         # Log file path to debug loaded module
         current_app.logger.warning(f"[DEBUG] services module path: {__file__}")
-        """Analyze scout report text, ensuring strict adherence to deepseek API format"""
+        """Analyze scout report text, ensuring strict adherence to Gemini API format"""
         try:            # Log initial analysis request
             current_app.logger.info(f"Starting text analysis, length={len(text_content)}")
             
-            # Standard Gemini API call format
-            api_key = current_app.config.get('GEMINI_API_KEY', 'AIzaSyCETEiGA_fvo5RbEAQid4OHytiU5W2x_ss')
+            # Get API key from configuration, without default value
+            api_key = current_app.config.get('GEMINI_API_KEY')
+            
+            # Verify if API key exists
+            if not api_key:
+                current_app.logger.error("Missing GEMINI_API_KEY configuration, unable to perform text analysis")
+                return ScoutAnalysisService.generate_mock_analysis(text_content)
+                
+            # Set API URL
             api_url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={api_key}"
             current_app.logger.warning(f"[DEBUG] Using config API key: {api_key[:5]}...{api_key[-5:]}")
 
             current_app.logger.warning(f"[DEBUG] Using API service: {api_url}")
             current_app.logger.warning(f"[DEBUG] Using Gemini API key: {api_key[:5]}...{api_key[-5:]}")
-              # Build standard headers
+            
+            # Build standard headers
             headers = {
                 "Content-Type": "application/json"
             }
@@ -81,7 +89,7 @@ Format your response as valid JSON with these exact keys: player_name, position,
 Player information:
 {text_content[:1000]}"""
 
-            # 构建适用于Gemini API的请求体
+            # Build API request body for Gemini
             prompt_with_instruction = f"{system_instruction}\n\n{user_prompt}"
             
             # Build API request body for Gemini

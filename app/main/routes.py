@@ -4,5 +4,5 @@ from flask_login import current_user
 
 @bp.route('/')
 def index():
-    """网站主页路由"""
+    """Website homepage route"""
     return render_template('main/index.html')
