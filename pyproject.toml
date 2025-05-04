@@ -25,4 +25,4 @@ exclude = [
     "dist",
     "build",
     "migrations",
-] 
+]

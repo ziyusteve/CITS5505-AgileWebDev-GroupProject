@@ -1,0 +1,11 @@
+flask
+flask_sqlalchemy
+werkzeug
+pandas
+numpy
+plotly
+djlint
+flask-wtf
+flask-login
+python-dotenv
+flask-migrate

@@ -55,17 +55,17 @@ pre-commit install
 def calculate_average(numbers):
     """
     计算数字列表的平均值。
-    
+
     Args:
         numbers (list): 数字列表
-        
+
     Returns:
         float: 平均值
-        
+
     Raises:
         ValueError: 如果列表为空
     """
     if not numbers:
         raise ValueError("数字列表不能为空")
     return sum(numbers) / len(numbers)
-``` 
+```
