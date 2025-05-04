@@ -3,6 +3,7 @@ import os
 from app.config import config
 from app.extensions import db, login_manager
 from flask_wtf.csrf import CSRFProtect
+from flask_migrate import Migrate
 
 def create_app(config_name='default'):
     app = Flask(__name__, 
@@ -20,6 +21,9 @@ def create_app(config_name='default'):
     # Initialize extensions
     db.init_app(app)
     login_manager.init_app(app)
+    
+    # Initialize Flask-Migrate
+    migrate = Migrate(app, db)
     
     # Initialize CSRF protection
     csrf = CSRFProtect(app)

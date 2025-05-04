@@ -53,6 +53,24 @@ python run_testing.py
 
 - Access the application at http://localhost:5000
 
+## Database Migrations
+
+This application uses Flask-Migrate for database migrations:
+
+```powershell
+# Initialize migration repository
+flask db init
+
+# Create a migration
+flask db migrate -m "Migration message"
+
+# Apply migrations to the database
+flask db upgrade
+
+# Rollback the last migration
+flask db downgrade
+```
+
 ## Project Structure
 
 ```
