@@ -1,5 +1,11 @@
 # exclude user-generated files
 uploads/
+data/uploads/
+
+# IDE settings
+.vscode/*
+!.vscode/launch.json
+!.vscode/tasks.json
 
 # macOS specific files
 .DS_Store
@@ -70,7 +76,10 @@ db.sqlite3-journal
 
 # Flask stuff:
 instance/
+instance/*.db
+instance/site.db
 .webassets-cache
+logs/
 
 # Scrapy stuff:
 .scrapy
