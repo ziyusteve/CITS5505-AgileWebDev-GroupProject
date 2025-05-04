@@ -1,5 +1,11 @@
 from app.models.user import User
 from app.models.dataset import Dataset
 from app.models.share import Share
+from app.extensions import login_manager
 
-# 这个文件让我们可以直接从 app.models 导入所有模型
+# This file allows us to import all models directly from app.models
+
+# Flask-Login 用户加载回调
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))

@@ -1,0 +1,483 @@
+/* CSS Variables for consistent colors */
+:root {
+    --primary-color: #6c5ce7;
+    --secondary-color: #a29bfe;
+    --accent-color: #e84393;
+    --gold-accent: #ffc107;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --text-color: #333333;
+    --light-bg: #f8f9fa;
+    --card-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    --hover-shadow: 0 15px 30px rgba(0,0,0,0.12);
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+}
+
+/* Hero section styles - 备选方案1: 固定高度背景 */
+.nba-hero {
+    background-image: url('../images/nba-hero.jpg');
+    background-size: contain; /* Changed to show full image */
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: #0a0a1e; /* 深色背景填充空白区域 */
+    padding: 7rem 2rem;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    position: relative;
+    min-height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 0 150px rgba(0, 0, 0, 0.7);
+    overflow: hidden;
+}
+
+
+
+/* 响应式背景图控制 */
+@media (max-width: 768px) {
+    .nba-hero {
+        min-height: 60vh;
+        padding: 5rem 1.5rem;
+        background-position: center top;
+    }
+}
+
+@media (max-width: 576px) {
+    .nba-hero {
+        min-height: 50vh;
+        padding: 4rem 1rem;
+    }
+}
+
+.nba-hero:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(108, 92, 231, 0.5) 0%, rgba(232, 67, 147, 0.4) 60%, rgba(10, 10, 30, 0.6) 100%);
+    z-index: 0;
+}
+
+.nba-hero:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+    opacity: 0.7;
+    box-shadow: 0 0 15px 1px var(--accent-color);
+    animation: glow 3s ease-in-out infinite alternate;
+    z-index: 1;
+}
+
+@keyframes glow {
+    from { opacity: 0.4; }
+    to { opacity: 0.7; }
+}
+
+/* 英雄区域内容包装器 */
+.hero-content-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: rgba(10, 10, 30, 0.3);
+    padding: 2.5rem;
+    border-radius: 12px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border-left: 3px solid var(--gold-accent);
+    z-index: 2;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 添加科技感装饰元素 */
+.hero-content-wrapper::before {
+    content: "";
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(108, 92, 231, 0.3) 0%, rgba(108, 92, 231, 0) 70%);
+    animation: float 6s ease-in-out infinite;
+    z-index: -1;
+}
+
+.hero-content-wrapper::after {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    left: 30%;
+    width: 60%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(108, 92, 231, 0.7), transparent);
+    z-index: -1;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-15px) scale(1.05);
+    }
+    100% {
+        transform: translateY(0) scale(1);
+    }
+}
+
+.nba-hero h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 1.8rem;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.6), 0 0 15px rgba(162, 155, 254, 0.5);
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* 标题装饰线 */
+.nba-hero h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold-accent), transparent);
+    border-radius: 3px;
+}
+
+.nba-hero .lead {
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-bottom: 2.2rem;
+    max-width: 90%;
+    line-height: 1.6;
+}
+
+/* 响应式文本样式 */
+@media (max-width: 768px) {
+    .nba-hero h1 {
+        font-size: 2.3rem;
+    }
+    
+    .nba-hero .lead {
+        font-size: 1.1rem;
+    }
+    
+    .hero-content-wrapper {
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .nba-hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .hero-content-wrapper {
+        padding: 1.5rem;
+    }
+}
+
+/* Hero section button styling */
+.nba-hero .btn-container {
+    display: flex;
+    gap: 15px;
+    margin-top: 0.5rem;
+}
+
+.nba-hero .btn {
+    border-radius: 30px;
+    padding: 0.6rem 1.5rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.nba-hero .btn:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: all 0.5s ease;
+    z-index: -1;
+}
+
+.nba-hero .btn:hover:before {
+    left: 100%;
+}
+
+.nba-hero .btn-primary {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    box-shadow: 0 4px 15px rgba(108, 92, 231, 0.4);
+}
+
+.nba-hero .btn-success {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
+}
+
+.nba-hero .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Styles for Player Analysis Example section */
+.section-title {
+    position: relative;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.section-title:after {
+    content: '';
+    display: block;
+    width: 70px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    margin: 0.8rem auto 0;
+}
+
+/* Enhanced Analysis Section Styles */
+.analysis-section {
+    margin-bottom: 2rem;
+}
+
+.analysis-card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transition: all 0.3s ease;
+}
+
+.analysis-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--hover-shadow);
+}
+
+.analysis-card .card-header {
+    padding: 1rem 1.25rem;
+    background: linear-gradient(to right, var(--light-bg), #ffffff);
+    border-bottom: 2px solid rgba(108, 92, 231, 0.15);
+}
+
+.header-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: rgba(108, 92, 231, 0.1);
+}
+
+.header-icon i {
+    font-size: 1rem;
+}
+
+/* Input Card Styling */
+.input-card {
+    background-color: rgba(248, 249, 250, 0.8);
+    border-left: 3px solid var(--primary-color);
+}
+
+/* Radar Chart Animation */
+@keyframes fadeIn {
+    from { opacity: 0.6; }
+    to { opacity: 1; }
+}
+
+.radar-chart-img {
+    max-width: 350px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    border-radius: 8px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* AI Icon Styling - Enhanced */
+.ai-icon {
+    margin-left: 15px;
+    color: var(--gold-accent);
+    animation: pulse 2s infinite;
+    filter: drop-shadow(0 0 5px rgba(255, 193, 7, 0.5));
+    vertical-align: middle;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.7;
+        filter: drop-shadow(0 0 8px rgba(255, 193, 7, 0.7));
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Card Content Styling */
+.card-content {
+    padding: 0.5rem;
+}
+
+.key-info-wrapper .info-row {
+    padding: 0.5rem 0;
+    border-bottom: 1px dashed rgba(108, 92, 231, 0.1);
+}
+
+.info-divider {
+    margin: 1.5rem 0;
+    background: linear-gradient(to right, transparent, rgba(108, 92, 231, 0.2), transparent);
+    opacity: 0.5;
+}
+
+.rating-container {
+    padding: 0.75rem;
+    background-color: rgba(248, 249, 250, 0.5);
+    border-radius: 8px;
+}
+
+.theme-rating-pill {
+    position: relative;
+    padding: 0.5rem 1rem;
+    border-radius: 24px;
+    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    color: white;
+    box-shadow: 0 4px 15px rgba(108, 92, 231, 0.3);
+}
+
+.theme-purple {
+    color: white !important;
+}
+
+/* List Styling */
+.strength-list li, .weakness-list li {
+    padding: 0.75rem 0.5rem;
+    transition: all 0.2s;
+    border-radius: 6px;
+}
+
+.strength-list li:hover {
+    background-color: rgba(40, 167, 69, 0.08);
+    transform: translateX(5px);
+}
+
+.weakness-list li:hover {
+    background-color: rgba(220, 53, 69, 0.08);
+    transform: translateX(5px);
+}
+
+.stat-badge {
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+/* Radar Chart Styles */
+.radar-chart-body {
+    min-height: 350px;
+    padding: 1.5rem;
+}
+
+.radar-chart-container {
+    padding: 1rem;
+    background-color: rgba(248, 249, 250, 0.5);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.radar-chart-container:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* Progress bar styles */
+.potential-progress {
+    height: 12px;
+    border-radius: 6px;
+    overflow: hidden;
+    background-color: #f0f0f0;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.potential-progress-bar {
+    width: 65%;
+    transition: width 1s ease;
+    background: linear-gradient(to right, #ffa41b, #ff7b25);
+}
+
+/* Card enhancements */
+.player-stat-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.player-stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.1);
+}
+
+.player-stat-header {
+    background-color: #f8f9fa;
+    border-bottom: 2px solid rgba(108, 92, 231, 0.1);
+}
+
+.theme-gold {
+    color: #ffc107;
+}
+
+/* Styles moved from inline HTML for benefits section icons */
+.benefit-icon-circle {
+    width: 80px;
+    height: 80px;
+    background-color: rgba(255, 255, 255, 0.1); /* 半透明背景效果 */
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.text-gold {
+    color: var(--gold-accent) !important;
+}
+
+/* Styles moved from inline HTML for testimonial avatars */
+.testimonial-avatar-circle {
+    width: 50px;
+    height: 50px;
+}
+
+/* ... potentially more existing styles ... */

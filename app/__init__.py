@@ -1,23 +1,33 @@
 from flask import Flask
 import os
 from app.config import config
-from app.extensions import db
+from app.extensions import db, login_manager
+from flask_wtf.csrf import CSRFProtect
 
 def create_app(config_name='default'):
     app = Flask(__name__, 
                 template_folder='templates',
                 static_folder='../static')
     
-    # 使用配置类
+    # Use configuration class
     app.config.from_object(config[config_name])
     
-    # 初始化扩展
-    db.init_app(app)
+    # Validate key configurations
+    config_valid = config[config_name].validate_config()
+    if not config_valid:
+        app.logger.warning("Application configuration validation failed, some features may not work properly")
     
-    # 确保上传目录存在
+    # Initialize extensions
+    db.init_app(app)
+    login_manager.init_app(app)
+    
+    # Initialize CSRF protection
+    csrf = CSRFProtect(app)
+    
+    # Ensure upload directory exists
     os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
     
-    # 注册蓝图
+    # Register blueprints
     from app.auth import bp as auth_bp
     app.register_blueprint(auth_bp, url_prefix='/auth')
     
@@ -35,31 +45,30 @@ def create_app(config_name='default'):
     
     from app.api import bp as api_bp
     app.register_blueprint(api_bp, url_prefix='/api')
+    # API endpoints typically don't need CSRF protection
+    csrf.exempt(api_bp)
     
     from app.sharing import bp as sharing_bp
     app.register_blueprint(sharing_bp, url_prefix='/share')
-      # 初始化球探报告分析模块（不注册路由，只初始化服务）
+    # Initialize scout report analysis module (only initialize service, no route registration)
     if app.config.get('ENABLE_SCOUT_ANALYSIS', False):
         from app.scout_analysis import scout_bp
-        app.register_blueprint(scout_bp)  # 不设置URL前缀
+        app.register_blueprint(scout_bp)  # No URL prefix set
         app.logger.info("Scout analysis module initialized")
-    
-    # 确保在应用上下文中创建所有数据库表
-    # 首先导入所有模型，然后一次性创建所有表
+      # Ensure all database tables are created in the application context
+    # First import all models, then create all tables at once
     with app.app_context():
-        # 先导入所有模型
-        from app.models.user import User
-        from app.models.dataset import Dataset
-        from app.models.share import Share
+        # Import all models - this will also register the user_loader function
+        from app.models import User, Dataset, Share
         
-        # 如果启用了球探报告分析，再导入其模型
+        # If scout report analysis is enabled, import its models
         if app.config.get('ENABLE_SCOUT_ANALYSIS', False):
             from app.scout_analysis.models import ScoutReportAnalysis
-              # 创建所有表
+        # Create all tables
         db.create_all()
         app.logger.info("Database tables for scout analysis created if not exists")
     
-    # 日志文件配置
+    # Log file configuration
     import logging
     from logging.handlers import RotatingFileHandler
     import codecs
@@ -72,7 +81,7 @@ def create_app(config_name='default'):
     file_handler.setLevel(logging.INFO)
     app.logger.addHandler(file_handler)
     
-    # 设置全局编码为UTF-8
+    # Set global encoding to UTF-8
     import sys
     sys.stdout.reconfigure(encoding='utf-8')
     sys.stderr.reconfigure(encoding='utf-8')

@@ -91,57 +91,87 @@
                 </div>
                 <div class="card-body p-4">
                     <form method="POST" action="{{ url_for('auth.register') }}">
+                        {{ form.hidden_tag() }}
+                        
                         <!-- Username Input -->
                         <div class="mb-4">
-                            <label for="username" class="form-label">Username</label>
+                            <label for="username" class="form-label">{{ form.username.label }}</label>
                             <div class="input-group">
                                 <span class="input-group-text border-end-0">
                                     <i class="fas fa-user"></i>
                                 </span>
-                                <input type="text" class="form-control" id="username" name="username" 
-                                       placeholder="Choose a unique username" required>
+                                {{ form.username(class="form-control", placeholder="Choose a unique username") }}
                             </div>
-                            <div>Username must be unique and at least 3 characters.</div>
+                            {% if form.username.errors %}
+                                <div class="text-danger">
+                                    {% for error in form.username.errors %}
+                                        <small>{{ error }}</small>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                <div>Username must be unique and at least 3 characters.</div>
+                            {% endif %}
                         </div>
                         
                         <!-- Email Input -->
                         <div class="mb-4">
-                            <label for="email" class="form-label">Email Address</label>
+                            <label for="email" class="form-label">{{ form.email.label }}</label>
                             <div class="input-group">
                                 <span class="input-group-text border-end-0">
                                     <i class="fas fa-envelope"></i>
                                 </span>
-                                <input type="email" class="form-control" id="email" name="email" 
-                                       placeholder="Enter your email address" required>
+                                {{ form.email(class="form-control", placeholder="Enter your email address") }}
                             </div>
-                            <div>We'll never share your email with anyone else.</div>
+                            {% if form.email.errors %}
+                                <div class="text-danger">
+                                    {% for error in form.email.errors %}
+                                        <small>{{ error }}</small>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                <div>We'll never share your email with anyone else.</div>
+                            {% endif %}
                         </div>
                         
                         <!-- Password Input -->
                         <div class="mb-4">
-                            <label for="password" class="form-label">Password</label>
+                            <label for="password" class="form-label">{{ form.password.label }}</label>
                             <div class="input-group">
                                 <span class="input-group-text border-end-0">
                                     <i class="fas fa-lock"></i>
                                 </span>
-                                <input type="password" class="form-control password-input" 
-                                       id="password" name="password" placeholder="Create a strong password" required>
+                                {{ form.password(class="form-control password-input", placeholder="Create a strong password") }}
                                 <button class="btn btn-outline-secondary border-start-0" type="button" id="togglePassword">
                                     <i class="fas fa-eye"></i>
                                 </button>
                             </div>
-                            <div>Password should be at least 8 characters and include letters and numbers.</div>
+                            {% if form.password.errors %}
+                                <div class="text-danger">
+                                    {% for error in form.password.errors %}
+                                        <small>{{ error }}</small>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                <div>Password should be at least 8 characters and include letters and numbers.</div>
+                            {% endif %}
                         </div>
                         
                         <!-- Terms Checkbox -->
                         <div class="mb-4 form-check">
-                            <input type="checkbox" class="form-check-input" id="terms" name="terms" required>
-                            <label class="form-check-label" for="terms">I agree to the <a href="{{ url_for('auth.terms') }}" class="login-link">Terms of Service</a> and <a href="{{ url_for('auth.privacy') }}" class="login-link">Privacy Policy</a></label>
+                            {{ form.terms(class="form-check-input") }}
+                            <label class="form-check-label" for="terms">{{ form.terms.label }}</label>
+                            {% if form.terms.errors %}
+                                <div class="text-danger">
+                                    {% for error in form.terms.errors %}
+                                        <small>{{ error }}</small>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
                         </div>
                         
                         <!-- Register Button -->
                         <div class="d-grid">
-                            <button type="submit" class="btn btn-primary register-btn">Create Account</button>
+                            {{ form.submit(class="btn btn-primary register-btn") }}
                         </div>
                     </form>
                 </div>

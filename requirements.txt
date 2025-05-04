@@ -5,3 +5,6 @@ pandas
 numpy
 plotly
 djlint
+flask-wtf
+flask-login
+python-dotenv

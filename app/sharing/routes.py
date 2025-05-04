@@ -1,18 +1,17 @@
-from flask import render_template, redirect, url_for, flash, request, session
+from flask import render_template, redirect, url_for, flash, request
 from app.sharing import bp
 from app.models.dataset import Dataset
 from app.models.user import User
 from app.models.share import Share
 from app.extensions import db
+from flask_login import login_required, current_user
 
 @bp.route('/', methods=['GET'])
+@login_required
 def index():
     """数据共享页面路由"""
-    if 'user_id' not in session:
-        flash('请先登录以访问此页面。', 'warning')
-        return redirect(url_for('auth.login'))
     
-    user_id = session['user_id']
+    user_id = current_user.id
     user_datasets = Dataset.query.filter_by(user_id=user_id).all()
     users = User.query.filter(User.id != user_id).all()
     
@@ -22,13 +21,11 @@ def index():
     return render_template('sharing/share.html', datasets=user_datasets, users=users, shares=shares)
 
 @bp.route('/dataset', methods=['POST'])
+@login_required
 def share_dataset():
     """处理数据集共享请求"""
-    if 'user_id' not in session:
-        flash('请先登录以访问此页面。', 'warning')
-        return redirect(url_for('auth.login'))
     
-    user_id = session['user_id']
+    user_id = current_user.id
     dataset_id = request.form.get('dataset_id')
     shared_with_id = request.form.get('user_id')
     
@@ -62,13 +59,11 @@ def share_dataset():
     return redirect(url_for('sharing.index'))
 
 @bp.route('/revoke/<int:share_id>', methods=['POST'])
+@login_required
 def revoke_share(share_id):
     """撤销数据集共享"""
-    if 'user_id' not in session:
-        flash('请先登录以访问此页面。', 'warning')
-        return redirect(url_for('auth.login'))
     
-    user_id = session['user_id']
+    user_id = current_user.id
     
     # 获取共享记录
     share = Share.query.join(Dataset).filter(
