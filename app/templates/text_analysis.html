@@ -20,6 +20,8 @@
                 </div>
                 <div class="card-body">
                     <form id="analysisForm">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                        
                         <div class="form-group mb-3">
                             <label for="text"><i class="fas fa-file-alt me-2"></i>Enter text for analysis:</label>
                             <textarea class="form-control" id="text" rows="5" placeholder="Enter your text here..."></textarea>
@@ -147,36 +149,55 @@ document.addEventListener('DOMContentLoaded', function() {
         resultContent.textContent = 'Performing deep analysis with Gemini AI, please wait...';
         results.style.display = 'block';
         
-        // Send request
-        fetch('/api/gemini/analyze', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                text: text,
-                analysis_type: analysisType,
-                options: options
-            }),
-        })
-        .then(response => response.json())
-        .then(data => {
-            processingIndicator.style.display = 'none';
-            if (data.error) {
-                resultContent.textContent = `Error: ${data.error}`;
-            } else {
-                resultContent.textContent = JSON.stringify(data.result, null, 2);
-                
-                // Add beautification
-                resultContent.innerHTML = resultContent.textContent
-                    .replace(/"([^"]+)":/g, '<span style="color: #FDB927;">"$1"</span>:')
-                    .replace(/: "([^"]+)"/g, ': <span style="color: #7D3AC1;">"$1"</span>');
-            }
-        })
-        .catch(error => {
-            processingIndicator.style.display = 'none';
-            resultContent.textContent = `Request error: ${error}`;
-        });
+        // 获取CSRF令牌
+        const csrfToken = document.querySelector('input[name="csrf_token"]').value;
+        
+        // 封装发送请求的函数，以便支持重试逻辑
+        const sendRequest = (retryCount = 0, maxRetries = 2) => {
+            // Send request
+            fetch('/api/gemini/analyze', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': csrfToken
+                },
+                body: JSON.stringify({
+                    text: text,
+                    analysis_type: analysisType,
+                    options: options
+                }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                processingIndicator.style.display = 'none';
+                if (data.error) {
+                    resultContent.textContent = `Error: ${data.error}`;
+                } else {
+                    resultContent.textContent = JSON.stringify(data.result, null, 2);
+                    
+                    // Add beautification
+                    resultContent.innerHTML = resultContent.textContent
+                        .replace(/"([^"]+)":/g, '<span style="color: #FDB927;">"$1"</span>:')
+                        .replace(/: "([^"]+)"/g, ': <span style="color: #7D3AC1;">"$1"</span>');
+                }
+            })
+            .catch(error => {
+                // 网络错误时实现重试逻辑
+                if (retryCount < maxRetries) {
+                    console.log(`Request failed, retrying (${retryCount + 1}/${maxRetries})...`);
+                    // 延迟一秒后重试
+                    setTimeout(() => {
+                        sendRequest(retryCount + 1, maxRetries);
+                    }, 1000);
+                } else {
+                    processingIndicator.style.display = 'none';
+                    resultContent.textContent = `Request error after ${maxRetries} retries: ${error}`;
+                }
+            });
+        };
+        
+        // 开始发送请求
+        sendRequest();
     });
 });
 </script>
