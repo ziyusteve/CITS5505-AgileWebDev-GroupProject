@@ -1,5 +1,14 @@
 [
     {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
         "label": "Blueprint",
         "importPath": "flask",
         "description": "flask",
@@ -16,7 +25,7 @@
         "documentation": {}
     },
     {
-        "label": "jsonify",
+        "label": "current_app",
         "importPath": "flask",
         "description": "flask",
         "isExtraImport": true,
@@ -24,7 +33,7 @@
         "documentation": {}
     },
     {
-        "label": "current_app",
+        "label": "jsonify",
         "importPath": "flask",
         "description": "flask",
         "isExtraImport": true,
@@ -320,6 +329,54 @@
         "documentation": {}
     },
     {
+        "label": "current_app",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "current_app",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "abort",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "flash",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "current_app",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
         "label": "analyze_sentiment",
         "importPath": "app.utils.text_analysis",
         "description": "app.utils.text_analysis",
@@ -458,6 +515,22 @@
     },
     {
         "label": "generate_unique_filename",
+        "importPath": "app.utils",
+        "description": "app.utils",
+        "isExtraImport": true,
+        "detail": "app.utils",
+        "documentation": {}
+    },
+    {
+        "label": "sanitize_filename",
+        "importPath": "app.utils",
+        "description": "app.utils",
+        "isExtraImport": true,
+        "detail": "app.utils",
+        "documentation": {}
+    },
+    {
+        "label": "validate_csrf_token",
         "importPath": "app.utils",
         "description": "app.utils",
         "isExtraImport": true,
@@ -643,6 +716,14 @@
         "documentation": {}
     },
     {
+        "label": "FlaskForm",
+        "importPath": "flask_wtf",
+        "description": "flask_wtf",
+        "isExtraImport": true,
+        "detail": "flask_wtf",
+        "documentation": {}
+    },
+    {
         "label": "StringField",
         "importPath": "wtforms",
         "description": "wtforms",
@@ -683,7 +764,15 @@
         "documentation": {}
     },
     {
-        "label": "TextAreaField",
+        "label": "SubmitField",
+        "importPath": "wtforms",
+        "description": "wtforms",
+        "isExtraImport": true,
+        "detail": "wtforms",
+        "documentation": {}
+    },
+    {
+        "label": "SelectField",
         "importPath": "wtforms",
         "description": "wtforms",
         "isExtraImport": true,
@@ -700,14 +789,6 @@
     },
     {
         "label": "DataRequired",
-        "importPath": "wtforms.validators",
-        "description": "wtforms.validators",
-        "isExtraImport": true,
-        "detail": "wtforms.validators",
-        "documentation": {}
-    },
-    {
-        "label": "Email",
         "importPath": "wtforms.validators",
         "description": "wtforms.validators",
         "isExtraImport": true,
@@ -739,14 +820,6 @@
         "documentation": {}
     },
     {
-        "label": "DataRequired",
-        "importPath": "wtforms.validators",
-        "description": "wtforms.validators",
-        "isExtraImport": true,
-        "detail": "wtforms.validators",
-        "documentation": {}
-    },
-    {
         "label": "Optional",
         "importPath": "wtforms.validators",
         "description": "wtforms.validators",
@@ -771,11 +844,11 @@
         "documentation": {}
     },
     {
-        "label": "User",
-        "importPath": "app.models.user",
-        "description": "app.models.user",
+        "label": "DataRequired",
+        "importPath": "wtforms.validators",
+        "description": "wtforms.validators",
         "isExtraImport": true,
-        "detail": "app.models.user",
+        "detail": "wtforms.validators",
         "documentation": {}
     },
     {
@@ -792,6 +865,30 @@
         "description": "app.models.user",
         "isExtraImport": true,
         "detail": "app.models.user",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "app.models.user",
+        "description": "app.models.user",
+        "isExtraImport": true,
+        "detail": "app.models.user",
+        "documentation": {}
+    },
+    {
+        "label": "generate_password_hash",
+        "importPath": "werkzeug.security",
+        "description": "werkzeug.security",
+        "isExtraImport": true,
+        "detail": "werkzeug.security",
+        "documentation": {}
+    },
+    {
+        "label": "check_password_hash",
+        "importPath": "werkzeug.security",
+        "description": "werkzeug.security",
+        "isExtraImport": true,
+        "detail": "werkzeug.security",
         "documentation": {}
     },
     {
@@ -915,6 +1012,14 @@
         "documentation": {}
     },
     {
+        "label": "urlparse",
+        "importPath": "urllib.parse",
+        "description": "urllib.parse",
+        "isExtraImport": true,
+        "detail": "urllib.parse",
+        "documentation": {}
+    },
+    {
         "label": "bp",
         "importPath": "app.dashboard",
         "description": "app.dashboard",
@@ -939,12 +1044,28 @@
         "documentation": {}
     },
     {
+        "label": "FileAllowed",
+        "importPath": "flask_wtf.file",
+        "description": "flask_wtf.file",
+        "isExtraImport": true,
+        "detail": "flask_wtf.file",
+        "documentation": {}
+    },
+    {
         "label": "os",
         "kind": 6,
         "isExtraImport": true,
         "importPath": "os",
         "description": "os",
         "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "secure_filename",
+        "importPath": "werkzeug.utils",
+        "description": "werkzeug.utils",
+        "isExtraImport": true,
+        "detail": "werkzeug.utils",
         "documentation": {}
     },
     {
@@ -1017,15 +1138,6 @@
         "description": "datetime",
         "isExtraImport": true,
         "detail": "datetime",
-        "documentation": {}
-    },
-    {
-        "label": "json",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "json",
-        "description": "json",
-        "detail": "json",
         "documentation": {}
     },
     {
@@ -1107,11 +1219,53 @@
         "documentation": {}
     },
     {
-        "label": "load_dotenv",
-        "importPath": "dotenv",
-        "description": "dotenv",
+        "label": "validate_csrf",
+        "importPath": "flask_wtf.csrf",
+        "description": "flask_wtf.csrf",
         "isExtraImport": true,
-        "detail": "dotenv",
+        "detail": "flask_wtf.csrf",
+        "documentation": {}
+    },
+    {
+        "label": "op",
+        "importPath": "alembic",
+        "description": "alembic",
+        "isExtraImport": true,
+        "detail": "alembic",
+        "documentation": {}
+    },
+    {
+        "label": "context",
+        "importPath": "alembic",
+        "description": "alembic",
+        "isExtraImport": true,
+        "detail": "alembic",
+        "documentation": {}
+    },
+    {
+        "label": "sqlalchemy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "fileConfig",
+        "importPath": "logging.config",
+        "description": "logging.config",
+        "isExtraImport": true,
+        "detail": "logging.config",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
         "documentation": {}
     },
     {
@@ -1147,6 +1301,14 @@
         "documentation": {}
     },
     {
+        "label": "create_app",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
         "label": "ScoutAnalysisService",
         "importPath": "app.scout_analysis.services",
         "description": "app.scout_analysis.services",
@@ -1155,20 +1317,28 @@
         "documentation": {}
     },
     {
-        "label": "analyze",
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "analyze_text",
         "kind": 2,
         "importPath": "app.api.gemini_analysis",
         "description": "app.api.gemini_analysis",
-        "peekOfCode": "def analyze():\n    \"\"\"\n    Text Analysis API Endpoint\n    Request Body Format:\n    {\n        \"text\": \"Text to analyze\",\n        \"analysis_type\": \"sentiment|keywords|summary|classification\",\n        \"options\": {\n            // Optional analysis parameters\n            \"max_words\": 50,  // For summary",
+        "peekOfCode": "def analyze_text():\n    \"\"\"\n    Analyze text using Gemini API\n    Expected JSON body:\n    {\n        \"text\": \"Your text to analyze\",\n        \"analysis_type\": \"sentiment|keywords|summary|classification\",\n        \"options\": {\n            // Optional parameters specific to the analysis type\n            \"max_words\": 100,  // For summary",
         "detail": "app.api.gemini_analysis",
         "documentation": {}
     },
     {
-        "label": "gemini_analysis_bp",
+        "label": "bp",
         "kind": 5,
         "importPath": "app.api.gemini_analysis",
         "description": "app.api.gemini_analysis",
-        "peekOfCode": "gemini_analysis_bp = Blueprint('gemini_analysis', __name__)\n@gemini_analysis_bp.route('/analyze', methods=['POST'])\ndef analyze():\n    \"\"\"\n    Text Analysis API Endpoint\n    Request Body Format:\n    {\n        \"text\": \"Text to analyze\",\n        \"analysis_type\": \"sentiment|keywords|summary|classification\",\n        \"options\": {",
+        "peekOfCode": "bp = Blueprint('api', __name__, url_prefix='/api')\n@bp.route('/analyze', methods=['POST'])\ndef analyze_text():\n    \"\"\"\n    Analyze text using Gemini API\n    Expected JSON body:\n    {\n        \"text\": \"Your text to analyze\",\n        \"analysis_type\": \"sentiment|keywords|summary|classification\",\n        \"options\": {",
         "detail": "app.api.gemini_analysis",
         "documentation": {}
     },
@@ -1222,7 +1392,7 @@
         "kind": 6,
         "importPath": "app.auth.forms",
         "description": "app.auth.forms",
-        "peekOfCode": "class LoginForm(FlaskForm):\n    \"\"\"用户登录表单\"\"\"\n    username = StringField('用户名', validators=[DataRequired()])\n    password = PasswordField('密码', validators=[DataRequired()])\n    remember = BooleanField('记住我')\n    submit = SubmitField('登录')\nclass RegisterForm(FlaskForm):\n    \"\"\"用户注册表单\"\"\"\n    username = StringField('用户名', \n                           validators=[DataRequired(), Length(min=3, max=20)])",
+        "peekOfCode": "class LoginForm(FlaskForm):\n    \"\"\"User login form\"\"\"\n    username = StringField('Username', validators=[DataRequired()])\n    password = PasswordField('Password', validators=[DataRequired()])\n    remember = BooleanField('Remember Me')\n    submit = SubmitField('Login')\nclass RegisterForm(FlaskForm):\n    \"\"\"User registration form\"\"\"\n    username = StringField('Username',\n                          validators=[DataRequired(), Length(min=3, max=20)])",
         "detail": "app.auth.forms",
         "documentation": {}
     },
@@ -1231,7 +1401,7 @@
         "kind": 6,
         "importPath": "app.auth.forms",
         "description": "app.auth.forms",
-        "peekOfCode": "class RegisterForm(FlaskForm):\n    \"\"\"用户注册表单\"\"\"\n    username = StringField('用户名', \n                           validators=[DataRequired(), Length(min=3, max=20)])\n    email = StringField('电子邮箱', \n                        validators=[DataRequired(), Email()])\n    password = PasswordField('密码', \n                            validators=[DataRequired(), Length(min=8)])\n    terms = BooleanField('我同意服务条款和隐私政策', validators=[DataRequired()])\n    submit = SubmitField('创建账户')",
+        "peekOfCode": "class RegisterForm(FlaskForm):\n    \"\"\"User registration form\"\"\"\n    username = StringField('Username',\n                          validators=[DataRequired(), Length(min=3, max=20)])\n    email = StringField('Email',\n                       validators=[DataRequired(), Email()])\n    password = PasswordField('Password', \n                            validators=[DataRequired(), Length(min=6)])\n    confirm_password = PasswordField('Confirm Password',\n                                    validators=[DataRequired(), EqualTo('password')])",
         "detail": "app.auth.forms",
         "documentation": {}
     },
@@ -1240,7 +1410,7 @@
         "kind": 2,
         "importPath": "app.auth.routes",
         "description": "app.auth.routes",
-        "peekOfCode": "def register():\n    form = RegisterForm()\n    if form.validate_on_submit():\n        username = form.username.data\n        email = form.email.data\n        password = form.password.data\n        # 表单验证器已经检查了用户名和邮箱是否重复\n        hashed_password = generate_password_hash(password)\n        new_user = User(username=username, email=email, password=hashed_password)\n        db.session.add(new_user)",
+        "peekOfCode": "def register():\n    \"\"\"User registration route.\"\"\"\n    if current_user.is_authenticated:\n        return redirect(url_for('dashboard.index'))\n    form = RegisterForm()\n    if form.validate_on_submit():\n        # Form validators already check for duplicate username and email\n        user = User(username=form.username.data, email=form.email.data)\n        user.set_password(form.password.data)\n        db.session.add(user)",
         "detail": "app.auth.routes",
         "documentation": {}
     },
@@ -1249,7 +1419,7 @@
         "kind": 2,
         "importPath": "app.auth.routes",
         "description": "app.auth.routes",
-        "peekOfCode": "def login():\n    if current_user.is_authenticated:\n        return redirect(url_for('dashboard.index'))\n    form = LoginForm()\n    if form.validate_on_submit():\n        username = form.username.data\n        password = form.password.data\n        user = User.query.filter_by(username=username).first()\n        if not user or not check_password_hash(user.password, password):\n            flash('请检查您的登录信息并重试。', 'danger')",
+        "peekOfCode": "def login():\n    \"\"\"User login route.\"\"\"\n    if current_user.is_authenticated:\n        return redirect(url_for('dashboard.index'))\n    form = LoginForm()\n    if form.validate_on_submit():\n        user = User.query.filter_by(username=form.username.data).first()\n        if user is None or not user.check_password(form.password.data):\n            flash('Please check your login details and try again.', 'danger')\n            return redirect(url_for('auth.login'))",
         "detail": "app.auth.routes",
         "documentation": {}
     },
@@ -1258,7 +1428,7 @@
         "kind": 2,
         "importPath": "app.auth.routes",
         "description": "app.auth.routes",
-        "peekOfCode": "def logout():\n    logout_user()\n    flash('您已成功登出。', 'success')\n    return redirect(url_for('main.index'))\n@bp.route('/terms')\ndef terms():\n    return render_template('auth/terms.html')\n@bp.route('/privacy')\ndef privacy():\n    return render_template('auth/privacy.html')",
+        "peekOfCode": "def logout():\n    \"\"\"User logout route.\"\"\"\n    logout_user()\n    flash('You have been successfully logged out.', 'success')\n    return redirect(url_for('auth.login'))\n@bp.route('/terms')\ndef terms():\n    return render_template('auth/terms.html')\n@bp.route('/privacy')\ndef privacy():",
         "detail": "app.auth.routes",
         "documentation": {}
     },
@@ -1285,7 +1455,7 @@
         "kind": 2,
         "importPath": "app.dashboard.routes",
         "description": "app.dashboard.routes",
-        "peekOfCode": "def index():\n    \"\"\"用户仪表板路由\"\"\"\n    user_id = current_user.id\n    user_datasets = Dataset.query.filter_by(user_id=user_id).all()\n    # 获取与用户共享的数据集\n    shared_with_user = db.session.query(Dataset).join(Share).filter(Share.shared_with_id == user_id).all()\n    return render_template('dashboard/dashboard.html', \n                           user_datasets=user_datasets, \n                           shared_datasets=shared_with_user)",
+        "peekOfCode": "def index():\n    \"\"\"User dashboard routes\"\"\"\n    user_id = current_user.id\n    user_datasets = Dataset.query.filter_by(user_id=user_id).all()\n    # Get datasets shared with the user\n    shared_with_user = db.session.query(Dataset).join(Share).filter(Share.shared_with_id == user_id).all()\n    return render_template('dashboard/dashboard.html', \n                           user_datasets=user_datasets, \n                           shared_datasets=shared_with_user)",
         "detail": "app.dashboard.routes",
         "documentation": {}
     },
@@ -1294,7 +1464,7 @@
         "kind": 6,
         "importPath": "app.datasets.forms",
         "description": "app.datasets.forms",
-        "peekOfCode": "class UploadDatasetForm(FlaskForm):\n    \"\"\"数据集上传表单\"\"\"\n    title = StringField('球员名称', validators=[Optional(), Length(max=100)])\n    file = FileField('上传文件', validators=[\n        FileRequired('请选择一个文件')\n    ])\n    submit = SubmitField('分析并生成球探报告')\n    def validate_file(self, field):\n        \"\"\"验证文件类型是否被允许\"\"\"\n        if field.data:",
+        "peekOfCode": "class UploadDatasetForm(FlaskForm):\n    \"\"\"Dataset upload form\"\"\"\n    title = StringField('Player Name', validators=[Optional(), Length(max=100)])\n    file = FileField('Upload File', validators=[\n        FileRequired('Please select a file')\n    ])\n    submit = SubmitField('Analyze and Generate Scout Report')\n    def validate_file(self, field):\n        \"\"\"Validate if the file type is allowed\"\"\"\n        if field.data:",
         "detail": "app.datasets.forms",
         "documentation": {}
     },
@@ -1303,7 +1473,7 @@
         "kind": 2,
         "importPath": "app.datasets.routes",
         "description": "app.datasets.routes",
-        "peekOfCode": "def upload():\n    \"\"\"数据集上传路由\"\"\"\n    form = UploadDatasetForm()\n    if form.validate_on_submit():\n        file = form.file.data\n        title = form.title.data\n        filename = secure_filename(file.filename)\n        unique_filename = generate_unique_filename(filename)\n        file_path = os.path.join(current_app.config['UPLOAD_FOLDER'], unique_filename)\n        file.save(file_path)",
+        "peekOfCode": "def upload():\n    \"\"\"Dataset upload routes\"\"\"\n    form = UploadDatasetForm()\n    if form.validate_on_submit():\n        file = form.file.data\n        title = form.title.data\n        # 增强文件名安全性\n        filename = secure_filename(file.filename)\n        filename = sanitize_filename(filename)\n        # 生成唯一文件名",
         "detail": "app.datasets.routes",
         "documentation": {}
     },
@@ -1339,7 +1509,7 @@
         "kind": 6,
         "importPath": "app.models.user",
         "description": "app.models.user",
-        "peekOfCode": "class User(db.Model, UserMixin):\n    id = db.Column(db.Integer, primary_key=True)\n    username = db.Column(db.String(20), unique=True, nullable=False)\n    email = db.Column(db.String(120), unique=True, nullable=False)\n    password = db.Column(db.String(60), nullable=False)\n    datasets = db.relationship('Dataset', backref='owner', lazy=True)\n    def __repr__(self):\n        return f\"User('{self.username}', '{self.email}')\"",
+        "peekOfCode": "class User(db.Model, UserMixin):\n    id = db.Column(db.Integer, primary_key=True)\n    username = db.Column(db.String(20), unique=True, nullable=False)\n    email = db.Column(db.String(120), unique=True, nullable=False)\n    password = db.Column(db.String(60), nullable=False)\n    datasets = db.relationship('Dataset', backref='owner', lazy=True)\n    def set_password(self, password):\n        \"\"\"Set password hash for user\"\"\"\n        self.password = generate_password_hash(password)\n    def check_password(self, password):",
         "detail": "app.models.user",
         "documentation": {}
     },
@@ -1389,20 +1559,29 @@
         "documentation": {}
     },
     {
+        "label": "ShareForm",
+        "kind": 6,
+        "importPath": "app.sharing.forms",
+        "description": "app.sharing.forms",
+        "peekOfCode": "class ShareForm(FlaskForm):\n    \"\"\"Form for sharing datasets\"\"\"\n    dataset_id = SelectField('Dataset', validators=[DataRequired()], coerce=int)\n    user_id = SelectField('Share with', validators=[DataRequired()], coerce=int)\n    submit = SubmitField('Share')",
+        "detail": "app.sharing.forms",
+        "documentation": {}
+    },
+    {
         "label": "index",
         "kind": 2,
         "importPath": "app.sharing.routes",
         "description": "app.sharing.routes",
-        "peekOfCode": "def index():\n    \"\"\"数据共享页面路由\"\"\"\n    user_id = current_user.id\n    user_datasets = Dataset.query.filter_by(user_id=user_id).all()\n    users = User.query.filter(User.id != user_id).all()\n    # 获取现有共享记录以显示谁已经有访问权限\n    shares = Share.query.join(Dataset).filter(Dataset.user_id == user_id).all()\n    return render_template('sharing/share.html', datasets=user_datasets, users=users, shares=shares)\n@bp.route('/dataset', methods=['POST'])\n@login_required",
+        "peekOfCode": "def index():\n    \"\"\"Data sharing page routes\"\"\"\n    user_id = current_user.id\n    user_datasets = Dataset.query.filter_by(user_id=user_id).all()\n    users = User.query.filter(User.id != user_id).all()\n    # Get existing share records to show who already has access\n    shares = Share.query.join(Dataset).filter(Dataset.user_id == user_id).all()\n    return render_template('sharing/share.html', datasets=user_datasets, users=users, shares=shares)\n@bp.route('/share', methods=['POST'])\n@login_required",
         "detail": "app.sharing.routes",
         "documentation": {}
     },
     {
-        "label": "share_dataset",
+        "label": "handle_share",
         "kind": 2,
         "importPath": "app.sharing.routes",
         "description": "app.sharing.routes",
-        "peekOfCode": "def share_dataset():\n    \"\"\"处理数据集共享请求\"\"\"\n    user_id = current_user.id\n    dataset_id = request.form.get('dataset_id')\n    shared_with_id = request.form.get('user_id')\n    # 验证输入\n    if not dataset_id or not shared_with_id:\n        flash('缺少必填字段', 'danger')\n        return redirect(url_for('sharing.index'))\n    # 检查数据集所有权",
+        "peekOfCode": "def handle_share():\n    \"\"\"Process dataset sharing request\"\"\"\n    # 验证CSRF令牌\n    validate_csrf_token()\n    user_id = current_user.id\n    dataset_id = request.form.get('dataset_id')\n    shared_with_id = request.form.get('user_id')\n    # Validate input\n    if not dataset_id or not shared_with_id:\n        flash('Missing required fields', 'danger')",
         "detail": "app.sharing.routes",
         "documentation": {}
     },
@@ -1411,7 +1590,7 @@
         "kind": 2,
         "importPath": "app.sharing.routes",
         "description": "app.sharing.routes",
-        "peekOfCode": "def revoke_share(share_id):\n    \"\"\"撤销数据集共享\"\"\"\n    user_id = current_user.id\n    # 获取共享记录\n    share = Share.query.join(Dataset).filter(\n        Share.id == share_id,\n        Dataset.user_id == user_id\n    ).first_or_404()\n    # 删除共享记录\n    db.session.delete(share)",
+        "peekOfCode": "def revoke_share(share_id):\n    \"\"\"Revoke dataset sharing\"\"\"\n    # 验证CSRF令牌\n    validate_csrf_token()\n    user_id = current_user.id\n    # Get share record\n    share = Share.query.join(Dataset).filter(\n        Share.id == share_id,\n        Dataset.user_id == user_id\n    ).first_or_404()",
         "detail": "app.sharing.routes",
         "documentation": {}
     },
@@ -1465,7 +1644,7 @@
         "kind": 6,
         "importPath": "app.config",
         "description": "app.config",
-        "peekOfCode": "class Config:\n    \"\"\"基础配置类\"\"\"\n    # 使用环境变量获取密钥，如果没有则生成一个强随机密钥\n    SECRET_KEY = os.environ.get('SECRET_KEY') or secrets.token_hex(32)\n    basedir = os.path.abspath(os.path.dirname(__file__))\n    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \\\n        'sqlite:///' + os.path.join(basedir, '..', 'instance', 'site.db')\n    SQLALCHEMY_TRACK_MODIFICATIONS = False\n    UPLOAD_FOLDER = 'data/uploads'\n    ALLOWED_EXTENSIONS = {'csv', 'txt', 'xlsx', 'json', 'pdf', 'docx'}",
+        "peekOfCode": "class Config:\n    \"\"\"Base configuration class\"\"\"\n    # Get secret key from environment variable, or generate a strong random key if not available\n    SECRET_KEY = os.environ.get('SECRET_KEY') or secrets.token_hex(16)\n    # Calculate base directory path\n    basedir = os.path.abspath(os.path.dirname(__file__))\n    # Configure database URI\n    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \\\n        'sqlite:///' + os.path.join(os.path.dirname(basedir), 'instance', 'site.db')\n    SQLALCHEMY_TRACK_MODIFICATIONS = False",
         "detail": "app.config",
         "documentation": {}
     },
@@ -1474,7 +1653,7 @@
         "kind": 6,
         "importPath": "app.config",
         "description": "app.config",
-        "peekOfCode": "class DevelopmentConfig(Config):\n    \"\"\"开发环境配置\"\"\"\n    DEBUG = True\n    # 开发环境也使用随机密钥，确保安全性\n    SECRET_KEY = os.environ.get('SECRET_KEY') or secrets.token_hex(16)\nclass TestingConfig(Config):\n    \"\"\"测试环境配置\"\"\"\n    TESTING = True\n    SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'\nclass ProductionConfig(Config):",
+        "peekOfCode": "class DevelopmentConfig(Config):\n    \"\"\"Development configuration\"\"\"\n    DEBUG = True\n    TESTING = False\nclass TestingConfig(Config):\n    \"\"\"Testing configuration\"\"\"\n    DEBUG = True\n    TESTING = True\n    SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'  # Use in-memory database for testing\nclass ProductionConfig(Config):",
         "detail": "app.config",
         "documentation": {}
     },
@@ -1483,7 +1662,7 @@
         "kind": 6,
         "importPath": "app.config",
         "description": "app.config",
-        "peekOfCode": "class TestingConfig(Config):\n    \"\"\"测试环境配置\"\"\"\n    TESTING = True\n    SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'\nclass ProductionConfig(Config):\n    \"\"\"生产环境配置\"\"\"\n    DEBUG = False\n    # 生产环境必须使用环境变量中的强密钥\n    SECRET_KEY = os.environ.get('SECRET_KEY')\n    # 如果没有设置环境变量，生成一个警告并使用随机密钥（不推荐用于实际生产）",
+        "peekOfCode": "class TestingConfig(Config):\n    \"\"\"Testing configuration\"\"\"\n    DEBUG = True\n    TESTING = True\n    SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'  # Use in-memory database for testing\nclass ProductionConfig(Config):\n    \"\"\"Production configuration\"\"\"\n    DEBUG = False\n    TESTING = False\n# Configuration dictionary",
         "detail": "app.config",
         "documentation": {}
     },
@@ -1492,16 +1671,16 @@
         "kind": 6,
         "importPath": "app.config",
         "description": "app.config",
-        "peekOfCode": "class ProductionConfig(Config):\n    \"\"\"生产环境配置\"\"\"\n    DEBUG = False\n    # 生产环境必须使用环境变量中的强密钥\n    SECRET_KEY = os.environ.get('SECRET_KEY')\n    # 如果没有设置环境变量，生成一个警告并使用随机密钥（不推荐用于实际生产）\n    if not SECRET_KEY:\n        import logging\n        logging.warning(\"警告: 生产环境中未设置SECRET_KEY环境变量。已生成临时随机密钥，但这不适合长期使用。\")\n        SECRET_KEY = secrets.token_hex(32)",
+        "peekOfCode": "class ProductionConfig(Config):\n    \"\"\"Production configuration\"\"\"\n    DEBUG = False\n    TESTING = False\n# Configuration dictionary\nconfig_by_name = {\n    'development': DevelopmentConfig,\n    'testing': TestingConfig,\n    'production': ProductionConfig,\n    'default': DevelopmentConfig",
         "detail": "app.config",
         "documentation": {}
     },
     {
-        "label": "config",
+        "label": "config_by_name",
         "kind": 5,
         "importPath": "app.config",
         "description": "app.config",
-        "peekOfCode": "config = {\n    'development': DevelopmentConfig,\n    'testing': TestingConfig,\n    'production': ProductionConfig,\n    'default': DevelopmentConfig\n}",
+        "peekOfCode": "config_by_name = {\n    'development': DevelopmentConfig,\n    'testing': TestingConfig,\n    'production': ProductionConfig,\n    'default': DevelopmentConfig\n}",
         "detail": "app.config",
         "documentation": {}
     },
@@ -1510,7 +1689,7 @@
         "kind": 5,
         "importPath": "app.extensions",
         "description": "app.extensions",
-        "peekOfCode": "db = SQLAlchemy()\n# 创建LoginManager实例\nlogin_manager = LoginManager()\nlogin_manager.login_view = 'auth.login'\nlogin_manager.login_message = '请先登录以访问此页面。'\nlogin_manager.login_message_category = 'info'",
+        "peekOfCode": "db = SQLAlchemy()\n# Create LoginManager instance\nlogin_manager = LoginManager()\nlogin_manager.login_view = 'auth.login'\nlogin_manager.login_message = 'Please login to access this page.'\nlogin_manager.login_message_category = 'info'",
         "detail": "app.extensions",
         "documentation": {}
     },
@@ -1519,7 +1698,7 @@
         "kind": 5,
         "importPath": "app.extensions",
         "description": "app.extensions",
-        "peekOfCode": "login_manager = LoginManager()\nlogin_manager.login_view = 'auth.login'\nlogin_manager.login_message = '请先登录以访问此页面。'\nlogin_manager.login_message_category = 'info'",
+        "peekOfCode": "login_manager = LoginManager()\nlogin_manager.login_view = 'auth.login'\nlogin_manager.login_message = 'Please login to access this page.'\nlogin_manager.login_message_category = 'info'",
         "detail": "app.extensions",
         "documentation": {}
     },
@@ -1528,7 +1707,7 @@
         "kind": 5,
         "importPath": "app.extensions",
         "description": "app.extensions",
-        "peekOfCode": "login_manager.login_view = 'auth.login'\nlogin_manager.login_message = '请先登录以访问此页面。'\nlogin_manager.login_message_category = 'info'",
+        "peekOfCode": "login_manager.login_view = 'auth.login'\nlogin_manager.login_message = 'Please login to access this page.'\nlogin_manager.login_message_category = 'info'",
         "detail": "app.extensions",
         "documentation": {}
     },
@@ -1537,7 +1716,7 @@
         "kind": 5,
         "importPath": "app.extensions",
         "description": "app.extensions",
-        "peekOfCode": "login_manager.login_message = '请先登录以访问此页面。'\nlogin_manager.login_message_category = 'info'",
+        "peekOfCode": "login_manager.login_message = 'Please login to access this page.'\nlogin_manager.login_message_category = 'info'",
         "detail": "app.extensions",
         "documentation": {}
     },
@@ -1564,7 +1743,7 @@
         "kind": 2,
         "importPath": "app.utils",
         "description": "app.utils",
-        "peekOfCode": "def allowed_file(filename, allowed_extensions):\n    \"\"\"检查文件是否有允许的扩展名\"\"\"\n    return '.' in filename and filename.rsplit('.', 1)[1].lower() in allowed_extensions\ndef generate_unique_filename(filename):\n    \"\"\"生成唯一的文件名，同时保留原始扩展名\"\"\"\n    ext = filename.rsplit('.', 1)[1].lower() if '.' in filename else ''\n    new_filename = f\"{uuid.uuid4().hex}.{ext}\" if ext else uuid.uuid4().hex\n    return new_filename\ndef load_dataset(file_path):\n    \"\"\"根据文件扩展名加载数据集\"\"\"",
+        "peekOfCode": "def allowed_file(filename):\n    \"\"\"Check if the file extension is allowed\"\"\"\n    allowed_extensions = {'csv', 'txt', 'json', 'xlsx', 'xls'}\n    return '.' in filename and filename.rsplit('.', 1)[1].lower() in allowed_extensions\ndef generate_unique_filename(filename):\n    \"\"\"Generate a unique filename while preserving the original extension\"\"\"\n    if '.' in filename:\n        name, ext = filename.rsplit('.', 1)\n        return f\"{name}_{str(uuid.uuid4())}.{ext}\"\n    return f\"{filename}_{str(uuid.uuid4())}\"",
         "detail": "app.utils",
         "documentation": {}
     },
@@ -1573,7 +1752,25 @@
         "kind": 2,
         "importPath": "app.utils",
         "description": "app.utils",
-        "peekOfCode": "def generate_unique_filename(filename):\n    \"\"\"生成唯一的文件名，同时保留原始扩展名\"\"\"\n    ext = filename.rsplit('.', 1)[1].lower() if '.' in filename else ''\n    new_filename = f\"{uuid.uuid4().hex}.{ext}\" if ext else uuid.uuid4().hex\n    return new_filename\ndef load_dataset(file_path):\n    \"\"\"根据文件扩展名加载数据集\"\"\"\n    ext = file_path.rsplit('.', 1)[1].lower() if '.' in file_path else ''\n    try:\n        if ext == 'csv':",
+        "peekOfCode": "def generate_unique_filename(filename):\n    \"\"\"Generate a unique filename while preserving the original extension\"\"\"\n    if '.' in filename:\n        name, ext = filename.rsplit('.', 1)\n        return f\"{name}_{str(uuid.uuid4())}.{ext}\"\n    return f\"{filename}_{str(uuid.uuid4())}\"\ndef sanitize_filename(filename):\n    \"\"\"Remove any potentially dangerous characters from filenames\"\"\"\n    # Remove any path components (might be dangerous)\n    filename = os.path.basename(filename)",
+        "detail": "app.utils",
+        "documentation": {}
+    },
+    {
+        "label": "sanitize_filename",
+        "kind": 2,
+        "importPath": "app.utils",
+        "description": "app.utils",
+        "peekOfCode": "def sanitize_filename(filename):\n    \"\"\"Remove any potentially dangerous characters from filenames\"\"\"\n    # Remove any path components (might be dangerous)\n    filename = os.path.basename(filename)\n    # Replace any unusual characters\n    filename = re.sub(r'[^\\w\\.-]', '_', filename)\n    return filename\ndef validate_csrf_token():\n    \"\"\"验证CSRF令牌，如果无效则中止请求\"\"\"\n    csrf_token = request.form.get('csrf_token')",
+        "detail": "app.utils",
+        "documentation": {}
+    },
+    {
+        "label": "validate_csrf_token",
+        "kind": 2,
+        "importPath": "app.utils",
+        "description": "app.utils",
+        "peekOfCode": "def validate_csrf_token():\n    \"\"\"验证CSRF令牌，如果无效则中止请求\"\"\"\n    csrf_token = request.form.get('csrf_token')\n    if not csrf_token:\n        flash('CSRF token missing', 'danger')\n        abort(400)\n    try:\n        validate_csrf(csrf_token)\n    except:\n        flash('CSRF token validation failed', 'danger')",
         "detail": "app.utils",
         "documentation": {}
     },
@@ -1582,17 +1779,179 @@
         "kind": 2,
         "importPath": "app.utils",
         "description": "app.utils",
-        "peekOfCode": "def load_dataset(file_path):\n    \"\"\"根据文件扩展名加载数据集\"\"\"\n    ext = file_path.rsplit('.', 1)[1].lower() if '.' in file_path else ''\n    try:\n        if ext == 'csv':\n            df = pd.read_csv(file_path)\n        elif ext == 'xlsx':\n            df = pd.read_excel(file_path)\n        elif ext == 'json':\n            df = pd.read_json(file_path)",
+        "peekOfCode": "def load_dataset(file_path):\n    \"\"\"Load a dataset based on file extension\"\"\"\n    ext = file_path.rsplit('.', 1)[1].lower() if '.' in file_path else ''\n    try:\n        if ext == 'csv':\n            df = pd.read_csv(file_path)\n        elif ext == 'xlsx':\n            df = pd.read_excel(file_path)\n        elif ext == 'json':\n            df = pd.read_json(file_path)",
         "detail": "app.utils",
+        "documentation": {}
+    },
+    {
+        "label": "upgrade",
+        "kind": 2,
+        "importPath": "migrations.versions.ada267176dd4_initial_migration",
+        "description": "migrations.versions.ada267176dd4_initial_migration",
+        "peekOfCode": "def upgrade():\n    # Initial migration does not make any changes, only marks the current database state\n    pass\ndef downgrade():\n    # Initial migration does not make any changes, no need for rollback operations\n    pass",
+        "detail": "migrations.versions.ada267176dd4_initial_migration",
+        "documentation": {}
+    },
+    {
+        "label": "downgrade",
+        "kind": 2,
+        "importPath": "migrations.versions.ada267176dd4_initial_migration",
+        "description": "migrations.versions.ada267176dd4_initial_migration",
+        "peekOfCode": "def downgrade():\n    # Initial migration does not make any changes, no need for rollback operations\n    pass",
+        "detail": "migrations.versions.ada267176dd4_initial_migration",
+        "documentation": {}
+    },
+    {
+        "label": "revision",
+        "kind": 5,
+        "importPath": "migrations.versions.ada267176dd4_initial_migration",
+        "description": "migrations.versions.ada267176dd4_initial_migration",
+        "peekOfCode": "revision = 'ada267176dd4'\ndown_revision = None\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # Initial migration does not make any changes, only marks the current database state\n    pass\ndef downgrade():\n    # Initial migration does not make any changes, no need for rollback operations\n    pass",
+        "detail": "migrations.versions.ada267176dd4_initial_migration",
+        "documentation": {}
+    },
+    {
+        "label": "down_revision",
+        "kind": 5,
+        "importPath": "migrations.versions.ada267176dd4_initial_migration",
+        "description": "migrations.versions.ada267176dd4_initial_migration",
+        "peekOfCode": "down_revision = None\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # Initial migration does not make any changes, only marks the current database state\n    pass\ndef downgrade():\n    # Initial migration does not make any changes, no need for rollback operations\n    pass",
+        "detail": "migrations.versions.ada267176dd4_initial_migration",
+        "documentation": {}
+    },
+    {
+        "label": "branch_labels",
+        "kind": 5,
+        "importPath": "migrations.versions.ada267176dd4_initial_migration",
+        "description": "migrations.versions.ada267176dd4_initial_migration",
+        "peekOfCode": "branch_labels = None\ndepends_on = None\ndef upgrade():\n    # Initial migration does not make any changes, only marks the current database state\n    pass\ndef downgrade():\n    # Initial migration does not make any changes, no need for rollback operations\n    pass",
+        "detail": "migrations.versions.ada267176dd4_initial_migration",
+        "documentation": {}
+    },
+    {
+        "label": "depends_on",
+        "kind": 5,
+        "importPath": "migrations.versions.ada267176dd4_initial_migration",
+        "description": "migrations.versions.ada267176dd4_initial_migration",
+        "peekOfCode": "depends_on = None\ndef upgrade():\n    # Initial migration does not make any changes, only marks the current database state\n    pass\ndef downgrade():\n    # Initial migration does not make any changes, no need for rollback operations\n    pass",
+        "detail": "migrations.versions.ada267176dd4_initial_migration",
+        "documentation": {}
+    },
+    {
+        "label": "get_engine",
+        "kind": 2,
+        "importPath": "migrations.env",
+        "description": "migrations.env",
+        "peekOfCode": "def get_engine():\n    try:\n        # this works with Flask-SQLAlchemy<3 and Alchemical\n        return current_app.extensions['migrate'].db.get_engine()\n    except (TypeError, AttributeError):\n        # this works with Flask-SQLAlchemy>=3\n        return current_app.extensions['migrate'].db.engine\ndef get_engine_url():\n    try:\n        return get_engine().url.render_as_string(hide_password=False).replace(",
+        "detail": "migrations.env",
+        "documentation": {}
+    },
+    {
+        "label": "get_engine_url",
+        "kind": 2,
+        "importPath": "migrations.env",
+        "description": "migrations.env",
+        "peekOfCode": "def get_engine_url():\n    try:\n        return get_engine().url.render_as_string(hide_password=False).replace(\n            '%', '%%')\n    except AttributeError:\n        return str(get_engine().url).replace('%', '%%')\n# add your model's MetaData object here\n# for 'autogenerate' support\n# from myapp import mymodel\n# target_metadata = mymodel.Base.metadata",
+        "detail": "migrations.env",
+        "documentation": {}
+    },
+    {
+        "label": "get_metadata",
+        "kind": 2,
+        "importPath": "migrations.env",
+        "description": "migrations.env",
+        "peekOfCode": "def get_metadata():\n    if hasattr(target_db, 'metadatas'):\n        return target_db.metadatas[None]\n    return target_db.metadata\ndef run_migrations_offline():\n    \"\"\"Run migrations in 'offline' mode.\n    This configures the context with just a URL\n    and not an Engine, though an Engine is acceptable\n    here as well.  By skipping the Engine creation\n    we don't even need a DBAPI to be available.",
+        "detail": "migrations.env",
+        "documentation": {}
+    },
+    {
+        "label": "run_migrations_offline",
+        "kind": 2,
+        "importPath": "migrations.env",
+        "description": "migrations.env",
+        "peekOfCode": "def run_migrations_offline():\n    \"\"\"Run migrations in 'offline' mode.\n    This configures the context with just a URL\n    and not an Engine, though an Engine is acceptable\n    here as well.  By skipping the Engine creation\n    we don't even need a DBAPI to be available.\n    Calls to context.execute() here emit the given string to the\n    script output.\n    \"\"\"\n    url = config.get_main_option(\"sqlalchemy.url\")",
+        "detail": "migrations.env",
+        "documentation": {}
+    },
+    {
+        "label": "run_migrations_online",
+        "kind": 2,
+        "importPath": "migrations.env",
+        "description": "migrations.env",
+        "peekOfCode": "def run_migrations_online():\n    \"\"\"Run migrations in 'online' mode.\n    In this scenario we need to create an Engine\n    and associate a connection with the context.\n    \"\"\"\n    # this callback is used to prevent an auto-migration from being generated\n    # when there are no changes to the schema\n    # reference: http://alembic.zzzcomputing.com/en/latest/cookbook.html\n    def process_revision_directives(context, revision, directives):\n        if getattr(config.cmd_opts, 'autogenerate', False):",
+        "detail": "migrations.env",
+        "documentation": {}
+    },
+    {
+        "label": "config",
+        "kind": 5,
+        "importPath": "migrations.env",
+        "description": "migrations.env",
+        "peekOfCode": "config = context.config\n# Interpret the config file for Python logging.\n# This line sets up loggers basically.\nfileConfig(config.config_file_name)\nlogger = logging.getLogger('alembic.env')\ndef get_engine():\n    try:\n        # this works with Flask-SQLAlchemy<3 and Alchemical\n        return current_app.extensions['migrate'].db.get_engine()\n    except (TypeError, AttributeError):",
+        "detail": "migrations.env",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "migrations.env",
+        "description": "migrations.env",
+        "peekOfCode": "logger = logging.getLogger('alembic.env')\ndef get_engine():\n    try:\n        # this works with Flask-SQLAlchemy<3 and Alchemical\n        return current_app.extensions['migrate'].db.get_engine()\n    except (TypeError, AttributeError):\n        # this works with Flask-SQLAlchemy>=3\n        return current_app.extensions['migrate'].db.engine\ndef get_engine_url():\n    try:",
+        "detail": "migrations.env",
+        "documentation": {}
+    },
+    {
+        "label": "target_db",
+        "kind": 5,
+        "importPath": "migrations.env",
+        "description": "migrations.env",
+        "peekOfCode": "target_db = current_app.extensions['migrate'].db\n# other values from the config, defined by the needs of env.py,\n# can be acquired:\n# my_important_option = config.get_main_option(\"my_important_option\")\n# ... etc.\ndef get_metadata():\n    if hasattr(target_db, 'metadatas'):\n        return target_db.metadatas[None]\n    return target_db.metadata\ndef run_migrations_offline():",
+        "detail": "migrations.env",
+        "documentation": {}
+    },
+    {
+        "label": "check_app",
+        "kind": 2,
+        "importPath": "scripts.check_app",
+        "description": "scripts.check_app",
+        "peekOfCode": "def check_app():\n    \"\"\"Check if the application can be created and configured correctly.\"\"\"\n    try:\n        app = create_app()\n        print(\"✅ Application loaded successfully!\")\n        print(f\"✅ App name: {app.name}\")\n        print(f\"✅ Debug mode: {app.debug}\")\n        return True\n    except Exception as e:\n        print(f\"❌ Error loading application: {e}\")",
+        "detail": "scripts.check_app",
         "documentation": {}
     },
     {
         "label": "fix_file",
         "kind": 2,
-        "importPath": "fix_indentation",
-        "description": "fix_indentation",
+        "importPath": "scripts.fix_indentation",
+        "description": "scripts.fix_indentation",
         "peekOfCode": "def fix_file():\n    \"\"\"Fix indentation in the file\"\"\"\n    with open(\"app/scout_analysis/services.py\", \"r\", encoding=\"utf-8\") as f:\n        lines = f.readlines()\n    # Fix the specific lines\n    if len(lines) >= 55:\n        lines[51] = \"            gemini = current_app.config.get('GEMINI_INSTANCE')\\n\"\n        lines[52] = \"            if not gemini:\\n\"\n        lines[53] = \"                current_app.logger.error(\\\"Gemini API instance not found in app.config! Cannot proceed with analysis.\\\")\\n\"\n        lines[54] = \"                return ScoutAnalysisService.generate_error_analysis(\\\"Gemini API instance not initialized\\\")\\n\"",
-        "detail": "fix_indentation",
+        "detail": "scripts.fix_indentation",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "tests.run_testing",
+        "description": "tests.run_testing",
+        "peekOfCode": "app = create_app('testing')\n# Optional: Set up test data here\nwith app.app_context():\n    db.create_all()\n    print(\"✅ In-memory test database initialized.\")\n    # Example: Create a test user\n    # from app.models.user import User\n    # user = User(username='testuser', email='test@example.com')\n    # user.set_password('test123')\n    # db.session.add(user)",
+        "detail": "tests.run_testing",
+        "documentation": {}
+    },
+    {
+        "label": "test_scout_analysis_api",
+        "kind": 2,
+        "importPath": "tests.test_api",
+        "description": "tests.test_api",
+        "peekOfCode": "def test_scout_analysis_api():\n    print(\"Testing Scout Analysis API connection...\")\n    # Test text\n    test_text = \"Testing Gemini API connection. This is an NBA player: Lebron James, he is an All-Star player.\"\n    with app.app_context():\n        try:\n            # Get API key information\n            api_key = app.config.get('GEMINI_API_KEY')\n            print(f\"API key: {api_key[:5]}...{api_key[-5:]}\")\n            print(f\"Scout analysis enabled status: {app.config.get('ENABLE_SCOUT_ANALYSIS', False)}\")",
+        "detail": "tests.test_api",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "tests.test_api",
+        "description": "tests.test_api",
+        "peekOfCode": "app = create_app()\ndef test_scout_analysis_api():\n    print(\"Testing Scout Analysis API connection...\")\n    # Test text\n    test_text = \"Testing Gemini API connection. This is an NBA player: Lebron James, he is an All-Star player.\"\n    with app.app_context():\n        try:\n            # Get API key information\n            api_key = app.config.get('GEMINI_API_KEY')\n            print(f\"API key: {api_key[:5]}...{api_key[-5:]}\")",
+        "detail": "tests.test_api",
         "documentation": {}
     },
     {
@@ -1600,35 +1959,8 @@
         "kind": 5,
         "importPath": "run",
         "description": "run",
-        "peekOfCode": "app = create_app()\nif __name__ == '__main__':\n    # Disable auto-reload to ensure only one process loads the latest code\n    app.run(debug=True, use_reloader=False)",
+        "peekOfCode": "app = create_app('development')  # Explicitly use development configuration\nif __name__ == '__main__':\n    # Disable auto-reload to ensure only one process loads the latest code\n    app.run(debug=True, use_reloader=False)",
         "detail": "run",
-        "documentation": {}
-    },
-    {
-        "label": "app",
-        "kind": 5,
-        "importPath": "run_testing",
-        "description": "run_testing",
-        "peekOfCode": "app = create_app('testing')\n# Optional: Set up test data here\nwith app.app_context():\n    db.create_all()\n    print(\"✅ In-memory test database initialized.\")\n    # Example: Create a test user\n    # from app.models.user import User\n    # user = User(username='testuser', email='test@example.com')\n    # user.set_password('test123')\n    # db.session.add(user)",
-        "detail": "run_testing",
-        "documentation": {}
-    },
-    {
-        "label": "test_scout_analysis_api",
-        "kind": 2,
-        "importPath": "test_api",
-        "description": "test_api",
-        "peekOfCode": "def test_scout_analysis_api():\n    print(\"Testing Scout Analysis API connection...\")\n    # Test text\n    test_text = \"Testing Gemini API connection. This is an NBA player: Lebron James, he is an All-Star player.\"\n    with app.app_context():\n        try:\n            # Get API key information\n            api_key = app.config.get('GEMINI_API_KEY')\n            print(f\"API key: {api_key[:5]}...{api_key[-5:]}\")\n            print(f\"Scout analysis enabled status: {app.config.get('ENABLE_SCOUT_ANALYSIS', False)}\")",
-        "detail": "test_api",
-        "documentation": {}
-    },
-    {
-        "label": "app",
-        "kind": 5,
-        "importPath": "test_api",
-        "description": "test_api",
-        "peekOfCode": "app = create_app()\ndef test_scout_analysis_api():\n    print(\"Testing Scout Analysis API connection...\")\n    # Test text\n    test_text = \"Testing Gemini API connection. This is an NBA player: Lebron James, he is an All-Star player.\"\n    with app.app_context():\n        try:\n            # Get API key information\n            api_key = app.config.get('GEMINI_API_KEY')\n            print(f\"API key: {api_key[:5]}...{api_key[-5:]}\")",
-        "detail": "test_api",
         "documentation": {}
     }
 ]

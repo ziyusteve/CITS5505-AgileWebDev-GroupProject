@@ -1,0 +1,7 @@
+{% if form and form.csrf_token %}
+    {# 优先使用WTForms提供的CSRF令牌 #}
+    {{ form.csrf_token }}
+{% else %}
+    {# 备用方案：直接使用Flask-WTF的csrf_token函数 #}
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+{% endif %}

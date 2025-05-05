@@ -5,75 +5,95 @@ from app.models.user import User
 from app.models.share import Share
 from app.extensions import db
 from flask_login import login_required, current_user
+from app.utils import validate_csrf_token
 
-@bp.route('/', methods=['GET'])
+
+@bp.route("/", methods=["GET"])
 @login_required
 def index():
-    """数据共享页面路由"""
-    
+    """Data sharing page routes"""
+
     user_id = current_user.id
     user_datasets = Dataset.query.filter_by(user_id=user_id).all()
     users = User.query.filter(User.id != user_id).all()
-    
-    # 获取现有共享记录以显示谁已经有访问权限
-    shares = Share.query.join(Dataset).filter(Dataset.user_id == user_id).all()
-    
-    return render_template('sharing/share.html', datasets=user_datasets, users=users, shares=shares)
 
-@bp.route('/dataset', methods=['POST'])
+    # Get existing share records to show who already has access
+    shares = Share.query.join(Dataset).filter(Dataset.user_id == user_id).all()
+
+    return render_template(
+        "sharing/share.html", datasets=user_datasets, users=users, shares=shares
+    )
+
+
+@bp.route("/share", methods=["POST"])
 @login_required
-def share_dataset():
-    """处理数据集共享请求"""
-    
+def handle_share():
+    """Process dataset sharing request"""
+
+    # 验证CSRF令牌
+    validate_csrf_token()
+
     user_id = current_user.id
-    dataset_id = request.form.get('dataset_id')
-    shared_with_id = request.form.get('user_id')
-    
-    # 验证输入
+    dataset_id = request.form.get("dataset_id")
+    shared_with_id = request.form.get("user_id")
+
+    # Validate input
     if not dataset_id or not shared_with_id:
-        flash('缺少必填字段', 'danger')
-        return redirect(url_for('sharing.index'))
-    
-    # 检查数据集所有权
+        flash("Missing required fields", "danger")
+        return redirect(url_for("sharing.index"))
+
+    # Convert to integers
+    try:
+        dataset_id = int(dataset_id)
+        shared_with_id = int(shared_with_id)
+    except ValueError:
+        flash("Invalid input data", "danger")
+        return redirect(url_for("sharing.index"))
+
+    # Check dataset ownership
     dataset = Dataset.query.get(dataset_id)
     if not dataset or dataset.user_id != user_id:
-        flash('您无法共享此数据集', 'danger')
-        return redirect(url_for('sharing.index'))
-    
-    # 检查是否已共享
+        flash("You cannot share this dataset", "danger")
+        return redirect(url_for("sharing.index"))
+
+    # Check if already shared
     existing_share = Share.query.filter_by(
-        dataset_id=dataset_id, 
-        shared_with_id=shared_with_id
+        dataset_id=dataset_id, shared_with_id=shared_with_id
     ).first()
-    
+
     if existing_share:
-        flash('数据集已经与该用户共享', 'warning')
-        return redirect(url_for('sharing.index'))
-    
-    # 创建新的共享记录
+        flash("Dataset already shared with this user", "warning")
+        return redirect(url_for("sharing.index"))
+
+    # Create new share record
     new_share = Share(dataset_id=dataset_id, shared_with_id=shared_with_id)
     db.session.add(new_share)
     db.session.commit()
-    
-    flash('数据集已成功共享！', 'success')
-    return redirect(url_for('sharing.index'))
 
-@bp.route('/revoke/<int:share_id>', methods=['POST'])
+    flash("Dataset shared successfully!", "success")
+    return redirect(url_for("sharing.index"))
+
+
+@bp.route("/revoke/<int:share_id>", methods=["POST"])
 @login_required
 def revoke_share(share_id):
-    """撤销数据集共享"""
-    
+    """Revoke dataset sharing"""
+
+    # 验证CSRF令牌
+    validate_csrf_token()
+
     user_id = current_user.id
-    
-    # 获取共享记录
-    share = Share.query.join(Dataset).filter(
-        Share.id == share_id,
-        Dataset.user_id == user_id
-    ).first_or_404()
-    
-    # 删除共享记录
+
+    # Get share record
+    share = (
+        Share.query.join(Dataset)
+        .filter(Share.id == share_id, Dataset.user_id == user_id)
+        .first_or_404()
+    )
+
+    # Delete share record
     db.session.delete(share)
     db.session.commit()
-    
-    flash('数据集共享已撤销。', 'info')
-    return redirect(url_for('sharing.index'))
+
+    flash("Dataset sharing revoked.", "info")
+    return redirect(url_for("sharing.index"))

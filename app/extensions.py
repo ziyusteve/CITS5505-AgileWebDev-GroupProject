@@ -1,11 +1,11 @@
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 
-# 创建不与特定应用绑定的扩展实例
+# Create extension instances not bound to a specific application
 db = SQLAlchemy()
 
-# 创建LoginManager实例
+# Create LoginManager instance
 login_manager = LoginManager()
-login_manager.login_view = 'auth.login'
-login_manager.login_message = '请先登录以访问此页面。'
-login_manager.login_message_category = 'info'
+login_manager.login_view = "auth.login"
+login_manager.login_message = "Please login to access this page."
+login_manager.login_message_category = "info"

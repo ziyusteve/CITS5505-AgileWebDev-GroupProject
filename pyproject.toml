@@ -1,3 +1,32 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "scout-analytics"
+description = "A Flask-based web application for basketball player analytics and scout report analysis"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+dynamic = ["version"]
+dependencies = [
+    "flask",
+    "flask_sqlalchemy",
+    "werkzeug",
+    "pandas",
+    "numpy",
+    "plotly",
+    "djlint",
+    "flask-wtf",
+    "flask-login",
+    "python-dotenv",
+    "flask-migrate",
+    "email_validator",
+]
+
+[tool.setuptools.dynamic]
+version = {attr = "app.VERSION.__version__"}
+
 [tool.black]
 line-length = 88
 target-version = ['py38']

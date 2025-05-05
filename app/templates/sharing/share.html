@@ -11,7 +11,8 @@
             <h4 class="mb-0">Create New Share</h4>
         </div>
         <div class="card-body">
-            <form action="{{ url_for('sharing.share_dataset') }}" method="POST">
+            <form action="{{ url_for('sharing.handle_share') }}" method="POST">
+                {% include 'csrf_token.html' %}
                 <div class="row g-3 align-items-end">
                     <div class="col-md-5">
                         <label for="dataset_id" class="form-label">Dataset</label>
@@ -63,6 +64,7 @@
                             <td>{{ share.date_shared.strftime('%Y-%m-%d') }}</td>
                             <td>
                                 <form action="{{ url_for('sharing.revoke_share', share_id=share.id) }}" method="POST" style="display:inline;">
+                                    {% include 'csrf_token.html' %}
                                     <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to revoke this share?')">
                                         <i class="fas fa-times"></i> Revoke
                                     </button>

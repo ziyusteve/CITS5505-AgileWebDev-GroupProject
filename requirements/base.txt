@@ -9,3 +9,4 @@ flask-wtf
 flask-login
 python-dotenv
 flask-migrate
+email_validator
