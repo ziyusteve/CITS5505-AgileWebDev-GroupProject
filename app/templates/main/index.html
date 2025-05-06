@@ -5,8 +5,9 @@
 {% block content %}
 <!-- NBA Style Hero Section - Improved Typography with Gemini AI elements -->
 <div class="nba-hero">
-    <div class="row">
-        <div class="col-md-8 col-lg-7">
+    <div class="row align-items-center">
+        <!-- Text Content Column -->
+        <div class="col-md-6">
             <h1>Gemini AI Basketball Analytics <i class="fas fa-brain ai-icon"></i></h1>
             <p class="lead">Elite player analysis platform powered by Gemini AI. Upload player descriptions, get detailed analysis and skill assessments to build championship teams.</p>
             
@@ -29,6 +30,15 @@
                 </a>
             </div>
             {% endif %}
+        </div>
+        
+        <!-- Image Column -->
+        <div class="col-md-6">
+            <div class="hero-image">
+                <img src="{{ url_for('static', filename='images/nba-hero.jpg') }}" 
+                     alt="Basketball Analytics" 
+                     class="img-fluid rounded">
+            </div>
         </div>
     </div>
 </div>
