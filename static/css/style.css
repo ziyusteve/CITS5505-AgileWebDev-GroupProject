@@ -1200,3 +1200,13 @@ p.lead {
 .hero-image img:hover {
     transform: scale(1.02);
 }
+
+@media (max-width: 768px) {
+    .nba-hero {
+        padding: 2rem 1rem;
+    }
+    
+    .hero-image {
+        margin-top: 2rem;
+    }
+}
