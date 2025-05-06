@@ -1210,3 +1210,68 @@ p.lead {
         margin-top: 2rem;
     }
 }
+
+.benefit-icon-wrapper {
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.benefit-icon-circle {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.benefit-icon-circle:hover {
+    transform: translateY(-5px);
+}
+
+.benefit-text {
+    margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+    .benefit-icon-wrapper {
+        margin-bottom: 2rem;
+    }
+}
+
+.skill-icon-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80px;
+}
+
+.skill-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+}
+
+.skill-icon i {
+    font-size: 1.2rem;
+    color: #FDB927;
+}
+
+.skill-icon-primary {
+    background: rgba(85, 37, 131, 0.2);
+}
+
+.skill-icon-success {
+    background: rgba(253, 185, 39, 0.2);
+}
+
+.gap-4 {
+    gap: 1.5rem !important;
+}
