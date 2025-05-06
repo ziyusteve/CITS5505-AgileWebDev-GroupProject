@@ -872,3 +872,331 @@ p.lead {
     font-size: 1.5rem;
     font-weight: 600;
 }
+
+/* Modern UI Updates - Basketball Analytics Platform */
+
+/* Refined Color Scheme - Lakers Tech Inspired */
+:root {
+    --lakers-gold: #FDB927;
+    --lakers-purple: #552583;
+    --tech-silver: #C0C0C0;
+    --tech-black: #111111;
+    --dark-gray: #252525;
+    --medium-gray: #555555;
+    --light-silver: #EFEFEF;
+    --card-bg: #1a1a1a;
+    --success-green: #28a745;
+    --info-blue: #17a2b8;
+    --warning-yellow: #ffc107;
+  }
+  
+  /* General Styling Improvements */
+  body {
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    color: var(--light-silver);
+    background-color: var(--tech-black);
+    line-height: 1.6;
+    letter-spacing: -0.2px;
+  }
+  
+  /* Enhanced Typography */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Google Sans', 'Roboto', sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+    margin-bottom: 1.2rem;
+    line-height: 1.3;
+  }
+  
+  /* Modern Card Styling with Subtle Hover Effects */
+  .card {
+    border: 1px solid #2a2a2a;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    margin-bottom: 2rem;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    overflow: hidden;
+    background: var(--card-bg);
+    position: relative;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.25), 0 0 10px rgba(253,185,39,0.2);
+    border-color: rgba(253,185,39,0.4);
+  }
+  
+  /* Glassmorphism Effect for Header */
+  .navbar {
+    background: rgba(17, 17, 17, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(253, 185, 39, 0.3);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Enhanced Button Styling */
+  .btn {
+    border-radius: 8px;
+    padding: 0.7rem 1.5rem;
+    font-weight: 600;
+    letter-spacing: -0.2px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .btn:hover::after {
+    opacity: 1;
+  }
+  
+  .btn-primary {
+    background: linear-gradient(135deg, #552583, #7D3AC1);
+    border: none;
+    box-shadow: 0 4px 15px rgba(85, 37, 131, 0.3);
+  }
+  
+  .btn-success {
+    background: linear-gradient(135deg, #FDB927, #FDCA55);
+    border: none;
+    color: var(--tech-black);
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgba(253, 185, 39, 0.3);
+  }
+  
+  /* Modern NBA Hero Section with Animated Gradient */
+  .nba-hero {
+    background: linear-gradient(-45deg, #111111, #2a2a2a, #552583, #333333);
+    background-size: 400% 400%;
+    animation: gradient-bg 15s ease infinite;
+    border-radius: 16px;
+    padding: 5rem 2.5rem;
+    margin-bottom: 3rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+  
+  @keyframes gradient-bg {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .nba-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/court-pattern.svg');
+    background-size: 500px;
+    opacity: 0.05;
+    pointer-events: none;
+  }
+  
+  .nba-hero h1 {
+    font-weight: 800;
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(90deg, #FDB927, #FFFFFF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 10px rgba(253, 185, 39, 0.3);
+  }
+  
+  /* Enhanced Skill Breakdown Chart */
+  .skill-breakdown-chart {
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(37, 37, 37, 0.9), rgba(26, 26, 26, 0.9));
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(85, 37, 131, 0.3);
+  }
+  
+  .skill-title {
+    color: var(--lakers-gold);
+    margin-bottom: 2rem;
+    font-size: 1.75rem;
+    font-weight: 700;
+    text-align: center;
+  }
+  
+  .skill-item {
+    margin-bottom: 2rem;
+  }
+  
+  .skill-bar-bg {
+    height: 10px;
+    border-radius: 5px;
+    background-color: rgba(37, 37, 37, 0.8);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+  }
+  
+  .skill-bar {
+    height: 100%;
+    border-radius: 5px;
+    position: relative;
+    transition: width 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  
+  .skill-bar-blue {
+    background: linear-gradient(90deg, #552583, #7D3AC1);
+    box-shadow: 0 0 10px rgba(85, 37, 131, 0.5);
+  }
+  
+  .skill-bar-green {
+    background: linear-gradient(90deg, #FDB927, #FDCA55);
+    box-shadow: 0 0 10px rgba(253, 185, 39, 0.5);
+  }
+  
+  /* Testimonial Card Enhancement */
+  .testimonial-avatar-circle {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--lakers-gold);
+    box-shadow: 0 0 15px rgba(253, 185, 39, 0.3);
+  }
+  
+  /* Custom animations for counters */
+  @keyframes countUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .counter-wrapper {
+    animation: countUp 1s forwards;
+    animation-delay: calc(var(--animation-order) * 0.2s);
+    opacity: 0;
+  }
+  
+  /* Player Analysis Section Styling */
+  .analysis-section {
+    position: relative;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+  }
+  
+  .analysis-section::before {
+    content: '';
+    position: absolute;
+    top: -2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(253, 185, 39, 0.3), transparent);
+  }
+  
+  .analysis-card {
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    animation: fadeIn 0.8s forwards;
+    animation-delay: calc(var(--card-index) * 0.2s);
+    opacity: 0;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Enhanced Footer */
+  footer {
+    background: linear-gradient(135deg, rgba(17, 17, 17, 0.95), rgba(37, 37, 37, 0.95));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 2px solid var(--lakers-gold);
+    padding: 4rem 0;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/court-pattern.svg');
+    background-size: 400px;
+    opacity: 0.03;
+    pointer-events: none;
+  }
+  
+  /* AI Icon Enhancement */
+  .ai-icon {
+    color: var(--lakers-gold);
+    margin-left: 0.5rem;
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.7; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  
+  /* Hover effect for stat cards */
+  .player-stat-card {
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+  
+  .player-stat-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    z-index: 1;
+  }
+  
+  /* Responsive Design Improvements */
+  @media (max-width: 768px) {
+    .nba-hero {
+      padding: 3rem 1.5rem;
+    }
+    
+    .nba-hero h1 {
+      font-size: 2.2rem;
+    }
+    
+    .player-stat-card {
+      margin-bottom: 1.5rem;
+    }
+    
+    .analysis-section {
+      margin-top: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+  }
+
+.hero-image {
+    max-width: 100%;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.hero-image img:hover {
+    transform: scale(1.02);
+}
