@@ -42,6 +42,12 @@ def login():
             flash("Please check your login details and try again.", "danger")
             return redirect(url_for("auth.login"))
 
+        # Update last_login timestamp
+        from datetime import datetime
+
+        user.last_login = datetime.utcnow()
+        db.session.commit()
+
         login_user(user, remember=form.remember.data)
         next_page = request.args.get("next")
 
