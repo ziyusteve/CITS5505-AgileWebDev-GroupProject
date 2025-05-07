@@ -1,6 +1,6 @@
 """
 Version information for the application.
-This file is used throughout the application to maintain consistent version information.
+This file is used throughout the application to maintain consistent version info.
 """
 
 __version__ = "1.0.0"

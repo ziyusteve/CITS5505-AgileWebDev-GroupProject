@@ -1,12 +1,4 @@
-import json
 from flask import Blueprint, request, current_app, jsonify
-from app.utils.text_analysis import (
-    analyze_sentiment,
-    extract_keywords,
-    summarize_text,
-    classify_text,
-)
-import traceback
 
 bp = Blueprint("api", __name__, url_prefix="/api")
 

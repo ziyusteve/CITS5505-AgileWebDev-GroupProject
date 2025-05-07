@@ -5,9 +5,6 @@ Revises:
 Create Date: 2025-05-04 19:21:54.148825
 
 """
-from alembic import op
-import sqlalchemy as sa
-
 
 # revision identifiers, used by Alembic.
 revision = "ada267176dd4"
@@ -17,10 +14,12 @@ depends_on = None
 
 
 def upgrade():
-    # Initial migration does not make any changes, only marks the current database state
+    # Initial migration does not make any changes,
+    # only marks the current database state
     pass
 
 
 def downgrade():
-    # Initial migration does not make any changes, no need for rollback operations
+    # Initial migration does not make any changes,
+    # no need for rollback operations
     pass

@@ -18,10 +18,15 @@ def index():
     users = User.query.filter(User.id != user_id).all()
 
     # Get existing share records to show who already has access
-    shares = Share.query.join(Dataset).filter(Dataset.user_id == user_id).all()
+    shares = Share.query.join(Dataset).filter(
+        Dataset.user_id == user_id
+    ).all()
 
     return render_template(
-        "sharing/share.html", datasets=user_datasets, users=users, shares=shares
+        "sharing/share.html",
+        datasets=user_datasets,
+        users=users,
+        shares=shares,
     )
 
 
@@ -58,7 +63,8 @@ def handle_share():
 
     # Check if already shared
     existing_share = Share.query.filter_by(
-        dataset_id=dataset_id, shared_with_id=shared_with_id
+        dataset_id=dataset_id,
+        shared_with_id=shared_with_id,
     ).first()
 
     if existing_share:
@@ -87,7 +93,10 @@ def revoke_share(share_id):
     # Get share record
     share = (
         Share.query.join(Dataset)
-        .filter(Share.id == share_id, Dataset.user_id == user_id)
+        .filter(
+            Share.id == share_id,
+            Dataset.user_id == user_id,
+        )
         .first_or_404()
     )
 

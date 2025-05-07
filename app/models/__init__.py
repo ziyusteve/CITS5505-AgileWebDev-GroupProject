@@ -1,6 +1,4 @@
 from app.models.user import User
-from app.models.dataset import Dataset
-from app.models.share import Share
 from app.extensions import login_manager
 
 # This file allows us to import all models directly from app.models

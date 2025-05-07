@@ -7,14 +7,20 @@ app = create_app()
 def test_scout_analysis_api():
     print("Testing Scout Analysis API connection...")
     # Test text
-    test_text = "Testing Gemini API connection. This is an NBA player: Lebron James, he is an All-Star player."
+    test_text = (
+        "Testing Gemini API connection. This is an NBA player: Lebron James, "
+        "he is an All-Star player."
+    )
     
     with app.app_context():
         try:
             # Get API key information
             api_key = app.config.get('GEMINI_API_KEY')
             print(f"API key: {api_key[:5]}...{api_key[-5:]}")
-            print(f"Scout analysis enabled status: {app.config.get('ENABLE_SCOUT_ANALYSIS', False)}")
+            print(
+                f"Scout analysis enabled status: "
+                f"{app.config.get('ENABLE_SCOUT_ANALYSIS', False)}"
+            )
             
             # Call analysis service
             result = ScoutAnalysisService.analyze_report(test_text)
@@ -29,4 +35,4 @@ def test_scout_analysis_api():
 
 if __name__ == "__main__":
     success = test_scout_analysis_api()
-    print(f"\nTest result: {'Success' if success else 'Failed'}") 
+    print(f"\nTest result: {'Success' if success else 'Failed'}")

@@ -5,7 +5,8 @@ import sys
 import os
 
 # Add the parent directory to the sys.path
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.insert(0, parent_dir)
 
 from app import create_app
 
@@ -23,4 +24,4 @@ def check_app():
 
 if __name__ == "__main__":
     success = check_app()
-    exit(0 if success else 1) 
+    exit(0 if success else 1)

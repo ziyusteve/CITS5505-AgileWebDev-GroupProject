@@ -47,7 +47,8 @@ class RegisterForm(FlaskForm):
         "Confirm Password", validators=[DataRequired(), EqualTo("password")]
     )
     terms = BooleanField(
-        "I agree to the Terms and Privacy Policy", validators=[DataRequired()]
+        "I agree to the Terms and Privacy Policy", 
+        validators=[DataRequired()]  # E501: line too long - Shortened
     )
     submit = SubmitField("Register")
 

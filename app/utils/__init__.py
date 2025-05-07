@@ -5,19 +5,24 @@ import os
 import uuid
 import pandas as pd
 import re
-from flask import current_app, request, abort, flash
+from flask import request, abort, flash
 from flask_wtf.csrf import validate_csrf
 
 
 def allowed_file(filename, allowed_extensions=None):
     """Check if the file has an allowed extension"""
+
     if allowed_extensions is None:
         allowed_extensions = {"csv", "txt", "json", "xlsx", "xls"}
-    return "." in filename and filename.rsplit(".", 1)[1].lower() in allowed_extensions
+    return (
+        "." in filename
+        and filename.rsplit(".", 1)[1].lower() in allowed_extensions
+    )
 
 
 def generate_unique_filename(filename):
     """Generate a unique filename while preserving the original extension"""
+
     if "." in filename:
         name, ext = filename.rsplit(".", 1)
         return f"{name}_{str(uuid.uuid4())}.{ext}"
@@ -26,6 +31,7 @@ def generate_unique_filename(filename):
 
 def sanitize_filename(filename):
     """Remove any potentially dangerous characters from filenames"""
+
     # Remove any path components (might be dangerous)
     filename = os.path.basename(filename)
 
@@ -37,6 +43,7 @@ def sanitize_filename(filename):
 
 def validate_csrf_token():
     """验证CSRF令牌，如果无效则中止请求"""
+
     csrf_token = request.form.get("csrf_token")
     if not csrf_token:
         flash("CSRF token missing", "danger")
@@ -44,7 +51,7 @@ def validate_csrf_token():
 
     try:
         validate_csrf(csrf_token)
-    except:
+    except Exception:
         flash("CSRF token validation failed", "danger")
         abort(400)
 
@@ -53,6 +60,7 @@ def validate_csrf_token():
 
 def load_dataset(file_path):
     """Load dataset based on file extension"""
+
     ext = file_path.rsplit(".", 1)[1].lower() if "." in file_path else ""
     try:
         if ext == "csv":

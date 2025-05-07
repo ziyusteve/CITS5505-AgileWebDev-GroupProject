@@ -1,5 +1,5 @@
 from flask import current_app
-import json
+
 
 def analyze_sentiment(text):
     """
@@ -25,6 +25,7 @@ def analyze_sentiment(text):
         current_app.logger.error(f"Error analyzing sentiment: {str(e)}")
         return {"error": str(e)}
 
+
 def extract_keywords(text):
     """
     Extract keywords from text
@@ -48,6 +49,7 @@ def extract_keywords(text):
     except Exception as e:
         current_app.logger.error(f"Error extracting keywords: {str(e)}")
         return {"error": str(e)}
+
 
 def summarize_text(text, max_words=50):
     """
@@ -75,6 +77,7 @@ def summarize_text(text, max_words=50):
     except Exception as e:
         current_app.logger.error(f"Error generating summary: {str(e)}")
         return {"error": str(e)}
+
 
 def classify_text(text, categories=None):
     """
@@ -105,4 +108,4 @@ def classify_text(text, categories=None):
         return result
     except Exception as e:
         current_app.logger.error(f"Error classifying text: {str(e)}")
-        return {"error": str(e)} 
+        return {"error": str(e)}

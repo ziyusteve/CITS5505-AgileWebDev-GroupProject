@@ -1,4 +1,4 @@
-from flask import jsonify, session, request, current_app
+from flask import jsonify, request, current_app
 from flask_login import current_user
 from app.api import bp
 from app.models.dataset import Dataset
@@ -25,7 +25,10 @@ def health_check():
     try:
         from app.VERSION import __version__, __release_date__
 
-        version_info = {"version": __version__, "release_date": __release_date__}
+        version_info = {
+            "version": __version__,
+            "release_date": __release_date__,
+        }
     except ImportError:
         version_info = {"version": "1.0.0", "release_date": "2025-05-05"}
 
@@ -73,17 +76,20 @@ def analyze_dataset(df):
 
             if not pd.isna(max_value) and not pd.isna(min_value):
                 insights.append(
-                    f"Column {col} has a maximum value of {max_value:.2f} and a minimum value of {min_value:.2f}."
+                    f"Column {col} has a maximum value of {max_value:.2f} "
+                    f"and a minimum value of {min_value:.2f}."
                 )
 
             if not pd.isna(mean_value) and not pd.isna(median_value):
                 if mean_value > median_value:
                     insights.append(
-                        f"Column {col} has a positively skewed distribution (mean > median)."
+                        f"Column {col} has a positively skewed distribution "
+                        f"(mean > median)."
                     )
                 elif mean_value < median_value:
                     insights.append(
-                        f"Column {col} has a negatively skewed distribution (mean < median)."
+                        f"Column {col} has a negatively skewed distribution "
+                        f"(mean < median)."
                     )
 
         result["insights"] = insights
@@ -315,7 +321,10 @@ def test_api():
         api_key_masked = f"{api_key[:5]}...{api_key[-5:]}" if api_key else "Not set"
 
         # Generate a short test text
-        test_text = "Testing Gemini API connection. This is an NBA player: Lebron James, an all-star player."
+        test_text = (
+            "Testing Gemini API connection. This is an NBA player: Lebron James, "
+            "an all-star player."
+        )
 
         # Try to call the API for simple analysis
         result = ScoutAnalysisService.analyze_report(test_text)

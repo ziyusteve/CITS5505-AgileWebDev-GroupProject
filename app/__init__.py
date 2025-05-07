@@ -45,7 +45,7 @@ def create_app(config_name="default"):
     config_valid = config[config_name].validate_config()
     if not config_valid:
         app.logger.warning(
-            "Application configuration validation failed, some features may not work properly"
+            "Application configuration validation failed, some features may not work"
         )
 
     # Initialize extensions
@@ -53,7 +53,7 @@ def create_app(config_name="default"):
     login_manager.init_app(app)
 
     # Initialize Flask-Migrate
-    migrate = Migrate(app, db)
+    Migrate(app, db)
 
     # Initialize CSRF protection
     csrf = CSRFProtect(app)
@@ -101,11 +101,11 @@ def create_app(config_name="default"):
     # First import all models, then create all tables at once
     with app.app_context():
         # Import all models - this will also register the user_loader function
-        from app.models import User, Dataset, Share
+        pass
 
         # If scout report analysis is enabled, import its models
         if app.config.get("ENABLE_SCOUT_ANALYSIS", False):
-            from app.scout_analysis.models import ScoutReportAnalysis
+            pass
         # Create all tables
         db.create_all()
         app.logger.info("Database tables for scout analysis created if not exists")
@@ -113,7 +113,6 @@ def create_app(config_name="default"):
     # Log file configuration
     import logging
     from logging.handlers import RotatingFileHandler
-    import codecs
 
     if not os.path.exists("logs"):
         os.mkdir("logs")
