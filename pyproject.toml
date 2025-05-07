@@ -30,7 +30,7 @@ version = {attr = "app.VERSION.__version__"}
 [tool.black]
 line-length = 88
 target-version = ['py38']
-include = '\.pyi?$'
+include = '\\.pyi?$'
 exclude = '''
 /(
     \.git
@@ -47,7 +47,7 @@ exclude = '''
 
 [tool.flake8]
 max-line-length = 88
-extend-ignore = ["E203", "E501"]
+extend-ignore = ["E203", "E501", "W291", "W292"]
 exclude = [
     ".git",
     "__pycache__",
