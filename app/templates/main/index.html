@@ -5,8 +5,9 @@
 {% block content %}
 <!-- NBA Style Hero Section - Improved Typography with Gemini AI elements -->
 <div class="nba-hero">
-    <div class="row">
-        <div class="col-md-8 col-lg-7">
+    <div class="row align-items-center">
+        <!-- Text Content Column -->
+        <div class="col-md-6">
             <h1>Gemini AI Basketball Analytics <i class="fas fa-brain ai-icon"></i></h1>
             <p class="lead">Elite player analysis platform powered by Gemini AI. Upload player descriptions, get detailed analysis and skill assessments to build championship teams.</p>
             
@@ -29,6 +30,15 @@
                 </a>
             </div>
             {% endif %}
+        </div>
+        
+        <!-- Image Column -->
+        <div class="col-md-6">
+            <div class="hero-image">
+                <img src="{{ url_for('static', filename='images/nba-hero.jpg') }}" 
+                     alt="Basketball Analytics" 
+                     class="img-fluid rounded">
+            </div>
         </div>
     </div>
 </div>
@@ -74,24 +84,24 @@
             </div>
             <div class="player-stat-body text-center">
                 <p>Gemini helps identify key development areas and future potential ceiling for players, assisting coaches in creating personalized training plans.</p>
-                <div class="d-flex justify-content-center mt-4">
-                    <div class="mx-2 text-center">
-                        <div class="skill-icon skill-icon-primary d-flex align-items-center justify-content-center">
+                <div class="d-flex justify-content-center align-items-center gap-4 mt-4">
+                    <div class="skill-icon-wrapper text-center">
+                        <div class="skill-icon skill-icon-primary">
                             <i class="fas fa-fire"></i>
                         </div>
-                        <small class="d-block mt-1">Hot Zone</small>
+                        <small class="d-block mt-2">Hot Zone</small>
                     </div>
-                    <div class="mx-2 text-center">
-                        <div class="skill-icon skill-icon-success d-flex align-items-center justify-content-center">
+                    <div class="skill-icon-wrapper text-center">
+                        <div class="skill-icon skill-icon-success">
                             <i class="fas fa-running"></i>
                         </div>
-                        <small class="d-block mt-1">Speed</small>
+                        <small class="d-block mt-2">Speed</small>
                     </div>
-                    <div class="mx-2 text-center">
-                        <div class="skill-icon skill-icon-primary d-flex align-items-center justify-content-center">
+                    <div class="skill-icon-wrapper text-center">
+                        <div class="skill-icon skill-icon-primary">
                             <i class="fas fa-shield-alt"></i>
                         </div>
-                        <small class="d-block mt-1">Defense</small>
+                        <small class="d-block mt-2">Defense</small>
                     </div>
                 </div>
             </div>
@@ -163,10 +173,10 @@
     </div>
 </div>
 
-<!-- Row 2: Radar Chart (Enhanced and Centered) -->
+<!-- Row 2: Radar Chart and Skill Breakdown -->
 <div class="row justify-content-center analysis-section">
-    <!-- Ability Radar Chart Card with improved styling -->
-    <div class="col-lg-8 mb-4"> 
+    <!-- Ability Radar Chart Card -->
+    <div class="col-lg-6 mb-4"> 
         <div class="card h-100 player-stat-card analysis-card">            
             <div class="card-header player-stat-header d-flex align-items-center">
                 <div class="header-icon me-2">
@@ -179,8 +189,78 @@
                     <img src="{{ url_for('static', filename='images/rd.png') }}" alt="Player Radar Chart" class="img-fluid radar-chart-img">
                 </div>
             </div>
-            <div class="card-footer bg-transparent text-center">
-                <small class="text-muted">Visual representation of player's key attributes</small>
+        </div>
+    </div>
+
+    <!-- Skill Breakdown Chart -->
+    <div class="col-lg-6 mb-4">
+        <div class="skill-breakdown-chart h-100">
+            <h2 class="skill-title">Skill Breakdown</h2>
+            <div class="skill-list">
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Offense</span>
+                        <div class="skill-rating">
+                            <span class="skill-value">88</span>
+                            <span class="skill-badge skill-badge-blue">All-Star</span>
+                        </div>
+                    </div>
+                    <div class="skill-bar-bg">
+                        <div class="skill-bar skill-bar-blue" style="width: 88%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Defense</span>
+                        <div class="skill-rating">
+                            <span class="skill-value">65</span>
+                            <span class="skill-badge skill-badge-blue">All-Star</span>
+                        </div>
+                    </div>
+                    <div class="skill-bar-bg">
+                        <div class="skill-bar skill-bar-blue" style="width: 65%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Physical</span>
+                        <div class="skill-rating">
+                            <span class="skill-value">78</span>
+                            <span class="skill-badge skill-badge-green">Rotation</span>
+                        </div>
+                    </div>
+                    <div class="skill-bar-bg">
+                        <div class="skill-bar skill-bar-green" style="width: 78%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Technical</span>
+                        <div class="skill-rating">
+                            <span class="skill-value">82</span>
+                            <span class="skill-badge skill-badge-green">Starter</span>
+                        </div>
+                    </div>
+                    <div class="skill-bar-bg">
+                        <div class="skill-bar skill-bar-green" style="width: 82%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Potential</span>
+                        <div class="skill-rating">
+                            <span class="skill-value">87</span>
+                            <span class="skill-badge skill-badge-blue">All-Star</span>
+                        </div>
+                    </div>
+                    <div class="skill-bar-bg">
+                        <div class="skill-bar skill-bar-blue" style="width: 87%"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
