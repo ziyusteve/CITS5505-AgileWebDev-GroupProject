@@ -92,7 +92,7 @@
                 <div class="card-body p-4">
                     <form method="POST" action="{{ url_for('auth.register') }}">
                         {{ form.hidden_tag() }}
-                        
+
                         <!-- Username Input -->
                         <div class="mb-4">
                             <label for="username" class="form-label">{{ form.username.label }}</label>
@@ -112,7 +112,7 @@
                                 <div>Username must be unique and at least 3 characters.</div>
                             {% endif %}
                         </div>
-                        
+
                         <!-- Email Input -->
                         <div class="mb-4">
                             <label for="email" class="form-label">{{ form.email.label }}</label>
@@ -132,7 +132,7 @@
                                 <div>We'll never share your email with anyone else.</div>
                             {% endif %}
                         </div>
-                        
+
                         <!-- Password Input -->
                         <div class="mb-4">
                             <label for="password" class="form-label">{{ form.password.label }}</label>
@@ -152,10 +152,31 @@
                                     {% endfor %}
                                 </div>
                             {% else %}
-                                <div>Password should be at least 8 characters and include letters and numbers.</div>
+                                <div>Password should be at least 6 characters.</div>
                             {% endif %}
                         </div>
-                        
+
+                        <!-- Confirm Password Input -->
+                        <div class="mb-4">
+                            <label for="confirm_password" class="form-label">{{ form.confirm_password.label }}</label>
+                            <div class="input-group">
+                                <span class="input-group-text border-end-0">
+                                    <i class="fas fa-lock"></i>
+                                </span>
+                                {{ form.confirm_password(class="form-control password-input", placeholder="Confirm your password") }}
+                                <button class="btn btn-outline-secondary border-start-0" type="button" id="toggleConfirmPassword">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            {% if form.confirm_password.errors %}
+                                <div class="text-danger">
+                                    {% for error in form.confirm_password.errors %}
+                                        <small>{{ error }}</small>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+
                         <!-- Terms Checkbox -->
                         <div class="mb-4 form-check">
                             {{ form.terms(class="form-check-input") }}
@@ -168,7 +189,7 @@
                                 </div>
                             {% endif %}
                         </div>
-                        
+
                         <!-- Register Button -->
                         <div class="d-grid">
                             {{ form.submit(class="btn btn-primary register-btn") }}
@@ -184,10 +205,12 @@
 </div>
 
 <script>
-document.getElementById('togglePassword').addEventListener('click', function() {
-    const passwordInput = document.getElementById('password');
-    const icon = this.querySelector('i');
-    
+// Toggle password visibility
+function togglePasswordVisibility(inputId, buttonId) {
+    const passwordInput = document.getElementById(inputId);
+    const button = document.getElementById(buttonId);
+    const icon = button.querySelector('i');
+
     if (passwordInput.type === 'password') {
         passwordInput.type = 'text';
         icon.classList.remove('fa-eye');
@@ -197,6 +220,15 @@ document.getElementById('togglePassword').addEventListener('click', function() {
         icon.classList.remove('fa-eye-slash');
         icon.classList.add('fa-eye');
     }
+}
+
+// Set up event listeners
+document.getElementById('togglePassword').addEventListener('click', function() {
+    togglePasswordVisibility('password', 'togglePassword');
+});
+
+document.getElementById('toggleConfirmPassword').addEventListener('click', function() {
+    togglePasswordVisibility('confirm_password', 'toggleConfirmPassword');
 });
 </script>
 {% endblock %}

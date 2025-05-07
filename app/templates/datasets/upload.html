@@ -12,17 +12,17 @@
             <div class="card-body">
                 <form method="POST" action="{{ url_for('datasets.upload') }}" enctype="multipart/form-data">
                     {{ form.hidden_tag() }}
-                    
+
                     <div class="mb-3">
                         <label for="title" class="form-label">{{ form.title.label }}</label>
                         {{ form.title(class="form-control", placeholder="e.g. LeBron James") }}
                     </div>
-                    
+
                     <div class="mb-3">
                         <label for="file" class="form-label">{{ form.file.label }}</label>
-                        {{ form.file(class="form-control", accept=".txt,.docx") }}
+                        {{ form.file(class="form-control", accept=".txt,.csv,.json,.xlsx,.xls") }}
                         <div id="fileHelp" class="form-text">
-                            Please upload a news article, commentary, or player description (TXT/DOCX).<br>
+                            Please upload a news article, commentary, or player description (TXT, CSV, JSON, XLSX, XLS).<br>
                             The system will automatically generate a scout report with visualization and analysis.
                         </div>
                         {% if form.file.errors %}
@@ -33,7 +33,7 @@
                             </div>
                         {% endif %}
                     </div>
-                    
+
                     <div class="d-grid">
                         {{ form.submit(class="btn btn-primary") }}
                     </div>

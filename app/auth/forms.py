@@ -1,34 +1,69 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField
-from wtforms.validators import DataRequired, Email, Length, EqualTo, ValidationError
+from wtforms.validators import DataRequired, Length, EqualTo, ValidationError
 from app.models.user import User
 
+# 尝试导入Email验证器，如果失败则提供备用验证器
+try:
+    from wtforms.validators import Email
+except ImportError:
+    # 如果email_validator未安装，提供一个简单的备用验证器
+    import re
+
+    class Email:
+        """备用Email验证器"""
+
+        def __init__(self, message=None):
+            if message is None:
+                message = "Invalid email address."
+            self.message = message
+
+        def __call__(self, form, field):
+            email_pattern = re.compile(
+                r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+            )
+            if not email_pattern.match(field.data):
+                raise ValidationError(self.message)
+
+
 class LoginForm(FlaskForm):
-    """用户登录表单"""
-    username = StringField('用户名', validators=[DataRequired()])
-    password = PasswordField('密码', validators=[DataRequired()])
-    remember = BooleanField('记住我')
-    submit = SubmitField('登录')
+    """User login form"""
+
+    username = StringField("Username", validators=[DataRequired()])
+    password = PasswordField("Password", validators=[DataRequired()])
+    remember = BooleanField("Remember Me")
+    submit = SubmitField("Login")
+
 
 class RegisterForm(FlaskForm):
-    """用户注册表单"""
-    username = StringField('用户名', 
-                           validators=[DataRequired(), Length(min=3, max=20)])
-    email = StringField('电子邮箱', 
-                        validators=[DataRequired(), Email()])
-    password = PasswordField('密码', 
-                            validators=[DataRequired(), Length(min=8)])
-    terms = BooleanField('我同意服务条款和隐私政策', validators=[DataRequired()])
-    submit = SubmitField('创建账户')
-    
+    """User registration form"""
+
+    username = StringField(
+        "Username", validators=[DataRequired(), Length(min=3, max=20)]
+    )
+    email = StringField("Email", validators=[DataRequired(), Email()])
+    password = PasswordField("Password", validators=[DataRequired(), Length(min=6)])
+    confirm_password = PasswordField(
+        "Confirm Password", validators=[DataRequired(), EqualTo("password")]
+    )
+    terms = BooleanField(
+        "I agree to the Terms and Privacy Policy",
+        validators=[DataRequired()],  # E501: line too long - Shortened
+    )
+    submit = SubmitField("Register")
+
     def validate_username(self, username):
-        """验证用户名是否已存在"""
+        """Validate username is not already taken"""
         user = User.query.filter_by(username=username.data).first()
         if user:
-            raise ValidationError('该用户名已被使用，请选择一个不同的用户名。')
-    
+            raise ValidationError(
+                "Username is already taken. Please choose a different one."
+            )
+
     def validate_email(self, email):
-        """验证邮箱是否已存在"""
+        """Validate email is not already registered"""
         user = User.query.filter_by(email=email.data).first()
         if user:
-            raise ValidationError('该邮箱已被注册，请使用另一个邮箱地址。') 
+            raise ValidationError(
+                "Email is already registered. Please use a different one."
+            )

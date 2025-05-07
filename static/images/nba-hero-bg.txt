@@ -1,1 +1,1 @@
-/* This is a placeholder. In actual implementation, you need to download a high-quality image of an NBA game or player action and name it nba-hero-bg.jpg */ 
+/* This is a placeholder. In actual implementation, you need to download a high-quality image of an NBA game or player in action and name it nba-hero-bg.jpg */

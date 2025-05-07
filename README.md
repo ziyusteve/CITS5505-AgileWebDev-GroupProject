@@ -33,6 +33,12 @@ python -m venv venv
 
 # Install dependencies
 pip install -r requirements.txt
+
+# Install development dependencies
+pip install -r requirements/dev.txt
+
+# Install testing dependencies
+pip install -r requirements/test.txt
 ```
 
 ## Configuration
@@ -47,38 +53,51 @@ pip install -r requirements.txt
 # Run the development server
 python run.py
 
+# Run application verification
+python scripts/check_app.py
+
 # Run tests
-python run_testing.py
+python -m pytest tests/
 ```
 
 - Access the application at http://localhost:5000
 
+## Database Migrations
+
+This application uses Flask-Migrate for database migrations:
+
+```powershell
+# Initialize migration repository
+flask db init
+
+# Create a migration
+flask db migrate -m "Migration message"
+
+# Apply migrations to the database
+flask db upgrade
+
+# Rollback the last migration
+flask db downgrade
+```
+
 ## Project Structure
 
-```
-5505_group_project/
-├── app/
-│   ├── config.py         # App configuration
-│   ├── extensions.py     # Flask extensions initialization
-│   └── utils.py          # Utility functions
-├── api/                  # API route definitions
-├── auth/                 # Authentication routes
-├── dashboard/            # Dashboard routes
-├── datasets/             # Dataset upload routes
-├── main/                 # Main application routes
-├── models/               # SQLAlchemy models (User, Dataset, Share)
-├── sharing/              # Dataset sharing routes
-├── templates/            # Jinja2 HTML templates
-├── visualization/        # Visualization routes
-├── static/               # CSS, JavaScript, images
-├── data/                 # Uploaded data files
-├── instance/             # SQLite database
-├── uploads/              # Temporary upload storage
-├── run.py                # App entry point
-├── run_testing.py        # Test runner
-├── requirements.txt      # Python dependencies
-└── README.md             # Project documentation
-```
+The project is organized as follows:
+
+- `app/`: Main application code
+- `data/uploads/`: User uploaded files
+- `migrations/`: Database migration files
+- `requirements/`: Dependency management
+  - `base.txt`: Production dependencies
+  - `dev.txt`: Development dependencies
+  - `test.txt`: Testing dependencies
+- `scripts/`: Utility scripts
+- `static/`: Static assets (CSS, JS, images)
+- `tests/`: Test files and test data
+- `run.py`: Application entry point
+- `requirements.txt`: Main requirements file
+- `pyproject.toml`: Code formatting and linting configuration
+- `CODE_QUALITY.md`: Code quality guidelines
 
 ## Contributing
 

@@ -2,16 +2,16 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     // Enable tooltips
-    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
         return new bootstrap.Tooltip(tooltipTriggerEl)
     });
     
     // Auto-close alerts after 4 seconds
     setTimeout(function() {
-        var alerts = document.querySelectorAll('.alert');
+        const alerts = document.querySelectorAll('.alert');
         alerts.forEach(function(alert) {
-            var bsAlert = new bootstrap.Alert(alert);
+            const bsAlert = new bootstrap.Alert(alert);
             bsAlert.close();
         });
     }, 4000);

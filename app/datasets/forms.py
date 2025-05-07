@@ -1,24 +1,36 @@
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileRequired
-from wtforms import StringField, TextAreaField, SubmitField
-from wtforms.validators import DataRequired, Optional, Length, ValidationError
-from flask import current_app
-import os
+from wtforms import StringField, SubmitField
+from wtforms.validators import Optional, Length, ValidationError
+from werkzeug.utils import secure_filename
+
 
 class UploadDatasetForm(FlaskForm):
-    """数据集上传表单"""
-    title = StringField('球员名称', validators=[Optional(), Length(max=100)])
-    file = FileField('上传文件', validators=[
-        FileRequired('请选择一个文件')
-    ])
-    submit = SubmitField('分析并生成球探报告')
-    
+    """Dataset upload form"""
+
+    title = StringField("Player Name", validators=[Optional(), Length(max=100)])
+    file = FileField("Upload File", validators=[FileRequired("Please select a file")])
+    submit = SubmitField("Analyze and Generate Scout Report")
+
     def validate_file(self, field):
-        """验证文件类型是否被允许"""
+        """Validate if the file type is allowed"""
         if field.data:
-            # 获取文件扩展名
+            # Get file extension
             filename = field.data.filename
-            ext = os.path.splitext(filename)[1][1:].lower()
-            # 检查扩展名是否在允许列表中
-            if ext not in current_app.config['ALLOWED_EXTENSIONS']:
-                raise ValidationError('不支持的文件类型') 
+            ext = filename.rsplit(".", 1)[1].lower() if "." in filename else ""
+
+            # Check if extension is in the allowed list
+            allowed_extensions = {"csv", "txt", "json", "xlsx", "xls"}
+            if ext not in allowed_extensions:
+                raise ValidationError(
+                    f'Unsupported file type. Allowed types: {", ".join(allowed_extensions)}'
+                )
+
+            # 额外的安全性检查
+            try:
+                secure_name = secure_filename(filename)
+                if not secure_name or secure_name != filename:
+                    raise ValidationError("Filename contains invalid characters")
+            except Exception:
+                # 如果secure_filename出错（依赖问题），跳过这项检查
+                pass
