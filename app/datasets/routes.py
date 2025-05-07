@@ -90,9 +90,7 @@ def upload():
                     )
                 else:
                     analysis.processing_status = "failed"
-                    analysis.analysis_result = (
-                        '{"error": "Unable to extract valid text content, unable to analyze."}'
-                    )
+                    analysis.analysis_result = '{"error": "Unable to extract valid text content, unable to analyze."}'
                     db.session.commit()
                     flash(
                         "File uploaded successfully! But unable to extract valid text content, unable to analyze.",
@@ -101,9 +99,7 @@ def upload():
             except Exception as e:
                 current_app.logger.error(f"Scout report analysis error: {str(e)}")
                 analysis.processing_status = "failed"
-                analysis.analysis_result = (
-                    f'{{"error": "Analysis error: {str(e)}"}}'
-                )
+                analysis.analysis_result = f'{{"error": "Analysis error: {str(e)}"}}'
                 db.session.commit()
                 flash(
                     "File uploaded successfully! But analysis error occurred.",

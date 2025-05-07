@@ -32,15 +32,15 @@ class MockAnalysisService:
         strengths = [
             "Excellent court vision",
             "High basketball IQ",
-            "Strong offensive skills"
+            "Strong offensive skills",
         ]
         weaknesses = [
             "Needs improvement on defense",
-            "Inconsistent three-point shooting"
+            "Inconsistent three-point shooting",
         ]
         development_areas = [
             "Focus on defensive positioning",
-            "Develop leadership skills"
+            "Develop leadership skills",
         ]
 
         if "shoot" in text_lower or "shooter" in text_lower or "shooting" in text_lower:
@@ -49,7 +49,11 @@ class MockAnalysisService:
         else:
             offensive_rating = 80
 
-        if "defend" in text_lower or "defense" in text_lower or "defensive" in text_lower:
+        if (
+            "defend" in text_lower
+            or "defense" in text_lower
+            or "defensive" in text_lower
+        ):
             strengths.append("Solid defensive skills")
             defensive_rating = 85
         else:
@@ -71,11 +75,7 @@ class MockAnalysisService:
         # Return mock analysis data
         return {
             "processing_status": "completed",
-            "player_info": {
-                "name": name,
-                "position": "Forward",
-                "team": "All-Stars"
-            },
+            "player_info": {"name": name, "position": "Forward", "team": "All-Stars"},
             "strengths": strengths,
             "weaknesses": weaknesses,
             "development_areas": development_areas,
@@ -85,5 +85,5 @@ class MockAnalysisService:
             "physical_rating": physical_rating,
             "technical_rating": 82,
             "potential_rating": 87,
-            "overall_rating": 83
+            "overall_rating": 83,
         }

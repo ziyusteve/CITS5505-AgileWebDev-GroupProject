@@ -272,14 +272,6 @@
         "documentation": {}
     },
     {
-        "label": "current_app",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
         "label": "request",
         "importPath": "flask",
         "description": "flask",
@@ -1313,7 +1305,7 @@
         "kind": 6,
         "importPath": "app.datasets.forms",
         "description": "app.datasets.forms",
-        "peekOfCode": "class UploadDatasetForm(FlaskForm):\n    \"\"\"Dataset upload form\"\"\"\n    title = StringField(\n        \"Player Name\", validators=[Optional(), Length(max=100)]\n    )\n    file = FileField(\n        \"Upload File\", validators=[FileRequired(\"Please select a file\")]\n    )\n    submit = SubmitField(\"Analyze and Generate Scout Report\")\n    def validate_file(self, field):",
+        "peekOfCode": "class UploadDatasetForm(FlaskForm):\n    \"\"\"Dataset upload form\"\"\"\n    title = StringField(\"Player Name\", validators=[Optional(), Length(max=100)])\n    file = FileField(\"Upload File\", validators=[FileRequired(\"Please select a file\")])\n    submit = SubmitField(\"Analyze and Generate Scout Report\")\n    def validate_file(self, field):\n        \"\"\"Validate if the file type is allowed\"\"\"\n        if field.data:\n            # Get file extension\n            filename = field.data.filename",
         "detail": "app.datasets.forms",
         "documentation": {}
     },
@@ -1331,7 +1323,7 @@
         "kind": 2,
         "importPath": "app.main.routes",
         "description": "app.main.routes",
-        "peekOfCode": "def index():\n    \"\"\"Website homepage route\"\"\"\n    return render_template('main/index.html')",
+        "peekOfCode": "def index():\n    \"\"\"Website homepage route\"\"\"\n    return render_template(\"main/index.html\")",
         "detail": "app.main.routes",
         "documentation": {}
     },
@@ -1340,7 +1332,7 @@
         "kind": 6,
         "importPath": "app.models.dataset",
         "description": "app.models.dataset",
-        "peekOfCode": "class Dataset(db.Model):\n    __tablename__ = 'datasets'\n    id = db.Column(db.Integer, primary_key=True)\n    title = db.Column(db.String(100), nullable=False)\n    date_uploaded = db.Column(\n        db.DateTime, nullable=False, default=datetime.utcnow\n    )\n    file_path = db.Column(db.String(255), nullable=False)\n    description = db.Column(db.Text, nullable=True)\n    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)",
+        "peekOfCode": "class Dataset(db.Model):\n    __tablename__ = \"datasets\"\n    id = db.Column(db.Integer, primary_key=True)\n    title = db.Column(db.String(100), nullable=False)\n    date_uploaded = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)\n    file_path = db.Column(db.String(255), nullable=False)\n    description = db.Column(db.Text, nullable=True)\n    user_id = db.Column(db.Integer, db.ForeignKey(\"user.id\"), nullable=False)\n    shares = db.relationship(\n        \"Share\", backref=\"dataset\", lazy=True, cascade=\"all, delete\"",
         "detail": "app.models.dataset",
         "documentation": {}
     },
@@ -1349,7 +1341,7 @@
         "kind": 6,
         "importPath": "app.models.share",
         "description": "app.models.share",
-        "peekOfCode": "class Share(db.Model):\n    id = db.Column(db.Integer, primary_key=True)\n    dataset_id = db.Column(\n        db.Integer, db.ForeignKey('datasets.id'), nullable=False\n    )\n    shared_with_id = db.Column(\n        db.Integer, db.ForeignKey('user.id'), nullable=False\n    )\n    date_shared = db.Column(\n        db.DateTime, nullable=False, default=datetime.utcnow",
+        "peekOfCode": "class Share(db.Model):\n    id = db.Column(db.Integer, primary_key=True)\n    dataset_id = db.Column(db.Integer, db.ForeignKey(\"datasets.id\"), nullable=False)\n    shared_with_id = db.Column(db.Integer, db.ForeignKey(\"user.id\"), nullable=False)\n    date_shared = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)\n    shared_with = db.relationship(\"User\", foreign_keys=[shared_with_id])\n    def __repr__(self):\n        return f\"Share(Dataset: {self.dataset_id}, Shared with: {self.shared_with_id})\"",
         "detail": "app.models.share",
         "documentation": {}
     },
@@ -1376,7 +1368,7 @@
         "kind": 6,
         "importPath": "app.scout_analysis.models",
         "description": "app.scout_analysis.models",
-        "peekOfCode": "class ScoutReportAnalysis(db.Model):\n    \"\"\"Scout Report Analysis Result Model\"\"\"\n    __tablename__ = 'scout_report_analyses'\n    id = db.Column(db.Integer, primary_key=True)\n    # Relationship to existing Dataset model\n    dataset_id = db.Column(\n        db.Integer, db.ForeignKey('datasets.id'), nullable=False\n    )\n    dataset = db.relationship(\n        'Dataset', backref=db.backref('scout_analyses', lazy=True)",
+        "peekOfCode": "class ScoutReportAnalysis(db.Model):\n    \"\"\"Scout Report Analysis Result Model\"\"\"\n    __tablename__ = \"scout_report_analyses\"\n    id = db.Column(db.Integer, primary_key=True)\n    # Relationship to existing Dataset model\n    dataset_id = db.Column(db.Integer, db.ForeignKey(\"datasets.id\"), nullable=False)\n    dataset = db.relationship(\n        \"Dataset\", backref=db.backref(\"scout_analyses\", lazy=True)\n    )\n    # Analysis results",
         "detail": "app.scout_analysis.models",
         "documentation": {}
     },
@@ -1385,7 +1377,7 @@
         "kind": 2,
         "importPath": "app.scout_analysis.processors",
         "description": "app.scout_analysis.processors",
-        "peekOfCode": "def extract_text_from_file(filepath):\n    \"\"\"Extract text content from various file formats (TXT, PDF, DOCX)\"\"\"\n    file_ext = filepath.split('.')[-1].lower()\n    if file_ext == 'txt':\n        # Direct text extraction for TXT files\n        try:\n            with open(filepath, 'r', encoding='utf-8') as file:\n                return file.read()\n        except UnicodeDecodeError:\n            # Try different encoding if utf-8 fails",
+        "peekOfCode": "def extract_text_from_file(filepath):\n    \"\"\"Extract text content from various file formats (TXT, PDF, DOCX)\"\"\"\n    file_ext = filepath.split(\".\")[-1].lower()\n    if file_ext == \"txt\":\n        # Direct text extraction for TXT files\n        try:\n            with open(filepath, \"r\", encoding=\"utf-8\") as file:\n                return file.read()\n        except UnicodeDecodeError:\n            # Try different encoding if utf-8 fails",
         "detail": "app.scout_analysis.processors",
         "documentation": {}
     },
@@ -1394,7 +1386,7 @@
         "kind": 2,
         "importPath": "app.scout_analysis.processors",
         "description": "app.scout_analysis.processors",
-        "peekOfCode": "def is_scout_report(filepath):\n    \"\"\"Determine if a file is likely a scout report based on content analysis\"\"\"\n    # First check file extension\n    file_ext = filepath.split('.')[-1].lower()\n    scout_extensions = current_app.config.get(\n        'SCOUT_REPORT_EXTENSIONS', ['txt', 'pdf', 'docx']\n    )\n    if file_ext not in scout_extensions:\n        return False\n    # Extract text content",
+        "peekOfCode": "def is_scout_report(filepath):\n    \"\"\"Determine if a file is likely a scout report based on content analysis\"\"\"\n    # First check file extension\n    file_ext = filepath.split(\".\")[-1].lower()\n    scout_extensions = current_app.config.get(\n        \"SCOUT_REPORT_EXTENSIONS\", [\"txt\", \"pdf\", \"docx\"]\n    )\n    if file_ext not in scout_extensions:\n        return False\n    # Extract text content",
         "detail": "app.scout_analysis.processors",
         "documentation": {}
     },
@@ -1421,7 +1413,7 @@
         "kind": 2,
         "importPath": "app.sharing.routes",
         "description": "app.sharing.routes",
-        "peekOfCode": "def index():\n    \"\"\"Data sharing page routes\"\"\"\n    user_id = current_user.id\n    user_datasets = Dataset.query.filter_by(user_id=user_id).all()\n    users = User.query.filter(User.id != user_id).all()\n    # Get existing share records to show who already has access\n    shares = Share.query.join(Dataset).filter(\n        Dataset.user_id == user_id\n    ).all()\n    return render_template(",
+        "peekOfCode": "def index():\n    \"\"\"Data sharing page routes\"\"\"\n    user_id = current_user.id\n    user_datasets = Dataset.query.filter_by(user_id=user_id).all()\n    users = User.query.filter(User.id != user_id).all()\n    # Get existing share records to show who already has access\n    shares = Share.query.join(Dataset).filter(Dataset.user_id == user_id).all()\n    return render_template(\n        \"sharing/share.html\",\n        datasets=user_datasets,",
         "detail": "app.sharing.routes",
         "documentation": {}
     },
@@ -1448,7 +1440,7 @@
         "kind": 2,
         "importPath": "app.utils.text_analysis",
         "description": "app.utils.text_analysis",
-        "peekOfCode": "def analyze_sentiment(text):\n    \"\"\"\n    Analyze text sentiment\n    Args:\n        text (str): Text content to analyze\n    Returns:\n        dict: Dictionary containing sentiment analysis results\n    \"\"\"\n    gemini = current_app.config.get('GEMINI_INSTANCE')\n    if not gemini:",
+        "peekOfCode": "def analyze_sentiment(text):\n    \"\"\"\n    Analyze text sentiment\n    Args:\n        text (str): Text content to analyze\n    Returns:\n        dict: Dictionary containing sentiment analysis results\n    \"\"\"\n    gemini = current_app.config.get(\"GEMINI_INSTANCE\")\n    if not gemini:",
         "detail": "app.utils.text_analysis",
         "documentation": {}
     },
@@ -1457,7 +1449,7 @@
         "kind": 2,
         "importPath": "app.utils.text_analysis",
         "description": "app.utils.text_analysis",
-        "peekOfCode": "def extract_keywords(text):\n    \"\"\"\n    Extract keywords from text\n    Args:\n        text (str): Text content to analyze\n    Returns:\n        dict: Dictionary containing keyword extraction results\n    \"\"\"\n    gemini = current_app.config.get('GEMINI_INSTANCE')\n    if not gemini:",
+        "peekOfCode": "def extract_keywords(text):\n    \"\"\"\n    Extract keywords from text\n    Args:\n        text (str): Text content to analyze\n    Returns:\n        dict: Dictionary containing keyword extraction results\n    \"\"\"\n    gemini = current_app.config.get(\"GEMINI_INSTANCE\")\n    if not gemini:",
         "detail": "app.utils.text_analysis",
         "documentation": {}
     },
@@ -1466,7 +1458,7 @@
         "kind": 2,
         "importPath": "app.utils.text_analysis",
         "description": "app.utils.text_analysis",
-        "peekOfCode": "def summarize_text(text, max_words=50):\n    \"\"\"\n    Summarize text\n    Args:\n        text (str): Text content to summarize\n        max_words (int): Maximum word count for the summary\n    Returns:\n        dict: Dictionary containing text summarization results\n    \"\"\"\n    gemini = current_app.config.get('GEMINI_INSTANCE')",
+        "peekOfCode": "def summarize_text(text, max_words=50):\n    \"\"\"\n    Summarize text\n    Args:\n        text (str): Text content to summarize\n        max_words (int): Maximum word count for the summary\n    Returns:\n        dict: Dictionary containing text summarization results\n    \"\"\"\n    gemini = current_app.config.get(\"GEMINI_INSTANCE\")",
         "detail": "app.utils.text_analysis",
         "documentation": {}
     },
@@ -1475,7 +1467,7 @@
         "kind": 2,
         "importPath": "app.utils.text_analysis",
         "description": "app.utils.text_analysis",
-        "peekOfCode": "def classify_text(text, categories=None):\n    \"\"\"\n    Classify text\n    Args:\n        text (str): Text content to classify\n        categories (list): Optional list of classification categories\n    Returns:\n        dict: Dictionary containing text classification results\n    \"\"\"\n    gemini = current_app.config.get('GEMINI_INSTANCE')",
+        "peekOfCode": "def classify_text(text, categories=None):\n    \"\"\"\n    Classify text\n    Args:\n        text (str): Text content to classify\n        categories (list): Optional list of classification categories\n    Returns:\n        dict: Dictionary containing text classification results\n    \"\"\"\n    gemini = current_app.config.get(\"GEMINI_INSTANCE\")",
         "detail": "app.utils.text_analysis",
         "documentation": {}
     },
@@ -1484,7 +1476,7 @@
         "kind": 2,
         "importPath": "app.visualization.routes",
         "description": "app.visualization.routes",
-        "peekOfCode": "def visualize(dataset_id):\n    \"\"\"Data visualization route\"\"\"\n    user_id = current_user.id\n    dataset = Dataset.query.get_or_404(dataset_id)\n    # Check if user owns the dataset or if the dataset is shared with them\n    is_owner = dataset.user_id == user_id\n    is_shared = Share.query.filter_by(\n        dataset_id=dataset_id, shared_with_id=user_id\n    ).first() is not None\n    if not (is_owner or is_shared):",
+        "peekOfCode": "def visualize(dataset_id):\n    \"\"\"Data visualization route\"\"\"\n    user_id = current_user.id\n    dataset = Dataset.query.get_or_404(dataset_id)\n    # Check if user owns the dataset or if the dataset is shared with them\n    is_owner = dataset.user_id == user_id\n    is_shared = (\n        Share.query.filter_by(dataset_id=dataset_id, shared_with_id=user_id).first()\n        is not None\n    )",
         "detail": "app.visualization.routes",
         "documentation": {}
     },
@@ -1493,7 +1485,7 @@
         "kind": 6,
         "importPath": "app.config",
         "description": "app.config",
-        "peekOfCode": "class Config:\n    \"\"\"Base configuration class\"\"\"\n    # Get secret key from environment variable, or generate a strong random key if not available\n    SECRET_KEY = os.environ.get(\"SECRET_KEY\") or secrets.token_hex(16)\n    # Calculate base directory path\n    basedir = os.path.abspath(os.path.dirname(__file__))\n    # Configure database URI\n    SQLALCHEMY_DATABASE_URI = (\n        os.environ.get(\"DATABASE_URL\")\n        or \"sqlite:///\" + os.path.join(os.path.dirname(basedir), \"instance\", \"site.db\")",
+        "peekOfCode": "class Config:\n    \"\"\"Base configuration class\"\"\"\n    # Get secret key from environment variable, or generate a strong random key if not available\n    SECRET_KEY = os.environ.get(\"SECRET_KEY\") or secrets.token_hex(16)\n    # Calculate base directory path\n    basedir = os.path.abspath(os.path.dirname(__file__))\n    # Configure database URI\n    SQLALCHEMY_DATABASE_URI = os.environ.get(\n        \"DATABASE_URL\"\n    ) or \"sqlite:///\" + os.path.join(os.path.dirname(basedir), \"instance\", \"site.db\")",
         "detail": "app.config",
         "documentation": {}
     },
@@ -1534,11 +1526,29 @@
         "documentation": {}
     },
     {
+        "label": "GeminiAPI",
+        "kind": 6,
+        "importPath": "app.extensions",
+        "description": "app.extensions",
+        "peekOfCode": "class GeminiAPI:\n    \"\"\"Simple wrapper for Gemini API interactions\"\"\"\n    def __init__(self, api_key=None):\n        \"\"\"Initialize the Gemini API client with an API key\"\"\"\n        self.api_key = api_key\n    def set_api_key(self, api_key):\n        \"\"\"Set or update the API key\"\"\"\n        self.api_key = api_key\n    def analyze_text(self, text):\n        \"\"\"",
+        "detail": "app.extensions",
+        "documentation": {}
+    },
+    {
+        "label": "get_gemini_api",
+        "kind": 2,
+        "importPath": "app.extensions",
+        "description": "app.extensions",
+        "peekOfCode": "def get_gemini_api():\n    \"\"\"\n    Returns the Gemini API singleton instance.\n    Returns:\n        object: Gemini API client instance\n    \"\"\"\n    global _gemini_api_instance\n    if _gemini_api_instance is None:\n        from flask import current_app\n        api_key = current_app.config.get(\"GEMINI_API_KEY\", \"\")",
+        "detail": "app.extensions",
+        "documentation": {}
+    },
+    {
         "label": "db",
         "kind": 5,
         "importPath": "app.extensions",
         "description": "app.extensions",
-        "peekOfCode": "db = SQLAlchemy()\n# Create LoginManager instance\nlogin_manager = LoginManager()\nlogin_manager.login_view = \"auth.login\"\nlogin_manager.login_message = \"Please login to access this page.\"\nlogin_manager.login_message_category = \"info\"",
+        "peekOfCode": "db = SQLAlchemy()\n# Create LoginManager instance\nlogin_manager = LoginManager()\nlogin_manager.login_view = \"auth.login\"\nlogin_manager.login_message = \"Please login to access this page.\"\nlogin_manager.login_message_category = \"info\"\n# Gemini API singleton instance\n_gemini_api_instance = None\ndef get_gemini_api():\n    \"\"\"",
         "detail": "app.extensions",
         "documentation": {}
     },
@@ -1547,7 +1557,7 @@
         "kind": 5,
         "importPath": "app.extensions",
         "description": "app.extensions",
-        "peekOfCode": "login_manager = LoginManager()\nlogin_manager.login_view = \"auth.login\"\nlogin_manager.login_message = \"Please login to access this page.\"\nlogin_manager.login_message_category = \"info\"",
+        "peekOfCode": "login_manager = LoginManager()\nlogin_manager.login_view = \"auth.login\"\nlogin_manager.login_message = \"Please login to access this page.\"\nlogin_manager.login_message_category = \"info\"\n# Gemini API singleton instance\n_gemini_api_instance = None\ndef get_gemini_api():\n    \"\"\"\n    Returns the Gemini API singleton instance.\n    Returns:",
         "detail": "app.extensions",
         "documentation": {}
     },
@@ -1556,7 +1566,7 @@
         "kind": 5,
         "importPath": "app.extensions",
         "description": "app.extensions",
-        "peekOfCode": "login_manager.login_view = \"auth.login\"\nlogin_manager.login_message = \"Please login to access this page.\"\nlogin_manager.login_message_category = \"info\"",
+        "peekOfCode": "login_manager.login_view = \"auth.login\"\nlogin_manager.login_message = \"Please login to access this page.\"\nlogin_manager.login_message_category = \"info\"\n# Gemini API singleton instance\n_gemini_api_instance = None\ndef get_gemini_api():\n    \"\"\"\n    Returns the Gemini API singleton instance.\n    Returns:\n        object: Gemini API client instance",
         "detail": "app.extensions",
         "documentation": {}
     },
@@ -1565,7 +1575,7 @@
         "kind": 5,
         "importPath": "app.extensions",
         "description": "app.extensions",
-        "peekOfCode": "login_manager.login_message = \"Please login to access this page.\"\nlogin_manager.login_message_category = \"info\"",
+        "peekOfCode": "login_manager.login_message = \"Please login to access this page.\"\nlogin_manager.login_message_category = \"info\"\n# Gemini API singleton instance\n_gemini_api_instance = None\ndef get_gemini_api():\n    \"\"\"\n    Returns the Gemini API singleton instance.\n    Returns:\n        object: Gemini API client instance\n    \"\"\"",
         "detail": "app.extensions",
         "documentation": {}
     },
@@ -1574,7 +1584,16 @@
         "kind": 5,
         "importPath": "app.extensions",
         "description": "app.extensions",
-        "peekOfCode": "login_manager.login_message_category = \"info\"",
+        "peekOfCode": "login_manager.login_message_category = \"info\"\n# Gemini API singleton instance\n_gemini_api_instance = None\ndef get_gemini_api():\n    \"\"\"\n    Returns the Gemini API singleton instance.\n    Returns:\n        object: Gemini API client instance\n    \"\"\"\n    global _gemini_api_instance",
+        "detail": "app.extensions",
+        "documentation": {}
+    },
+    {
+        "label": "_gemini_api_instance",
+        "kind": 5,
+        "importPath": "app.extensions",
+        "description": "app.extensions",
+        "peekOfCode": "_gemini_api_instance = None\ndef get_gemini_api():\n    \"\"\"\n    Returns the Gemini API singleton instance.\n    Returns:\n        object: Gemini API client instance\n    \"\"\"\n    global _gemini_api_instance\n    if _gemini_api_instance is None:\n        from flask import current_app",
         "detail": "app.extensions",
         "documentation": {}
     },
@@ -1583,7 +1602,7 @@
         "kind": 2,
         "importPath": "app.test_gemini",
         "description": "app.test_gemini",
-        "peekOfCode": "def test_gemini_api():\n    \"\"\"Test Gemini API connection\"\"\"\n    try:\n        gemini = get_gemini_api()\n        if not gemini.api_key:\n            # Try to update API key from current app config\n            try:\n                api_key = current_app.config.get('GEMINI_API_KEY', '')\n                if api_key:\n                    gemini.set_api_key(api_key)",
+        "peekOfCode": "def test_gemini_api():\n    \"\"\"Test Gemini API connection\"\"\"\n    try:\n        gemini = get_gemini_api()\n        if not gemini.api_key:\n            # Try to update API key from current app config\n            try:\n                api_key = current_app.config.get(\"GEMINI_API_KEY\", \"\")\n                if api_key:\n                    gemini.set_api_key(api_key)",
         "detail": "app.test_gemini",
         "documentation": {}
     },
@@ -1619,7 +1638,7 @@
         "kind": 2,
         "importPath": "app.utils",
         "description": "app.utils",
-        "peekOfCode": "def validate_csrf_token():\n    \"\"\"验证CSRF令牌，如果无效则中止请求\"\"\"\n    csrf_token = request.form.get(\"csrf_token\")\n    if not csrf_token:\n        flash(\"CSRF token missing\", \"danger\")\n        abort(400)\n    try:\n        validate_csrf(csrf_token)\n    except:\n        flash(\"CSRF token validation failed\", \"danger\")",
+        "peekOfCode": "def validate_csrf_token():\n    \"\"\"验证CSRF令牌，如果无效则中止请求\"\"\"\n    csrf_token = request.form.get(\"csrf_token\")\n    if not csrf_token:\n        flash(\"CSRF token missing\", \"danger\")\n        abort(400)\n    try:\n        validate_csrf(csrf_token)\n    except Exception:\n        flash(\"CSRF token validation failed\", \"danger\")",
         "detail": "app.utils",
         "documentation": {}
     },
@@ -1727,7 +1746,7 @@
         "kind": 2,
         "importPath": "migrations.versions.b9c2e1a8f4d2_add_last_login_field",
         "description": "migrations.versions.b9c2e1a8f4d2_add_last_login_field",
-        "peekOfCode": "def upgrade():\n    # Add last_login column to user table\n    op.add_column(\n        \"user\", sa.Column(\"last_login\", sa.DateTime(), nullable=True)\n    )\ndef downgrade():\n    # Drop last_login column from user table\n    op.drop_column(\"user\", \"last_login\")",
+        "peekOfCode": "def upgrade():\n    # Add last_login column to user table\n    op.add_column(\"user\", sa.Column(\"last_login\", sa.DateTime(), nullable=True))\ndef downgrade():\n    # Drop last_login column from user table\n    op.drop_column(\"user\", \"last_login\")",
         "detail": "migrations.versions.b9c2e1a8f4d2_add_last_login_field",
         "documentation": {}
     },
@@ -1745,7 +1764,7 @@
         "kind": 5,
         "importPath": "migrations.versions.b9c2e1a8f4d2_add_last_login_field",
         "description": "migrations.versions.b9c2e1a8f4d2_add_last_login_field",
-        "peekOfCode": "revision = \"b9c2e1a8f4d2\"\ndown_revision = \"ada267176dd4\"\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # Add last_login column to user table\n    op.add_column(\n        \"user\", sa.Column(\"last_login\", sa.DateTime(), nullable=True)\n    )\ndef downgrade():",
+        "peekOfCode": "revision = \"b9c2e1a8f4d2\"\ndown_revision = \"ada267176dd4\"\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # Add last_login column to user table\n    op.add_column(\"user\", sa.Column(\"last_login\", sa.DateTime(), nullable=True))\ndef downgrade():\n    # Drop last_login column from user table\n    op.drop_column(\"user\", \"last_login\")",
         "detail": "migrations.versions.b9c2e1a8f4d2_add_last_login_field",
         "documentation": {}
     },
@@ -1754,7 +1773,7 @@
         "kind": 5,
         "importPath": "migrations.versions.b9c2e1a8f4d2_add_last_login_field",
         "description": "migrations.versions.b9c2e1a8f4d2_add_last_login_field",
-        "peekOfCode": "down_revision = \"ada267176dd4\"\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # Add last_login column to user table\n    op.add_column(\n        \"user\", sa.Column(\"last_login\", sa.DateTime(), nullable=True)\n    )\ndef downgrade():\n    # Drop last_login column from user table",
+        "peekOfCode": "down_revision = \"ada267176dd4\"\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # Add last_login column to user table\n    op.add_column(\"user\", sa.Column(\"last_login\", sa.DateTime(), nullable=True))\ndef downgrade():\n    # Drop last_login column from user table\n    op.drop_column(\"user\", \"last_login\")",
         "detail": "migrations.versions.b9c2e1a8f4d2_add_last_login_field",
         "documentation": {}
     },
@@ -1763,7 +1782,7 @@
         "kind": 5,
         "importPath": "migrations.versions.b9c2e1a8f4d2_add_last_login_field",
         "description": "migrations.versions.b9c2e1a8f4d2_add_last_login_field",
-        "peekOfCode": "branch_labels = None\ndepends_on = None\ndef upgrade():\n    # Add last_login column to user table\n    op.add_column(\n        \"user\", sa.Column(\"last_login\", sa.DateTime(), nullable=True)\n    )\ndef downgrade():\n    # Drop last_login column from user table\n    op.drop_column(\"user\", \"last_login\")",
+        "peekOfCode": "branch_labels = None\ndepends_on = None\ndef upgrade():\n    # Add last_login column to user table\n    op.add_column(\"user\", sa.Column(\"last_login\", sa.DateTime(), nullable=True))\ndef downgrade():\n    # Drop last_login column from user table\n    op.drop_column(\"user\", \"last_login\")",
         "detail": "migrations.versions.b9c2e1a8f4d2_add_last_login_field",
         "documentation": {}
     },
@@ -1772,7 +1791,7 @@
         "kind": 5,
         "importPath": "migrations.versions.b9c2e1a8f4d2_add_last_login_field",
         "description": "migrations.versions.b9c2e1a8f4d2_add_last_login_field",
-        "peekOfCode": "depends_on = None\ndef upgrade():\n    # Add last_login column to user table\n    op.add_column(\n        \"user\", sa.Column(\"last_login\", sa.DateTime(), nullable=True)\n    )\ndef downgrade():\n    # Drop last_login column from user table\n    op.drop_column(\"user\", \"last_login\")",
+        "peekOfCode": "depends_on = None\ndef upgrade():\n    # Add last_login column to user table\n    op.add_column(\"user\", sa.Column(\"last_login\", sa.DateTime(), nullable=True))\ndef downgrade():\n    # Drop last_login column from user table\n    op.drop_column(\"user\", \"last_login\")",
         "detail": "migrations.versions.b9c2e1a8f4d2_add_last_login_field",
         "documentation": {}
     },
@@ -1781,7 +1800,7 @@
         "kind": 2,
         "importPath": "migrations.env",
         "description": "migrations.env",
-        "peekOfCode": "def get_engine():\n    try:\n        # this works with Flask-SQLAlchemy<3 and Alchemical\n        return current_app.extensions['migrate'].db.get_engine()\n    except (TypeError, AttributeError):\n        # this works with Flask-SQLAlchemy>=3\n        return current_app.extensions['migrate'].db.engine\ndef get_engine_url():\n    try:\n        return get_engine().url.render_as_string(",
+        "peekOfCode": "def get_engine():\n    try:\n        # this works with Flask-SQLAlchemy<3 and Alchemical\n        return current_app.extensions[\"migrate\"].db.get_engine()\n    except (TypeError, AttributeError):\n        # this works with Flask-SQLAlchemy>=3\n        return current_app.extensions[\"migrate\"].db.engine\ndef get_engine_url():\n    try:\n        return get_engine().url.render_as_string(hide_password=False).replace(\"%\", \"%%\")",
         "detail": "migrations.env",
         "documentation": {}
     },
@@ -1790,7 +1809,7 @@
         "kind": 2,
         "importPath": "migrations.env",
         "description": "migrations.env",
-        "peekOfCode": "def get_engine_url():\n    try:\n        return get_engine().url.render_as_string(\n            hide_password=False\n        ).replace('%', '%%')\n    except AttributeError:\n        return str(get_engine().url).replace('%', '%%')\n# add your model's MetaData object here\n# for 'autogenerate' support\n# from myapp import mymodel",
+        "peekOfCode": "def get_engine_url():\n    try:\n        return get_engine().url.render_as_string(hide_password=False).replace(\"%\", \"%%\")\n    except AttributeError:\n        return str(get_engine().url).replace(\"%\", \"%%\")\n# add your model's MetaData object here\n# for 'autogenerate' support\n# from myapp import mymodel\n# target_metadata = mymodel.Base.metadata\nconfig.set_main_option(\"sqlalchemy.url\", get_engine_url())",
         "detail": "migrations.env",
         "documentation": {}
     },
@@ -1799,7 +1818,7 @@
         "kind": 2,
         "importPath": "migrations.env",
         "description": "migrations.env",
-        "peekOfCode": "def get_metadata():\n    if hasattr(target_db, 'metadatas'):\n        return target_db.metadatas[None]\n    return target_db.metadata\ndef run_migrations_offline():\n    \"\"\"Run migrations in 'offline' mode.\n    This configures the context with just a URL\n    and not an Engine, though an Engine is acceptable\n    here as well.  By skipping the Engine creation\n    we don't even need a DBAPI to be available.",
+        "peekOfCode": "def get_metadata():\n    if hasattr(target_db, \"metadatas\"):\n        return target_db.metadatas[None]\n    return target_db.metadata\ndef run_migrations_offline():\n    \"\"\"Run migrations in 'offline' mode.\n    This configures the context with just a URL\n    and not an Engine, though an Engine is acceptable\n    here as well.  By skipping the Engine creation\n    we don't even need a DBAPI to be available.",
         "detail": "migrations.env",
         "documentation": {}
     },
@@ -1817,7 +1836,7 @@
         "kind": 2,
         "importPath": "migrations.env",
         "description": "migrations.env",
-        "peekOfCode": "def run_migrations_online():\n    \"\"\"Run migrations in 'online' mode.\n    In this scenario we need to create an Engine\n    and associate a connection with the context.\n    \"\"\"\n    # this callback is used to prevent an auto-migration from being generated\n    # when there are no changes to the schema\n    # reference: http://alembic.zzzcomputing.com/en/latest/cookbook.html\n    def process_revision_directives(context, revision, directives):\n        if getattr(config.cmd_opts, 'autogenerate', False):",
+        "peekOfCode": "def run_migrations_online():\n    \"\"\"Run migrations in 'online' mode.\n    In this scenario we need to create an Engine\n    and associate a connection with the context.\n    \"\"\"\n    # this callback is used to prevent an auto-migration from being generated\n    # when there are no changes to the schema\n    # reference: http://alembic.zzzcomputing.com/en/latest/cookbook.html\n    def process_revision_directives(context, revision, directives):\n        if getattr(config.cmd_opts, \"autogenerate\", False):",
         "detail": "migrations.env",
         "documentation": {}
     },
@@ -1826,7 +1845,7 @@
         "kind": 5,
         "importPath": "migrations.env",
         "description": "migrations.env",
-        "peekOfCode": "config = context.config\n# Interpret the config file for Python logging.\n# This line sets up loggers basically.\nfileConfig(config.config_file_name)\nlogger = logging.getLogger('alembic.env')\ndef get_engine():\n    try:\n        # this works with Flask-SQLAlchemy<3 and Alchemical\n        return current_app.extensions['migrate'].db.get_engine()\n    except (TypeError, AttributeError):",
+        "peekOfCode": "config = context.config\n# Interpret the config file for Python logging.\n# This line sets up loggers basically.\nfileConfig(config.config_file_name)\nlogger = logging.getLogger(\"alembic.env\")\ndef get_engine():\n    try:\n        # this works with Flask-SQLAlchemy<3 and Alchemical\n        return current_app.extensions[\"migrate\"].db.get_engine()\n    except (TypeError, AttributeError):",
         "detail": "migrations.env",
         "documentation": {}
     },
@@ -1835,7 +1854,7 @@
         "kind": 5,
         "importPath": "migrations.env",
         "description": "migrations.env",
-        "peekOfCode": "logger = logging.getLogger('alembic.env')\ndef get_engine():\n    try:\n        # this works with Flask-SQLAlchemy<3 and Alchemical\n        return current_app.extensions['migrate'].db.get_engine()\n    except (TypeError, AttributeError):\n        # this works with Flask-SQLAlchemy>=3\n        return current_app.extensions['migrate'].db.engine\ndef get_engine_url():\n    try:",
+        "peekOfCode": "logger = logging.getLogger(\"alembic.env\")\ndef get_engine():\n    try:\n        # this works with Flask-SQLAlchemy<3 and Alchemical\n        return current_app.extensions[\"migrate\"].db.get_engine()\n    except (TypeError, AttributeError):\n        # this works with Flask-SQLAlchemy>=3\n        return current_app.extensions[\"migrate\"].db.engine\ndef get_engine_url():\n    try:",
         "detail": "migrations.env",
         "documentation": {}
     },
@@ -1844,7 +1863,7 @@
         "kind": 5,
         "importPath": "migrations.env",
         "description": "migrations.env",
-        "peekOfCode": "target_db = current_app.extensions['migrate'].db\n# other values from the config, defined by the needs of env.py,\n# can be acquired:\n# my_important_option = config.get_main_option(\"my_important_option\")\n# ... etc.\ndef get_metadata():\n    if hasattr(target_db, 'metadatas'):\n        return target_db.metadatas[None]\n    return target_db.metadata\ndef run_migrations_offline():",
+        "peekOfCode": "target_db = current_app.extensions[\"migrate\"].db\n# other values from the config, defined by the needs of env.py,\n# can be acquired:\n# my_important_option = config.get_main_option(\"my_important_option\")\n# ... etc.\ndef get_metadata():\n    if hasattr(target_db, \"metadatas\"):\n        return target_db.metadatas[None]\n    return target_db.metadata\ndef run_migrations_offline():",
         "detail": "migrations.env",
         "documentation": {}
     },
@@ -1862,7 +1881,7 @@
         "kind": 5,
         "importPath": "scripts.check_app",
         "description": "scripts.check_app",
-        "peekOfCode": "parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))\nsys.path.insert(0, parent_dir)\nfrom app import create_app\ndef check_app():\n    \"\"\"Check if the application can be created and configured correctly.\"\"\"\n    try:\n        app = create_app()\n        print(\"✅ Application loaded successfully!\")\n        print(f\"✅ App name: {app.name}\")\n        print(f\"✅ Debug mode: {app.debug}\")",
+        "peekOfCode": "parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), \"..\"))\nsys.path.insert(0, parent_dir)\nfrom app import create_app  # noqa: E402\ndef check_app():\n    \"\"\"Check if the application can be created and configured correctly.\"\"\"\n    try:\n        app = create_app()\n        print(\"✅ Application loaded successfully!\")\n        print(f\"✅ App name: {app.name}\")\n        print(f\"✅ Debug mode: {app.debug}\")",
         "detail": "scripts.check_app",
         "documentation": {}
     },

@@ -18,9 +18,7 @@ def index():
     users = User.query.filter(User.id != user_id).all()
 
     # Get existing share records to show who already has access
-    shares = Share.query.join(Dataset).filter(
-        Dataset.user_id == user_id
-    ).all()
+    shares = Share.query.join(Dataset).filter(Dataset.user_id == user_id).all()
 
     return render_template(
         "sharing/share.html",

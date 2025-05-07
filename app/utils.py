@@ -1,7 +1,7 @@
 import os
 import uuid
 import pandas as pd
-from flask import current_app, request, abort, flash
+from flask import request, abort, flash
 import re
 from flask_wtf.csrf import validate_csrf
 
@@ -40,7 +40,7 @@ def validate_csrf_token():
 
     try:
         validate_csrf(csrf_token)
-    except:
+    except Exception:
         flash("CSRF token validation failed", "danger")
         abort(400)
 

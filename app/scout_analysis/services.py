@@ -6,6 +6,7 @@ from flask import current_app
 
 class ScoutAnalysisService:
     """Scout Report Analysis Service"""
+
     # Class variables for model caching
     _nlp_model = None
     _model_lock = threading.Lock()
@@ -17,29 +18,36 @@ class ScoutAnalysisService:
             with cls._model_lock:
                 if cls._nlp_model is None:
                     try:
-                        if current_app.config.get('ENABLE_SCOUT_DEEP_ANALYSIS', False):
-                            current_app.logger.info("Loading NLP models for scout analysis...")
+                        if current_app.config.get("ENABLE_SCOUT_DEEP_ANALYSIS", False):
+                            current_app.logger.info(
+                                "Loading NLP models for scout analysis..."
+                            )
                             try:
                                 from transformers import pipeline
+
                                 cls._nlp_model = {
-                                    'sentiment': pipeline(
-                                        'sentiment-analysis',
-                                        model='distilbert-base-uncased-finetuned-sst-2-english'
+                                    "sentiment": pipeline(
+                                        "sentiment-analysis",
+                                        model="distilbert-base-uncased-finetuned-sst-2-english",
                                     ),
-                                    'type': 'transformer'
+                                    "type": "transformer",
                                 }
-                                current_app.logger.info("NLP models loaded successfully")
+                                current_app.logger.info(
+                                    "NLP models loaded successfully"
+                                )
                             except ImportError:
                                 current_app.logger.warning(
                                     "Transformers library not available, using rule-based analysis only"
                                 )
-                                cls._nlp_model = {'type': 'rule_engine'}
+                                cls._nlp_model = {"type": "rule_engine"}
                         else:
-                            current_app.logger.info("Deep analysis disabled, using rule-based analysis only")
-                            cls._nlp_model = {'type': 'rule_engine'}
+                            current_app.logger.info(
+                                "Deep analysis disabled, using rule-based analysis only"
+                            )
+                            cls._nlp_model = {"type": "rule_engine"}
                     except Exception as e:
                         current_app.logger.error(f"Error loading NLP model: {str(e)}")
-                        cls._nlp_model = {'type': 'rule_engine'}
+                        cls._nlp_model = {"type": "rule_engine"}
         return cls._nlp_model
 
     @staticmethod
@@ -47,27 +55,27 @@ class ScoutAnalysisService:
         current_app.logger.warning(f"[DEBUG] services module path: {__file__}")
         """Analyze scout report text, ensuring strict adherence to Gemini API format"""
         try:
-            current_app.logger.info(f"Starting text analysis, length={len(text_content)}")
-            api_key = current_app.config.get('GEMINI_API_KEY')
+            current_app.logger.info(
+                f"Starting text analysis, length={len(text_content)}"
+            )
+            api_key = current_app.config.get("GEMINI_API_KEY")
             if not api_key:
                 current_app.logger.error(
                     "Missing GEMINI_API_KEY configuration, unable to perform text analysis"
                 )
                 return ScoutAnalysisService.generate_mock_analysis(text_content)
-            api_url = (
-                f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={api_key}"
+            api_url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={api_key}"
+            current_app.logger.warning(
+                f"[DEBUG] Using config API key: {api_key[:5]}...{api_key[-5:]}"
             )
-            current_app.logger.warning(f"[DEBUG] Using config API key: {api_key[:5]}...{api_key[-5:]}")
             current_app.logger.warning(f"[DEBUG] Using API service: {api_url}")
-            current_app.logger.warning(f"[DEBUG] Using Gemini API key: {api_key[:5]}...{api_key[-5:]}")
-
-            headers = {
-                "Content-Type": "application/json"
-            }
-
-            system_instruction = (
-                "You are a professional basketball scout. You analyze player information and generate detailed scouting reports."
+            current_app.logger.warning(
+                f"[DEBUG] Using Gemini API key: {api_key[:5]}...{api_key[-5:]}"
             )
+
+            headers = {"Content-Type": "application/json"}
+
+            system_instruction = "You are a professional basketball scout. You analyze player information and generate detailed scouting reports."
             user_prompt = f"""Given the following basketball player information, generate a detailed scouting report.
 
 Include:
@@ -89,19 +97,9 @@ Player information:
 
             payload = {
                 "contents": [
-                    {
-                        "role": "user",
-                        "parts": [
-                            {
-                                "text": prompt_with_instruction
-                            }
-                        ]
-                    }
+                    {"role": "user", "parts": [{"text": prompt_with_instruction}]}
                 ],
-                "generationConfig": {
-                    "temperature": 0.3,
-                    "maxOutputTokens": 2000
-                }
+                "generationConfig": {"temperature": 0.3, "maxOutputTokens": 2000},
             }
 
             current_app.logger.warning(f"[DEBUG] Gemini API request URL: {api_url}")
@@ -110,9 +108,13 @@ Player information:
 
             try:
                 resp = requests.post(api_url, json=payload, headers=headers, timeout=60)
-                current_app.logger.warning(f"[DEBUG] Gemini API response status: {resp.status_code}")
+                current_app.logger.warning(
+                    f"[DEBUG] Gemini API response status: {resp.status_code}"
+                )
                 if resp.status_code != 200:
-                    current_app.logger.error(f"Gemini API call failed: {resp.status_code} - {resp.text}")
+                    current_app.logger.error(
+                        f"Gemini API call failed: {resp.status_code} - {resp.text}"
+                    )
                     return ScoutAnalysisService.generate_mock_analysis(text_content)
                 result = resp.json()
                 current_app.logger.warning(f"[DEBUG] API response: {result}")
@@ -121,7 +123,11 @@ Player information:
                 candidates = result.get("candidates", [])
                 if candidates and len(candidates) > 0:
                     candidate = candidates[0]
-                    if "content" in candidate and "parts" in candidate["content"] and len(candidate["content"]["parts"]) > 0:
+                    if (
+                        "content" in candidate
+                        and "parts" in candidate["content"]
+                        and len(candidate["content"]["parts"]) > 0
+                    ):
                         content = candidate["content"]["parts"][0].get("text", "")
 
                 current_app.logger.warning(f"[DEBUG] Analysis content: {content}")
@@ -129,7 +135,9 @@ Player information:
                 try:
                     content = content.replace("```json", "").replace("```", "").strip()
                     analysis_result = json.loads(content)
-                    current_app.logger.warning(f"[DEBUG] Parsed JSON: {analysis_result}")
+                    current_app.logger.warning(
+                        f"[DEBUG] Parsed JSON: {analysis_result}"
+                    )
                 except Exception as e:
                     current_app.logger.error(f"JSON parsing failed: {str(e)}")
                     analysis_result = {"summary": content}
@@ -163,9 +171,19 @@ Player information:
         elif "doncic" in text_lower:
             name = "Luka Doncic"
 
-        strengths = ["Excellent court vision", "High basketball IQ", "Strong offensive skills"]
-        weaknesses = ["Needs improvement on defense", "Inconsistent three-point shooting"]
-        development_areas = ["Focus on defensive positioning", "Develop leadership skills"]
+        strengths = [
+            "Excellent court vision",
+            "High basketball IQ",
+            "Strong offensive skills",
+        ]
+        weaknesses = [
+            "Needs improvement on defense",
+            "Inconsistent three-point shooting",
+        ]
+        development_areas = [
+            "Focus on defensive positioning",
+            "Develop leadership skills",
+        ]
 
         if "shoot" in text_lower or "shooter" in text_lower or "shooting" in text_lower:
             strengths.append("Great shooting ability")
@@ -173,7 +191,11 @@ Player information:
         else:
             offensive_rating = 80
 
-        if "defend" in text_lower or "defense" in text_lower or "defensive" in text_lower:
+        if (
+            "defend" in text_lower
+            or "defense" in text_lower
+            or "defensive" in text_lower
+        ):
             strengths.append("Solid defensive skills")
             defensive_rating = 85
         else:
@@ -193,11 +215,7 @@ Player information:
 
         return {
             "processing_status": "completed",
-            "player_info": {
-                "name": name,
-                "position": "Forward",
-                "team": "All-Stars"
-            },
+            "player_info": {"name": name, "position": "Forward", "team": "All-Stars"},
             "strengths": strengths,
             "weaknesses": weaknesses,
             "development_areas": development_areas,
@@ -207,5 +225,5 @@ Player information:
             "physical_rating": physical_rating,
             "technical_rating": 82,
             "potential_rating": 87,
-            "overall_rating": 83
+            "overall_rating": 83,
         }

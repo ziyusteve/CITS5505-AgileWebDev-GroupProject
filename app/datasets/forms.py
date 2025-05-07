@@ -8,12 +8,8 @@ from werkzeug.utils import secure_filename
 class UploadDatasetForm(FlaskForm):
     """Dataset upload form"""
 
-    title = StringField(
-        "Player Name", validators=[Optional(), Length(max=100)]
-    )
-    file = FileField(
-        "Upload File", validators=[FileRequired("Please select a file")]
-    )
+    title = StringField("Player Name", validators=[Optional(), Length(max=100)])
+    file = FileField("Upload File", validators=[FileRequired("Please select a file")])
     submit = SubmitField("Analyze and Generate Scout Report")
 
     def validate_file(self, field):
@@ -34,9 +30,7 @@ class UploadDatasetForm(FlaskForm):
             try:
                 secure_name = secure_filename(filename)
                 if not secure_name or secure_name != filename:
-                    raise ValidationError(
-                        "Filename contains invalid characters"
-                    )
+                    raise ValidationError("Filename contains invalid characters")
             except Exception:
                 # 如果secure_filename出错（依赖问题），跳过这项检查
                 pass
