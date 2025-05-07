@@ -116,3 +116,47 @@ function executePageSpecificCode() {
 
 // Run page-specific code after DOM is ready
 document.addEventListener('DOMContentLoaded', executePageSpecificCode);
+
+// Enhanced Basketball Analytics Interactions
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize counters with animation
+    const counterElements = document.querySelectorAll('.counter-wrapper');
+    counterElements.forEach((element, index) => {
+        element.style.setProperty('--animation-order', index);
+    });
+    
+    // Add animation to analysis cards
+    const analysisCards = document.querySelectorAll('.analysis-card');
+    analysisCards.forEach((card) => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        observer.observe(card);
+    });
+    
+    // Initialize skill bars with animation
+    const skillBars = document.querySelectorAll('.skill-bar');
+    skillBars.forEach((bar) => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const width = bar.style.width;
+                    bar.style.width = '0%';
+                    setTimeout(() => {
+                        bar.style.width = width;
+                    }, 100);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        observer.observe(bar);
+    });
+});

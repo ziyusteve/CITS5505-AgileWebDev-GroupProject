@@ -4,6 +4,35 @@
 
 {% block content %}
 <div class="container py-4">
+    <div class="nba-hero">
+        <div class="row">
+            <div class="col-md-8 col-lg-7">
+                <h1>Gemini AI Basketball Analytics <i class="fas fa-brain ai-icon"></i></h1>
+                <p class="lead">Elite player analysis platform powered by Gemini AI. Upload player descriptions, get detailed analysis and skill assessments to build championship teams.</p>
+                
+                {% if current_user.is_authenticated %}
+                <div class="mt-4">
+                    <a href="{{ url_for('dashboard.index') }}" class="btn btn-primary btn-lg me-2">
+                        <i class="fas fa-tachometer-alt me-2"></i>Dashboard
+                    </a>
+                    <a href="{{ url_for('datasets.upload') }}" class="btn btn-success btn-lg">
+                        <i class="fas fa-upload me-2"></i>Analyze New Player
+                    </a>
+                </div>
+                {% else %}
+                <div class="mt-4">
+                    <a href="{{ url_for('auth.login') }}" class="btn btn-primary btn-lg me-2">
+                        <i class="fas fa-sign-in-alt me-2"></i>Login
+                    </a>
+                    <a href="{{ url_for('auth.register') }}" class="btn btn-success btn-lg">
+                        <i class="fas fa-user-plus me-2"></i>Register
+                    </a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
     <div class="row align-items-center mb-4">
         <div class="col">
             <h2 class="display-6 fw-bold text-white mb-0">
@@ -317,4 +346,4 @@
         padding: 2rem;
     }
 </style>
-{% endblock %} 
+{% endblock %}
