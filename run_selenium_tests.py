@@ -1,3 +1,7 @@
+#!/usr/bin/env python
+"""
+Run Selenium tests for the NBA Player Analytics application
+"""
 import unittest
 import sys
 import os
@@ -10,10 +14,7 @@ from selenium_tests import SeleniumTestCase
 
 if __name__ == '__main__':
     # Start Flask app in a separate process
-    import subprocess
-    from threading import Thread
-    
-    # Start Flask app in testing mode
+    print("Starting Flask test server...")
     flask_proc = subprocess.Popen(
         ['python', 'run_testing.py'],
         stdout=subprocess.PIPE,
@@ -21,7 +22,6 @@ if __name__ == '__main__':
     )
     
     # Wait for the server to start
-    print("Starting Flask test server...")
     time.sleep(3)
     
     try:
