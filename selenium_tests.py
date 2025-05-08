@@ -96,7 +96,13 @@ class SeleniumTestCase(unittest.TestCase):
         # Now log in with the new user
         self.driver.find_element(By.ID, 'username').send_keys('newuser')
         self.driver.find_element(By.ID, 'password').send_keys('NewPassword123')
-        self.driver.find_element(By.ID, 'submit').click()
+        submit_button = self.driver.find_element(By.ID, 'submit')
+        self.driver.execute_script("arguments[0].scrollIntoView(true);", submit_button)
+        # Add a small wait to ensure the page has responded to the scroll
+        import time
+        time.sleep(0.5)
+        # Now try clicking
+        submit_button.click()
         
         # Check if login was successful (redirected to dashboard)
         WebDriverWait(self.driver, 10).until(
