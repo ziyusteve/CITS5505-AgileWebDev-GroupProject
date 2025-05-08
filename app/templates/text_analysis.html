@@ -20,11 +20,13 @@
                 </div>
                 <div class="card-body">
                     <form id="analysisForm">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
                         <div class="form-group mb-3">
                             <label for="text"><i class="fas fa-file-alt me-2"></i>Enter text for analysis:</label>
                             <textarea class="form-control" id="text" rows="5" placeholder="Enter your text here..."></textarea>
                         </div>
-                        
+
                         <div class="form-group mb-4">
                             <label><i class="fas fa-sliders-h me-2"></i>Select analysis type:</label>
                             <div class="row mt-2">
@@ -66,20 +68,20 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="form-group mb-3" id="summaryOptions" style="display: none;">
                             <label for="maxWords"><i class="fas fa-text-width me-2"></i>Maximum words:</label>
                             <input type="number" class="form-control" id="maxWords" value="50" min="10" max="200">
                         </div>
-                        
+
                         <div class="form-group mb-3" id="classificationOptions" style="display: none;">
                             <label for="categories"><i class="fas fa-layer-group me-2"></i>Categories (comma separated):</label>
                             <input type="text" class="form-control" id="categories" placeholder="Example: sports,technology,education,entertainment,politics">
                         </div>
-                        
+
                         <button type="submit" class="btn btn-ai"><i class="fas fa-bolt me-2"></i>Start AI Analysis</button>
                     </form>
-                    
+
                     <div class="mt-4" id="results" style="display: none;">
                         <div class="d-flex align-items-center mb-3">
                             <div class="ai-analyzing me-2" id="processing-indicator">AI Analysis in Progress</div>
@@ -107,32 +109,32 @@ document.addEventListener('DOMContentLoaded', function() {
     const analysisTypes = document.querySelectorAll('input[name="analysisType"]');
     const summaryOptions = document.getElementById('summaryOptions');
     const classificationOptions = document.getElementById('classificationOptions');
-    
+
     analysisTypes.forEach(type => {
         type.addEventListener('change', function() {
             summaryOptions.style.display = this.value === 'summary' ? 'block' : 'none';
             classificationOptions.style.display = this.value === 'classification' ? 'block' : 'none';
         });
     });
-    
+
     // Form submission
     const form = document.getElementById('analysisForm');
     const results = document.getElementById('results');
     const resultContent = document.getElementById('resultContent');
     const processingIndicator = document.getElementById('processing-indicator');
-    
+
     form.addEventListener('submit', function(e) {
         e.preventDefault();
-        
+
         const text = document.getElementById('text').value.trim();
         if (!text) {
             alert('Please enter text for analysis');
             return;
         }
-        
+
         const analysisType = document.querySelector('input[name="analysisType"]:checked').value;
         let options = {};
-        
+
         if (analysisType === 'summary') {
             options.max_words = parseInt(document.getElementById('maxWords').value);
         } else if (analysisType === 'classification') {
@@ -141,43 +143,62 @@ document.addEventListener('DOMContentLoaded', function() {
                 options.categories = categoriesInput.split(',').map(c => c.trim());
             }
         }
-        
+
         // Show loading state
         processingIndicator.style.display = 'inline-flex';
         resultContent.textContent = 'Performing deep analysis with Gemini AI, please wait...';
         results.style.display = 'block';
-        
-        // Send request
-        fetch('/api/gemini/analyze', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                text: text,
-                analysis_type: analysisType,
-                options: options
-            }),
-        })
-        .then(response => response.json())
-        .then(data => {
-            processingIndicator.style.display = 'none';
-            if (data.error) {
-                resultContent.textContent = `Error: ${data.error}`;
-            } else {
-                resultContent.textContent = JSON.stringify(data.result, null, 2);
-                
-                // Add beautification
-                resultContent.innerHTML = resultContent.textContent
-                    .replace(/"([^"]+)":/g, '<span style="color: #FDB927;">"$1"</span>:')
-                    .replace(/: "([^"]+)"/g, ': <span style="color: #7D3AC1;">"$1"</span>');
-            }
-        })
-        .catch(error => {
-            processingIndicator.style.display = 'none';
-            resultContent.textContent = `Request error: ${error}`;
-        });
+
+        // Get CSRF token
+        const csrfToken = document.querySelector('input[name="csrf_token"]').value;
+
+        // Function to send request with retry logic
+        const sendRequest = (retryCount = 0, maxRetries = 2) => {
+            // Send request
+            fetch('/api/gemini/analyze', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': csrfToken
+                },
+                body: JSON.stringify({
+                    text: text,
+                    analysis_type: analysisType,
+                    options: options
+                }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                processingIndicator.style.display = 'none';
+                if (data.error) {
+                    resultContent.textContent = `Error: ${data.error}`;
+                } else {
+                    resultContent.textContent = JSON.stringify(data.result, null, 2);
+
+                    // Add beautification
+                    resultContent.innerHTML = resultContent.textContent
+                        .replace(/"([^"]+)":/g, '<span style="color: #FDB927;">"$1"</span>:')
+                        .replace(/: "([^"]+)"/g, ': <span style="color: #7D3AC1;">"$1"</span>');
+                }
+            })
+            .catch(error => {
+                // Implement retry logic for network errors
+                if (retryCount < maxRetries) {
+                    console.log(`Request failed, retrying (${retryCount + 1}/${maxRetries})...`);
+                    // Retry after one second delay
+                    setTimeout(() => {
+                        sendRequest(retryCount + 1, maxRetries);
+                    }, 1000);
+                } else {
+                    processingIndicator.style.display = 'none';
+                    resultContent.textContent = `Request error after ${maxRetries} retries: ${error}`;
+                }
+            });
+        };
+
+        // Start sending request
+        sendRequest();
     });
 });
 </script>
-{% endblock %} 
+{% endblock %}

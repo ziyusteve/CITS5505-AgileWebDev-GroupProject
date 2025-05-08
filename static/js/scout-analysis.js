@@ -7,10 +7,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Check if we're on a page with scout report analysis
     const scoutReportContainer = document.getElementById('scout-report-analysis');
     if (!scoutReportContainer) return;
-    
+
     const datasetId = scoutReportContainer.dataset.datasetId;
     if (!datasetId) return;
-    
+
     // Dynamically load jsPDF library
     const jsPDFScript = document.createElement('script');
     jsPDFScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.head.appendChild(html2canvasScript);
     };
     document.head.appendChild(jsPDFScript);
-    
+
     // Fetch the scout report analysis data
     fetchScoutAnalysis(datasetId);
 });
@@ -32,13 +32,13 @@ document.addEventListener('DOMContentLoaded', function() {
 function exportToPDF() {
     const reportContainer = document.querySelector('.court-bg');
     if (!reportContainer) return;
-    
+
     // Show loading toast
     const loadingToast = document.createElement('div');
     loadingToast.className = 'export-toast';
     loadingToast.innerHTML = `<div class="toast-content"><i class="fas fa-spinner fa-spin me-2"></i>Generating PDF report, please wait...</div>`;
     document.body.appendChild(loadingToast);
-    
+
     // Use html2canvas for screenshot
     html2canvas(reportContainer, {
         scale: 2, // Higher scale for better quality
@@ -57,16 +57,16 @@ function exportToPDF() {
             unit: 'mm',
             format: 'a4'
         });
-        
+
         const imgWidth = 210; // A4 width
         const pageHeight = 295;  // A4 height
         const imgHeight = canvas.height * imgWidth / canvas.width;
         let heightLeft = imgHeight;
         let position = 0;
-        
+
         pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
         heightLeft -= pageHeight;
-        
+
         // If content spans multiple pages, create new pages
         while (heightLeft > 0) {
             position = heightLeft - imgHeight;
@@ -74,22 +74,22 @@ function exportToPDF() {
             pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
             heightLeft -= pageHeight;
         }
-        
+
         // Download PDF file
-        const playerName = document.querySelector('.theme-accent-gold') ? 
+        const playerName = document.querySelector('.theme-accent-gold') ?
             document.querySelector('.theme-accent-gold').textContent : 'Scout_Report';
         const filename = `${playerName.replace(/\s+/g, '_')}_Scout_Report.pdf`;
         pdf.save(filename);
-        
+
         // Remove loading toast
         document.body.removeChild(loadingToast);
-        
+
         // Show success toast
         const successToast = document.createElement('div');
         successToast.className = 'export-toast success';
         successToast.innerHTML = `<div class="toast-content"><i class="fas fa-check-circle me-2"></i>PDF report successfully exported</div>`;
         document.body.appendChild(successToast);
-        
+
         // Remove success toast after 3 seconds
         setTimeout(() => {
             document.body.removeChild(successToast);
@@ -102,7 +102,7 @@ function exportToPDF() {
  */
 function fetchScoutAnalysis(datasetId) {
     const endpoint = `/api/scout-analysis/${datasetId}`;
-    
+
     fetch(endpoint)
         .then(response => {
             if (!response.ok) {
@@ -114,13 +114,23 @@ function fetchScoutAnalysis(datasetId) {
             console.log("API response data:", data); // Debug log
             renderScoutAnalysis(data);
         })
-        .catch(error => {
-            console.error('Error loading scout analysis:', error);
-            document.getElementById('scout-report-analysis').innerHTML = `
-                <div class="alert alert-danger">
-                    Failed to load scout report analysis: ${error.message}
-                </div>
-            `;
+        .catch(error => {            console.error('Error loading scout analysis:', error);
+            // Check if response is 401 - authentication error
+            if (error.message.includes('401') || error.message.includes('Authentication')) {
+                document.getElementById('scout-report-analysis').innerHTML = `
+                    <div class="alert alert-warning">
+                        <i class="fas fa-exclamation-triangle me-2"></i>
+                        Authentication required. Please ensure you are logged in and try refreshing the page.
+                    </div>
+                `;
+            } else {
+                document.getElementById('scout-report-analysis').innerHTML = `
+                    <div class="alert alert-danger">
+                        <i class="fas fa-exclamation-circle me-2"></i>
+                        Failed to load scout report analysis: ${error.message}
+                    </div>
+                `;
+            }
         });
 }
 
@@ -129,7 +139,7 @@ function fetchScoutAnalysis(datasetId) {
  */
 function renderScoutAnalysis(data) {
     const container = document.getElementById('scout-report-analysis');
-    
+
     // Check processing status
     if (data.processing_status === 'pending' || data.processing_status === 'processing') {
         container.innerHTML = `
@@ -141,7 +151,7 @@ function renderScoutAnalysis(data) {
         setTimeout(() => fetchScoutAnalysis(data.dataset_id), 5000);
         return;
     }
-    
+
     if (data.processing_status === 'failed') {
         container.innerHTML = `
             <div class="alert alert-danger">
@@ -150,13 +160,13 @@ function renderScoutAnalysis(data) {
         `;
         return;
     }
-    
+
     // Process player information - get directly from root object or use player_info
     const playerInfo = data.player_info || {};
     const playerName = playerInfo.name || data.player_name || "Dyson Daniels"; // Extract player name from text
     const playerPosition = playerInfo.position || data.position || "Guard";
     const playerTeam = playerInfo.team || data.team || "Atlanta Hawks";
-    
+
     // Player card - NBA professional style
     const playerInfoHTML = `
         <div class="card mb-4 shadow-lg border-0">
@@ -203,28 +213,28 @@ function renderScoutAnalysis(data) {
             </div>
         </div>
     `;
-    
+
     // Process rating data - collect all rating fields into ratings object
     const ratings = {};
     const possibleRatings = [
-        'offensive_rating', 'defensive_rating', 'physical_rating', 
+        'offensive_rating', 'defensive_rating', 'physical_rating',
         'technical_rating', 'potential_rating', 'overall_rating'
     ];
-    
+
     // Collect all ratings from data
     possibleRatings.forEach(rating => {
         if (data[rating] !== undefined && data[rating] !== null) {
             ratings[rating] = data[rating];
         }
     });
-    
+
     // If there's an old ratings object, merge it too
     if (data.ratings) {
         Object.assign(ratings, data.ratings);
     }
-    
+
     const ratingKeys = Object.keys(ratings);
-    
+
     // Rating level text
     function getRatingText(score) {
         if (score >= 90) return 'Superstar';
@@ -234,7 +244,7 @@ function renderScoutAnalysis(data) {
         if (score >= 70) return 'Bench';
         return 'Development';
     }
-    
+
     // Rating level color
     function getRatingColor(score) {
         if (score >= 90) return '#FDB927'; // Gold
@@ -244,14 +254,14 @@ function renderScoutAnalysis(data) {
         if (score >= 70) return '#fb8c00'; // Orange
         return '#e53935'; // Red
     }
-    
+
     let ratingsHTML = '';
     if (ratingKeys.length > 0) {
         // Calculate overall rating level
         const overallScore = ratings['overall_rating'] || 0;
         const overallCategory = getRatingText(overallScore);
         const overallColor = getRatingColor(overallScore);
-        
+
         ratingsHTML = `
             <div class="card mb-4 shadow-lg border-0">
                 <div class="card-header bg-gradient-dark text-white border-0 py-3">
@@ -268,7 +278,7 @@ function renderScoutAnalysis(data) {
                             </div>
                             <div class="text-center">
                                 <span class="badge bg-dark text-white px-3 py-2" style="border: 2px solid ${overallColor};">
-                                    Overall Rating: <span class="fw-bold" style="color: ${overallColor};">${overallScore}</span> 
+                                    Overall Rating: <span class="fw-bold" style="color: ${overallColor};">${overallScore}</span>
                                     <span class="ms-2 small">(${overallCategory})</span>
                                 </span>
                             </div>
@@ -299,14 +309,14 @@ function renderScoutAnalysis(data) {
             </div>
         `;
     }
-    
+
     // Process analysis details - get from root object or full_analysis
     // First try root object
     let strengths = data.strengths || [];
     let weaknesses = data.weaknesses || [];
     let developmentAreas = data.development_areas || [];
     let summary = data.summary || "";
-    
+
     // If root object doesn't have these, try full_analysis
     if ((!strengths.length && !weaknesses.length && !developmentAreas.length) && data.full_analysis) {
         const fullAnalysis = data.full_analysis;
@@ -315,7 +325,7 @@ function renderScoutAnalysis(data) {
         developmentAreas = fullAnalysis.development_areas || [];
         summary = fullAnalysis.summary || summary;
     }
-    
+
     // Advanced analysis details section
     const analysisDetailsHTML = `
         <div class="card mb-4 shadow-lg border-0">
@@ -332,7 +342,7 @@ function renderScoutAnalysis(data) {
                         <p class="lead">${summary}</p>
                     </div>
                 ` : ''}
-                
+
                 <div class="row g-4">
                     <div class="col-md-4">
                         <div class="card h-100 bg-dark text-white border-0">
@@ -355,7 +365,7 @@ function renderScoutAnalysis(data) {
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="col-md-4">
                         <div class="card h-100 bg-dark text-white border-0">
                             <div class="card-header bg-danger text-white py-2">
@@ -377,7 +387,7 @@ function renderScoutAnalysis(data) {
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="col-md-4">
                         <div class="card h-100 bg-dark text-white border-0">
                             <div class="card-header bg-info text-white py-2">
@@ -403,7 +413,7 @@ function renderScoutAnalysis(data) {
             </div>
         </div>
     `;
-    
+
     // Process analysis date
     let analysisDate = "Unknown";
     if (data.analysis_date) {
@@ -421,7 +431,7 @@ function renderScoutAnalysis(data) {
             console.error("Error parsing date:", e);
         }
     }
-    
+
     // Add CSS styles
     const customStyles = `
         <style>
@@ -553,7 +563,7 @@ function renderScoutAnalysis(data) {
             }
         </style>
     `;
-    
+
     // Combine all sections
     container.innerHTML = customStyles + `
         <div class="court-bg p-2 p-md-4">
@@ -561,39 +571,39 @@ function renderScoutAnalysis(data) {
                 <h2 class="theme-accent-gold mb-0"><i class="fas fa-basketball-ball me-2"></i>Professional Scout Report</h2>
                 <span class="badge bg-dark text-white p-2">Report Date: ${analysisDate}</span>
             </div>
-            
+
             ${playerInfoHTML}
             ${ratingsHTML}
             ${analysisDetailsHTML}
-            
+
             <div class="text-center mt-4">
                 <div class="small text-muted">
                     <i class="fas fa-shield-alt me-1"></i> Generated by NBA Analytics Platform
                 </div>
             </div>
         </div>
-        
+
         <!-- Export button -->
         <button class="export-btn" onclick="exportToPDF()">
             <i class="fas fa-file-pdf"></i>
         </button>
     `;
-    
+
     // Initialize radar chart
     if (ratingKeys.length > 0) {
         const filteredRatingKeys = ratingKeys.filter(key => key !== 'overall_rating');
         if (filteredRatingKeys.length > 0) {
             const ctx = document.getElementById('ratings-chart').getContext('2d');
-            
+
             // Create gradient colors
             const purpleGold = ctx.createLinearGradient(0, 0, 0, 400);
             purpleGold.addColorStop(0, 'rgba(85, 37, 131, 0.7)');    // Lakers Purple
             purpleGold.addColorStop(1, 'rgba(253, 185, 39, 0.7)');   // Lakers Gold
-            
+
             new Chart(ctx, {
                 type: 'radar',
                 data: {
-                    labels: filteredRatingKeys.map(key => 
+                    labels: filteredRatingKeys.map(key =>
                         key.replace('_rating', '')
                            .split('_')
                            .map(word => word.charAt(0).toUpperCase() + word.slice(1))

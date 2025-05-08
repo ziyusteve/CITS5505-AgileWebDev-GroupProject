@@ -1,90 +1,93 @@
-from flask import Blueprint, request, jsonify, current_app
-from app.utils.text_analysis import (
-    analyze_sentiment, 
-    extract_keywords, 
-    summarize_text,
-    classify_text
-)
-import traceback
+from flask import Blueprint, request, current_app, jsonify
 
-gemini_analysis_bp = Blueprint('gemini_analysis', __name__)
+bp = Blueprint("api", __name__, url_prefix="/api")
 
-@gemini_analysis_bp.route('/analyze', methods=['POST'])
-def analyze():
+
+@bp.route("/analyze", methods=["POST"])
+def analyze_text():
     """
-    Text Analysis API Endpoint
-    
-    Request Body Format:
+    Analyze text using Gemini API
+
+    Expected JSON body:
     {
-        "text": "Text to analyze",
+        "text": "Your text to analyze",
         "analysis_type": "sentiment|keywords|summary|classification",
         "options": {
-            // Optional analysis parameters
-            "max_words": 50,  // For summary
-            "categories": []  // For classification
+            // Optional parameters specific to the analysis type
+            "max_words": 100,  // For summary
+            "categories": ["sports", "politics"]  // For classification
         }
     }
+
+    Returns:
+        JSON with analysis results
     """
-    # 记录请求开始
-    current_app.logger.info("收到Gemini分析请求")
-    
-    data = request.json
-    if not data or 'text' not in data:
-        current_app.logger.error("请求缺少text字段")
-        return jsonify({"error": "Please provide text for analysis"}), 400
-    
-    text = data.get('text')
-    current_app.logger.info(f"分析文本: {text[:50]}...")
-    
-    analysis_type = data.get('analysis_type', 'sentiment')
-    current_app.logger.info(f"分析类型: {analysis_type}")
-    
-    options = data.get('options', {})
-    current_app.logger.info(f"分析选项: {options}")
-    
-    # 检查Gemini实例是否存在
-    gemini_instance = current_app.config.get('GEMINI_INSTANCE')
-    if not gemini_instance:
-        current_app.logger.error("GEMINI_INSTANCE未在app.config中找到!")
-    else:
-        current_app.logger.info(f"找到GEMINI_INSTANCE，API密钥: {gemini_instance.api_key[:5]}...")
-    
     try:
+        data = request.get_json()
+
+        # Log request start
+        current_app.logger.info("Received Gemini analysis request")
+
+        # Validate input
+        if "text" not in data:
+            current_app.logger.error("Request missing text field")
+            return jsonify({"error": "Text field is required"}), 400
+
+        text = data["text"]
+        current_app.logger.info(f"Analyzing text: {text[:50]}...")
+
+        analysis_type = data.get("analysis_type", "sentiment")
+        current_app.logger.info(f"Analysis type: {analysis_type}")
+
+        options = data.get("options", {})
+        current_app.logger.info(f"Analysis options: {options}")
+
+        # Check if Gemini instance exists
+        gemini_instance = current_app.config.get("GEMINI_INSTANCE")
+        if not gemini_instance:
+            current_app.logger.error("GEMINI_INSTANCE not found in app.config!")
+            return jsonify({"error": "Gemini API not configured"}), 500
+
+        current_app.logger.info(
+            f"Found GEMINI_INSTANCE, API key: {gemini_instance.api_key[:5]}..."
+        )
+
+        # Perform the requested analysis
         result = None
-        if analysis_type == 'sentiment':
-            current_app.logger.info("调用情感分析...")
-            result = analyze_sentiment(text)
-        elif analysis_type == 'keywords':
-            current_app.logger.info("调用关键词提取...")
-            result = extract_keywords(text)
-        elif analysis_type == 'summary':
-            max_words = options.get('max_words', 50)
-            current_app.logger.info(f"调用文本摘要，最大字数: {max_words}...")
-            result = summarize_text(text, max_words)
-        elif analysis_type == 'classification':
-            categories = options.get('categories')
-            current_app.logger.info(f"调用文本分类，类别: {categories}...")
-            result = classify_text(text, categories)
+
+        if analysis_type == "sentiment":
+            current_app.logger.info("Calling sentiment analysis...")
+            result = gemini_instance.analyze_sentiment(text)
+        elif analysis_type == "keywords":
+            current_app.logger.info("Calling keyword extraction...")
+            result = gemini_instance.extract_keywords(text)
+        elif analysis_type == "summary":
+            max_words = options.get("max_words", 100)
+            current_app.logger.info(
+                f"Calling text summarization, max words: {max_words}..."
+            )
+            result = gemini_instance.summarize(text, max_words=max_words)
+        elif analysis_type == "classification":
+            categories = options.get("categories", [])
+            current_app.logger.info(
+                f"Calling text classification, categories: {categories}..."
+            )
+            result = gemini_instance.classify(text, categories=categories)
         else:
-            current_app.logger.error(f"不支持的分析类型: {analysis_type}")
-            return jsonify({"error": f"Unsupported analysis type: {analysis_type}"}), 400
-        
-        current_app.logger.info(f"分析完成，结果类型: {type(result).__name__}")
-        
-        # 记录返回结果
-        if isinstance(result, dict):
-            # 如果是错误信息，记录错误
-            if 'error' in result:
-                current_app.logger.error(f"分析出错: {result['error']}")
-            else:
-                # 记录部分结果内容
-                keys = list(result.keys())
-                current_app.logger.info(f"返回结果包含键: {keys}")
-        
-        return jsonify({"success": True, "result": result})
-    
+            current_app.logger.error(f"Unsupported analysis type: {analysis_type}")
+            return (
+                jsonify({"error": f"Unsupported analysis type: {analysis_type}"}),
+                400,
+            )
+
+        current_app.logger.info(
+            f"Analysis complete, result type: {type(result).__name__}"
+        )
+
+        # Log response
+        response = {"result": result}
+        return jsonify(response)
+
     except Exception as e:
-        error_msg = f"分析过程异常: {str(e)}"
-        stack_trace = traceback.format_exc()
-        current_app.logger.error(f"{error_msg}\n{stack_trace}")
-        return jsonify({"error": f"Error during analysis: {str(e)}"}), 500 
+        current_app.logger.error(f"Error in analyze_text: {str(e)}")
+        return jsonify({"error": str(e)}), 500

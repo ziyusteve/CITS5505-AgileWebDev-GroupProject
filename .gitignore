@@ -2,6 +2,14 @@
 uploads/
 data/uploads/
 
+# Tests artifacts
+tests/__pycache__/
+tests/*.pyc
+
+# Scripts artifacts
+scripts/__pycache__/
+scripts/*.pyc
+
 # IDE settings
 .vscode/*
 !.vscode/launch.json
