@@ -296,6 +296,30 @@
         "documentation": {}
     },
     {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "abort",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "flash",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
         "label": "current_app",
         "importPath": "flask",
         "description": "flask",
@@ -1050,6 +1074,14 @@
         "documentation": {}
     },
     {
+        "label": "validate_csrf",
+        "importPath": "flask_wtf.csrf",
+        "description": "flask_wtf.csrf",
+        "isExtraImport": true,
+        "detail": "flask_wtf.csrf",
+        "documentation": {}
+    },
+    {
         "label": "op",
         "importPath": "alembic",
         "description": "alembic",
@@ -1649,6 +1681,51 @@
         "description": "app.utils",
         "peekOfCode": "def load_dataset(file_path):\n    \"\"\"Load a dataset based on file extension\"\"\"\n    ext = file_path.rsplit(\".\", 1)[1].lower() if \".\" in file_path else \"\"\n    try:\n        if ext == \"csv\":\n            df = pd.read_csv(file_path)\n        elif ext == \"xlsx\":\n            df = pd.read_excel(file_path)\n        elif ext == \"json\":\n            df = pd.read_json(file_path)",
         "detail": "app.utils",
+        "documentation": {}
+    },
+    {
+        "label": "allowed_file",
+        "kind": 2,
+        "importPath": "app.utils_backup",
+        "description": "app.utils_backup",
+        "peekOfCode": "def allowed_file(filename):\n    \"\"\"Check if the file extension is allowed\"\"\"\n    allowed_extensions = {\"csv\", \"txt\", \"json\", \"xlsx\", \"xls\"}\n    return \".\" in filename and filename.rsplit(\".\", 1)[1].lower() in allowed_extensions\ndef generate_unique_filename(filename):\n    \"\"\"Generate a unique filename while preserving the original extension\"\"\"\n    if \".\" in filename:\n        name, ext = filename.rsplit(\".\", 1)\n        return f\"{name}_{str(uuid.uuid4())}.{ext}\"\n    return f\"{filename}_{str(uuid.uuid4())}\"",
+        "detail": "app.utils_backup",
+        "documentation": {}
+    },
+    {
+        "label": "generate_unique_filename",
+        "kind": 2,
+        "importPath": "app.utils_backup",
+        "description": "app.utils_backup",
+        "peekOfCode": "def generate_unique_filename(filename):\n    \"\"\"Generate a unique filename while preserving the original extension\"\"\"\n    if \".\" in filename:\n        name, ext = filename.rsplit(\".\", 1)\n        return f\"{name}_{str(uuid.uuid4())}.{ext}\"\n    return f\"{filename}_{str(uuid.uuid4())}\"\ndef sanitize_filename(filename):\n    \"\"\"Remove any potentially dangerous characters from filenames\"\"\"\n    # Remove any path components (might be dangerous)\n    filename = os.path.basename(filename)",
+        "detail": "app.utils_backup",
+        "documentation": {}
+    },
+    {
+        "label": "sanitize_filename",
+        "kind": 2,
+        "importPath": "app.utils_backup",
+        "description": "app.utils_backup",
+        "peekOfCode": "def sanitize_filename(filename):\n    \"\"\"Remove any potentially dangerous characters from filenames\"\"\"\n    # Remove any path components (might be dangerous)\n    filename = os.path.basename(filename)\n    # Replace any unusual characters\n    filename = re.sub(r\"[^\\w\\.-]\", \"_\", filename)\n    return filename\ndef validate_csrf_token():\n    \"\"\"验证CSRF令牌，如果无效则中止请求\"\"\"\n    csrf_token = request.form.get(\"csrf_token\")",
+        "detail": "app.utils_backup",
+        "documentation": {}
+    },
+    {
+        "label": "validate_csrf_token",
+        "kind": 2,
+        "importPath": "app.utils_backup",
+        "description": "app.utils_backup",
+        "peekOfCode": "def validate_csrf_token():\n    \"\"\"验证CSRF令牌，如果无效则中止请求\"\"\"\n    csrf_token = request.form.get(\"csrf_token\")\n    if not csrf_token:\n        flash(\"CSRF token missing\", \"danger\")\n        abort(400)\n    try:\n        validate_csrf(csrf_token)\n    except Exception:\n        flash(\"CSRF token validation failed\", \"danger\")",
+        "detail": "app.utils_backup",
+        "documentation": {}
+    },
+    {
+        "label": "load_dataset",
+        "kind": 2,
+        "importPath": "app.utils_backup",
+        "description": "app.utils_backup",
+        "peekOfCode": "def load_dataset(file_path):\n    \"\"\"Load a dataset based on file extension\"\"\"\n    ext = file_path.rsplit(\".\", 1)[1].lower() if \".\" in file_path else \"\"\n    try:\n        if ext == \"csv\":\n            df = pd.read_csv(file_path)\n        elif ext == \"xlsx\":\n            df = pd.read_excel(file_path)\n        elif ext == \"json\":\n            df = pd.read_json(file_path)",
+        "detail": "app.utils_backup",
         "documentation": {}
     },
     {
