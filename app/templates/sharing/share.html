@@ -10,12 +10,12 @@
         <div class="card-header">
             <h4 class="mb-0">Create New Share</h4>
         </div>
-        <div class="card-body">
+        <div class="card-body py-2">
             <form action="{{ url_for('sharing.handle_share') }}" method="POST">
                 {% include 'csrf_token.html' %}
-                <div class="row g-3 align-items-end">
+                <div class="row gy-1 gx-3 align-items-end">
                     <div class="col-md-5">
-                        <label for="dataset_id" class="form-label">Dataset</label>
+                        <label for="dataset_id" class="form-label custom-form-label">Dataset</label>
                         <select class="form-select" id="dataset_id" name="dataset_id" required>
                             <option value="" selected disabled>Select a dataset to share</option>
                             {% for dataset in datasets %}
@@ -24,7 +24,7 @@
                         </select>
                     </div>
                     <div class="col-md-5">
-                        <label for="user_id" class="form-label">Share with</label>
+                        <label for="user_id" class="form-label custom-form-label">Share with</label>
                         <select class="form-select" id="user_id" name="user_id" required>
                             <option value="" selected disabled>Select a user</option>
                             {% for user in users %}
@@ -32,7 +32,7 @@
                             {% endfor %}
                         </select>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-2 d-grid">
                         <button type="submit" class="btn btn-primary w-100">Share</button>
                     </div>
                 </div>

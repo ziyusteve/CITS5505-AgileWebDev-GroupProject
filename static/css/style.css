@@ -1275,3 +1275,7 @@ p.lead {
 .gap-4 {
     gap: 1.5rem !important;
 }
+
+.custom-form-label {
+  margin-bottom: 0.25rem;
+}
