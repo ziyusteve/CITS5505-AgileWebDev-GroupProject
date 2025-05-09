@@ -127,6 +127,11 @@ def delete(dataset_id):
             os.remove(dataset.file_path)
     except Exception as e:
         current_app.logger.warning(f"Failed to delete file: {e}")
+    # Delete related scout analyses (for safety, without using backref)
+    from app.scout_analysis.models import ScoutReportAnalysis
+    analyses = ScoutReportAnalysis.query.filter_by(dataset_id=dataset.id).all()
+    for analysis in analyses:
+        db.session.delete(analysis)
     # Delete the dataset record
     db.session.delete(dataset)
     db.session.commit()
