@@ -158,11 +158,11 @@ h3 { font-size: 1.5rem; }
 
 /* Tables - Lakers Tech Style */
 .table {
-    color: #C0C0C0; /* Silver text for better visibility on dark backgrounds */
+    background-color: #181818;
+    color: #EFEFEF;
     border-collapse: separate;
     border-spacing: 0;
     width: 100%;
-    background-color: #1a1a1a; /* Dark background */
     border: 1px solid #333;
     border-radius: 6px;
     overflow: hidden;
@@ -173,6 +173,8 @@ h3 { font-size: 1.5rem; }
     padding: 1rem 1.2rem;
     vertical-align: middle;
     border-top: 1px solid #333;
+    background-color: #181818;
+    color: #EFEFEF;
 }
 
 .table thead th {
@@ -181,7 +183,7 @@ h3 { font-size: 1.5rem; }
     font-weight: 600;
     color: #FDB927; /* Lakers gold for headers */
     letter-spacing: -0.2px;
-    background-color: #252525; /* Slightly different from body for contrast */
+    background-color: #222;
 }
 
 .table-hover tbody tr {
@@ -189,7 +191,7 @@ h3 { font-size: 1.5rem; }
 }
 
 .table-hover tbody tr:hover {
-    background-color: #333;
+    background-color: #252525;
 }
 
 /* Lakers Tech themed forms */
