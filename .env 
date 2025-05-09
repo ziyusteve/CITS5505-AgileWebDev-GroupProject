@@ -3,6 +3,7 @@
 
 # Flask Configuration
 FLASK_APP=run.py
+FLASK_ENV=development
 
 # Database
 SQLALCHEMY_DATABASE_URI=sqlite:///instance/site.db
