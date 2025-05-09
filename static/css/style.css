@@ -1281,3 +1281,7 @@ p.lead {
 .custom-form-label {
   margin-bottom: 0.25rem;
 }
+
+.breadcrumb-item+.breadcrumb-item::before {
+    color: #fff !important;
+}
