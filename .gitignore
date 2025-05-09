@@ -87,7 +87,7 @@ instance/
 instance/*.db
 instance/site.db
 .webassets-cache
-logs/*
+logs/*.*
 !logs/.gitkeep
 
 # Scrapy stuff:

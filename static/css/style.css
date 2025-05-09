@@ -348,7 +348,7 @@ h3 { font-size: 1.5rem; }
 /* Court Background */
 .court-bg {
     position: relative;
-    background-color: #F8F9F9;
+    background-color: rgba(90, 92, 110, 0.85); /* lighter blue-grey with lower opacity */
     border-radius: 12px;
     overflow: hidden;
 }
@@ -362,7 +362,7 @@ h3 { font-size: 1.5rem; }
     bottom: 0;
     background-image: url('../images/court-pattern.svg');
     background-size: 400px;
-    opacity: 0.05;
+    opacity: 0.90;
     pointer-events: none;
 }
 
