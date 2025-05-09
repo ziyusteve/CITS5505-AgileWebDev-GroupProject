@@ -13,7 +13,8 @@ class ScoutReportAnalysis(db.Model):
     # Relationship to existing Dataset model
     dataset_id = db.Column(db.Integer, db.ForeignKey("datasets.id"), nullable=False)
     dataset = db.relationship(
-        "Dataset", backref=db.backref("scout_analyses", lazy=True)
+        "Dataset",
+        backref=db.backref("scout_analyses", lazy=True, cascade="all, delete-orphan")
     )
 
     # Analysis results

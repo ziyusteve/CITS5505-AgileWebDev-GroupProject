@@ -158,11 +158,11 @@ h3 { font-size: 1.5rem; }
 
 /* Tables - Lakers Tech Style */
 .table {
-    color: #C0C0C0; /* Silver text for better visibility on dark backgrounds */
+    background-color: #181818;
+    color: #EFEFEF;
     border-collapse: separate;
     border-spacing: 0;
     width: 100%;
-    background-color: #1a1a1a; /* Dark background */
     border: 1px solid #333;
     border-radius: 6px;
     overflow: hidden;
@@ -173,6 +173,8 @@ h3 { font-size: 1.5rem; }
     padding: 1rem 1.2rem;
     vertical-align: middle;
     border-top: 1px solid #333;
+    background-color: #181818;
+    color: #EFEFEF;
 }
 
 .table thead th {
@@ -181,7 +183,7 @@ h3 { font-size: 1.5rem; }
     font-weight: 600;
     color: #FDB927; /* Lakers gold for headers */
     letter-spacing: -0.2px;
-    background-color: #252525; /* Slightly different from body for contrast */
+    background-color: #222;
 }
 
 .table-hover tbody tr {
@@ -189,7 +191,7 @@ h3 { font-size: 1.5rem; }
 }
 
 .table-hover tbody tr:hover {
-    background-color: #333;
+    background-color: #252525;
 }
 
 /* Lakers Tech themed forms */
@@ -346,7 +348,7 @@ h3 { font-size: 1.5rem; }
 /* Court Background */
 .court-bg {
     position: relative;
-    background-color: #F8F9F9;
+    background-color: rgba(90, 92, 110, 0.85); /* lighter blue-grey with lower opacity */
     border-radius: 12px;
     overflow: hidden;
 }
@@ -360,7 +362,7 @@ h3 { font-size: 1.5rem; }
     bottom: 0;
     background-image: url('../images/court-pattern.svg');
     background-size: 400px;
-    opacity: 0.05;
+    opacity: 0.90;
     pointer-events: none;
 }
 
@@ -1274,4 +1276,12 @@ p.lead {
 
 .gap-4 {
     gap: 1.5rem !important;
+}
+
+.custom-form-label {
+  margin-bottom: 0.25rem;
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+    color: #fff !important;
 }
