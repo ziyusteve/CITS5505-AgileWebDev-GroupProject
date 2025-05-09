@@ -110,3 +110,25 @@ def upload():
         return redirect(url_for("dashboard.index"))
 
     return render_template("datasets/upload.html", form=form)
+
+@bp.route("/delete/<int:dataset_id>", methods=["POST"])
+@login_required
+def delete(dataset_id):
+    """Delete a dataset by its owner"""
+    from app.utils import validate_csrf_token
+    validate_csrf_token()
+    dataset = Dataset.query.get_or_404(dataset_id)
+    if dataset.user_id != current_user.id:
+        flash("You do not have permission to delete this dataset.", "danger")
+        return redirect(url_for("dashboard.index"))
+    # Delete the file from disk if it exists
+    try:
+        if os.path.exists(dataset.file_path):
+            os.remove(dataset.file_path)
+    except Exception as e:
+        current_app.logger.warning(f"Failed to delete file: {e}")
+    # Delete the dataset record
+    db.session.delete(dataset)
+    db.session.commit()
+    flash("Dataset deleted successfully.", "success")
+    return redirect(url_for("dashboard.index"))
