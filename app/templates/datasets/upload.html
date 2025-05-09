@@ -6,7 +6,7 @@
 <div class="row justify-content-center">
     <div class="col-md-8">
         <div class="card shadow">
-            <div class="card-header bg-primary text-white">
+            <div class="card-header">
                 <h4 class="mb-0"><i class="fas fa-basketball-ball me-2"></i>Upload Player News/Description</h4>
             </div>
             <div class="card-body">
@@ -20,9 +20,9 @@
 
                     <div class="mb-3">
                         <label for="file" class="form-label">{{ form.file.label }}</label>
-                        {{ form.file(class="form-control", accept=".txt,.csv,.json,.xlsx,.xls") }}
-                        <div id="fileHelp" class="form-text">
-                            Please upload a news article, commentary, or player description (TXT, CSV, JSON, XLSX, XLS).<br>
+                        {{ form.file(class="form-control", accept=".txt") }}
+                        <div id="fileHelp">
+                            Please upload a news article, commentary, or player description (in TXT format).<br>
                             The system will automatically generate a scout report with visualization and analysis.
                         </div>
                         {% if form.file.errors %}
