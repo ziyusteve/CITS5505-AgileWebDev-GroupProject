@@ -199,14 +199,3 @@ cython_debug/
 
 # Cursor IDE specific files
 .cursor/
-
-flask.log.1
-flask.log.2
-flask.log.3
-flask.log.4
-flask.log.5
-flask.log.6
-flask.log.7
-flask.log.8
-flask.log.9
-flask.log.10
