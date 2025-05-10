@@ -97,11 +97,11 @@ def create_app(config_name="default"):
         from app.models.user import User
         from app.models.dataset import Dataset
         from app.models.share import Share
-        
+
         # If scout report analysis is enabled, import its models
         if app.config.get("ENABLE_SCOUT_ANALYSIS", False):
             from app.scout_analysis.models import ScoutReportAnalysis
-        
+
         # Create all tables
         db.create_all()
         app.logger.info("Database tables created successfully")
