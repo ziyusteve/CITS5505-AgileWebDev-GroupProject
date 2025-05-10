@@ -124,11 +124,11 @@ class SeleniumTestCase(unittest.TestCase):
                 db.drop_all()
                 db.session.commit()
             
-            # Clean up test files
+            # Clean up test files (commented out to preserve screenshots)
             if os.path.exists(cls.test_files_dir):
-                for file in os.listdir(cls.test_files_dir):
-                    os.remove(os.path.join(cls.test_files_dir, file))
-                os.rmdir(cls.test_files_dir)
+                 for file in os.listdir(cls.test_files_dir):
+                     os.remove(os.path.join(cls.test_files_dir, file))
+                 os.rmdir(cls.test_files_dir)
             
             # Clean up WebDriver
             if hasattr(cls, 'driver'):
@@ -169,6 +169,15 @@ class SeleniumTestCase(unittest.TestCase):
     def login(self, username, password):
         """Helper method to log in a user"""
         try:
+            # Ensure test user exists before login
+            with self.app.app_context():
+                user = User.query.filter_by(username=username).first()
+                if not user:
+                    user = User(username=username, email='test@example.com')
+                    user.set_password(password)
+                    db.session.add(user)
+                    db.session.commit()
+
             # Go to login page
             self.driver.get('http://localhost:5000/auth/login')
             
@@ -193,24 +202,43 @@ class SeleniumTestCase(unittest.TestCase):
                 EC.element_to_be_clickable((By.ID, 'submit'))
             )
             
-            # Scroll submit button into view
+            # Scroll submit button into view and click
             self.driver.execute_script("arguments[0].scrollIntoView(true);", submit_button)
             time.sleep(1)  # Give time for scroll to complete
             
             # Click submit using JavaScript to avoid any overlay issues
             self.driver.execute_script("arguments[0].click();", submit_button)
             
-            # Wait for redirect
-            WebDriverWait(self.driver, 10).until(
-                lambda driver: 'login' in driver.current_url
-            )
-            return True
-                
+            # Wait for either success message or dashboard redirect
+            try:
+                WebDriverWait(self.driver, 10).until(
+                    lambda driver: 
+                    EC.presence_of_element_located((By.CLASS_NAME, 'alert-success'))(driver) or
+                    'dashboard' in driver.current_url or
+                    EC.presence_of_element_located((By.CLASS_NAME, 'alert-danger'))(driver)
+                )
+                # Take screenshot and print URL for debugging
+                screenshot_path = os.path.join(self.test_files_dir, f'after_login_attempt_{username}.png')
+                self.driver.save_screenshot(screenshot_path)
+                print(f"Login attempt for {username} - see {screenshot_path}")
+                print(f"Current URL after login attempt: {self.driver.current_url}")
+                print(f"Page source snippet: {self.driver.page_source[:500]}")
+                return True
+            except TimeoutException:
+                # Take screenshot for debugging
+                screenshot_path = os.path.join(self.test_files_dir, f'login_timeout_{username}.png')
+                self.driver.save_screenshot(screenshot_path)
+                print(f"Login timeout for {username} - see {screenshot_path}")
+                print(f"Current URL after login timeout: {self.driver.current_url}")
+                print(f"Page source snippet: {self.driver.page_source[:500]}")
+                return False
         except Exception as e:
             # Take screenshot on failure
-            screenshot_path = os.path.join(self.test_files_dir, 'login_failure.png')
+            screenshot_path = os.path.join(self.test_files_dir, f'login_failure_{username}.png')
             self.driver.save_screenshot(screenshot_path)
-            print(f"Login error: {str(e)} - see {screenshot_path}")
+            print(f"Login error for {username}: {str(e)} - see {screenshot_path}")
+            print(f"Current URL after login error: {self.driver.current_url}")
+            print(f"Page source snippet: {self.driver.page_source[:500]}")
             return False
     
     def test_1_registration_and_login(self):
@@ -322,22 +350,13 @@ class SeleniumTestCase(unittest.TestCase):
         """Test basic file upload functionality"""
         try:
             # Login first
-            self.driver.get('http://localhost:5000/auth/login')
-            time.sleep(2)
-            
-            username_field = self.driver.find_element(By.ID, 'username')
-            password_field = self.driver.find_element(By.ID, 'password')
-            
-            username_field.send_keys('testuser')
-            password_field.send_keys('testpass123')
-            
-            submit_button = self.driver.find_element(By.ID, 'submit')
-            submit_button.click()
-            time.sleep(2)
-            
+            success = self.login('testuser', 'testpass123')
+            self.assertTrue(success, "Login failed before accessing upload page")
+            self.driver.save_screenshot(os.path.join(self.test_files_dir, 'after_login_upload.png'))
             # Go to upload page
             self.driver.get('http://localhost:5000/datasets/upload')
             time.sleep(2)
+            self.driver.save_screenshot(os.path.join(self.test_files_dir, 'after_goto_upload.png'))
             
             # Fill in upload form
             title_field = self.driver.find_element(By.ID, 'title')
@@ -360,22 +379,13 @@ class SeleniumTestCase(unittest.TestCase):
         """Test basic dashboard view"""
         try:
             # Login first
-            self.driver.get('http://localhost:5000/auth/login')
-            time.sleep(2)
-            
-            username_field = self.driver.find_element(By.ID, 'username')
-            password_field = self.driver.find_element(By.ID, 'password')
-            
-            username_field.send_keys('testuser')
-            password_field.send_keys('testpass123')
-            
-            submit_button = self.driver.find_element(By.ID, 'submit')
-            submit_button.click()
-            time.sleep(2)
-            
+            success = self.login('testuser', 'testpass123')
+            self.assertTrue(success, "Login failed before accessing dashboard")
+            self.driver.save_screenshot(os.path.join(self.test_files_dir, 'after_login_dashboard.png'))
             # Go to dashboard
             self.driver.get('http://localhost:5000/dashboard')
             time.sleep(2)
+            self.driver.save_screenshot(os.path.join(self.test_files_dir, 'after_goto_dashboard.png'))
             
             # Verify dashboard elements
             self.assertIn('Dashboard', self.driver.page_source)
@@ -387,19 +397,8 @@ class SeleniumTestCase(unittest.TestCase):
         """Test basic report visualization"""
         try:
             # Login first
-            self.driver.get('http://localhost:5000/auth/login')
-            time.sleep(2)
-            
-            username_field = self.driver.find_element(By.ID, 'username')
-            password_field = self.driver.find_element(By.ID, 'password')
-            
-            username_field.send_keys('testuser')
-            password_field.send_keys('testpass123')
-            
-            submit_button = self.driver.find_element(By.ID, 'submit')
-            submit_button.click()
-            time.sleep(2)
-            
+            success = self.login('testuser', 'testpass123')
+            self.assertTrue(success, "Login failed before accessing visualization")
             # Go to dashboard and find first report
             self.driver.get('http://localhost:5000/dashboard')
             time.sleep(2)
@@ -423,22 +422,13 @@ class SeleniumTestCase(unittest.TestCase):
         """Test basic report sharing"""
         try:
             # Login first
-            self.driver.get('http://localhost:5000/auth/login')
-            time.sleep(2)
-            
-            username_field = self.driver.find_element(By.ID, 'username')
-            password_field = self.driver.find_element(By.ID, 'password')
-            
-            username_field.send_keys('testuser')
-            password_field.send_keys('testpass123')
-            
-            submit_button = self.driver.find_element(By.ID, 'submit')
-            submit_button.click()
-            time.sleep(2)
-            
+            success = self.login('testuser', 'testpass123')
+            self.assertTrue(success, "Login failed before accessing share page")
+            self.driver.save_screenshot(os.path.join(self.test_files_dir, 'after_login_share.png'))
             # Go to share page
             self.driver.get('http://localhost:5000/share')
             time.sleep(2)
+            self.driver.save_screenshot(os.path.join(self.test_files_dir, 'after_goto_share.png'))
             
             # Verify share page loads
             self.assertIn('Share', self.driver.page_source)
