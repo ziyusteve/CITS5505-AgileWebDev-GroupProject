@@ -63,52 +63,48 @@ def create_app(config_name="default"):
 
     # Register blueprints
     from app.auth import bp as auth_bp
-
     app.register_blueprint(auth_bp, url_prefix="/auth")
 
     from app.main import bp as main_bp
-
     app.register_blueprint(main_bp)
 
     from app.dashboard import bp as dashboard_bp
-
     app.register_blueprint(dashboard_bp, url_prefix="/dashboard")
 
     from app.datasets import bp as datasets_bp
-
     app.register_blueprint(datasets_bp, url_prefix="/datasets")
 
     from app.visualization import bp as visualization_bp
-
     app.register_blueprint(visualization_bp, url_prefix="/visualize")
 
     from app.api import bp as api_bp
-
     app.register_blueprint(api_bp, url_prefix="/api")
     # API endpoints typically don't need CSRF protection
     csrf.exempt(api_bp)
 
     from app.sharing import bp as sharing_bp
-
     app.register_blueprint(sharing_bp, url_prefix="/share")
+
     # Initialize scout report analysis module (only initialize service, no route registration)
     if app.config.get("ENABLE_SCOUT_ANALYSIS", False):
         from app.scout_analysis import scout_bp
-
         app.register_blueprint(scout_bp)  # No URL prefix set
         app.logger.info("Scout analysis module initialized")
+
     # Ensure all database tables are created in the application context
-    # First import all models, then create all tables at once
     with app.app_context():
-        # Import all models - this will also register the user_loader function
-        pass
+        # Import all models to ensure they are registered with SQLAlchemy
+        from app.models.user import User
+        from app.models.dataset import Dataset
+        from app.models.share import Share
 
         # If scout report analysis is enabled, import its models
         if app.config.get("ENABLE_SCOUT_ANALYSIS", False):
-            pass
+            from app.scout_analysis.models import ScoutReportAnalysis
+
         # Create all tables
         db.create_all()
-        app.logger.info("Database tables for scout analysis created if not exists")
+        app.logger.info("Database tables created successfully")
 
     # Log file configuration
     import logging
@@ -129,7 +125,6 @@ def create_app(config_name="default"):
 
     # Set global encoding to UTF-8
     import sys
-
     sys.stdout.reconfigure(encoding="utf-8")
     sys.stderr.reconfigure(encoding="utf-8")
 
