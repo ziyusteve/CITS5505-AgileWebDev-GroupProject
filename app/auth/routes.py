@@ -80,7 +80,7 @@ def resend_verification():
     if current_user.is_verified:
         flash("Your email is already verified.", "info")
         return redirect(url_for("dashboard.index"))
-    
+
     token = current_user.generate_verification_token()
     msg = Message(
         'Verify Your Email',
@@ -94,7 +94,7 @@ def resend_verification():
 If you did not make this request then simply ignore this email.
 '''
     mail.send(msg)
-    
+
     flash("A new verification email has been sent to your email address.", "success")
     return redirect(url_for("dashboard.index"))
 
