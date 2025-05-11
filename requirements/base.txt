@@ -10,3 +10,5 @@ flask-login
 python-dotenv
 flask-migrate
 email_validator
+flask-mail
+itsdangerous
