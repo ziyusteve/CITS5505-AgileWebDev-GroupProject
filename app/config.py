@@ -35,12 +35,27 @@ class Config:
     # API key configuration - read from environment variables
     GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 
+    # Email configuration
+    MAIL_SERVER = os.environ.get('MAIL_SERVER', 'smtp.gmail.com')
+    MAIL_PORT = int(os.environ.get('MAIL_PORT', 587))
+    MAIL_USE_TLS = os.environ.get('MAIL_USE_TLS', True)
+    MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
+    MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
+    MAIL_DEFAULT_SENDER = os.environ.get('MAIL_DEFAULT_SENDER')
+    BASE_URL = os.environ.get('BASE_URL', 'http://localhost:5000')
+
     @staticmethod
     def validate_config():
         """Validate if critical configurations exist to ensure the app runs properly"""
         missing_configs = []
         if not Config.GEMINI_API_KEY:
             missing_configs.append("GEMINI_API_KEY")
+        if not Config.MAIL_USERNAME:
+            missing_configs.append("MAIL_USERNAME")
+        if not Config.MAIL_PASSWORD:
+            missing_configs.append("MAIL_PASSWORD")
+        if not Config.MAIL_DEFAULT_SENDER:
+            missing_configs.append("MAIL_DEFAULT_SENDER")
 
         if missing_configs:
             import logging

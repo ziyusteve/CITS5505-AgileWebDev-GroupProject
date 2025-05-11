@@ -1,10 +1,12 @@
-from flask import render_template, redirect, url_for, flash, request
+from flask import render_template, redirect, url_for, flash, request, current_app
 from app.auth import bp
 from app.models.user import User
-from app.extensions import db
+from app.extensions import db, mail
 from app.auth.forms import LoginForm, RegisterForm
 from flask_login import login_user, logout_user, login_required, current_user
 from urllib.parse import urlparse
+from flask_mail import Message
+from itsdangerous import URLSafeTimedSerializer, BadSignature, SignatureExpired
 
 
 @bp.route("/register", methods=["GET", "POST"])
@@ -21,10 +23,80 @@ def register():
         db.session.add(user)
         db.session.commit()
 
-        flash("Account created successfully! You can now log in.", "success")
+        # Send verification email
+        token = user.generate_verification_token()
+        msg = Message(
+            'Verify Your Email',
+            sender=current_app.config['MAIL_DEFAULT_SENDER'],
+            recipients=[user.email]
+        )
+        verification_url = f"{current_app.config['BASE_URL']}/auth/verify/{token}"
+        msg.body = f'''To verify your email, visit the following link:
+{verification_url}
+
+If you did not make this request then simply ignore this email.
+'''
+        mail.send(msg)
+
+        flash("Account created successfully! Please check your email to verify your account.", "success")
         return redirect(url_for("auth.login"))
 
     return render_template("auth/register.html", form=form)
+
+
+@bp.route("/verify/<token>")
+def verify_email(token):
+    """Email verification route."""
+    serializer = URLSafeTimedSerializer(current_app.config['SECRET_KEY'])
+    try:
+        email = serializer.loads(
+            token,
+            salt='email-verification-salt',
+            max_age=3600
+        )
+    except (BadSignature, SignatureExpired):
+        flash("The verification link is invalid or has expired.", "danger")
+        return redirect(url_for("auth.login"))
+
+    user = User.query.filter_by(email=email).first()
+    if not user:
+        flash("User not found.", "danger")
+        return redirect(url_for("auth.login"))
+
+    if user.is_verified:
+        flash("Your email is already verified.", "info")
+        return redirect(url_for("dashboard.index"))
+
+    user.is_verified = True
+    db.session.commit()
+    flash("Your email has been verified! You can now log in.", "success")
+    return redirect(url_for("auth.login"))
+
+
+@bp.route("/resend-verification")
+@login_required
+def resend_verification():
+    """Resend verification email."""
+    if current_user.is_verified:
+        flash("Your email is already verified.", "info")
+        return redirect(url_for("dashboard.index"))
+    
+    token = current_user.generate_verification_token()
+    msg = Message(
+        'Verify Your Email',
+        sender=current_app.config['MAIL_DEFAULT_SENDER'],
+        recipients=[current_user.email]
+    )
+    verification_url = f"{current_app.config['BASE_URL']}/auth/verify/{token}"
+    msg.body = f'''To verify your email, visit the following link:
+{verification_url}
+
+If you did not make this request then simply ignore this email.
+'''
+    mail.send(msg)
+    
+    flash("A new verification email has been sent to your email address.", "success")
+    return redirect(url_for("dashboard.index"))
 
 
 @bp.route("/login", methods=["GET", "POST"])
@@ -41,9 +113,12 @@ def login():
             flash("Please check your login details and try again.", "danger")
             return redirect(url_for("auth.login"))
 
+        if not user.is_verified:
+            flash("Please verify your email before logging in.", "warning")
+            return redirect(url_for("auth.login"))
+
         # Update last_login timestamp
         from datetime import datetime
-
         user.last_login = datetime.utcnow()
         db.session.commit()
 

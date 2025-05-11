@@ -1,7 +1,7 @@
 from flask import Flask
 import os
 from app.config import config_by_name as config
-from app.extensions import db, login_manager
+from app.extensions import db, login_manager, mail
 from flask_wtf.csrf import CSRFProtect
 from flask_migrate import Migrate
 import importlib.util
@@ -16,6 +16,7 @@ def check_dependencies():
         ("email_validator", "验证电子邮件必需"),
         ("pandas", "数据处理必需"),
         ("flask_wtf", "表单处理和CSRF保护必需"),
+        ("flask_mail", "邮件发送必需"),
     ]
 
     for package, description in dependencies:
@@ -51,6 +52,7 @@ def create_app(config_name="default"):
     # Initialize extensions
     db.init_app(app)
     login_manager.init_app(app)
+    mail.init_app(app)
 
     # Initialize Flask-Migrate
     Migrate(app, db)
