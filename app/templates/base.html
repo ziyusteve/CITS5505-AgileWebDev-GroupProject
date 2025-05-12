@@ -35,23 +35,23 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="{{ url_for('main.index') }}">
+                        <a class="nav-link {% if request.path=='/' %}active{% endif %}" href="{{ url_for('main.index') }}">
                             <i class="fas fa-home nav-icon"></i> Home
                         </a>
                     </li>
                     {% if current_user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('dashboard.index') }}">
+                        <a class="nav-link {% if request.path.startswith('/dashboard') %}active{% endif %}"  href="{{ url_for('dashboard.index') }}">
                             <i class="fas fa-tachometer-alt nav-icon"></i> Dashboard
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('datasets.upload') }}">
+                    <li class="nav-item ">
+                        <a class="nav-link {% if request.path.startswith('/datasets/upload') %}active{% endif %}" href="{{ url_for('datasets.upload') }}">
                             <i class="fas fa-upload nav-icon"></i> Upload Data
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('sharing.index') }}">
+                        <a class="nav-link {% if request.path.startswith('/share') %}active{% endif %}" href="{{ url_for('sharing.index') }}">
                             <i class="fas fa-share-alt nav-icon"></i> Share Data
                         </a>
                     </li>
