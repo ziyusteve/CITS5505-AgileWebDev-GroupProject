@@ -37,7 +37,19 @@ pip install -r requirements/dev.txt
 ```bash
 cp env.example .env
 ```
-Edit the `.env` file to include your API keys and other configurations.
+Edit the `.env` file to include your API keys and other configurations. Critical configurations include:
+```
+# API keys
+GEMINI_API_KEY=your-gemini-api-key-here
+
+# Email Configuration 
+MAIL_SERVER=smtp.gmail.com  # or smtp.office365.com for Outlook
+MAIL_PORT=587
+MAIL_USE_TLS=True
+MAIL_USERNAME=your_email@gmail.com
+MAIL_PASSWORD=your-email-password-or-app-password
+MAIL_DEFAULT_SENDER=your_email@gmail.com
+```
 
 5. Run database migrations:
 ```bash
@@ -119,8 +131,8 @@ pg_dump -U username -d database_name > backup_$(date +%Y%m%d).sql
 
 2. **Tag Release**:
    ```bash
-   git tag -a v1.x.x -m "Release version 1.x.x"
-   git push origin v1.x.x
+   git tag -a v1.0.1 -m "Release version 1.0.1 with email verification"
+   git push origin v1.0.1
    ```
 
 3. **Monitor Deployment**:
@@ -137,6 +149,33 @@ pg_dump -U username -d database_name > backup_$(date +%Y%m%d).sql
    # Rollback database if necessary
    flask db downgrade
    ```
+
+## Email Service Configuration
+
+### Gmail Configuration
+For Gmail email service:
+1. Enable 2-factor authentication on your Gmail account
+2. Generate an "App Password" specifically for this application
+3. Use the app password in your `.env` file as `MAIL_PASSWORD`
+
+### Outlook Configuration
+For Outlook email service:
+1. Use your standard email and password
+2. Set the following in your `.env` file:
+   ```
+   MAIL_SERVER=smtp.office365.com
+   MAIL_PORT=587
+   MAIL_USE_TLS=True
+   MAIL_USERNAME=your_outlook_email@outlook.com
+   MAIL_PASSWORD=your_outlook_password
+   MAIL_DEFAULT_SENDER=your_outlook_email@outlook.com
+   ```
+
+### Testing Email Configuration
+Verify your email configuration by running:
+```bash
+python -m tests.test_email_verification
+```
 
 ## Health Check and Monitoring
 
