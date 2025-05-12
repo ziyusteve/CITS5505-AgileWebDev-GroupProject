@@ -1,4 +1,4 @@
-# Release Checklist
+# Release Checklist for v1.0.1 (2025-05-11)
 
 ## Pre-Release
 
@@ -13,6 +13,15 @@
 - [ ] CHANGELOG.md updated with all changes
 - [ ] Version number updated in relevant files
 
+## Email Verification System
+
+- [ ] Email verification flow tested with multiple email providers
+- [ ] Verification token generation and validation confirmed
+- [ ] Email template rendering tested
+- [ ] Error handling for invalid/expired tokens implemented
+- [ ] Rate limiting for email sending implemented
+- [ ] Both Gmail and Outlook SMTP configurations tested
+
 ## Database
 
 - [ ] Database migrations created and tested
@@ -26,6 +35,8 @@
 - [ ] Input validation implemented
 - [ ] Dependencies checked for vulnerabilities
 - [ ] Authentication and authorization tested
+- [ ] Email credentials stored securely (not in code)
+- [ ] Verification tokens have appropriate expiration
 
 ## Testing
 
@@ -34,6 +45,9 @@
 - [ ] Performance testing completed
 - [ ] Cross-browser compatibility tested
 - [ ] Mobile responsiveness verified
+- [ ] Email verification tests pass
+- [ ] Mock analysis tests pass with empty inputs
+- [ ] Gemini API integration tests pass
 
 ## Deployment
 

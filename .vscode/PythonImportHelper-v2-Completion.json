@@ -96,6 +96,14 @@
         "documentation": {}
     },
     {
+        "label": "current_app",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
         "label": "render_template",
         "importPath": "flask",
         "description": "flask",
@@ -145,6 +153,14 @@
     },
     {
         "label": "render_template",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "current_app",
         "importPath": "flask",
         "description": "flask",
         "isExtraImport": true,
@@ -257,38 +273,6 @@
     },
     {
         "label": "current_app",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
-        "label": "current_app",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
-        "label": "request",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
-        "label": "abort",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
-        "label": "flash",
         "importPath": "flask",
         "description": "flask",
         "isExtraImport": true,
@@ -320,7 +304,47 @@
         "documentation": {}
     },
     {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "abort",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "flash",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
         "label": "current_app",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "current_app",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "url_for",
         "importPath": "flask",
         "description": "flask",
         "isExtraImport": true,
@@ -448,6 +472,14 @@
         "documentation": {}
     },
     {
+        "label": "login_user",
+        "importPath": "flask_login",
+        "description": "flask_login",
+        "isExtraImport": true,
+        "detail": "flask_login",
+        "documentation": {}
+    },
+    {
         "label": "bp",
         "importPath": "app.api",
         "description": "app.api",
@@ -493,6 +525,22 @@
         "description": "app.models.dataset",
         "isExtraImport": true,
         "detail": "app.models.dataset",
+        "documentation": {}
+    },
+    {
+        "label": "Dataset",
+        "importPath": "app.models.dataset",
+        "description": "app.models.dataset",
+        "isExtraImport": true,
+        "detail": "app.models.dataset",
+        "documentation": {}
+    },
+    {
+        "label": "Share",
+        "importPath": "app.models.share",
+        "description": "app.models.share",
+        "isExtraImport": true,
+        "detail": "app.models.share",
         "documentation": {}
     },
     {
@@ -576,7 +624,7 @@
         "documentation": {}
     },
     {
-        "label": "db",
+        "label": "mail",
         "importPath": "app.extensions",
         "description": "app.extensions",
         "isExtraImport": true,
@@ -632,7 +680,23 @@
         "documentation": {}
     },
     {
-        "label": "get_gemini_api",
+        "label": "db",
+        "importPath": "app.extensions",
+        "description": "app.extensions",
+        "isExtraImport": true,
+        "detail": "app.extensions",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "app.extensions",
+        "description": "app.extensions",
+        "isExtraImport": true,
+        "detail": "app.extensions",
+        "documentation": {}
+    },
+    {
+        "label": "mail",
         "importPath": "app.extensions",
         "description": "app.extensions",
         "isExtraImport": true,
@@ -663,6 +727,14 @@
         "isExtraImport": true,
         "importPath": "datetime",
         "description": "datetime",
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
         "detail": "datetime",
         "documentation": {}
     },
@@ -867,6 +939,22 @@
         "documentation": {}
     },
     {
+        "label": "User",
+        "importPath": "app.models.user",
+        "description": "app.models.user",
+        "isExtraImport": true,
+        "detail": "app.models.user",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "app.models.user",
+        "description": "app.models.user",
+        "isExtraImport": true,
+        "detail": "app.models.user",
+        "documentation": {}
+    },
+    {
         "label": "bp",
         "importPath": "app.auth",
         "description": "app.auth",
@@ -896,6 +984,86 @@
         "description": "urllib.parse",
         "isExtraImport": true,
         "detail": "urllib.parse",
+        "documentation": {}
+    },
+    {
+        "label": "Message",
+        "importPath": "flask_mail",
+        "description": "flask_mail",
+        "isExtraImport": true,
+        "detail": "flask_mail",
+        "documentation": {}
+    },
+    {
+        "label": "Mail",
+        "importPath": "flask_mail",
+        "description": "flask_mail",
+        "isExtraImport": true,
+        "detail": "flask_mail",
+        "documentation": {}
+    },
+    {
+        "label": "Message",
+        "importPath": "flask_mail",
+        "description": "flask_mail",
+        "isExtraImport": true,
+        "detail": "flask_mail",
+        "documentation": {}
+    },
+    {
+        "label": "URLSafeTimedSerializer",
+        "importPath": "itsdangerous",
+        "description": "itsdangerous",
+        "isExtraImport": true,
+        "detail": "itsdangerous",
+        "documentation": {}
+    },
+    {
+        "label": "BadSignature",
+        "importPath": "itsdangerous",
+        "description": "itsdangerous",
+        "isExtraImport": true,
+        "detail": "itsdangerous",
+        "documentation": {}
+    },
+    {
+        "label": "SignatureExpired",
+        "importPath": "itsdangerous",
+        "description": "itsdangerous",
+        "isExtraImport": true,
+        "detail": "itsdangerous",
+        "documentation": {}
+    },
+    {
+        "label": "URLSafeTimedSerializer",
+        "importPath": "itsdangerous",
+        "description": "itsdangerous",
+        "isExtraImport": true,
+        "detail": "itsdangerous",
+        "documentation": {}
+    },
+    {
+        "label": "URLSafeTimedSerializer",
+        "importPath": "itsdangerous",
+        "description": "itsdangerous",
+        "isExtraImport": true,
+        "detail": "itsdangerous",
+        "documentation": {}
+    },
+    {
+        "label": "BadSignature",
+        "importPath": "itsdangerous",
+        "description": "itsdangerous",
+        "isExtraImport": true,
+        "detail": "itsdangerous",
+        "documentation": {}
+    },
+    {
+        "label": "SignatureExpired",
+        "importPath": "itsdangerous",
+        "description": "itsdangerous",
+        "isExtraImport": true,
+        "detail": "itsdangerous",
         "documentation": {}
     },
     {
@@ -988,6 +1156,14 @@
         "documentation": {}
     },
     {
+        "label": "generate_password_hash",
+        "importPath": "werkzeug.security",
+        "description": "werkzeug.security",
+        "isExtraImport": true,
+        "detail": "werkzeug.security",
+        "documentation": {}
+    },
+    {
         "label": "json",
         "kind": 6,
         "isExtraImport": true,
@@ -1020,6 +1196,14 @@
         "isExtraImport": true,
         "importPath": "threading",
         "description": "threading",
+        "detail": "threading",
+        "documentation": {}
+    },
+    {
+        "label": "Thread",
+        "importPath": "threading",
+        "description": "threading",
+        "isExtraImport": true,
         "detail": "threading",
         "documentation": {}
     },
@@ -1082,31 +1266,6 @@
         "documentation": {}
     },
     {
-        "label": "op",
-        "importPath": "alembic",
-        "description": "alembic",
-        "isExtraImport": true,
-        "detail": "alembic",
-        "documentation": {}
-    },
-    {
-        "label": "context",
-        "importPath": "alembic",
-        "description": "alembic",
-        "isExtraImport": true,
-        "detail": "alembic",
-        "documentation": {}
-    },
-    {
-        "label": "sqlalchemy",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "sqlalchemy",
-        "description": "sqlalchemy",
-        "detail": "sqlalchemy",
-        "documentation": {}
-    },
-    {
         "label": "logging",
         "kind": 6,
         "isExtraImport": true,
@@ -1121,6 +1280,14 @@
         "description": "logging.config",
         "isExtraImport": true,
         "detail": "logging.config",
+        "documentation": {}
+    },
+    {
+        "label": "context",
+        "importPath": "alembic",
+        "description": "alembic",
+        "isExtraImport": true,
+        "detail": "alembic",
         "documentation": {}
     },
     {
@@ -1173,6 +1340,30 @@
         "documentation": {}
     },
     {
+        "label": "create_app",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "create_app",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
         "label": "ScoutAnalysisService",
         "importPath": "app.scout_analysis.services",
         "description": "app.scout_analysis.services",
@@ -1181,11 +1372,135 @@
         "documentation": {}
     },
     {
+        "label": "ScoutAnalysisService",
+        "importPath": "app.scout_analysis.services",
+        "description": "app.scout_analysis.services",
+        "isExtraImport": true,
+        "detail": "app.scout_analysis.services",
+        "documentation": {}
+    },
+    {
+        "label": "unittest",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "unittest",
+        "description": "unittest",
+        "detail": "unittest",
+        "documentation": {}
+    },
+    {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
         "label": "load_dotenv",
         "importPath": "dotenv",
         "description": "dotenv",
         "isExtraImport": true,
         "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "subprocess",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "subprocess",
+        "description": "subprocess",
+        "detail": "subprocess",
+        "documentation": {}
+    },
+    {
+        "label": "SeleniumTestCase",
+        "importPath": "selenium_tests",
+        "description": "selenium_tests",
+        "isExtraImport": true,
+        "detail": "selenium_tests",
+        "documentation": {}
+    },
+    {
+        "label": "webdriver",
+        "importPath": "selenium",
+        "description": "selenium",
+        "isExtraImport": true,
+        "detail": "selenium",
+        "documentation": {}
+    },
+    {
+        "label": "By",
+        "importPath": "selenium.webdriver.common.by",
+        "description": "selenium.webdriver.common.by",
+        "isExtraImport": true,
+        "detail": "selenium.webdriver.common.by",
+        "documentation": {}
+    },
+    {
+        "label": "WebDriverWait",
+        "importPath": "selenium.webdriver.support.ui",
+        "description": "selenium.webdriver.support.ui",
+        "isExtraImport": true,
+        "detail": "selenium.webdriver.support.ui",
+        "documentation": {}
+    },
+    {
+        "label": "expected_conditions",
+        "importPath": "selenium.webdriver.support",
+        "description": "selenium.webdriver.support",
+        "isExtraImport": true,
+        "detail": "selenium.webdriver.support",
+        "documentation": {}
+    },
+    {
+        "label": "TimeoutException",
+        "importPath": "selenium.common.exceptions",
+        "description": "selenium.common.exceptions",
+        "isExtraImport": true,
+        "detail": "selenium.common.exceptions",
+        "documentation": {}
+    },
+    {
+        "label": "NoSuchElementException",
+        "importPath": "selenium.common.exceptions",
+        "description": "selenium.common.exceptions",
+        "isExtraImport": true,
+        "detail": "selenium.common.exceptions",
+        "documentation": {}
+    },
+    {
+        "label": "ScoutReportAnalysis",
+        "importPath": "app.scout_analysis.models",
+        "description": "app.scout_analysis.models",
+        "isExtraImport": true,
+        "detail": "app.scout_analysis.models",
+        "documentation": {}
+    },
+    {
+        "label": "text",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "shutil",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "shutil",
+        "description": "shutil",
+        "detail": "shutil",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
         "documentation": {}
     },
     {
@@ -1288,6 +1603,24 @@
         "documentation": {}
     },
     {
+        "label": "verify_email",
+        "kind": 2,
+        "importPath": "app.auth.routes",
+        "description": "app.auth.routes",
+        "peekOfCode": "def verify_email(token):\n    \"\"\"Email verification route.\"\"\"\n    serializer = URLSafeTimedSerializer(current_app.config['SECRET_KEY'])\n    try:\n        email = serializer.loads(\n            token,\n            salt='email-verification-salt',\n            max_age=3600\n        )\n    except (BadSignature, SignatureExpired):",
+        "detail": "app.auth.routes",
+        "documentation": {}
+    },
+    {
+        "label": "resend_verification",
+        "kind": 2,
+        "importPath": "app.auth.routes",
+        "description": "app.auth.routes",
+        "peekOfCode": "def resend_verification():\n    \"\"\"Resend verification email.\"\"\"\n    if current_user.is_verified:\n        flash(\"Your email is already verified.\", \"info\")\n        return redirect(url_for(\"dashboard.index\"))\n    token = current_user.generate_verification_token()\n    msg = Message(\n        'Verify Your Email',\n        sender=current_app.config['MAIL_DEFAULT_SENDER'],\n        recipients=[current_user.email]",
+        "detail": "app.auth.routes",
+        "documentation": {}
+    },
+    {
         "label": "login",
         "kind": 2,
         "importPath": "app.auth.routes",
@@ -1351,6 +1684,15 @@
         "documentation": {}
     },
     {
+        "label": "delete",
+        "kind": 2,
+        "importPath": "app.datasets.routes",
+        "description": "app.datasets.routes",
+        "peekOfCode": "def delete(dataset_id):\n    \"\"\"Delete a dataset by its owner\"\"\"\n    from app.utils import validate_csrf_token\n    validate_csrf_token()\n    dataset = Dataset.query.get_or_404(dataset_id)\n    if dataset.user_id != current_user.id:\n        flash(\"You do not have permission to delete this dataset.\", \"danger\")\n        return redirect(url_for(\"dashboard.index\"))\n    # Delete the file from disk if it exists\n    try:",
+        "detail": "app.datasets.routes",
+        "documentation": {}
+    },
+    {
         "label": "index",
         "kind": 2,
         "importPath": "app.main.routes",
@@ -1382,7 +1724,7 @@
         "kind": 6,
         "importPath": "app.models.user",
         "description": "app.models.user",
-        "peekOfCode": "class User(db.Model, UserMixin):\n    id = db.Column(db.Integer, primary_key=True)\n    username = db.Column(db.String(20), unique=True, nullable=False)\n    email = db.Column(db.String(120), unique=True, nullable=False)\n    password = db.Column(db.String(60), nullable=False)\n    last_login = db.Column(db.DateTime, nullable=True)\n    datasets = db.relationship(\"Dataset\", backref=\"owner\", lazy=True)\n    def set_password(self, password):\n        \"\"\"Set password hash for user\"\"\"\n        self.password = generate_password_hash(password)",
+        "peekOfCode": "class User(db.Model, UserMixin):\n    id = db.Column(db.Integer, primary_key=True)\n    username = db.Column(db.String(20), unique=True, nullable=False)\n    email = db.Column(db.String(120), unique=True, nullable=False)\n    password = db.Column(db.String(60), nullable=False)\n    last_login = db.Column(db.DateTime, nullable=True)\n    is_verified = db.Column(db.Boolean, default=False)\n    datasets = db.relationship(\"Dataset\", backref=\"owner\", lazy=True)\n    def set_password(self, password):\n        \"\"\"Set password hash for user\"\"\"",
         "detail": "app.models.user",
         "documentation": {}
     },
@@ -1400,7 +1742,7 @@
         "kind": 6,
         "importPath": "app.scout_analysis.models",
         "description": "app.scout_analysis.models",
-        "peekOfCode": "class ScoutReportAnalysis(db.Model):\n    \"\"\"Scout Report Analysis Result Model\"\"\"\n    __tablename__ = \"scout_report_analyses\"\n    id = db.Column(db.Integer, primary_key=True)\n    # Relationship to existing Dataset model\n    dataset_id = db.Column(db.Integer, db.ForeignKey(\"datasets.id\"), nullable=False)\n    dataset = db.relationship(\n        \"Dataset\", backref=db.backref(\"scout_analyses\", lazy=True)\n    )\n    # Analysis results",
+        "peekOfCode": "class ScoutReportAnalysis(db.Model):\n    \"\"\"Scout Report Analysis Result Model\"\"\"\n    __tablename__ = \"scout_report_analyses\"\n    id = db.Column(db.Integer, primary_key=True)\n    # Relationship to existing Dataset model\n    dataset_id = db.Column(db.Integer, db.ForeignKey(\"datasets.id\"), nullable=False)\n    dataset = db.relationship(\n        \"Dataset\",\n        backref=db.backref(\"scout_analyses\", lazy=True, cascade=\"all, delete-orphan\")\n    )",
         "detail": "app.scout_analysis.models",
         "documentation": {}
     },
@@ -1567,6 +1909,15 @@
         "documentation": {}
     },
     {
+        "label": "load_user",
+        "kind": 2,
+        "importPath": "app.extensions",
+        "description": "app.extensions",
+        "peekOfCode": "def load_user(user_id):\n    from app.models.user import User\n    return User.query.get(int(user_id))\ndef get_gemini_api():\n    \"\"\"\n    Returns the Gemini API singleton instance.\n    Returns:\n        object: Gemini API client instance\n    \"\"\"\n    global _gemini_api_instance",
+        "detail": "app.extensions",
+        "documentation": {}
+    },
+    {
         "label": "get_gemini_api",
         "kind": 2,
         "importPath": "app.extensions",
@@ -1580,7 +1931,7 @@
         "kind": 5,
         "importPath": "app.extensions",
         "description": "app.extensions",
-        "peekOfCode": "db = SQLAlchemy()\n# Create LoginManager instance\nlogin_manager = LoginManager()\nlogin_manager.login_view = \"auth.login\"\nlogin_manager.login_message = \"Please login to access this page.\"\nlogin_manager.login_message_category = \"info\"\n# Gemini API singleton instance\n_gemini_api_instance = None\ndef get_gemini_api():\n    \"\"\"",
+        "peekOfCode": "db = SQLAlchemy()\n# Create LoginManager instance\nlogin_manager = LoginManager()\nlogin_manager.login_view = \"auth.login\"\nlogin_manager.login_message = \"Please login to access this page.\"\nlogin_manager.login_message_category = \"info\"\n# Create Mail instance\nmail = Mail()\n# Gemini API singleton instance\n_gemini_api_instance = None",
         "detail": "app.extensions",
         "documentation": {}
     },
@@ -1589,7 +1940,7 @@
         "kind": 5,
         "importPath": "app.extensions",
         "description": "app.extensions",
-        "peekOfCode": "login_manager = LoginManager()\nlogin_manager.login_view = \"auth.login\"\nlogin_manager.login_message = \"Please login to access this page.\"\nlogin_manager.login_message_category = \"info\"\n# Gemini API singleton instance\n_gemini_api_instance = None\ndef get_gemini_api():\n    \"\"\"\n    Returns the Gemini API singleton instance.\n    Returns:",
+        "peekOfCode": "login_manager = LoginManager()\nlogin_manager.login_view = \"auth.login\"\nlogin_manager.login_message = \"Please login to access this page.\"\nlogin_manager.login_message_category = \"info\"\n# Create Mail instance\nmail = Mail()\n# Gemini API singleton instance\n_gemini_api_instance = None\n@login_manager.user_loader\ndef load_user(user_id):",
         "detail": "app.extensions",
         "documentation": {}
     },
@@ -1598,7 +1949,7 @@
         "kind": 5,
         "importPath": "app.extensions",
         "description": "app.extensions",
-        "peekOfCode": "login_manager.login_view = \"auth.login\"\nlogin_manager.login_message = \"Please login to access this page.\"\nlogin_manager.login_message_category = \"info\"\n# Gemini API singleton instance\n_gemini_api_instance = None\ndef get_gemini_api():\n    \"\"\"\n    Returns the Gemini API singleton instance.\n    Returns:\n        object: Gemini API client instance",
+        "peekOfCode": "login_manager.login_view = \"auth.login\"\nlogin_manager.login_message = \"Please login to access this page.\"\nlogin_manager.login_message_category = \"info\"\n# Create Mail instance\nmail = Mail()\n# Gemini API singleton instance\n_gemini_api_instance = None\n@login_manager.user_loader\ndef load_user(user_id):\n    from app.models.user import User",
         "detail": "app.extensions",
         "documentation": {}
     },
@@ -1607,7 +1958,7 @@
         "kind": 5,
         "importPath": "app.extensions",
         "description": "app.extensions",
-        "peekOfCode": "login_manager.login_message = \"Please login to access this page.\"\nlogin_manager.login_message_category = \"info\"\n# Gemini API singleton instance\n_gemini_api_instance = None\ndef get_gemini_api():\n    \"\"\"\n    Returns the Gemini API singleton instance.\n    Returns:\n        object: Gemini API client instance\n    \"\"\"",
+        "peekOfCode": "login_manager.login_message = \"Please login to access this page.\"\nlogin_manager.login_message_category = \"info\"\n# Create Mail instance\nmail = Mail()\n# Gemini API singleton instance\n_gemini_api_instance = None\n@login_manager.user_loader\ndef load_user(user_id):\n    from app.models.user import User\n    return User.query.get(int(user_id))",
         "detail": "app.extensions",
         "documentation": {}
     },
@@ -1616,7 +1967,16 @@
         "kind": 5,
         "importPath": "app.extensions",
         "description": "app.extensions",
-        "peekOfCode": "login_manager.login_message_category = \"info\"\n# Gemini API singleton instance\n_gemini_api_instance = None\ndef get_gemini_api():\n    \"\"\"\n    Returns the Gemini API singleton instance.\n    Returns:\n        object: Gemini API client instance\n    \"\"\"\n    global _gemini_api_instance",
+        "peekOfCode": "login_manager.login_message_category = \"info\"\n# Create Mail instance\nmail = Mail()\n# Gemini API singleton instance\n_gemini_api_instance = None\n@login_manager.user_loader\ndef load_user(user_id):\n    from app.models.user import User\n    return User.query.get(int(user_id))\ndef get_gemini_api():",
+        "detail": "app.extensions",
+        "documentation": {}
+    },
+    {
+        "label": "mail",
+        "kind": 5,
+        "importPath": "app.extensions",
+        "description": "app.extensions",
+        "peekOfCode": "mail = Mail()\n# Gemini API singleton instance\n_gemini_api_instance = None\n@login_manager.user_loader\ndef load_user(user_id):\n    from app.models.user import User\n    return User.query.get(int(user_id))\ndef get_gemini_api():\n    \"\"\"\n    Returns the Gemini API singleton instance.",
         "detail": "app.extensions",
         "documentation": {}
     },
@@ -1625,17 +1985,8 @@
         "kind": 5,
         "importPath": "app.extensions",
         "description": "app.extensions",
-        "peekOfCode": "_gemini_api_instance = None\ndef get_gemini_api():\n    \"\"\"\n    Returns the Gemini API singleton instance.\n    Returns:\n        object: Gemini API client instance\n    \"\"\"\n    global _gemini_api_instance\n    if _gemini_api_instance is None:\n        from flask import current_app",
+        "peekOfCode": "_gemini_api_instance = None\n@login_manager.user_loader\ndef load_user(user_id):\n    from app.models.user import User\n    return User.query.get(int(user_id))\ndef get_gemini_api():\n    \"\"\"\n    Returns the Gemini API singleton instance.\n    Returns:\n        object: Gemini API client instance",
         "detail": "app.extensions",
-        "documentation": {}
-    },
-    {
-        "label": "test_gemini_api",
-        "kind": 2,
-        "importPath": "app.test_gemini",
-        "description": "app.test_gemini",
-        "peekOfCode": "def test_gemini_api():\n    \"\"\"Test Gemini API connection\"\"\"\n    try:\n        gemini = get_gemini_api()\n        if not gemini.api_key:\n            # Try to update API key from current app config\n            try:\n                api_key = current_app.config.get(\"GEMINI_API_KEY\", \"\")\n                if api_key:\n                    gemini.set_api_key(api_key)",
-        "detail": "app.test_gemini",
         "documentation": {}
     },
     {
@@ -1733,7 +2084,7 @@
         "kind": 5,
         "importPath": "app.VERSION",
         "description": "app.VERSION",
-        "peekOfCode": "__version__ = \"1.0.0\"\n__release_date__ = \"2025-05-05\"\n# Version tuple for programmatic comparison\nVERSION = (1, 0, 0)\n# Dictionary form for API responses\nVERSION_INFO = {\n    \"version\": __version__,\n    \"release_date\": __release_date__,\n    \"major\": VERSION[0],\n    \"minor\": VERSION[1],",
+        "peekOfCode": "__version__ = \"1.0.1\"\n__release_date__ = \"2025-05-11\"\n# Version tuple for programmatic comparison\nVERSION = (1, 0, 1)\n# Dictionary form for API responses\nVERSION_INFO = {\n    \"version\": __version__,\n    \"release_date\": __release_date__,\n    \"major\": VERSION[0],\n    \"minor\": VERSION[1],",
         "detail": "app.VERSION",
         "documentation": {}
     },
@@ -1742,7 +2093,7 @@
         "kind": 5,
         "importPath": "app.VERSION",
         "description": "app.VERSION",
-        "peekOfCode": "__release_date__ = \"2025-05-05\"\n# Version tuple for programmatic comparison\nVERSION = (1, 0, 0)\n# Dictionary form for API responses\nVERSION_INFO = {\n    \"version\": __version__,\n    \"release_date\": __release_date__,\n    \"major\": VERSION[0],\n    \"minor\": VERSION[1],\n    \"patch\": VERSION[2],",
+        "peekOfCode": "__release_date__ = \"2025-05-11\"\n# Version tuple for programmatic comparison\nVERSION = (1, 0, 1)\n# Dictionary form for API responses\nVERSION_INFO = {\n    \"version\": __version__,\n    \"release_date\": __release_date__,\n    \"major\": VERSION[0],\n    \"minor\": VERSION[1],\n    \"patch\": VERSION[2],",
         "detail": "app.VERSION",
         "documentation": {}
     },
@@ -1751,7 +2102,7 @@
         "kind": 5,
         "importPath": "app.VERSION",
         "description": "app.VERSION",
-        "peekOfCode": "VERSION = (1, 0, 0)\n# Dictionary form for API responses\nVERSION_INFO = {\n    \"version\": __version__,\n    \"release_date\": __release_date__,\n    \"major\": VERSION[0],\n    \"minor\": VERSION[1],\n    \"patch\": VERSION[2],\n}",
+        "peekOfCode": "VERSION = (1, 0, 1)\n# Dictionary form for API responses\nVERSION_INFO = {\n    \"version\": __version__,\n    \"release_date\": __release_date__,\n    \"major\": VERSION[0],\n    \"minor\": VERSION[1],\n    \"patch\": VERSION[2],\n}",
         "detail": "app.VERSION",
         "documentation": {}
     },
@@ -1765,119 +2116,11 @@
         "documentation": {}
     },
     {
-        "label": "upgrade",
-        "kind": 2,
-        "importPath": "migrations.versions.ada267176dd4_initial_migration",
-        "description": "migrations.versions.ada267176dd4_initial_migration",
-        "peekOfCode": "def upgrade():\n    # Initial migration does not make any changes,\n    # only marks the current database state\n    pass\ndef downgrade():\n    # Initial migration does not make any changes,\n    # no need for rollback operations\n    pass",
-        "detail": "migrations.versions.ada267176dd4_initial_migration",
-        "documentation": {}
-    },
-    {
-        "label": "downgrade",
-        "kind": 2,
-        "importPath": "migrations.versions.ada267176dd4_initial_migration",
-        "description": "migrations.versions.ada267176dd4_initial_migration",
-        "peekOfCode": "def downgrade():\n    # Initial migration does not make any changes,\n    # no need for rollback operations\n    pass",
-        "detail": "migrations.versions.ada267176dd4_initial_migration",
-        "documentation": {}
-    },
-    {
-        "label": "revision",
-        "kind": 5,
-        "importPath": "migrations.versions.ada267176dd4_initial_migration",
-        "description": "migrations.versions.ada267176dd4_initial_migration",
-        "peekOfCode": "revision = \"ada267176dd4\"\ndown_revision = None\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # Initial migration does not make any changes,\n    # only marks the current database state\n    pass\ndef downgrade():\n    # Initial migration does not make any changes,",
-        "detail": "migrations.versions.ada267176dd4_initial_migration",
-        "documentation": {}
-    },
-    {
-        "label": "down_revision",
-        "kind": 5,
-        "importPath": "migrations.versions.ada267176dd4_initial_migration",
-        "description": "migrations.versions.ada267176dd4_initial_migration",
-        "peekOfCode": "down_revision = None\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # Initial migration does not make any changes,\n    # only marks the current database state\n    pass\ndef downgrade():\n    # Initial migration does not make any changes,\n    # no need for rollback operations",
-        "detail": "migrations.versions.ada267176dd4_initial_migration",
-        "documentation": {}
-    },
-    {
-        "label": "branch_labels",
-        "kind": 5,
-        "importPath": "migrations.versions.ada267176dd4_initial_migration",
-        "description": "migrations.versions.ada267176dd4_initial_migration",
-        "peekOfCode": "branch_labels = None\ndepends_on = None\ndef upgrade():\n    # Initial migration does not make any changes,\n    # only marks the current database state\n    pass\ndef downgrade():\n    # Initial migration does not make any changes,\n    # no need for rollback operations\n    pass",
-        "detail": "migrations.versions.ada267176dd4_initial_migration",
-        "documentation": {}
-    },
-    {
-        "label": "depends_on",
-        "kind": 5,
-        "importPath": "migrations.versions.ada267176dd4_initial_migration",
-        "description": "migrations.versions.ada267176dd4_initial_migration",
-        "peekOfCode": "depends_on = None\ndef upgrade():\n    # Initial migration does not make any changes,\n    # only marks the current database state\n    pass\ndef downgrade():\n    # Initial migration does not make any changes,\n    # no need for rollback operations\n    pass",
-        "detail": "migrations.versions.ada267176dd4_initial_migration",
-        "documentation": {}
-    },
-    {
-        "label": "upgrade",
-        "kind": 2,
-        "importPath": "migrations.versions.b9c2e1a8f4d2_add_last_login_field",
-        "description": "migrations.versions.b9c2e1a8f4d2_add_last_login_field",
-        "peekOfCode": "def upgrade():\n    # Add last_login column to user table\n    op.add_column(\"user\", sa.Column(\"last_login\", sa.DateTime(), nullable=True))\ndef downgrade():\n    # Drop last_login column from user table\n    op.drop_column(\"user\", \"last_login\")",
-        "detail": "migrations.versions.b9c2e1a8f4d2_add_last_login_field",
-        "documentation": {}
-    },
-    {
-        "label": "downgrade",
-        "kind": 2,
-        "importPath": "migrations.versions.b9c2e1a8f4d2_add_last_login_field",
-        "description": "migrations.versions.b9c2e1a8f4d2_add_last_login_field",
-        "peekOfCode": "def downgrade():\n    # Drop last_login column from user table\n    op.drop_column(\"user\", \"last_login\")",
-        "detail": "migrations.versions.b9c2e1a8f4d2_add_last_login_field",
-        "documentation": {}
-    },
-    {
-        "label": "revision",
-        "kind": 5,
-        "importPath": "migrations.versions.b9c2e1a8f4d2_add_last_login_field",
-        "description": "migrations.versions.b9c2e1a8f4d2_add_last_login_field",
-        "peekOfCode": "revision = \"b9c2e1a8f4d2\"\ndown_revision = \"ada267176dd4\"\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # Add last_login column to user table\n    op.add_column(\"user\", sa.Column(\"last_login\", sa.DateTime(), nullable=True))\ndef downgrade():\n    # Drop last_login column from user table\n    op.drop_column(\"user\", \"last_login\")",
-        "detail": "migrations.versions.b9c2e1a8f4d2_add_last_login_field",
-        "documentation": {}
-    },
-    {
-        "label": "down_revision",
-        "kind": 5,
-        "importPath": "migrations.versions.b9c2e1a8f4d2_add_last_login_field",
-        "description": "migrations.versions.b9c2e1a8f4d2_add_last_login_field",
-        "peekOfCode": "down_revision = \"ada267176dd4\"\nbranch_labels = None\ndepends_on = None\ndef upgrade():\n    # Add last_login column to user table\n    op.add_column(\"user\", sa.Column(\"last_login\", sa.DateTime(), nullable=True))\ndef downgrade():\n    # Drop last_login column from user table\n    op.drop_column(\"user\", \"last_login\")",
-        "detail": "migrations.versions.b9c2e1a8f4d2_add_last_login_field",
-        "documentation": {}
-    },
-    {
-        "label": "branch_labels",
-        "kind": 5,
-        "importPath": "migrations.versions.b9c2e1a8f4d2_add_last_login_field",
-        "description": "migrations.versions.b9c2e1a8f4d2_add_last_login_field",
-        "peekOfCode": "branch_labels = None\ndepends_on = None\ndef upgrade():\n    # Add last_login column to user table\n    op.add_column(\"user\", sa.Column(\"last_login\", sa.DateTime(), nullable=True))\ndef downgrade():\n    # Drop last_login column from user table\n    op.drop_column(\"user\", \"last_login\")",
-        "detail": "migrations.versions.b9c2e1a8f4d2_add_last_login_field",
-        "documentation": {}
-    },
-    {
-        "label": "depends_on",
-        "kind": 5,
-        "importPath": "migrations.versions.b9c2e1a8f4d2_add_last_login_field",
-        "description": "migrations.versions.b9c2e1a8f4d2_add_last_login_field",
-        "peekOfCode": "depends_on = None\ndef upgrade():\n    # Add last_login column to user table\n    op.add_column(\"user\", sa.Column(\"last_login\", sa.DateTime(), nullable=True))\ndef downgrade():\n    # Drop last_login column from user table\n    op.drop_column(\"user\", \"last_login\")",
-        "detail": "migrations.versions.b9c2e1a8f4d2_add_last_login_field",
-        "documentation": {}
-    },
-    {
         "label": "get_engine",
         "kind": 2,
         "importPath": "migrations.env",
         "description": "migrations.env",
-        "peekOfCode": "def get_engine():\n    try:\n        # this works with Flask-SQLAlchemy<3 and Alchemical\n        return current_app.extensions[\"migrate\"].db.get_engine()\n    except (TypeError, AttributeError):\n        # this works with Flask-SQLAlchemy>=3\n        return current_app.extensions[\"migrate\"].db.engine\ndef get_engine_url():\n    try:\n        return get_engine().url.render_as_string(hide_password=False).replace(\"%\", \"%%\")",
+        "peekOfCode": "def get_engine():\n    try:\n        # this works with Flask-SQLAlchemy<3 and Alchemical\n        return current_app.extensions['migrate'].db.get_engine()\n    except (TypeError, AttributeError):\n        # this works with Flask-SQLAlchemy>=3\n        return current_app.extensions['migrate'].db.engine\ndef get_engine_url():\n    try:\n        return get_engine().url.render_as_string(hide_password=False).replace(",
         "detail": "migrations.env",
         "documentation": {}
     },
@@ -1886,7 +2129,7 @@
         "kind": 2,
         "importPath": "migrations.env",
         "description": "migrations.env",
-        "peekOfCode": "def get_engine_url():\n    try:\n        return get_engine().url.render_as_string(hide_password=False).replace(\"%\", \"%%\")\n    except AttributeError:\n        return str(get_engine().url).replace(\"%\", \"%%\")\n# add your model's MetaData object here\n# for 'autogenerate' support\n# from myapp import mymodel\n# target_metadata = mymodel.Base.metadata\nconfig.set_main_option(\"sqlalchemy.url\", get_engine_url())",
+        "peekOfCode": "def get_engine_url():\n    try:\n        return get_engine().url.render_as_string(hide_password=False).replace(\n            '%', '%%')\n    except AttributeError:\n        return str(get_engine().url).replace('%', '%%')\n# add your model's MetaData object here\n# for 'autogenerate' support\n# from myapp import mymodel\n# target_metadata = mymodel.Base.metadata",
         "detail": "migrations.env",
         "documentation": {}
     },
@@ -1895,7 +2138,7 @@
         "kind": 2,
         "importPath": "migrations.env",
         "description": "migrations.env",
-        "peekOfCode": "def get_metadata():\n    if hasattr(target_db, \"metadatas\"):\n        return target_db.metadatas[None]\n    return target_db.metadata\ndef run_migrations_offline():\n    \"\"\"Run migrations in 'offline' mode.\n    This configures the context with just a URL\n    and not an Engine, though an Engine is acceptable\n    here as well.  By skipping the Engine creation\n    we don't even need a DBAPI to be available.",
+        "peekOfCode": "def get_metadata():\n    if hasattr(target_db, 'metadatas'):\n        return target_db.metadatas[None]\n    return target_db.metadata\ndef run_migrations_offline():\n    \"\"\"Run migrations in 'offline' mode.\n    This configures the context with just a URL\n    and not an Engine, though an Engine is acceptable\n    here as well.  By skipping the Engine creation\n    we don't even need a DBAPI to be available.",
         "detail": "migrations.env",
         "documentation": {}
     },
@@ -1913,7 +2156,7 @@
         "kind": 2,
         "importPath": "migrations.env",
         "description": "migrations.env",
-        "peekOfCode": "def run_migrations_online():\n    \"\"\"Run migrations in 'online' mode.\n    In this scenario we need to create an Engine\n    and associate a connection with the context.\n    \"\"\"\n    # this callback is used to prevent an auto-migration from being generated\n    # when there are no changes to the schema\n    # reference: http://alembic.zzzcomputing.com/en/latest/cookbook.html\n    def process_revision_directives(context, revision, directives):\n        if getattr(config.cmd_opts, \"autogenerate\", False):",
+        "peekOfCode": "def run_migrations_online():\n    \"\"\"Run migrations in 'online' mode.\n    In this scenario we need to create an Engine\n    and associate a connection with the context.\n    \"\"\"\n    # this callback is used to prevent an auto-migration from being generated\n    # when there are no changes to the schema\n    # reference: http://alembic.zzzcomputing.com/en/latest/cookbook.html\n    def process_revision_directives(context, revision, directives):\n        if getattr(config.cmd_opts, 'autogenerate', False):",
         "detail": "migrations.env",
         "documentation": {}
     },
@@ -1922,7 +2165,7 @@
         "kind": 5,
         "importPath": "migrations.env",
         "description": "migrations.env",
-        "peekOfCode": "config = context.config\n# Interpret the config file for Python logging.\n# This line sets up loggers basically.\nfileConfig(config.config_file_name)\nlogger = logging.getLogger(\"alembic.env\")\ndef get_engine():\n    try:\n        # this works with Flask-SQLAlchemy<3 and Alchemical\n        return current_app.extensions[\"migrate\"].db.get_engine()\n    except (TypeError, AttributeError):",
+        "peekOfCode": "config = context.config\n# Interpret the config file for Python logging.\n# This line sets up loggers basically.\nfileConfig(config.config_file_name)\nlogger = logging.getLogger('alembic.env')\ndef get_engine():\n    try:\n        # this works with Flask-SQLAlchemy<3 and Alchemical\n        return current_app.extensions['migrate'].db.get_engine()\n    except (TypeError, AttributeError):",
         "detail": "migrations.env",
         "documentation": {}
     },
@@ -1931,7 +2174,7 @@
         "kind": 5,
         "importPath": "migrations.env",
         "description": "migrations.env",
-        "peekOfCode": "logger = logging.getLogger(\"alembic.env\")\ndef get_engine():\n    try:\n        # this works with Flask-SQLAlchemy<3 and Alchemical\n        return current_app.extensions[\"migrate\"].db.get_engine()\n    except (TypeError, AttributeError):\n        # this works with Flask-SQLAlchemy>=3\n        return current_app.extensions[\"migrate\"].db.engine\ndef get_engine_url():\n    try:",
+        "peekOfCode": "logger = logging.getLogger('alembic.env')\ndef get_engine():\n    try:\n        # this works with Flask-SQLAlchemy<3 and Alchemical\n        return current_app.extensions['migrate'].db.get_engine()\n    except (TypeError, AttributeError):\n        # this works with Flask-SQLAlchemy>=3\n        return current_app.extensions['migrate'].db.engine\ndef get_engine_url():\n    try:",
         "detail": "migrations.env",
         "documentation": {}
     },
@@ -1940,7 +2183,7 @@
         "kind": 5,
         "importPath": "migrations.env",
         "description": "migrations.env",
-        "peekOfCode": "target_db = current_app.extensions[\"migrate\"].db\n# other values from the config, defined by the needs of env.py,\n# can be acquired:\n# my_important_option = config.get_main_option(\"my_important_option\")\n# ... etc.\ndef get_metadata():\n    if hasattr(target_db, \"metadatas\"):\n        return target_db.metadatas[None]\n    return target_db.metadata\ndef run_migrations_offline():",
+        "peekOfCode": "target_db = current_app.extensions['migrate'].db\n# other values from the config, defined by the needs of env.py,\n# can be acquired:\n# my_important_option = config.get_main_option(\"my_important_option\")\n# ... etc.\ndef get_metadata():\n    if hasattr(target_db, 'metadatas'):\n        return target_db.metadatas[None]\n    return target_db.metadata\ndef run_migrations_offline():",
         "detail": "migrations.env",
         "documentation": {}
     },
@@ -1981,11 +2224,11 @@
         "documentation": {}
     },
     {
-        "label": "test_scout_analysis_api",
-        "kind": 2,
+        "label": "TestScoutAnalysisAPI",
+        "kind": 6,
         "importPath": "tests.test_api",
         "description": "tests.test_api",
-        "peekOfCode": "def test_scout_analysis_api():\n    print(\"Testing Scout Analysis API connection...\")\n    # Test text\n    test_text = (\n        \"Testing Gemini API connection. This is an NBA player: Lebron James, \"\n        \"he is an All-Star player.\"\n    )\n    with app.app_context():\n        try:\n            # Get API key information",
+        "peekOfCode": "class TestScoutAnalysisAPI(unittest.TestCase):\n    def test_scout_analysis_api(self):\n        print(\"Testing Scout Analysis API connection...\")\n        # Test text\n        test_text = (\n            \"Testing Gemini API connection. This is an NBA player: Lebron James, \"\n            \"he is an All-Star player.\"\n        )\n        with app.app_context():\n            try:",
         "detail": "tests.test_api",
         "documentation": {}
     },
@@ -1994,17 +2237,170 @@
         "kind": 5,
         "importPath": "tests.test_api",
         "description": "tests.test_api",
-        "peekOfCode": "app = create_app()\ndef test_scout_analysis_api():\n    print(\"Testing Scout Analysis API connection...\")\n    # Test text\n    test_text = (\n        \"Testing Gemini API connection. This is an NBA player: Lebron James, \"\n        \"he is an All-Star player.\"\n    )\n    with app.app_context():\n        try:",
+        "peekOfCode": "app = create_app()\nclass TestScoutAnalysisAPI(unittest.TestCase):\n    def test_scout_analysis_api(self):\n        print(\"Testing Scout Analysis API connection...\")\n        # Test text\n        test_text = (\n            \"Testing Gemini API connection. This is an NBA player: Lebron James, \"\n            \"he is an All-Star player.\"\n        )\n        with app.app_context():",
         "detail": "tests.test_api",
         "documentation": {}
     },
     {
-        "label": "app",
+        "label": "TestEmailVerification",
+        "kind": 6,
+        "importPath": "tests.test_email_verification",
+        "description": "tests.test_email_verification",
+        "peekOfCode": "class TestEmailVerification(unittest.TestCase):\n    def setUp(self):\n        \"\"\"Set up test environment before each test\"\"\"\n        self.app = create_app('testing')\n        # Configure test email settings and disable CSRF\n        self.app.config.update(\n            MAIL_SERVER='smtp.office365.com',\n            MAIL_PORT=587,\n            MAIL_USE_TLS=True,\n            MAIL_USERNAME='wangziyusteve@outlook.com',",
+        "detail": "tests.test_email_verification",
+        "documentation": {}
+    },
+    {
+        "label": "TestMockAnalysis",
+        "kind": 6,
+        "importPath": "tests.test_mock_analysis",
+        "description": "tests.test_mock_analysis",
+        "peekOfCode": "class TestMockAnalysis(unittest.TestCase):\n    def setUp(self):\n        self.app = create_app()\n        self.app_context = self.app.app_context()\n        self.app_context.push()\n    def tearDown(self):\n        self.app_context.pop()\n    def test_mock_analysis_with_known_player(self):\n        \"\"\"Test mock analysis with a known player (LeBron James)\"\"\"\n        test_text = \"This is a test report about LeBron James, a forward for the Lakers.\"",
+        "detail": "tests.test_mock_analysis",
+        "documentation": {}
+    },
+    {
+        "label": "is_first_run",
+        "kind": 2,
+        "importPath": "run",
+        "description": "run",
+        "peekOfCode": "def is_first_run():\n    \"\"\"Check if this appears to be a first run of the application\"\"\"\n    # Check for key indicators of a fresh clone\n    no_env_file = not os.path.exists(\".env\")\n    no_venv = not os.path.exists(\"venv\")\n    no_instance_db = not os.path.exists(os.path.join(\"instance\", \"site.db\"))\n    return no_env_file or no_instance_db\ndef suggest_setup():\n    \"\"\"Display setup suggestion for first-time users\"\"\"\n    print(\"\\n\" + \"=\"*80)",
+        "detail": "run",
+        "documentation": {}
+    },
+    {
+        "label": "suggest_setup",
+        "kind": 2,
+        "importPath": "run",
+        "description": "run",
+        "peekOfCode": "def suggest_setup():\n    \"\"\"Display setup suggestion for first-time users\"\"\"\n    print(\"\\n\" + \"=\"*80)\n    print(\"\\033[1;33mThis appears to be your first time running the application!\\033[0m\")\n    print(\"\\033[1;36mFor an automated setup experience, we recommend running:\\033[0m\")\n    print(\"\\n    \\033[1mpython setup.py\\033[0m\\n\")\n    print(\"This will create directories, set up your environment, and install dependencies.\")\n    print(\"=\"*80 + \"\\n\")\n    choice = input(\"Would you like to continue anyway? (y/n): \").strip().lower()\n    if choice != 'y':",
+        "detail": "run",
+        "documentation": {}
+    },
+    {
+        "label": "instance_dir",
         "kind": 5,
         "importPath": "run",
         "description": "run",
-        "peekOfCode": "app = create_app(\"development\")  # Explicitly use development configuration\nif __name__ == \"__main__\":\n    # Disable auto-reload to ensure only one process loads the latest code\n    app.run(debug=True, use_reloader=False)",
+        "peekOfCode": "instance_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), \"instance\")\nif not os.path.exists(instance_dir):\n    try:\n        os.makedirs(instance_dir, exist_ok=True)\n        print(f\"Created instance directory: {instance_dir}\")\n    except OSError as e:\n        print(f\"Warning: Could not create instance directory: {e}\")\n        print(\"On Linux/Mac, this may be a permissions issue. Try: chmod -R 755 .\")\n# This check should ideally happen after create_app if app context is needed for logging etc.\n# However, for basic startup, create_app is the main app logic entry point.",
         "detail": "run",
+        "documentation": {}
+    },
+    {
+        "label": "SeleniumTestCase",
+        "kind": 6,
+        "importPath": "selenium_tests",
+        "description": "selenium_tests",
+        "peekOfCode": "class SeleniumTestCase(unittest.TestCase):\n    \"\"\"Selenium test cases for NBA Player Analytics\"\"\"\n    @classmethod\n    def setUpClass(cls):\n        \"\"\"Set up test environment before running tests.\"\"\"\n        # Create Flask app with testing configuration\n        cls.app = create_app(\"testing\")\n        cls.app.config[\"TESTING\"] = True\n        cls.app.config[\"WTF_CSRF_ENABLED\"] = False  # Disable CSRF for testing\n        cls.app.config[\"SERVER_NAME\"] = \"localhost:5000\"  # Set server name for testing",
+        "detail": "selenium_tests",
+        "documentation": {}
+    },
+    {
+        "label": "print_step",
+        "kind": 2,
+        "importPath": "setup",
+        "description": "setup",
+        "peekOfCode": "def print_step(message):\n    \"\"\"Print a formatted step message\"\"\"\n    print(f\"\\n\\033[1;34m>>> {message}\\033[0m\")\ndef print_success(message):\n    \"\"\"Print a formatted success message\"\"\"\n    print(f\"\\033[1;32m✓ {message}\\033[0m\")\ndef print_error(message):\n    \"\"\"Print a formatted error message\"\"\"\n    print(f\"\\033[1;31m✗ {message}\\033[0m\")\ndef print_warning(message):",
+        "detail": "setup",
+        "documentation": {}
+    },
+    {
+        "label": "print_success",
+        "kind": 2,
+        "importPath": "setup",
+        "description": "setup",
+        "peekOfCode": "def print_success(message):\n    \"\"\"Print a formatted success message\"\"\"\n    print(f\"\\033[1;32m✓ {message}\\033[0m\")\ndef print_error(message):\n    \"\"\"Print a formatted error message\"\"\"\n    print(f\"\\033[1;31m✗ {message}\\033[0m\")\ndef print_warning(message):\n    \"\"\"Print a formatted warning message\"\"\"\n    print(f\"\\033[1;33m! {message}\\033[0m\")\ndef ensure_directory(directory):",
+        "detail": "setup",
+        "documentation": {}
+    },
+    {
+        "label": "print_error",
+        "kind": 2,
+        "importPath": "setup",
+        "description": "setup",
+        "peekOfCode": "def print_error(message):\n    \"\"\"Print a formatted error message\"\"\"\n    print(f\"\\033[1;31m✗ {message}\\033[0m\")\ndef print_warning(message):\n    \"\"\"Print a formatted warning message\"\"\"\n    print(f\"\\033[1;33m! {message}\\033[0m\")\ndef ensure_directory(directory):\n    \"\"\"Ensure directory exists\"\"\"\n    if not os.path.exists(directory):\n        os.makedirs(directory)",
+        "detail": "setup",
+        "documentation": {}
+    },
+    {
+        "label": "print_warning",
+        "kind": 2,
+        "importPath": "setup",
+        "description": "setup",
+        "peekOfCode": "def print_warning(message):\n    \"\"\"Print a formatted warning message\"\"\"\n    print(f\"\\033[1;33m! {message}\\033[0m\")\ndef ensure_directory(directory):\n    \"\"\"Ensure directory exists\"\"\"\n    if not os.path.exists(directory):\n        os.makedirs(directory)\n        print_success(f\"Created directory: {directory}\")\n    return True\ndef copy_env_file():",
+        "detail": "setup",
+        "documentation": {}
+    },
+    {
+        "label": "ensure_directory",
+        "kind": 2,
+        "importPath": "setup",
+        "description": "setup",
+        "peekOfCode": "def ensure_directory(directory):\n    \"\"\"Ensure directory exists\"\"\"\n    if not os.path.exists(directory):\n        os.makedirs(directory)\n        print_success(f\"Created directory: {directory}\")\n    return True\ndef copy_env_file():\n    \"\"\"Create a .env file from env.example if it doesn't exist\"\"\"\n    if os.path.exists(\".env\"):\n        print_warning(\".env file already exists, skipping\")",
+        "detail": "setup",
+        "documentation": {}
+    },
+    {
+        "label": "copy_env_file",
+        "kind": 2,
+        "importPath": "setup",
+        "description": "setup",
+        "peekOfCode": "def copy_env_file():\n    \"\"\"Create a .env file from env.example if it doesn't exist\"\"\"\n    if os.path.exists(\".env\"):\n        print_warning(\".env file already exists, skipping\")\n        return\n    try:\n        if os.path.exists(\"env.example\"):\n            shutil.copy(\"env.example\", \".env\")\n            # Generate a random secret key\n            secret_key = secrets.token_hex(16)",
+        "detail": "setup",
+        "documentation": {}
+    },
+    {
+        "label": "setup_virtual_env",
+        "kind": 2,
+        "importPath": "setup",
+        "description": "setup",
+        "peekOfCode": "def setup_virtual_env():\n    \"\"\"Setup virtual environment if not exists\"\"\"\n    if os.path.exists(\"venv\"):\n        print_warning(\"Virtual environment already exists, skipping\")\n        return True\n    print_step(\"Creating virtual environment\")\n    try:\n        subprocess.run([sys.executable, \"-m\", \"venv\", \"venv\"], check=True)\n        print_success(\"Created virtual environment\")\n        return True",
+        "detail": "setup",
+        "documentation": {}
+    },
+    {
+        "label": "install_dependencies",
+        "kind": 2,
+        "importPath": "setup",
+        "description": "setup",
+        "peekOfCode": "def install_dependencies():\n    \"\"\"Install project dependencies\"\"\"\n    print_step(\"Installing dependencies\")\n    # Determine the pip path based on the OS\n    if sys.platform.startswith('win'):\n        pip = os.path.join(\"venv\", \"Scripts\", \"pip\")\n    else:\n        pip = os.path.join(\"venv\", \"bin\", \"pip\")\n    try:\n        subprocess.run([pip, \"install\", \"-r\", \"requirements.txt\"], check=True)",
+        "detail": "setup",
+        "documentation": {}
+    },
+    {
+        "label": "setup_database",
+        "kind": 2,
+        "importPath": "setup",
+        "description": "setup",
+        "peekOfCode": "def setup_database():\n    \"\"\"Setup the database\"\"\"\n    print_step(\"Setting up database\")\n    # Ensure instance directory exists\n    ensure_directory(\"instance\")\n    # Set correct permissions for directories\n    if not sys.platform.startswith('win'):\n        try:\n            subprocess.run([\"chmod\", \"-R\", \"755\", \"instance\"], check=True)\n            subprocess.run([\"chmod\", \"-R\", \"755\", \"data\"], check=True)",
+        "detail": "setup",
+        "documentation": {}
+    },
+    {
+        "label": "create_starter_data",
+        "kind": 2,
+        "importPath": "setup",
+        "description": "setup",
+        "peekOfCode": "def create_starter_data():\n    \"\"\"Create starter data directory and files\"\"\"\n    ensure_directory(\"data\")\n    ensure_directory(os.path.join(\"data\", \"uploads\"))\n    ensure_directory(\"logs\")\n    print_success(\"Created data directories\")\n    return True\ndef print_next_steps():\n    \"\"\"Print instructions for next steps\"\"\"\n    print(\"\\n\" + \"=\"*80)",
+        "detail": "setup",
+        "documentation": {}
+    },
+    {
+        "label": "print_next_steps",
+        "kind": 2,
+        "importPath": "setup",
+        "description": "setup",
+        "peekOfCode": "def print_next_steps():\n    \"\"\"Print instructions for next steps\"\"\"\n    print(\"\\n\" + \"=\"*80)\n    print(\"\\033[1;36mSetup Complete! Next steps:\\033[0m\")\n    if sys.platform.startswith('win'):\n        activate_cmd = \".\\\\venv\\\\Scripts\\\\activate\"\n    else:\n        activate_cmd = \"source venv/bin/activate\"\n    print(f\"\"\"\n1. Activate the virtual environment:",
+        "detail": "setup",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "setup",
+        "description": "setup",
+        "peekOfCode": "def main():\n    \"\"\"Main setup function\"\"\"\n    print(\"\\033[1;35m\")\n    print(\"=\"*80)\n    print(f\"5505 Group Project - Automated Setup\")\n    print(\"=\"*80)\n    print(\"\\033[0m\")\n    # Ensure we're in the project root directory\n    project_root = Path(__file__).parent.absolute()\n    os.chdir(project_root)",
+        "detail": "setup",
         "documentation": {}
     }
 ]
