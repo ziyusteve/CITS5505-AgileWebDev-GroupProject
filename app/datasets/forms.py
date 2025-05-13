@@ -26,11 +26,11 @@ class UploadDatasetForm(FlaskForm):
                     f'Unsupported file type. Allowed types: {", ".join(allowed_extensions)}'
                 )
 
-            # 额外的安全性检查
+            # Additional security checks
             try:
                 secure_name = secure_filename(filename)
                 if not secure_name or secure_name != filename:
                     raise ValidationError("Filename contains invalid characters")
             except Exception:
-                # 如果secure_filename出错（依赖问题），跳过这项检查
+                # If secure_filename fails (due to dependency issues), skip this check
                 pass

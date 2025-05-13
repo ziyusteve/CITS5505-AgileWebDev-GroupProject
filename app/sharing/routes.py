@@ -33,7 +33,7 @@ def index():
 def handle_share():
     """Process dataset sharing request"""
 
-    # 验证CSRF令牌
+    # Validate CSRF token
     validate_csrf_token()
 
     user_id = current_user.id
@@ -83,7 +83,7 @@ def handle_share():
 def revoke_share(share_id):
     """Revoke dataset sharing"""
 
-    # 验证CSRF令牌
+    # Validate CSRF token
     validate_csrf_token()
 
     user_id = current_user.id

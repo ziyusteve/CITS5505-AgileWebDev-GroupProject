@@ -26,27 +26,27 @@ def upload():
         file = form.file.data
         title = form.title.data
 
-        # 增强文件名安全性
+       # Enhance filename security
         filename = secure_filename(file.filename)
         filename = sanitize_filename(filename)
 
-        # 生成唯一文件名
+        # Generate a unique filename
         unique_filename = generate_unique_filename(filename)
 
-        # 确保上传目录存在
+        # Ensure the upload directory exists
         upload_folder = current_app.config["UPLOAD_FOLDER"]
         os.makedirs(upload_folder, exist_ok=True)
 
-        # 保存文件
+        # Save the file
         file_path = os.path.join(upload_folder, unique_filename)
         file.save(file_path)
 
-        # 创建数据集记录
+        # Create dataset record
         new_dataset = Dataset(
             user_id=current_user.id,
-            title=title or filename,  # 如果未提供标题，使用文件名
+            title=title or filename,  
             file_path=file_path,
-            description="",  # 可选择添加描述字段
+            description="",  
         )
         db.session.add(new_dataset)
         db.session.commit()
