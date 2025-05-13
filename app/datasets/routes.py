@@ -26,7 +26,7 @@ def upload():
         file = form.file.data
         title = form.title.data
 
-       # Enhance filename security
+        # Enhance filename security
         filename = secure_filename(file.filename)
         filename = sanitize_filename(filename)
 
