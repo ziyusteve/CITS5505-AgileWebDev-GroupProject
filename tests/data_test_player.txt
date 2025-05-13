@@ -1,0 +1,8 @@
+Player Name: John Doe
+Position: Forward
+Height: 6'8"
+Weight: 220 lbs
+College: Duke University
+Strengths: Rebounding, Athleticism, Defense
+Weaknesses: Free throws, Turnovers
+Summary: John is a high-motor forward with NBA potential. Strong defensive instincts and elite rebounding.
