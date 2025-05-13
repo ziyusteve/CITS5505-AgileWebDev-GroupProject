@@ -32,7 +32,7 @@ def sanitize_filename(filename):
 
 
 def validate_csrf_token():
-    """验证CSRF令牌，如果无效则中止请求"""
+    """Validate CSRF token, abort the request if invalid"""
     csrf_token = request.form.get("csrf_token")
     if not csrf_token:
         flash("CSRF token missing", "danger")

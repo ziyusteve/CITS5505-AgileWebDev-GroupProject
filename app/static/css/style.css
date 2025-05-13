@@ -21,13 +21,12 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
 }
 
-/* Hero section styles - 备选方案1: 固定高度背景 */
 .nba-hero {
     background-image: url('../images/nba-hero.jpg');
     background-size: contain; /* Changed to show full image */
     background-repeat: no-repeat;
     background-position: center center;
-    background-color: #0a0a1e; /* 深色背景填充空白区域 */
+    background-color: #0a0a1e; /* Fill blank area with dark background */
     padding: 7rem 2rem;
     color: white;
     text-shadow: 0 2px 4px rgba(0,0,0,0.5);
@@ -42,7 +41,7 @@ h1, h2, h3, h4, h5, h6 {
 
 
 
-/* 响应式背景图控制 */
+/* Responsive background image control */
 @media (max-width: 768px) {
     .nba-hero {
         min-height: 60vh;
@@ -88,7 +87,7 @@ h1, h2, h3, h4, h5, h6 {
     to { opacity: 0.7; }
 }
 
-/* 英雄区域内容包装器 */
+/* Hero section content wrapper */
 .hero-content-wrapper {
     max-width: 800px;
     margin: 0 auto;
@@ -106,7 +105,7 @@ h1, h2, h3, h4, h5, h6 {
     overflow: hidden;
 }
 
-/* 添加科技感装饰元素 */
+/* Add tech-style decorative elements */
 .hero-content-wrapper::before {
     content: "";
     position: absolute;
@@ -153,7 +152,7 @@ h1, h2, h3, h4, h5, h6 {
     position: relative;
 }
 
-/* 标题装饰线 */
+/* Title decorative line */
 .nba-hero h1::after {
     content: '';
     position: absolute;
@@ -173,7 +172,7 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.6;
 }
 
-/* 响应式文本样式 */
+/* Responsive text style */
 @media (max-width: 768px) {
     .nba-hero h1 {
         font-size: 2.3rem;

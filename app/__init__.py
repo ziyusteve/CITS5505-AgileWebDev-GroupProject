@@ -8,15 +8,15 @@ import importlib.util
 
 
 def check_dependencies():
-    """检查关键依赖是否已安装"""
+    """Check whether key dependencies are installed"""
     missing_packages = []
 
-    # 检查关键包
+    # Check key packages
     dependencies = [
-        ("email_validator", "验证电子邮件必需"),
-        ("pandas", "数据处理必需"),
-        ("flask_wtf", "表单处理和CSRF保护必需"),
-        ("flask_mail", "邮件发送必需"),
+        ("email_validator", "Email verification required"),
+        ("pandas", "Data processing required"),
+        ("flask_wtf", "Form handling and CSRF protection required"),
+        ("flask_mail", "Email sending required"),
     ]
 
     for package, description in dependencies:
@@ -24,17 +24,17 @@ def check_dependencies():
             missing_packages.append(f"{package} ({description})")
 
     if missing_packages:
-        print("\n警告: 缺少以下关键依赖:")
+        print("\nWarning: The following key dependencies are missing:")
         for pkg in missing_packages:
             print(f" - {pkg}")
-        print("\n请运行以下命令安装依赖:")
+        print("\nPlease run the following command to install the dependencies:")
         print("pip install -r requirements.txt\n")
 
     return len(missing_packages) == 0
 
 
 def create_app(config_name="default"):
-    # 检查关键依赖
+    # Check key dependencies
     check_dependencies()
 
     app = Flask(__name__, template_folder="templates", static_folder="../static")
