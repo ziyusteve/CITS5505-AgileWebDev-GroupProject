@@ -9,8 +9,8 @@ import time
 import subprocess
 from threading import Thread
 
-# Import the tests from selenium_tests.py
-from selenium_tests import SeleniumTestCase
+# Import the tests from test_dashboard.py
+from test_dashboard import SeleniumTestCase
 
 if __name__ == '__main__':
     # Start Flask app in a separate process
