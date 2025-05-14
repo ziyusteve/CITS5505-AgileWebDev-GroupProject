@@ -94,7 +94,7 @@
                 <p class="login-subtitle">Please log in to your account to continue</p>
             </div>
             <div class="card-body p-4">
-                <form method="POST" action="{{ url_for('auth.login') }}">
+                <form id="login-form" method="POST" action="{{ url_for('auth.login') }}">
                     {{ form.hidden_tag() }}
                     
                     <!-- Username Input -->
