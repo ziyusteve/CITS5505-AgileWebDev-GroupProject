@@ -124,7 +124,7 @@ class SeleniumTestCase(unittest.TestCase):
                 db.drop_all()
                 db.session.commit()
             
-            # Clean up test files (commented out to preserve screenshots)
+            # Clean up test files
             if os.path.exists(cls.test_files_dir):
                  for file in os.listdir(cls.test_files_dir):
                      os.remove(os.path.join(cls.test_files_dir, file))
@@ -435,6 +435,163 @@ class SeleniumTestCase(unittest.TestCase):
             
         except Exception as e:
             self.fail(f"Test failed: {str(e)}")
+
+    def test_user_registration(self):
+        """Test user registration functionality."""
+        self.driver.get("http://localhost:5000/auth/register")
+
+        self.driver.find_element(By.NAME, "username").send_keys("newuser")
+        self.driver.find_element(By.NAME, "email").send_keys("new@example.com")
+        self.driver.find_element(By.NAME, "password").send_keys("securepass")
+        self.driver.find_element(By.NAME, "confirm_password").send_keys("securepass")
+
+        # Check the Terms checkbox
+        checkbox = self.driver.find_element(By.CSS_SELECTOR, "input[type='checkbox']")
+        self.driver.execute_script("arguments[0].click();", checkbox)
+
+        # Submit registration form
+        register_button = WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable((By.ID, "submit"))
+        )
+        self.driver.execute_script("arguments[0].scrollIntoView(true);", register_button)
+        self.driver.execute_script("arguments[0].click();", register_button)
+
+        # Wait for successful registration confirmation 
+        WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.TAG_NAME, "body"))
+        )
+
+        assert "Account created successfully" in self.driver.page_source or "successfully" in self.driver.page_source
+
+    def test_user_logout(self):
+        """Test user logout functionality."""
+        # First login
+        self.driver.get("http://localhost:5000/auth/login")
+        
+        self.driver.find_element(By.NAME, "username").send_keys("testuser")
+        self.driver.find_element(By.NAME, "password").send_keys("testpass123")
+        
+        submit = self.driver.find_element(By.ID, "submit")
+        self.driver.execute_script("arguments[0].click();", submit)
+        
+        # Wait for login success
+        WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.LINK_TEXT, "testuser"))
+        )
+        
+        # Click user menu
+        user_menu = self.driver.find_element(By.LINK_TEXT, "testuser")
+        user_menu.click()
+        
+        # Click logout
+        logout_link = WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable((By.LINK_TEXT, "Logout"))
+        )
+        self.driver.execute_script("arguments[0].click();", logout_link)
+        
+        # Verify logout success
+        WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.TAG_NAME, "body"))
+        )
+        assert "logged out" in self.driver.page_source
+
+    def test_navigation_tabs(self):
+        """Test navigation between different tabs."""
+        # Step 1: Login
+        self.driver.get("http://localhost:5000/auth/login")
+        self.driver.find_element(By.NAME, "username").send_keys("testuser")
+        self.driver.find_element(By.NAME, "password").send_keys("testpass123")
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable((By.ID, "submit"))
+        ).click()
+
+        # Step 2: Navigate to Home
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable((By.LINK_TEXT, "Home"))
+        ).click()
+        assert "Analyze New Player" in self.driver.page_source
+
+        # Step 3: Navigate to Dashboard
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable((By.LINK_TEXT, "Dashboard"))
+        ).click()
+        assert "My Datasets" in self.driver.page_source
+        assert "Upload Your First Dataset" in self.driver.page_source
+
+        # Step 4: Navigate to Upload Data
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable((By.LINK_TEXT, "Upload Data"))
+        ).click()
+        assert "Upload Player News/Description" in self.driver.page_source
+
+        # Step 5: Navigate to Share Data
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable((By.LINK_TEXT, "Share Data"))
+        ).click()
+        assert "Create New Share" in self.driver.page_source
+        assert "Current Shares" in self.driver.page_source
+
+    def test_upload_player_report(self):
+        """Test uploading a player report."""
+        # Login
+        self.driver.get("http://localhost:5000/auth/login")
+        self.driver.find_element(By.NAME, "username").send_keys("testuser")
+        self.driver.find_element(By.NAME, "password").send_keys("testpass123")
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable((By.ID, "submit"))
+        ).click()
+
+        # Go to Upload Data page
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable((By.LINK_TEXT, "Upload Data"))
+        ).click()
+
+        # Fill in Player Name
+        WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.NAME, "title"))
+        ).send_keys("Test Player")
+
+        # Upload File
+        file_input = self.driver.find_element(By.NAME, "file")
+        test_file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data_test_player.txt")
+        file_input.send_keys(test_file_path)
+
+        # Submit the form
+        submit_btn = self.driver.find_element(By.XPATH, "//input[@type='submit' and @value='Analyze and Generate Scout Report']")
+        self.driver.execute_script("arguments[0].scrollIntoView(true);", submit_btn)
+        self.driver.execute_script("arguments[0].click();", submit_btn)
+
+        # Wait for confirmation
+        WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.XPATH, "//*[contains(text(), 'File uploaded successfully')]"))
+        )
+
+    def test_registration_password_mismatch(self):
+        """Test registration with mismatched passwords."""
+        self.driver.get("http://localhost:5000/auth/register")
+
+        self.driver.find_element(By.NAME, "username").send_keys("testuser")
+        self.driver.find_element(By.NAME, "email").send_keys("test@example.com")
+        self.driver.find_element(By.NAME, "password").send_keys("securepass")
+        self.driver.find_element(By.NAME, "confirm_password").send_keys("securepass1234")
+
+        # Check the Terms checkbox 
+        checkbox = self.driver.find_element(By.CSS_SELECTOR, "input[type='checkbox']")
+        self.driver.execute_script("arguments[0].click();", checkbox)
+
+        # Submit registration form
+        register_button = WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable((By.ID, "submit"))
+        )
+        self.driver.execute_script("arguments[0].scrollIntoView(true);", register_button)
+        self.driver.execute_script("arguments[0].click();", register_button)
+
+        # Wait for error message
+        WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.TAG_NAME, "body"))
+        )
+
+        assert "Field must be equal to password." in self.driver.page_source
 
 if __name__ == '__main__':
     unittest.main()
