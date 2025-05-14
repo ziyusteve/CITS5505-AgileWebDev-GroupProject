@@ -12,3 +12,4 @@ flask-migrate
 email_validator
 flask-mail
 itsdangerous
+requests
