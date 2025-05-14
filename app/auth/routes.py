@@ -7,6 +7,7 @@ from flask_login import login_user, logout_user, login_required, current_user
 from urllib.parse import urlparse
 from flask_mail import Message
 from itsdangerous import URLSafeTimedSerializer, BadSignature, SignatureExpired
+from datetime import datetime, UTC
 
 
 @bp.route("/register", methods=["GET", "POST"])
@@ -118,8 +119,7 @@ def login():
             return redirect(url_for("auth.login"))
 
         # Update last_login timestamp
-        from datetime import datetime
-        user.last_login = datetime.utcnow()
+        user.last_login = datetime.now(UTC)
         db.session.commit()
 
         login_user(user, remember=form.remember.data)
