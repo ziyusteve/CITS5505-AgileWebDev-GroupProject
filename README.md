@@ -116,8 +116,60 @@ The project is organized as follows:
 
 ## Contributing
 
-Contributions are welcome! Please open issues or submit pull requests.
+This project was a collaborative effort with contributions from the following developers:
+
+* **Terence (Ziqian) Qin:**
+    * Contributed to the initial project setup, database migrations, blueprint structure refactoring, and implementation of core analysis functionalities.
+    * Worked on user authentication (Flask-Login), CSRF protection, API endpoint security, and integration with the Gemini API for player analysis.
+    * Made significant contributions to frontend UI design and optimization, including theme creation (e.g., Lakers theme, Gemini theme), page layouts, style improvements, and implementation of visualization components.
+    * Actively participated in code reviews, managed pull requests, fixed bugs (such as database compatibility and UI display issues), handled dependency management, updated configuration files, and contributed to documentation updates.
+    * Implemented key features including file upload with automatic analysis, dynamic data visualization, internationalization support, text extraction, and NLP model loading.
+
+* **Steve (Ziyu) Wang:**
+    * Actively involved in numerous code reviews and merging pull requests, ensuring code quality and project progression.
+    * Contributed to writing and maintaining unit and Selenium tests, fixed test-related bugs, and ensured test coverage.
+    * Handled extensive updates and improvements to the README documentation, including installation guides, usage instructions, and test commands. Also managed project environment configurations (e.g., .env files, requirements files, Python version issues).
+    * Participated in implementing the email verification feature and updating related tests. Refactored parts of the codebase to improve readability and maintainability (e.g., eliminating duplicate dependencies, standardizing code style).
+    * Made frontend style adjustments (such as background colors, button styles, table styles), fixed some frontend display bugs, and participated in the implementation and optimization of certain UI elements.
+
+* **CHENXIAO Jiang:**
+    * Focused on the website's visual design and user experience improvements, including redesigning login/registration pages, enhancing the homepage hero section, improving the navigation bar, handling icons and images, and optimizing CSS styles.
+    * Added bar charts to the data visualization section to display specific data and adjusted chart layouts to fit the overall design.
+    * Contributed to adding page content (such as coach slogans, review information) and optimizing typography and layout (e.g., fonts, spacing, element positioning).
+    * Participated in optimizing some code sections and adding/modifying comments, including translating Chinese comments to English.
+
+* **Kundan Kumar Jha:**
+    * Primarily addressed specific code issues, such as indentation errors and translating Chinese comments to English.
+    * Contributed to adding Selenium test cases to improve the application's test coverage.
+    * Resolved specific UI bugs, for instance, the tab highlighting issue.
 
 ## License
 
 This project is licensed under the MIT License.
+
+## References
+
+Below is a list of resources and tools that were consulted or used during the development of this project:
+
+### Articles and Tutorials
+- [Real Python Flask Tutorials](https://realpython.com/tutorials/flask/) - Comprehensive Flask tutorials for beginners to advanced users
+- [Full Stack Python - Flask](https://www.fullstackpython.com/flask.html) - Flask fundamentals and best practices
+- [Digital Ocean Flask Deployment Tutorials](https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-gunicorn-and-nginx-on-ubuntu-18-04) - Flask deployment with Gunicorn and Nginx
+- [Flask Mega-Tutorial by Miguel Grinberg](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world) - In-depth Flask application development guide
+- [Analytics Vidhya - Data Visualization with Python](https://www.analyticsvidhya.com/blog/2021/02/data-visualization-with-python-for-beginners/) - Guide for data visualization techniques in Python
+- [Google Generative AI Python SDK](https://ai.google.dev/tutorials/python_quickstart) - Tutorial for using Google Generative AI in Python applications
+- [Build a Text Analysis App with Flask](https://www.kdnuggets.com/2019/11/build-text-analytics-web-app.html) - Guide for creating text analysis applications with Flask
+- [Securing Flask Web Applications](https://hackersandslackers.com/flask-login-user-authentication/) - Best practices for securing Flask applications
+- [User Authentication in Flask](https://blog.teclado.com/how-to-add-user-authentication-to-your-flask-website/) - Step by step guide for implementing user authentication
+- [Working with SQL Databases in Flask](https://flask.palletsprojects.com/en/2.0.x/patterns/sqlalchemy/) - Official Flask documentation for using SQLAlchemy
+
+### AI Assistance
+- **GitHub Copilot**: Used for code completion, generating boilerplate code, and assisting with debugging. Our team learned to use GitHub Copilot through:
+  - [GitHub Copilot Documentation](https://docs.github.com/en/copilot)
+  - [Visual Studio Code Copilot Extension Guide](https://code.visualstudio.com/docs/editor/github-copilot)
+  - YouTube tutorials on Copilot best practices
+  - Pair programming sessions where team members shared Copilot tips and techniques
+
+### Other Resources
+- [Stack Overflow](https://stackoverflow.com/) for specific programming questions
+- [GitHub Discussions](https://github.com/) for community support and collaboration
