@@ -53,7 +53,7 @@ A Flask-based web application for dataset sharing, visualization, and dashboard 
 
 - Create virtual environment and activate it:
 
-`python -m venv venv`
+`python3 -m venv venv`
 
 `.\venv\Scripts\Activate.ps1`  # On Windows
 
@@ -73,6 +73,9 @@ A Flask-based web application for dataset sharing, visualization, and dashboard 
 
 - Initialize the database (if not already present):
 `flask db upgrade`
+
+- Copy env.example file, rename it into .env, fill in keys and email configuration
+
 - Run the development server
 `python run.py`
 - Access the application at http://localhost:5000
