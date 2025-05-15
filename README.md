@@ -71,13 +71,14 @@ A Flask-based web application for dataset sharing, visualization, and dashboard 
 
 #### Running the Application
 
+- Copy env.example file, rename it into .env, fill in keys and email configuration
+
 - Initialize the database (if not already present):
 `flask db upgrade`
 
-- Copy env.example file, rename it into .env, fill in keys and email configuration
-
 - Run the development server
 `python run.py`
+
 - Access the application at http://localhost:5000
 
 #### Running Tests
