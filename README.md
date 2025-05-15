@@ -38,20 +38,29 @@ A Flask-based web application for dataset sharing, visualization, and dashboard 
 ## Installation and Setup
 
 - Git and Python should be installed. Some commands:
+
 `sudo apt update`
+
 `sudo apt install git -y`
+
 `sudo apt install python3 python3-pip python3-venv -y`
 
 - Clone the repository (or download and extract the zip file), Github personal access token should be used when github is asking for the username and password.
+
 `git clone https://github.com/ziyusteve/CITS5505-AgileWebDev-GroupProject`
+
 `cd CITS5505-AgileWebDev-GroupProject`
 
 - Create virtual environment and activate it:
+
 `python -m venv venv`
+
 `.\venv\Scripts\Activate.ps1`  # On Windows
+
 `source venv/bin/activate`   # On MacOS/Linux
 
 - Install all required dependencies:
+
 `pip install -r requirements.txt`
 
 #### Configuration
@@ -64,10 +73,8 @@ A Flask-based web application for dataset sharing, visualization, and dashboard 
 
 - Initialize the database (if not already present):
 `flask db upgrade`
-
 - Run the development server
 `python run.py`
-
 - Access the application at http://localhost:5000
 
 #### Running Tests
