@@ -79,8 +79,16 @@ A Flask-based web application for dataset sharing, visualization, and dashboard 
 
 #### Running Tests
 
-- Run all tests
-`python -m pytest tests/`
+- Run unit tests
+`pytest tests/test_api.py`
+
+`pytest tests/test_email_verification.py`
+
+`pytest tests/test_mock_analysis.py`
+
+- Run selenium tests
+
+`pytest tests/selenium/run_tests.py`
 
 ## Project Structure
 
