@@ -1,4 +1,4 @@
-# 5505 Group Project
+## Purpose of 5505 Group Project - Scout Analysis
 
 **Scout Analytics** is a Flask-based web application designed to empower basketball coaches, scouts, and analysts with tools for efficient dataset management, insightful data visualization, and AI-driven scout report analysis. The primary goal of this application is to streamline the scouting process, allowing users to easily upload player statistics, share datasets securely with team members, visualize performance metrics through interactive dashboards, and leverage artificial intelligence to gain deeper insights from textual scout reports.
 
@@ -37,47 +37,62 @@ A Flask-based web application for dataset sharing, visualization, and dashboard 
 
 ## Installation and Setup
 
-# Git and Python should be installed. Some commands:
-sudo apt update
-sudo apt install git -y
-sudo apt install python3 python3-pip python3-venv -y
+- Git and Python should be installed. Some commands:
 
-# Clone the repository (or download and extract the zip file), Github personal access token should be used when github is asking for the username and password.
-git clone https://github.com/ziyusteve/CITS5505-AgileWebDev-GroupProject
-cd CITS5505-AgileWebDev-GroupProject
+`sudo apt update`
 
-# Create virtual environment and activate
-python -m venv venv
-.\venv\Scripts\Activate.ps1  # On Windows
-source venv/bin/activate   # On MacOS/Linux
+`sudo apt install git -y`
 
-# Install all required dependencies
-pip install -r requirements.txt
-```
+`sudo apt install python3 python3-pip python3-venv -y`
 
-## Configuration
+- Clone the repository (or download and extract the zip file), Github personal access token should be used when github is asking for the username and password.
+
+`git clone https://github.com/ziyusteve/CITS5505-AgileWebDev-GroupProject`
+
+`cd CITS5505-AgileWebDev-GroupProject`
+
+- Create virtual environment and activate it:
+
+`python3 -m venv venv`
+
+`.\venv\Scripts\Activate.ps1`  # On Windows
+
+`source venv/bin/activate`   # On MacOS/Linux
+
+- Install all required dependencies:
+
+`pip install -r requirements.txt`
+
+#### Configuration
 
 - Application configuration can be found in `app/config.py`.
 - Database file located at `instance/site.db` by default.
-- You can override settings via environment variables or a custom config.
+- You can override settings via environment variables (using format of env.example in .env) or a custom config.
 
-## Running the Application
+#### Running the Application
 
-```powershell
-# Initialize the database (if not already present)
-flask db upgrade
+- Copy env.example file, rename it into .env, fill in keys and email configuration
 
-# Run the development server
-python run.py
-```
+- Initialize the database (if not already present):
+`flask db upgrade`
+
+- Run the development server
+`python run.py`
 
 - Access the application at http://localhost:5000
 
-## Running Tests
+#### Running Tests
 
-# Run all tests
-python -m pytest tests/
-```
+- Run unit tests
+`pytest tests/test_api.py`
+
+`pytest tests/test_email_verification.py`
+
+`pytest tests/test_mock_analysis.py`
+
+- Run selenium tests
+
+`pytest tests/selenium/run_tests.py`
 
 ## Project Structure
 
