@@ -151,30 +151,24 @@ This project is licensed under the MIT License.
 
 Below is a list of resources and tools that were consulted or used during the development of this project:
 
-### Documentation and APIs
-- [Flask Documentation](https://flask.palletsprojects.com/)
-- [SQLAlchemy Documentation](https://www.sqlalchemy.org/)
-- [Jinja2 Documentation](https://jinja.palletsprojects.com/)
-- [Python Documentation](https://docs.python.org/3/)
-- [Google Gemini API Documentation](https://ai.google.dev/docs/gemini_api)
-- [Flask-Mail Documentation](https://pythonhosted.org/Flask-Mail/)
-- [Flask-Migrate Documentation](https://flask-migrate.readthedocs.io/en/latest/)
-- [Flask-SQLAlchemy Documentation](https://flask-sqlalchemy.palletsprojects.com/)
-- [Flask-WTF Documentation](https://flask-wtf.readthedocs.io/en/stable/)
-- [Flask-Cors Documentation](https://flask-cors.readthedocs.io/en/latest/)
-- [Flask-Login Documentation](https://flask-login.readthedocs.io/en/latest/)
-- [Flask-Bcrypt Documentation](https://flask-bcrypt.readthedocs.io/en/latest/)
-- [Flask-Debug Toolbar Documentation](https://flask-debugtoolbar.readthedocs.io/en/latest/)
-- [Flask-Script Documentation](https://flask-script.readthedocs.io/en/latest/)
-- [Flask-Testing Documentation](https://flask-testing.readthedocs.io/en/latest/)
-- [Flask-Selenium Documentation](https://flask-selenium.readthedocs.io/en/latest/)
-- [Flask-RESTful Documentation](https://flask-restful.readthedocs.io/en/latest/)
-- [Flask-RESTPlus Documentation](https://flask-restplus.readthedocs.io/en/stable/)
-
 ### Articles and Tutorials
+- [Real Python Flask Tutorials](https://realpython.com/tutorials/flask/) - Comprehensive Flask tutorials for beginners to advanced users
+- [Full Stack Python - Flask](https://www.fullstackpython.com/flask.html) - Flask fundamentals and best practices
+- [Digital Ocean Flask Deployment Tutorials](https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-gunicorn-and-nginx-on-ubuntu-18-04) - Flask deployment with Gunicorn and Nginx
+- [Flask Mega-Tutorial by Miguel Grinberg](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world) - In-depth Flask application development guide
+- [Analytics Vidhya - Data Visualization with Python](https://www.analyticsvidhya.com/blog/2021/02/data-visualization-with-python-for-beginners/) - Guide for data visualization techniques in Python
+- [Google Generative AI Python SDK](https://ai.google.dev/tutorials/python_quickstart) - Tutorial for using Google Generative AI in Python applications
+- [Build a Text Analysis App with Flask](https://www.kdnuggets.com/2019/11/build-text-analytics-web-app.html) - Guide for creating text analysis applications with Flask
+- [Securing Flask Web Applications](https://hackersandslackers.com/flask-login-user-authentication/) - Best practices for securing Flask applications
+- [User Authentication in Flask](https://blog.teclado.com/how-to-add-user-authentication-to-your-flask-website/) - Step by step guide for implementing user authentication
+- [Working with SQL Databases in Flask](https://flask.palletsprojects.com/en/2.0.x/patterns/sqlalchemy/) - Official Flask documentation for using SQLAlchemy
 
 ### AI Assistance
-- **GitHub Copilot**: Used for code completion, generating boilerplate code, and assisting with debugging.
+- **GitHub Copilot**: Used for code completion, generating boilerplate code, and assisting with debugging. Our team learned to use GitHub Copilot through:
+  - [GitHub Copilot Documentation](https://docs.github.com/en/copilot)
+  - [Visual Studio Code Copilot Extension Guide](https://code.visualstudio.com/docs/editor/github-copilot)
+  - YouTube tutorials on Copilot best practices
+  - Pair programming sessions where team members shared Copilot tips and techniques
 
 ### Other Resources
 - [Stack Overflow](https://stackoverflow.com/) for specific programming questions
