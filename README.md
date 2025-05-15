@@ -116,8 +116,66 @@ The project is organized as follows:
 
 ## Contributing
 
-Contributions are welcome! Please open issues or submit pull requests.
+This project was a collaborative effort with contributions from the following developers:
+
+* **Terence (Ziqian) Qin:**
+    * Contributed to the initial project setup, database migrations, blueprint structure refactoring, and implementation of core analysis functionalities.
+    * Worked on user authentication (Flask-Login), CSRF protection, API endpoint security, and integration with the Gemini API for player analysis.
+    * Made significant contributions to frontend UI design and optimization, including theme creation (e.g., Lakers theme, Gemini theme), page layouts, style improvements, and implementation of visualization components.
+    * Actively participated in code reviews, managed pull requests, fixed bugs (such as database compatibility and UI display issues), handled dependency management, updated configuration files, and contributed to documentation updates.
+    * Implemented key features including file upload with automatic analysis, dynamic data visualization, internationalization support, text extraction, and NLP model loading.
+
+* **Steve (Ziyu) Wang:**
+    * Actively involved in numerous code reviews and merging pull requests, ensuring code quality and project progression.
+    * Contributed to writing and maintaining unit and Selenium tests, fixed test-related bugs, and ensured test coverage.
+    * Handled extensive updates and improvements to the README documentation, including installation guides, usage instructions, and test commands. Also managed project environment configurations (e.g., .env files, requirements files, Python version issues).
+    * Participated in implementing the email verification feature and updating related tests. Refactored parts of the codebase to improve readability and maintainability (e.g., eliminating duplicate dependencies, standardizing code style).
+    * Made frontend style adjustments (such as background colors, button styles, table styles), fixed some frontend display bugs, and participated in the implementation and optimization of certain UI elements.
+
+* **CHENXIAO Jiang:**
+    * Focused on the website's visual design and user experience improvements, including redesigning login/registration pages, enhancing the homepage hero section, improving the navigation bar, handling icons and images, and optimizing CSS styles.
+    * Added bar charts to the data visualization section to display specific data and adjusted chart layouts to fit the overall design.
+    * Contributed to adding page content (such as coach slogans, review information) and optimizing typography and layout (e.g., fonts, spacing, element positioning).
+    * Participated in optimizing some code sections and adding/modifying comments, including translating Chinese comments to English.
+
+* **Kundan Kumar Jha:**
+    * Primarily addressed specific code issues, such as indentation errors and translating Chinese comments to English.
+    * Contributed to adding Selenium test cases to improve the application's test coverage.
+    * Resolved specific UI bugs, for instance, the tab highlighting issue.
 
 ## License
 
 This project is licensed under the MIT License.
+
+## References
+
+Below is a list of resources and tools that were consulted or used during the development of this project:
+
+### Documentation and APIs
+- [Flask Documentation](https://flask.palletsprojects.com/)
+- [SQLAlchemy Documentation](https://www.sqlalchemy.org/)
+- [Jinja2 Documentation](https://jinja.palletsprojects.com/)
+- [Python Documentation](https://docs.python.org/3/)
+- [Google Gemini API Documentation](https://ai.google.dev/docs/gemini_api)
+- [Flask-Mail Documentation](https://pythonhosted.org/Flask-Mail/)
+- [Flask-Migrate Documentation](https://flask-migrate.readthedocs.io/en/latest/)
+- [Flask-SQLAlchemy Documentation](https://flask-sqlalchemy.palletsprojects.com/)
+- [Flask-WTF Documentation](https://flask-wtf.readthedocs.io/en/stable/)
+- [Flask-Cors Documentation](https://flask-cors.readthedocs.io/en/latest/)
+- [Flask-Login Documentation](https://flask-login.readthedocs.io/en/latest/)
+- [Flask-Bcrypt Documentation](https://flask-bcrypt.readthedocs.io/en/latest/)
+- [Flask-Debug Toolbar Documentation](https://flask-debugtoolbar.readthedocs.io/en/latest/)
+- [Flask-Script Documentation](https://flask-script.readthedocs.io/en/latest/)
+- [Flask-Testing Documentation](https://flask-testing.readthedocs.io/en/latest/)
+- [Flask-Selenium Documentation](https://flask-selenium.readthedocs.io/en/latest/)
+- [Flask-RESTful Documentation](https://flask-restful.readthedocs.io/en/latest/)
+- [Flask-RESTPlus Documentation](https://flask-restplus.readthedocs.io/en/stable/)
+
+### Articles and Tutorials
+
+### AI Assistance
+- **GitHub Copilot**: Used for code completion, generating boilerplate code, and assisting with debugging.
+
+### Other Resources
+- [Stack Overflow](https://stackoverflow.com/) for specific programming questions
+- [GitHub Discussions](https://github.com/) for community support and collaboration
