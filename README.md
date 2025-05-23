@@ -139,9 +139,12 @@ This project was a collaborative effort with contributions from the following de
     * Participated in optimizing some code sections and adding/modifying comments, including translating Chinese comments to English.
 
 * **Kundan Kumar Jha:**
-    * Primarily addressed specific code issues, such as indentation errors and translating Chinese comments to English.
-    * Contributed to adding Selenium test cases to improve the application's test coverage.
-    * Resolved specific UI bugs, for instance, the tab highlighting issue.
+    * Played a pivotal role in code quality assurance, thoroughly testing all parts of the application.
+    * Translated Chinese comments into English, improving code clarity and accessibility for all contributors.
+    * Identified and reported bugs during functional and UI testing, helping to maintain high stability.
+    * Fixed key UI bugs, including the tab highlighting issue, and ensured interface consistency.
+    * Developed Selenium UI test cases for end-to-end flows like login and registration.
+    * Addressed indentation errors and code cleanup, helping finalize the codebase for deployment.
 
 ## License
 
